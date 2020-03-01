@@ -1,0 +1,9 @@
+[Unit]
+Description=Kite Updater
+
+[Service]
+Type=oneshot
+ExecStart=/home/maverick/.local/share/kite/current/kite-update "update"
+
+[Install]
+WantedBy=multi-user.target

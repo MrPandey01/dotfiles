@@ -1,0 +1,42 @@
+[
+  {
+    "caption": "Kite: Hover Over Symbol",
+    "command": "kite_show_hover"
+  },
+  {
+    "caption": "Kite: Docs At Cursor",
+    "command": "kite_docs_at_cursor"
+  },
+  {
+    "caption": "Kite: Show Function Signatures",
+    "command": "kite_show_signatures"
+  },
+  {
+    "caption": "Kite: Open Copilot",
+    "command": "kite_open_copilot"
+  },
+  {
+    "caption": "Kite: Start Engine",
+    "command": "kite_start_engine"
+  },
+  {
+    "caption": "Kite: Engine Settings",
+    "command": "kite_engine_settings"
+  },
+  {
+    "caption": "Kite: Package Settings",
+    "command": "edit_settings",
+    "args": {
+      "base_file": "${packages}/KiteSublime/KiteSublime.sublime-settings",
+      "default": "{\n\t$0\n}\n"
+    }
+  },
+  {
+    "caption": "Kite: Tutorial",
+    "command": "kite_tutorial"
+  },
+  {
+    "caption": "Kite: Help",
+    "command": "kite_help"
+  }
+]

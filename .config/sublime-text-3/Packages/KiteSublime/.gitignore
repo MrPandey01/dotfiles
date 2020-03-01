@@ -1,0 +1,10 @@
+.DS_Store
+.Trashes
+.idea
+*.swp
+*.pkg
+.vscode/
+DEVELOPMENT
+
+# Python artifacts
+*.pyc

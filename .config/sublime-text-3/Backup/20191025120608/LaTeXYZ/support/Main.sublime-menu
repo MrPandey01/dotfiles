@@ -1,0 +1,51 @@
+[
+    {
+        "caption": "Preferences",
+        "mnemonic": "n",
+        "id": "preferences",
+        "children":
+        [
+            {
+                "caption": "Package Settings",
+                "mnemonic": "P",
+                "id": "package-settings",
+                "children":
+                [
+                    {
+                        "caption": "LaTeXYZ",
+                        "children":
+                        [
+                            {
+                                "command": "open_file",
+                                "args": {"file": "${packages}/LaTeXYZ/README.md"},
+                                "caption": "README"
+                            },
+                            { "caption": "-" },
+                            {
+                              "caption": "Settings",
+                              "command": "edit_settings",
+                              "args": {
+                                "base_file": "${packages}/LaTeXYZ/LaTeXYZ.sublime-settings"
+                              }
+                            },
+                            {
+                                "command": "edit_settings",
+                                "args": {
+                                    "base_file": "${packages}/LaTeXYZ/support/Default ($platform).sublime-keymap"
+                                },
+                                "caption": "Key Bindings"
+                            },
+                            {
+                                "command": "open_file",
+                                "args": {
+                                    "file": "${packages}/User/LaTeXYZ/Default ($platform).sublime-mousemap"
+                                },
+                                "caption": "Mouse Bindings"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+]

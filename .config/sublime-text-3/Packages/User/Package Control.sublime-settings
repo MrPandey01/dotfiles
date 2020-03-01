@@ -1,0 +1,23 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"A File Icon",
+		"AdvancedNewFile",
+		"Anaconda",
+		"GitGutter",
+		"Jekyll",
+		"LaTeX-cwl",
+		"LaTeXTools",
+		"LaTeXYZ",
+		"Material Theme",
+		"Package Control",
+		"PackageResourceViewer",
+		"Pretty JSON",
+		"SideBarEnhancements",
+		"SublimeREPL"
+	]
+}

@@ -1,0 +1,50 @@
+[
+    {
+        "caption": "LaTeXYZ: Install BracketHighlighter Settings",
+        "command": "latexyz_install_bh_settings"
+    },
+    {
+        "caption": "LaTeXYZ: Remove BracketHighlighter Settings",
+        "command": "latexyz_install_bh_settings",
+        "args": { "remove": true }
+    },
+    {
+        "caption": "LaTeXYZ: Install Jump to Pdf Mousebinding",
+        "command": "latexyz_install_pdf_mousebinding"
+    },
+    {
+        "caption": "LaTeXYZ: Remove Jump to Pdf Mousebinding",
+        "command": "latexyz_install_pdf_mousebinding",
+        "args": { "remove": true }
+    },
+    {
+        "caption": "LaTeXYZ: Toggle Auto Set Preview Math Template Preamble",
+        "command": "latexyz_toogle_preview_math"
+    },
+    {
+        "caption": "Preferences: LaTeXYZ Settings",
+        "command": "edit_settings",
+        "args":
+        {
+            "base_file": "${packages}/LaTeXYZ/LaTeXYZ.sublime-settings",
+            "default": "{\n\t$0\n}\n"
+        }
+    },
+    {
+        "caption": "Preferences: LaTeXYZ Key Bindings",
+        "command": "edit_settings",
+        "args":
+        {
+            "base_file": "${packages}/LaTeXYZ/support/Default.sublime-keymap",
+            "user_file": "${packages}/User/Default ($platform).sublime-keymap",
+            "default": "[\n\t$0\n]\n"
+        }
+    },
+    {
+        "caption": "Preferences: LaTeXYZ Mouse Bindings",
+        "command": "open_file",
+        "args": {
+            "file": "${packages}/User/LaTeXYZ/Default ($platform).sublime-mousemap"
+        }
+    }
+]

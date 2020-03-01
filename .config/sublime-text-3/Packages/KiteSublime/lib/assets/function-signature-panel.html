@@ -1,0 +1,163 @@
+<body id="function-signature-panel">
+  <style>
+    {{ css }}
+  </style>
+  <div class="content {{ platform }}">
+    <div class="function-signature">
+      {% with params = call.callee.details.function.positional_parameters,
+              kw_only_params = call.callee.details.function.keyword_only_parameters,
+              arg_idx = call.arg_index,
+              in_kwargs = call.language_details.python.in_kwargs,
+              python_details = call.callee.details.function.language_details.python,
+              return_value = call.callee.details.function.return_value %}
+        <span class="function-name">{{ call.callee.repr }}</span>
+        <span class="parens open-parens">(</span>
+        <span class="parameters">
+            {% for param in params %}
+              {% with default_value = param.language_details.python.default_value %}
+                <span{% if loop.index0 == arg_idx and not in_kwargs %} class="current-argument"{% endif %}>
+                  <span class="parameter-name">{{ param.name }}</span>
+                  {% if default_value %}
+                    <span class="default-value">={{ default_value.0.repr|e|replace("&#34;", "\"")|replace("&#39;", "'") }}</span>
+                  {% endif %}
+                  {% if not loop.last or python_details.vararg or kw_only_params or python_details.kwarg %}
+                    <span class="parameter-separator">, </span>
+                  {% endif %}
+                </span>
+              {% endwith %}
+            {% endfor %}
+            {% if python_details.vararg %}
+              <span{% if params|length == arg_idx and not in_kwargs %} class="current-argument"{% endif %}>
+                <span class="parameter-name">*{{ python_details.vararg.name }}</span>
+                {% if kw_only_params or python_details.kwarg %}
+                  <span class="parameter-separator">, </span>
+                {% endif %}
+              </span>
+            {% elif kw_only_params %}
+              <span>
+                <span class="parameter-name">*</span>
+                <span class="parameter-separator">, </span>
+              </span>
+            {% endif %}
+            {% for param in kw_only_params %}
+              {% with default_value = param.language_details.python.default_value %}
+                <span{% if params|length + (python_details.vararg is defined) + loop.index0 == arg_idx and not in_kwargs %} class="current-argument"{% endif %}>
+                  <span class="parameter-name">{{ param.name }}</span>
+                  <span class="parameter-annotation">
+                    {% if default_value %}
+                      <span class="default-value">={{ default_value.0.repr|e|replace("&#34;", "\"")|replace("&#39;", "'") }}</span>
+                    {% endif %}
+                  </span>
+                  {% if not loop.last or python_details.kwarg %}
+                    <span class="parameter-separator">, </span>
+                  {% endif %}
+                </span>
+              {% endwith %}
+            {% endfor %}
+            {% if python_details.kwarg %}
+              <span{% if in_kwargs %} class="current-argument"{% endif %}>
+                <span class="parameter-name">**{{ python_details.kwarg.name }}</span>
+              </span>
+            {% endif %}
+        </span>
+        <span class="parens close-parens">)</span>
+        {% if return_value and return_value.0.type %}
+          <span class="return-value"> → <span class="return-type">{{ return_value.0.type }}</span></span>
+        {% endif %}
+      {% endwith %}
+    </div>
+    {% if show_keyword_arguments and call.callee.details.function.language_details.python.kwarg_parameters %}
+      {% with kwarg_params = call.callee.details.function.language_details.python.kwarg_parameters,
+              arg_idx = call.arg_index,
+              in_kwargs = call.language_details.python.in_kwargs %}
+        <div class="inferred-keyword-argument-parameters">
+          <div class="section-title{% if not show_keyword_arguments and keyword_argument_highlighted %} highlighted{% endif %}">
+            <span class="title">**{{ call.callee.details.function.language_details.python.kwarg.name }}</span>
+            {% if show_keyword_arguments %}
+              <a class="toggle-link" href="hide_keyword_arguments">Hide{% if keyword_arguments_keys %}[ {{ keyword_arguments_keys }} ]{% endif %}</a>
+            {% endif %}
+          </div>
+          {% if show_keyword_arguments %}
+            {% for param in kwarg_params %}
+              <div class="parameter{% if loop.index0 == arg_idx and in_kwargs %} current-argument{% endif %}">
+                <span class="parameter-name">{{ param.name }}</span>
+                <span class="parameter-types">
+                  <span class="bracket open-bracket">: [</span>
+                    {% if param.inferred_value %}
+                      {% for value in param.inferred_value %}
+                        <span class="parameter-type">{{ value.repr }}</span>
+                        {% if not loop.last %}
+                          <span class="parameter-type-separator">, </span>
+                        {% endif %}
+                      {% endfor %}
+                    {% else %}
+                      <span class="parameter-type unknown">&lt;unknown&gt;</span>
+                    {% endif %}
+                  <span class="bracket close-bracket">]</span>
+                </span>
+              </div>
+            {% endfor %}
+          {% endif %}
+        </div>
+      {% endwith %}
+    {% endif %}
+    {% if show_popular_patterns and call.signatures %}
+    <div class="popular-patterns">
+      <div class="section-title">
+        <span class="title">HOW OTHERS USED THIS</span>
+        {% if show_popular_patterns %}
+          <a class="toggle-link" href="hide_popular_patterns">Hide{% if popular_patterns_keys %}[ {{ popular_patterns_keys }} ]{% endif %}</a>
+        {% endif %}
+      </div>
+      {% if show_popular_patterns %}
+        {% for signature in call.signatures %}
+          {% if loop.index0 < 5 %}
+            {% with python_details = signature.language_details.python %}
+              <div class="pattern function-signature">
+                <span class="function-name">{{ call.func_name }}</span>
+                <span class="parens open-parens">(</span>
+                {% if signature.args %}
+                  {% for arg in signature.args %}
+                    <span class="parameter-name">{{ arg.name }}</span>
+                    {% if not loop.last or python_details.kwargs %}
+                      <span class="parameter-separator">, </span>
+                    {% endif %}
+                  {% endfor %}
+                {% endif %}
+                {% if python_details.kwargs %}
+                  <span class="keyword-arguments">
+                    {% for arg in python_details.kwargs %}
+                      <span class="parameter-name">{{ arg.name }}=</span>
+                      {% if arg.types.0.examples %}
+                        <span class="default-value">{{ arg.types.0.examples.0|e|replace("&#34;", "\"")|replace("&#39;", "'") }}</span>
+                      {% else %}
+                        <span class="default-value value-type">&lt;{{ arg.types.0.name }}&gt;</span>
+                      {% endif %}
+                      {% if not loop.last %}
+                        <span class="parameter-separator">, </span>
+                      {% endif %}
+                    {% endfor %}
+                  </span>
+                {% endif %}
+                <span class="parens close-parens">)</span>
+              {% endwith %}
+            </div>
+          {% endif %}
+        {% endfor %}
+      {% endif %}
+    </div>
+    {% endif %}
+    <div class="footer">
+      <span class="logo">𝕜𝕚𝕥𝕖</span>
+      {% if call.callee.id %}
+        <a class="open-link" href="open_copilot:{{ call.callee.id }}">Docs</a>
+      {% endif %}
+      {% if not show_keyword_arguments and call.callee.details.function.language_details.python.kwarg_parameters %}
+        <a class="open-link" href="show_keyword_arguments"><span{% if not show_keyword_arguments and keyword_argument_highlighted %} class="highlighted"{% endif %}>**{{ call.callee.details.function.language_details.python.kwarg.name }}</span>{% if keyword_arguments_keys %}[ {{ keyword_arguments_keys }} ]{% endif %}</a>
+      {% endif %}
+      {% if not show_popular_patterns and call.signatures %}
+        <a class="open-link" href="show_popular_patterns">Examples{% if popular_patterns_keys %}[ {{ popular_patterns_keys }} ]{% endif %}</a>
+      {% endif %}
+    </div>
+  </div>
+</body>

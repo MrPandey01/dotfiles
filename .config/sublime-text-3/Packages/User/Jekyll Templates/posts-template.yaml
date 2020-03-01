@@ -1,0 +1,7 @@
+# template for posts
+---
+layout: post
+title: posts-template
+tags: []
+mathjax: true
+---

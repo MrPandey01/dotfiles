@@ -1,0 +1,1247 @@
+Failed to run 'pdflatex' to create pdf to preview.
+
+
+Errors:
+/home/maverick/.config/sublime-text-3/Cache/LaTeXTools/internal/preview_math/8207fd48df08ba5f0a1a8bd7005a84d7.tex:15: LaTeX Error: Environment  undefined. [\begin{}]
+/home/maverick/.config/sublime-text-3/Cache/LaTeXTools/internal/preview_math/8207fd48df08ba5f0a1a8bd7005a84d7.tex:16: Missing $ inserted. []
+/home/maverick/.config/sublime-text-3/Cache/LaTeXTools/internal/preview_math/8207fd48df08ba5f0a1a8bd7005a84d7.tex:16: Missing \endgroup inserted. []
+/home/maverick/.config/sublime-text-3/Cache/LaTeXTools/internal/preview_math/8207fd48df08ba5f0a1a8bd7005a84d7.tex:16: Display math should end with $$. []
+/home/maverick/.config/sublime-text-3/Cache/LaTeXTools/internal/preview_math/8207fd48df08ba5f0a1a8bd7005a84d7.tex:17: Missing \endcsname inserted. [\end{}]
+/home/maverick/.config/sublime-text-3/Cache/LaTeXTools/internal/preview_math/8207fd48df08ba5f0a1a8bd7005a84d7.tex:17: Missing \endcsname inserted. [\end{}]
+/home/maverick/.config/sublime-text-3/Cache/LaTeXTools/internal/preview_math/8207fd48df08ba5f0a1a8bd7005a84d7.tex:17: Missing \endcsname inserted. [\end{}]
+/home/maverick/.config/sublime-text-3/Cache/LaTeXTools/internal/preview_math/8207fd48df08ba5f0a1a8bd7005a84d7.tex:17: Missing \endcsname inserted. [\end{}]
+/home/maverick/.config/sublime-text-3/Cache/LaTeXTools/internal/preview_math/8207fd48df08ba5f0a1a8bd7005a84d7.tex:17: Missing \endcsname inserted. [\end{}]
+/home/maverick/.config/sublime-text-3/Cache/LaTeXTools/internal/preview_math/8207fd48df08ba5f0a1a8bd7005a84d7.tex:17: Missing \endcsname inserted. [\end{}]
+/home/maverick/.config/sublime-text-3/Cache/LaTeXTools/internal/preview_math/8207fd48df08ba5f0a1a8bd7005a84d7.tex:17: Missing \endcsname inserted. [\end{}]
+/home/maverick/.config/sublime-text-3/Cache/LaTeXTools/internal/preview_math/8207fd48df08ba5f0a1a8bd7005a84d7.tex:17: Missing \endcsname inserted. [\end{}]
+/home/maverick/.config/sublime-text-3/Cache/LaTeXTools/internal/preview_math/8207fd48df08ba5f0a1a8bd7005a84d7.tex:17: Missing \endcsname inserted. [\end{}]
+/home/maverick/.config/sublime-text-3/Cache/LaTeXTools/internal/preview_math/8207fd48df08ba5f0a1a8bd7005a84d7.tex:17: Missing \endcsname inserted. [\end{}]
+/home/maverick/.config/sublime-text-3/Cache/LaTeXTools/internal/preview_math/8207fd48df08ba5f0a1a8bd7005a84d7.tex:17: Missing \endcsname inserted. [\end{}]
+/home/maverick/.config/sublime-text-3/Cache/LaTeXTools/internal/preview_math/8207fd48df08ba5f0a1a8bd7005a84d7.tex:17: Missing \endcsname inserted. [\end{}]
+/home/maverick/.config/sublime-text-3/Cache/LaTeXTools/internal/preview_math/8207fd48df08ba5f0a1a8bd7005a84d7.tex:17: Missing \endcsname inserted. [\end{}]
+/home/maverick/.config/sublime-text-3/Cache/LaTeXTools/internal/preview_math/8207fd48df08ba5f0a1a8bd7005a84d7.tex:17: Missing \endcsname inserted. [\end{}]
+/home/maverick/.config/sublime-text-3/Cache/LaTeXTools/internal/preview_math/8207fd48df08ba5f0a1a8bd7005a84d7.tex:17: Missing \endcsname inserted. [\end{}]
+/home/maverick/.config/sublime-text-3/Cache/LaTeXTools/internal/preview_math/8207fd48df08ba5f0a1a8bd7005a84d7.tex:17: Missing \endcsname inserted. [\end{}]
+/home/maverick/.config/sublime-text-3/Cache/LaTeXTools/internal/preview_math/8207fd48df08ba5f0a1a8bd7005a84d7.tex:17: Missing \endcsname inserted. [\end{}]
+/home/maverick/.config/sublime-text-3/Cache/LaTeXTools/internal/preview_math/8207fd48df08ba5f0a1a8bd7005a84d7.tex:17: Missing \endcsname inserted. [\end{}]
+/home/maverick/.config/sublime-text-3/Cache/LaTeXTools/internal/preview_math/8207fd48df08ba5f0a1a8bd7005a84d7.tex:17: Missing \endcsname inserted. [\end{}]
+/home/maverick/.config/sublime-text-3/Cache/LaTeXTools/internal/preview_math/8207fd48df08ba5f0a1a8bd7005a84d7.tex:17: Missing \endcsname inserted. [\end{}]
+/home/maverick/.config/sublime-text-3/Cache/LaTeXTools/internal/preview_math/8207fd48df08ba5f0a1a8bd7005a84d7.tex:17: Missing \endcsname inserted. [\end{}]
+/home/maverick/.config/sublime-text-3/Cache/LaTeXTools/internal/preview_math/8207fd48df08ba5f0a1a8bd7005a84d7.tex:17: Missing \endcsname inserted. [\end{}]
+/home/maverick/.config/sublime-text-3/Cache/LaTeXTools/internal/preview_math/8207fd48df08ba5f0a1a8bd7005a84d7.tex:17: Missing \endcsname inserted. [\end{}]
+/home/maverick/.config/sublime-text-3/Cache/LaTeXTools/internal/preview_math/8207fd48df08ba5f0a1a8bd7005a84d7.tex:17: Missing \endcsname inserted. [\end{}]
+/home/maverick/.config/sublime-text-3/Cache/LaTeXTools/internal/preview_math/8207fd48df08ba5f0a1a8bd7005a84d7.tex:17: Missing \endcsname inserted. [\end{}]
+/home/maverick/.config/sublime-text-3/Cache/LaTeXTools/internal/preview_math/8207fd48df08ba5f0a1a8bd7005a84d7.tex:17: Missing \endcsname inserted. [\end{}]
+/home/maverick/.config/sublime-text-3/Cache/LaTeXTools/internal/preview_math/8207fd48df08ba5f0a1a8bd7005a84d7.tex:17: Missing \endcsname inserted. [\end{}]
+/home/maverick/.config/sublime-text-3/Cache/LaTeXTools/internal/preview_math/8207fd48df08ba5f0a1a8bd7005a84d7.tex:17: Missing \endcsname inserted. [\end{}]
+/home/maverick/.config/sublime-text-3/Cache/LaTeXTools/internal/preview_math/8207fd48df08ba5f0a1a8bd7005a84d7.tex:17: Missing \endcsname inserted. [\end{}]
+/home/maverick/.config/sublime-text-3/Cache/LaTeXTools/internal/preview_math/8207fd48df08ba5f0a1a8bd7005a84d7.tex:17: Missing \endcsname inserted. [\end{}]
+/home/maverick/.config/sublime-text-3/Cache/LaTeXTools/internal/preview_math/8207fd48df08ba5f0a1a8bd7005a84d7.tex:17: Missing \endcsname inserted. [\end{}]
+/home/maverick/.config/sublime-text-3/Cache/LaTeXTools/internal/preview_math/8207fd48df08ba5f0a1a8bd7005a84d7.tex:17: Missing \endcsname inserted. [\end{}]
+/home/maverick/.config/sublime-text-3/Cache/LaTeXTools/internal/preview_math/8207fd48df08ba5f0a1a8bd7005a84d7.tex:17: Missing \endcsname inserted. [\end{}]
+/home/maverick/.config/sublime-text-3/Cache/LaTeXTools/internal/preview_math/8207fd48df08ba5f0a1a8bd7005a84d7.tex:17: Missing \endcsname inserted. [\end{}]
+/home/maverick/.config/sublime-text-3/Cache/LaTeXTools/internal/preview_math/8207fd48df08ba5f0a1a8bd7005a84d7.tex:17: Missing \endcsname inserted. [\end{}]
+/home/maverick/.config/sublime-text-3/Cache/LaTeXTools/internal/preview_math/8207fd48df08ba5f0a1a8bd7005a84d7.tex:17: Missing \endcsname inserted. [\end{}]
+/home/maverick/.config/sublime-text-3/Cache/LaTeXTools/internal/preview_math/8207fd48df08ba5f0a1a8bd7005a84d7.tex:17: Missing \endcsname inserted. [\end{}]
+/home/maverick/.config/sublime-text-3/Cache/LaTeXTools/internal/preview_math/8207fd48df08ba5f0a1a8bd7005a84d7.tex:17: Missing \endcsname inserted. [\end{}]
+/home/maverick/.config/sublime-text-3/Cache/LaTeXTools/internal/preview_math/8207fd48df08ba5f0a1a8bd7005a84d7.tex:17: Missing \endcsname inserted. [\end{}]
+/home/maverick/.config/sublime-text-3/Cache/LaTeXTools/internal/preview_math/8207fd48df08ba5f0a1a8bd7005a84d7.tex:17: Missing \endcsname inserted. [\end{}]
+/home/maverick/.config/sublime-text-3/Cache/LaTeXTools/internal/preview_math/8207fd48df08ba5f0a1a8bd7005a84d7.tex:17: Missing \endcsname inserted. [\end{}]
+/home/maverick/.config/sublime-text-3/Cache/LaTeXTools/internal/preview_math/8207fd48df08ba5f0a1a8bd7005a84d7.tex:17: Missing \endcsname inserted. [\end{}]
+/home/maverick/.config/sublime-text-3/Cache/LaTeXTools/internal/preview_math/8207fd48df08ba5f0a1a8bd7005a84d7.tex:17: Missing \endcsname inserted. [\end{}]
+/home/maverick/.config/sublime-text-3/Cache/LaTeXTools/internal/preview_math/8207fd48df08ba5f0a1a8bd7005a84d7.tex:17: Missing \endcsname inserted. [\end{}]
+/home/maverick/.config/sublime-text-3/Cache/LaTeXTools/internal/preview_math/8207fd48df08ba5f0a1a8bd7005a84d7.tex:17: Missing \endcsname inserted. [\end{}]
+/home/maverick/.config/sublime-text-3/Cache/LaTeXTools/internal/preview_math/8207fd48df08ba5f0a1a8bd7005a84d7.tex:17: Missing \endcsname inserted. [\end{}]
+/home/maverick/.config/sublime-text-3/Cache/LaTeXTools/internal/preview_math/8207fd48df08ba5f0a1a8bd7005a84d7.tex:17: Missing \endcsname inserted. [\end{}]
+/home/maverick/.config/sublime-text-3/Cache/LaTeXTools/internal/preview_math/8207fd48df08ba5f0a1a8bd7005a84d7.tex:17: Missing \endcsname inserted. [\end{}]
+/home/maverick/.config/sublime-text-3/Cache/LaTeXTools/internal/preview_math/8207fd48df08ba5f0a1a8bd7005a84d7.tex:17: Missing \endcsname inserted. [\end{}]
+/home/maverick/.config/sublime-text-3/Cache/LaTeXTools/internal/preview_math/8207fd48df08ba5f0a1a8bd7005a84d7.tex:17: Missing \endcsname inserted. [\end{}]
+/home/maverick/.config/sublime-text-3/Cache/LaTeXTools/internal/preview_math/8207fd48df08ba5f0a1a8bd7005a84d7.tex:17: Missing \endcsname inserted. [\end{}]
+/home/maverick/.config/sublime-text-3/Cache/LaTeXTools/internal/preview_math/8207fd48df08ba5f0a1a8bd7005a84d7.tex:17: Missing \endcsname inserted. [\end{}]
+/home/maverick/.config/sublime-text-3/Cache/LaTeXTools/internal/preview_math/8207fd48df08ba5f0a1a8bd7005a84d7.tex:17: Missing \endcsname inserted. [\end{}]
+/home/maverick/.config/sublime-text-3/Cache/LaTeXTools/internal/preview_math/8207fd48df08ba5f0a1a8bd7005a84d7.tex:17: Missing \endcsname inserted. [\end{}]
+/home/maverick/.config/sublime-text-3/Cache/LaTeXTools/internal/preview_math/8207fd48df08ba5f0a1a8bd7005a84d7.tex:17: Missing \endcsname inserted. [\end{}]
+/home/maverick/.config/sublime-text-3/Cache/LaTeXTools/internal/preview_math/8207fd48df08ba5f0a1a8bd7005a84d7.tex:17: Missing \endcsname inserted. [\end{}]
+/home/maverick/.config/sublime-text-3/Cache/LaTeXTools/internal/preview_math/8207fd48df08ba5f0a1a8bd7005a84d7.tex:17: Missing \endcsname inserted. [\end{}]
+/home/maverick/.config/sublime-text-3/Cache/LaTeXTools/internal/preview_math/8207fd48df08ba5f0a1a8bd7005a84d7.tex:17: Missing \endcsname inserted. [\end{}]
+/home/maverick/.config/sublime-text-3/Cache/LaTeXTools/internal/preview_math/8207fd48df08ba5f0a1a8bd7005a84d7.tex:17: Missing \endcsname inserted. [\end{}]
+/home/maverick/.config/sublime-text-3/Cache/LaTeXTools/internal/preview_math/8207fd48df08ba5f0a1a8bd7005a84d7.tex:17: Missing \endcsname inserted. [\end{}]
+/home/maverick/.config/sublime-text-3/Cache/LaTeXTools/internal/preview_math/8207fd48df08ba5f0a1a8bd7005a84d7.tex:17: Missing \endcsname inserted. [\end{}]
+/home/maverick/.config/sublime-text-3/Cache/LaTeXTools/internal/preview_math/8207fd48df08ba5f0a1a8bd7005a84d7.tex:17: Missing \endcsname inserted. [\end{}]
+/home/maverick/.config/sublime-text-3/Cache/LaTeXTools/internal/preview_math/8207fd48df08ba5f0a1a8bd7005a84d7.tex:17: Missing \endcsname inserted. [\end{}]
+/home/maverick/.config/sublime-text-3/Cache/LaTeXTools/internal/preview_math/8207fd48df08ba5f0a1a8bd7005a84d7.tex:17: Missing \endcsname inserted. [\end{}]
+/home/maverick/.config/sublime-text-3/Cache/LaTeXTools/internal/preview_math/8207fd48df08ba5f0a1a8bd7005a84d7.tex:17: Missing \endcsname inserted. [\end{}]
+/home/maverick/.config/sublime-text-3/Cache/LaTeXTools/internal/preview_math/8207fd48df08ba5f0a1a8bd7005a84d7.tex:17: Missing \endcsname inserted. [\end{}]
+/home/maverick/.config/sublime-text-3/Cache/LaTeXTools/internal/preview_math/8207fd48df08ba5f0a1a8bd7005a84d7.tex:17: Missing \endcsname inserted. [\end{}]
+/home/maverick/.config/sublime-text-3/Cache/LaTeXTools/internal/preview_math/8207fd48df08ba5f0a1a8bd7005a84d7.tex:17: Missing \endcsname inserted. [\end{}]
+/home/maverick/.config/sublime-text-3/Cache/LaTeXTools/internal/preview_math/8207fd48df08ba5f0a1a8bd7005a84d7.tex:17: Missing \endcsname inserted. [\end{}]
+/home/maverick/.config/sublime-text-3/Cache/LaTeXTools/internal/preview_math/8207fd48df08ba5f0a1a8bd7005a84d7.tex:17: Missing \endcsname inserted. [\end{}]
+/home/maverick/.config/sublime-text-3/Cache/LaTeXTools/internal/preview_math/8207fd48df08ba5f0a1a8bd7005a84d7.tex:17: Missing \endcsname inserted. [\end{}]
+/home/maverick/.config/sublime-text-3/Cache/LaTeXTools/internal/preview_math/8207fd48df08ba5f0a1a8bd7005a84d7.tex:17: Missing \endcsname inserted. [\end{}]
+/home/maverick/.config/sublime-text-3/Cache/LaTeXTools/internal/preview_math/8207fd48df08ba5f0a1a8bd7005a84d7.tex:17: Missing \endcsname inserted. [\end{}]
+/home/maverick/.config/sublime-text-3/Cache/LaTeXTools/internal/preview_math/8207fd48df08ba5f0a1a8bd7005a84d7.tex:17: Missing \endcsname inserted. [\end{}]
+/home/maverick/.config/sublime-text-3/Cache/LaTeXTools/internal/preview_math/8207fd48df08ba5f0a1a8bd7005a84d7.tex:17: Missing \endcsname inserted. [\end{}]
+/home/maverick/.config/sublime-text-3/Cache/LaTeXTools/internal/preview_math/8207fd48df08ba5f0a1a8bd7005a84d7.tex:17: Missing \endcsname inserted. [\end{}]
+/home/maverick/.config/sublime-text-3/Cache/LaTeXTools/internal/preview_math/8207fd48df08ba5f0a1a8bd7005a84d7.tex:17: Missing \endcsname inserted. [\end{}]
+/home/maverick/.config/sublime-text-3/Cache/LaTeXTools/internal/preview_math/8207fd48df08ba5f0a1a8bd7005a84d7.tex:17: Missing \endcsname inserted. [\end{}]
+/home/maverick/.config/sublime-text-3/Cache/LaTeXTools/internal/preview_math/8207fd48df08ba5f0a1a8bd7005a84d7.tex:17: Missing \endcsname inserted. [\end{}]
+/home/maverick/.config/sublime-text-3/Cache/LaTeXTools/internal/preview_math/8207fd48df08ba5f0a1a8bd7005a84d7.tex:17: Missing \endcsname inserted. [\end{}]
+/home/maverick/.config/sublime-text-3/Cache/LaTeXTools/internal/preview_math/8207fd48df08ba5f0a1a8bd7005a84d7.tex:17: Missing \endcsname inserted. [\end{}]
+/home/maverick/.config/sublime-text-3/Cache/LaTeXTools/internal/preview_math/8207fd48df08ba5f0a1a8bd7005a84d7.tex:17: Missing \endcsname inserted. [\end{}]
+/home/maverick/.config/sublime-text-3/Cache/LaTeXTools/internal/preview_math/8207fd48df08ba5f0a1a8bd7005a84d7.tex:17: Missing \endcsname inserted. [\end{}]
+/home/maverick/.config/sublime-text-3/Cache/LaTeXTools/internal/preview_math/8207fd48df08ba5f0a1a8bd7005a84d7.tex:17: Missing \endcsname inserted. [\end{}]
+/home/maverick/.config/sublime-text-3/Cache/LaTeXTools/internal/preview_math/8207fd48df08ba5f0a1a8bd7005a84d7.tex:17: Missing \endcsname inserted. [\end{}]
+/home/maverick/.config/sublime-text-3/Cache/LaTeXTools/internal/preview_math/8207fd48df08ba5f0a1a8bd7005a84d7.tex:17: Missing \endcsname inserted. [\end{}]
+/home/maverick/.config/sublime-text-3/Cache/LaTeXTools/internal/preview_math/8207fd48df08ba5f0a1a8bd7005a84d7.tex:17: Missing \endcsname inserted. [\end{}]
+/home/maverick/.config/sublime-text-3/Cache/LaTeXTools/internal/preview_math/8207fd48df08ba5f0a1a8bd7005a84d7.tex:17: Missing \endcsname inserted. [\end{}]
+/home/maverick/.config/sublime-text-3/Cache/LaTeXTools/internal/preview_math/8207fd48df08ba5f0a1a8bd7005a84d7.tex:17: Missing \endcsname inserted. [\end{}]
+/home/maverick/.config/sublime-text-3/Cache/LaTeXTools/internal/preview_math/8207fd48df08ba5f0a1a8bd7005a84d7.tex:17: Missing \endcsname inserted. [\end{}]
+/home/maverick/.config/sublime-text-3/Cache/LaTeXTools/internal/preview_math/8207fd48df08ba5f0a1a8bd7005a84d7.tex:17: Missing \endcsname inserted. [\end{}]
+/home/maverick/.config/sublime-text-3/Cache/LaTeXTools/internal/preview_math/8207fd48df08ba5f0a1a8bd7005a84d7.tex:17: Missing \endcsname inserted. [\end{}]
+/home/maverick/.config/sublime-text-3/Cache/LaTeXTools/internal/preview_math/8207fd48df08ba5f0a1a8bd7005a84d7.tex:17: Missing \endcsname inserted. [\end{}]
+/home/maverick/.config/sublime-text-3/Cache/LaTeXTools/internal/preview_math/8207fd48df08ba5f0a1a8bd7005a84d7.tex:17: Missing \endcsname inserted. [\end{}]
+/home/maverick/.config/sublime-text-3/Cache/LaTeXTools/internal/preview_math/8207fd48df08ba5f0a1a8bd7005a84d7.tex:17: Missing \endcsname inserted. [\end{}]
+/home/maverick/.config/sublime-text-3/Cache/LaTeXTools/internal/preview_math/8207fd48df08ba5f0a1a8bd7005a84d7.tex:17: Missing \endcsname inserted. [\end{}]
+/home/maverick/.config/sublime-text-3/Cache/LaTeXTools/internal/preview_math/8207fd48df08ba5f0a1a8bd7005a84d7.tex:17: Missing \endcsname inserted. [\end{}]
+/home/maverick/.config/sublime-text-3/Cache/LaTeXTools/internal/preview_math/8207fd48df08ba5f0a1a8bd7005a84d7.tex:17: Missing \endcsname inserted. [\end{}]
+/home/maverick/.config/sublime-text-3/Cache/LaTeXTools/internal/preview_math/8207fd48df08ba5f0a1a8bd7005a84d7.tex:17: Missing \endcsname inserted. [\end{}]
+/home/maverick/.config/sublime-text-3/Cache/LaTeXTools/internal/preview_math/8207fd48df08ba5f0a1a8bd7005a84d7.tex:17: Missing \endcsname inserted. [\end{}]
+Too many errors. TeX stopped.
+
+LaTeX document:
+-----BEGIN DOCUMENT-----
+
+\documentclass[preview,border=0.3pt]{standalone}
+% import xcolor if available and not already present
+\IfFileExists{xcolor.sty}{\usepackage{xcolor}}{}%
+\usepackage{amsmath}
+\usepackage{amssymb}
+\IfFileExists{latexsym.sty}{\usepackage{latexsym}}{}
+\IfFileExists{mathtools.sty}{\usepackage{mathtools}}{}
+
+\begin{document}
+% set the foreground color
+\IfFileExists{xcolor.sty}{\color[HTML]{EEFFFF}}{}%
+\begin{equation*}
+\label{eq:obj_train}
+\begin{}
+
+\end{}
+    {\mathcal{J}_{1}= \sum_{i=1}^{N} \left(-\phi_{1}(\bm{x}_{i})^\top \bm{U}_{1}\bm{h}_i + \frac{\lambda_{1}}{2} \bm{h}_{i}^{\left(1\right)}^{\top} \bm{h}^{\left(1\right)}_i\right) + \frac{\eta_{1}}{2}\tr(\bm{U}_{1}^\top \bm{U}_{1}) }
+\end{equation*}
+\end{document}
+
+-----END DOCUMENT-----
+
+Log file:
+-----BEGIN LOG-----
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.9.29)  25 OCT 2019 10:06
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**8207fd48df08ba5f0a1a8bd7005a84d7.tex
+(./8207fd48df08ba5f0a1a8bd7005a84d7.tex
+LaTeX2e <2017-04-15>
+Babel <3.18> and hyphenation patterns for 84 language(s) loaded.
+(/usr/share/texlive/texmf-dist/tex/latex/standalone/standalone.cls
+Document Class: standalone 2015/07/15 v1.2 Class to compile TeX sub-files stand
+alone
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2017/03/15 v3.2 Provides the ifpdf switch
+)
+(/usr/share/texlive/texmf-dist/tex/generic/ifxetex/ifxetex.sty
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+)
+(/usr/share/texlive/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+Package: xkeyval 2014/12/03 v2.7a package option processing (HA)
+
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkeyval.tex
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkvutils.tex
+\XKV@toks=\toks14
+\XKV@tempa@toks=\toks15
+
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/keyval.tex))
+\XKV@depth=\count79
+File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
+))
+\sa@internal=\count80
+\c@sapage=\count81
+
+(/usr/share/texlive/texmf-dist/tex/latex/standalone/standalone.cfg
+File: standalone.cfg 2015/07/15 v1.2 Default configuration file for 'standalone
+' class
+)
+(/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
+(/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo
+File: size10.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count82
+\c@section=\count83
+\c@subsection=\count84
+\c@subsubsection=\count85
+\c@paragraph=\count86
+\c@subparagraph=\count87
+\c@figure=\count88
+\c@table=\count89
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(/usr/share/texmf/tex/latex/preview/preview.sty
+Package: preview 2017/04/24 11.91 (AUCTeX/preview-latex)
+
+(/usr/share/texlive/texmf-dist/tex/generic/luatex85/luatex85.sty
+Package: luatex85 2016/06/15 v1.4 pdftex aliases for luatex
+)
+(/usr/share/texmf/tex/latex/preview/prtightpage.def
+\PreviewBorder=\dimen103
+)
+\pr@snippet=\count90
+\pr@box=\box26
+\pr@output=\toks16
+))
+(/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: pdftex.def on input line 225.
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
+)
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1352.
+Package xcolor Info: Model `RGB' extended on input line 1364.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1366.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1367.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1368.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2017/09/02 v2.17a AMS math features
+\@mathmargin=\skip43
+
+For additional information on amsmath, use the `?' option.
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01 AMS text
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks17
+\ex@=\dimen104
+))
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen105
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 2016/03/08 v2.02 operator names
+)
+\inf@bad=\count91
+LaTeX Info: Redefining \frac on input line 213.
+\uproot@=\count92
+\leftroot@=\count93
+LaTeX Info: Redefining \overline on input line 375.
+\classnum@=\count94
+\DOTSCASE@=\count95
+LaTeX Info: Redefining \ldots on input line 472.
+LaTeX Info: Redefining \dots on input line 475.
+LaTeX Info: Redefining \cdots on input line 596.
+\Mathstrutbox@=\box27
+\strutbox@=\box28
+\big@size=\dimen106
+LaTeX Font Info:    Redeclaring font encoding OML on input line 712.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 713.
+\macc@depth=\count96
+\c@MaxMatrixCols=\count97
+\dotsspace@=\muskip10
+\c@parentequation=\count98
+\dspbrk@lvl=\count99
+\tag@help=\toks18
+\row@=\count100
+\column@=\count101
+\maxfields@=\count102
+\andhelp@=\toks19
+\eqnshift@=\dimen107
+\alignsep@=\dimen108
+\tagshift@=\dimen109
+\tagwidth@=\dimen110
+\totwidth@=\dimen111
+\lineht@=\dimen112
+\@envbody=\toks20
+\multlinegap=\skip44
+\multlinetaggap=\skip45
+\mathdisplay@stack=\toks21
+LaTeX Info: Redefining \[ on input line 2817.
+LaTeX Info: Redefining \] on input line 2818.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+))
+(/usr/share/texlive/texmf-dist/tex/latex/base/latexsym.sty
+Package: latexsym 1998/08/17 v2.2e Standard LaTeX package (lasy symbols)
+\symlasy=\mathgroup6
+LaTeX Font Info:    Overwriting symbol font `lasy' in version `bold'
+(Font)                  U/lasy/m/n --> U/lasy/b/n on input line 52.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/mathtools/mathtools.sty
+Package: mathtools 2018/01/08 v1.21 mathematical typesetting tools
+
+(/usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty
+Package: calc 2014/10/28 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count103
+\calc@Bcount=\count104
+\calc@Adimen=\dimen113
+\calc@Bdimen=\dimen114
+\calc@Askip=\skip46
+\calc@Bskip=\skip47
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count105
+\calc@Cskip=\skip48
+)
+(/usr/share/texlive/texmf-dist/tex/latex/mathtools/mhsetup.sty
+Package: mhsetup 2017/03/31 v1.3 programming setup (MH)
+)
+LaTeX Info: Thecontrolsequence`\('isalreadyrobust on input line 129.
+LaTeX Info: Thecontrolsequence`\)'isalreadyrobust on input line 129.
+LaTeX Info: Thecontrolsequence`\['isalreadyrobust on input line 129.
+LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 129.
+\g_MT_multlinerow_int=\count106
+\l_MT_multwidth_dim=\dimen115
+\origjot=\skip49
+\l_MT_shortvdotswithinadjustabove_dim=\dimen116
+\l_MT_shortvdotswithinadjustbelow_dim=\dimen117
+\l_MT_above_intertext_sep=\dimen118
+\l_MT_below_intertext_sep=\dimen119
+\l_MT_above_shortintertext_sep=\dimen120
+\l_MT_below_shortintertext_sep=\dimen121
+)
+No file 8207fd48df08ba5f0a1a8bd7005a84d7.aux.
+\openout1 = `8207fd48df08ba5f0a1a8bd7005a84d7.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+Preview: Fontsize 10pt
+Preview: PDFoutput 1
+(/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count107
+\scratchdimen=\dimen122
+\scratchbox=\box29
+\nofMPsegments=\count108
+\nofMParguments=\count109
+\everyMPshowfont=\toks22
+\MPscratchCnt=\count110
+\MPscratchDim=\dimen123
+\MPnumerator=\count111
+\makeMPintoPDFobject=\count112
+\everyMPtoPDFconversion=\toks23
+) (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2017/06/25 v1.2c Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 99.
+)
+\Gin@req@height=\dimen124
+\Gin@req@width=\dimen125
+)
+LaTeX Font Info:    Try loading font information for U+msa on input line 13.
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 13.
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+LaTeX Font Info:    Try loading font information for U+lasy on input line 13.
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/ulasy.fd
+File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
+)
+
+! LaTeX Error: Environment  undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.15 \begin{}
+             
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.16 
+     
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing \endgroup inserted.
+<inserted text> 
+                \endgroup 
+l.16 
+     
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Display math should end with $$.
+<to be read again> 
+                   \par 
+l.16 
+     
+The `$' that I just saw supposedly matches a previous `$$'.
+So I shall assume that you typed `$$' both times.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.17 \end{}
+           
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.17 \end{}
+           
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.17 \end{}
+           
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.17 \end{}
+           
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.17 \end{}
+           
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.17 \end{}
+           
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.17 \end{}
+           
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.17 \end{}
+           
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.17 \end{}
+           
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.17 \end{}
+           
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.17 \end{}
+           
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.17 \end{}
+           
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.17 \end{}
+           
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.17 \end{}
+           
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.17 \end{}
+           
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.17 \end{}
+           
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.17 \end{}
+           
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.17 \end{}
+           
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.17 \end{}
+           
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.17 \end{}
+           
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.17 \end{}
+           
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.17 \end{}
+           
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.17 \end{}
+           
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.17 \end{}
+           
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.17 \end{}
+           
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.17 \end{}
+           
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.17 \end{}
+           
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.17 \end{}
+           
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.17 \end{}
+           
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.17 \end{}
+           
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.17 \end{}
+           
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.17 \end{}
+           
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.17 \end{}
+           
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.17 \end{}
+           
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.17 \end{}
+           
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.17 \end{}
+           
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.17 \end{}
+           
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.17 \end{}
+           
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.17 \end{}
+           
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.17 \end{}
+           
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.17 \end{}
+           
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.17 \end{}
+           
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.17 \end{}
+           
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.17 \end{}
+           
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.17 \end{}
+           
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.17 \end{}
+           
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.17 \end{}
+           
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.17 \end{}
+           
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.17 \end{}
+           
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.17 \end{}
+           
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.17 \end{}
+           
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.17 \end{}
+           
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.17 \end{}
+           
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.17 \end{}
+           
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.17 \end{}
+           
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.17 \end{}
+           
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.17 \end{}
+           
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.17 \end{}
+           
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.17 \end{}
+           
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.17 \end{}
+           
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.17 \end{}
+           
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.17 \end{}
+           
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.17 \end{}
+           
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.17 \end{}
+           
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.17 \end{}
+           
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.17 \end{}
+           
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.17 \end{}
+           
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.17 \end{}
+           
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.17 \end{}
+           
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.17 \end{}
+           
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.17 \end{}
+           
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.17 \end{}
+           
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.17 \end{}
+           
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.17 \end{}
+           
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.17 \end{}
+           
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.17 \end{}
+           
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.17 \end{}
+           
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.17 \end{}
+           
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.17 \end{}
+           
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.17 \end{}
+           
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.17 \end{}
+           
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.17 \end{}
+           
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.17 \end{}
+           
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.17 \end{}
+           
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.17 \end{}
+           
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.17 \end{}
+           
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.17 \end{}
+           
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.17 \end{}
+           
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.17 \end{}
+           
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.17 \end{}
+           
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.17 \end{}
+           
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.17 \end{}
+           
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.17 \end{}
+           
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.17 \end{}
+           
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.17 \end{}
+           
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.17 \end{}
+           
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.17 \end{}
+           
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.17 \end{}
+           
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.17 \end{}
+           
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.17 \end{}
+           
+(That makes 100 errors; please try again.) 
+Here is how much of TeX's memory you used:
+ 3392 strings out of 492982
+ 46791 string characters out of 6134896
+ 108087 words of memory out of 5000000
+ 6924 multiletter control sequences out of 15000+600000
+ 5657 words of font info for 25 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 103i,3n,102p,253b,146s stack positions out of 5000i,500n,10000p,200000b,80000s
+
+!  ==> Fatal error occurred, no output PDF file produced!
+
+-----END LOG-----
