@@ -101,7 +101,7 @@ source $ZSH/oh-my-zsh.sh
 alias gpuom="git push -u origin master"
 alias gau="git add -u"
 alias dropbox="~/.dropbox-dist/dropboxd"
-alias dotfiles='/usr/bin/git --git-dir=/home/maverick/.dotfiles/ --work-tree=/home/maverick/'
+alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME/'
 alias dau="dotfiles add -u && echo dotfiles add -u"
 alias dpuom="dotfiles push -u origin master"
 alias dcm='f() {dotfiles commit -m $1}; f'
