@@ -99,12 +99,13 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 # Git aliases
-alias gi="git init"
-alias gpom="git push origin master"
-alias ga="git add ."
-alias gcm="git commit -m"
+alias gpom="git push -u origin master"
+alias gau="git add -u"
 alias dropbox="~/.dropbox-dist/dropboxd"
-
+alias dotfiles='/usr/bin/git --git-dir=/home/maverick/.dotfiles/ --work-tree=/home/maverick/'
+alias dau="dotfiles add -u"
+alias dpom="dotfiles push -u origin master"
+alias dcm="f() {dotfiles commit -m "$1"};f"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
@@ -125,4 +126,4 @@ else
 fi
 unset __conda_setup
 # <<< conda init <<<
-alias dotfiles='/usr/bin/git --git-dir=/home/maverick/.dotfiles/ --work-tree=~/'
+
