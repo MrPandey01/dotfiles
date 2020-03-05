@@ -998,11 +998,10 @@
 					}
 				},
 				{
-					"file": "/home/maverick/Downloads/Gen-RKM(1)/GENRKMIEEE.tex",
+					"file": "/home/maverick/Exported Items.bib",
 					"settings":
 					{
-						"buffer_size": 87355,
-						"encoding": "UTF-8",
+						"buffer_size": 341,
 						"line_ending": "Unix"
 					}
 				},
@@ -1288,6 +1287,7 @@
 			],
 			"file_history":
 			[
+				"/home/maverick/Downloads/Gen-RKM(1)/GENRKMIEEE.tex",
 				"/home/maverick/OneDrive/PhD_KU_Leuven/Papers/generative RKM/iclr2020/Gen-RKM_overleaf/iclr2020_conference.tex",
 				"/home/maverick/OneDrive/PhD_KU_Leuven/Papers/generative RKM/iclr2020/fig5_unco.tex",
 				"/home/maverick/OneDrive/PhD_KU_Leuven/posters/kuleuven_poster_latex/example2.tex",
@@ -1414,8 +1414,7 @@
 				"/C/Users/maverick/Documents/GitHub/pubapblog/_posts/2019-08-24-checksum.md",
 				"/C/Users/maverick/Downloads/aw-bucket-export_aw-watcher-window_maverick.json",
 				"/C/Users/maverick/AppData/Local/Temp/Rar$DIa15840.41672/d3utils.js",
-				"/C/Users/maverick/Documents/activitywatch/aw_server/static/index.html",
-				"/C/Users/maverick/Documents/activitywatch/aw-qt.exe"
+				"/C/Users/maverick/Documents/activitywatch/aw_server/static/index.html"
 			],
 			"find":
 			{
@@ -1616,11 +1615,11 @@
 						},
 						{
 							"buffer": 5,
-							"file": "/home/maverick/Downloads/Gen-RKM(1)/GENRKMIEEE.tex",
+							"file": "/home/maverick/Exported Items.bib",
 							"semi_transient": false,
 							"settings":
 							{
-								"buffer_size": 87355,
+								"buffer_size": 341,
 								"regions":
 								{
 								},
@@ -1634,7 +1633,7 @@
 								"settings":
 								{
 									"git_gutter_is_enabled": false,
-									"syntax": "Packages/LaTeX/LaTeX.sublime-syntax"
+									"syntax": "Packages/LaTeXTools/BibLaTeX.tmLanguage"
 								},
 								"translation.x": 0.0,
 								"translation.y": 0.0,
