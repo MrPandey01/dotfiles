@@ -1,7 +1,6 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-## check check: remove when encountered later
 # Path to your oh-my-zsh installation.
 export ZSH="/home/maverick/.oh-my-zsh"
 
@@ -99,13 +98,13 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 # Git aliases
-alias gpom="git push -u origin master"
+alias gpuom="git push -u origin master"
 alias gau="git add -u"
 alias dropbox="~/.dropbox-dist/dropboxd"
 alias dotfiles='/usr/bin/git --git-dir=/home/maverick/.dotfiles/ --work-tree=/home/maverick/'
-alias dau="dotfiles add -u"
-alias dpom="dotfiles push -u origin master"
-alias dcm="f() {dotfiles commit -m "$1"};f"
+alias dau="dotfiles add -u && echo dotfiles add -u"
+alias dpuom="dotfiles push -u origin master"
+alias dcm='f() {dotfiles commit -m $1}; f'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
