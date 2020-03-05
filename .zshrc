@@ -104,7 +104,7 @@ alias gpom="git push origin master"
 alias ga="git add ."
 alias gcm="git commit -m"
 alias dropbox="~/.dropbox-dist/dropboxd"
-alias config="/usr/bin/git --git-dir=/home/maverick/.cfg/ --work-tree=/home/maverick"
+
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
@@ -125,4 +125,4 @@ else
 fi
 unset __conda_setup
 # <<< conda init <<<
-alias dotfiles='/usr/bin/git --git-dir=/home/maverick/.dotfiles/ --work-tree=/home/maverick'
+alias dotfiles='/usr/bin/git --git-dir=/home/maverick/.dotfiles/ --work-tree=~/'

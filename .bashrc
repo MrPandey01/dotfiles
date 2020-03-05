@@ -135,4 +135,3 @@ fi
 unset __conda_setup
 # <<< conda init <<<
 . /home/maverick/anaconda3/etc/profile.d/conda.sh
-alias config='/usr/bin/git --git-dir=/home/maverick/.cfg/ --work-tree=/home/maverick'
