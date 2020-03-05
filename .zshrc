@@ -105,6 +105,8 @@ alias dotfiles='/usr/bin/git --git-dir=/home/maverick/.dotfiles/ --work-tree=/ho
 alias dau="dotfiles add -u && echo dotfiles add -u"
 alias dpuom="dotfiles push -u origin master"
 alias dcm='f() {dotfiles commit -m $1}; f'
+alias vscssh="ssh -t -i ~/.ssh/vsc_key vsc33410@login4-tier2.hpc.kuleuven.be 'cd /data/leuven/334/vsc33410/github/RKM; zsh'"
+alias akilassh="ssh apandey@ssh.esat.kuleuven.be -t 'ssh akila'"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
