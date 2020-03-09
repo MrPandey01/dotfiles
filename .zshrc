@@ -107,7 +107,8 @@ alias dau="dotfiles add -u && echo dotfiles add -u"
 alias dpuom="dotfiles push -u origin master"
 alias dcm='f() {dotfiles commit -m $1}; f'
 alias vscssh="ssh -t -i ~/.ssh/vsc_key vsc33410@login4-tier2.hpc.kuleuven.be 'cd /data/leuven/334/vsc33410/github/RKM; zsh'"
-alias akilassh="ssh apandey@ssh.esat.kuleuven.be -t 'ssh akila'"
+alias akilassh='ssh -t apandey@ssh.esat.kuleuven.be "ssh akila"'
+alias tunnelakila='ssh -t -t -L 22000:127.0.0.1:22000 apandey@ssh.esat.kuleuven.be "ssh -L 22000:127.0.0.1:22 apandey@akila"'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
@@ -115,7 +116,7 @@ alias akilassh="ssh apandey@ssh.esat.kuleuven.be -t 'ssh akila'"
 # added by Anaconda3 5.3.0 installer
 # >>> conda init >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$(CONDA_REPORT_ERRORS=false '$HOME/anaconda3/bin/conda' shell.bash hook 2> /dev/null)"
+_conda_setup="$(CONDA_REPORT_ERRORS=false '$HOME/anaconda3/bin/conda' shell.bash hook 2> /dev/null)"
 if [ $? -eq 0 ]; then
     \eval "$__conda_setup"
 else
