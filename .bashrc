@@ -135,3 +135,5 @@ fi
 unset __conda_setup
 # <<< conda init <<<
 . /home/maverick/anaconda3/etc/profile.d/conda.sh
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

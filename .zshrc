@@ -130,3 +130,5 @@ fi
 unset __conda_setup
 # <<< conda init <<<
 
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
