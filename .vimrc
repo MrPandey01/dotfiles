@@ -458,3 +458,6 @@ if filereadable(expand(custom_configs_path))
   execute "source " . custom_configs_path
 endif
 
+let &t_SI = "\<esc>[5 q"  " blinking I-beam in insert mode
+let &t_SR = "\<esc>[3 q"  " blinking underline in replace mode
+let &t_EI = "\<esc>[ q"  " default cursor (usually blinking block) otherwise """
