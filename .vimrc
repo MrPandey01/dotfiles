@@ -447,6 +447,7 @@ else
 endif
 
 " Custom configurations ----------------
+" Disable arrow keys
 noremap  <Up> ""
 noremap! <Up> <Esc>
 noremap  <Down> ""
@@ -455,6 +456,9 @@ noremap  <Left> ""
 noremap! <Left> <Esc>
 noremap  <Right> ""
 noremap! <Right> <Esc>
+imap jj <Esc>
+
+" Swap caps-lock to Escape key
 au VimEnter * !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
 au VimLeave * !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Caps_Lock'
 
