@@ -1,12 +1,4 @@
-" Fisa-vim-config, a config for both Vim and NeoVim
-" http://vim.fisadev.com
-" version: 12.0.0
-
-" To use fancy symbols wherever possible, change this setting from 0 to 1
-" and use a font from https://github.com/ryanoasis/nerd-fonts in your terminal 
-" (if you aren't using one of those fonts, you will see funny characters here. 
-" Turst me, they look nice when using one of those fonts).
-let fancy_symbols_enabled = 1
+let fancy_symbols_enabled=1
 
 
 set encoding=utf-8
@@ -52,11 +44,7 @@ endif
 
 " this needs to be here, so vim-plug knows we are declaring the plugins we
 " want to use
-if using_neovim
-    call plug#begin("~/.config/nvim/plugged")
-else
-    call plug#begin("~/.vim/plugged")
-endif
+call plug#begin("~/.vim/plugged")
 
 " Now the actual plugins:
 
@@ -82,15 +70,7 @@ Plug 'junegunn/fzf.vim'
 " Pending tasks list
 Plug 'fisadev/FixedTaskList.vim'
 " Async autocompletion
-if using_neovim && vim_plug_just_installed
-    Plug 'Shougo/deoplete.nvim', {'do': ':autocmd VimEnter * UpdateRemotePlugins'}
-else
-    Plug 'Shougo/deoplete.nvim'
-endif
 Plug 'roxma/nvim-yarp'
-Plug 'roxma/vim-hug-neovim-rpc'
-" Python autocompletion
-Plug 'deoplete-plugins/deoplete-jedi'
 " Completion from other opened files
 Plug 'Shougo/context_filetype.vim'
 " Just to add the python go-to-definition and similar features, autocompletion
@@ -411,14 +391,7 @@ let g:AutoClosePumvisible = {"ENTER": "\<C-Y>", "ESC": "\<ESC>"}
 
 " Yankring -------------------------------
 
-if using_neovim
-    let g:yankring_history_dir = '~/.config/nvim/'
-    " Fix for yankring and neovim problem when system has non-text things
-    " copied in clipboard
-    let g:yankring_clipboard_monitor = 0
-else
-    let g:yankring_history_dir = '~/.vim/dirs/'
-endif
+let g:yankring_history_dir = '~/.vim/dirs/'
 
 " Airline ------------------------------
 
@@ -466,11 +439,7 @@ nnoremap c' ci'
 nnoremap c" ci"
 
 " Include user's custom nvim configurations
-if using_neovim
-    let custom_configs_path = "~/.config/nvim/custom.vim"
-else
-    let custom_configs_path = "~/.vim/custom.vim"
-endif
+let custom_configs_path = "~/.vim/custom.vim"
 if filereadable(expand(custom_configs_path))
   execute "source " . custom_configs_path
 endif
