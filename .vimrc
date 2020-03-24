@@ -206,7 +206,7 @@ else
 endif
 
 " needed so deoplete can auto select the first suggestion
-set completeopt+=noinsert
+" set completeopt+=noinsert
 " comment this line to enable autocompletion preview window
 " (displays documentation related to the selected completion option)
 " disabled by default because preview makes the window flicker
@@ -272,7 +272,6 @@ highlight! link NERDTreeFlags NERDTreeDir
 
 " Remove expandable arrow
 let g:WebDevIconsNerdTreeBeforeGlyphPadding = ""
-let g:WebDevIconsUnicodeDecorateFolderNodes = v:true
 let NERDTreeDirArrowExpandable = "\u00a0"
 let NERDTreeDirArrowCollapsible = "\u00a0"
 let NERDTreeNodeDelimiter = "\x07"
@@ -443,7 +442,3 @@ let custom_configs_path = "~/.vim/custom.vim"
 if filereadable(expand(custom_configs_path))
   execute "source " . custom_configs_path
 endif
-
-let &t_SI = "\<esc>[5 q"  " blinking I-beam in insert mode
-let &t_SR = "\<esc>[3 q"  " blinking underline in replace mode
-let &t_EI = "\<esc>[ q"  " default cursor (usually blinking block) otherwise """
