@@ -458,9 +458,12 @@ noremap  <Right> ""
 noremap! <Right> <Esc>
 imap jj <Esc>
 
-" Swap caps-lock to Escape key
-au VimEnter * !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
-au VimLeave * !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Caps_Lock'
+
+nnoremap cw ciw
+nnoremap dw diw
+nnoremap c( ci(
+nnoremap c' ci'
+nnoremap c" ci"
 
 " Include user's custom nvim configurations
 if using_neovim

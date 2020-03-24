@@ -106,7 +106,7 @@ alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME/'
 alias dau="dotfiles add -u && echo dotfiles add -u"
 alias dpuom="dotfiles push -u origin master"
 alias dcm='f() {dotfiles commit -m $1}; f'
-alias vscssh="ssh -t -i ~/.ssh/vsc_key vsc33410@login4-tier2.hpc.kuleuven.be 'cd /data/leuven/334/vsc33410/github/RKM; zsh'"
+alias vscssh="ssh -t -i ~/.ssh/vsc_key vsc33410@login4-tier2.hpc.kuleuven.be 'cd /data/leuven/334/vsc33410/github/RKM/Python_implementation; zsh'"
 alias akilassh='ssh -t apandey@ssh.esat.kuleuven.be "ssh akila"'
 alias tunnelakila='ssh -t -t -L 22000:127.0.0.1:22000 apandey@ssh.esat.kuleuven.be "ssh -L 22000:127.0.0.1:22 apandey@akila"'
 
