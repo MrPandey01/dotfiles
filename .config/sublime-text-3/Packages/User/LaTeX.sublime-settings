@@ -1,5 +1,0 @@
-// These settings override both User and Default settings for the LaTeX syntax
-{
-	"font_face": "Source Code Pro",
-    "font_size": 11,
-}

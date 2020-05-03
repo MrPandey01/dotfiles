@@ -53,14 +53,15 @@ Plug 'arielrossanigo/dir-configs-override.vim'
 " Code commenter
 Plug 'scrooloose/nerdcommenter'
 " Better file browser
-Plug 'scrooloose/nerdtree'
+" Plug 'scrooloose/nerdtree'
 " Class/module browser
-Plug 'majutsushi/tagbar'
+" Plug 'majutsushi/tagbar'
 " Search results counter
 Plug 'vim-scripts/IndexedSearch'
 " A couple of nice colorschemes
 " Plug 'fisadev/fisa-vim-colorscheme'
-Plug 'patstockwell/vim-monokai-tasty'
+"Plug 'patstockwell/vim-monokai-tasty'
+Plug 'morhetz/gruvbox'
 " Airline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -68,11 +69,11 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 " Pending tasks list
-Plug 'fisadev/FixedTaskList.vim'
+" Plug 'fisadev/FixedTaskList.vim'
 " Async autocompletion
 Plug 'roxma/nvim-yarp'
 " Completion from other opened files
-Plug 'Shougo/context_filetype.vim'
+" Plug 'Shougo/context_filetype.vim'
 " Just to add the python go-to-definition and similar features, autocompletion
 " from this plugin is disabled
 Plug 'davidhalter/jedi-vim'
@@ -91,19 +92,19 @@ Plug 'mileszs/ack.vim'
 " Paint css colors with the real color
 Plug 'lilydjwg/colorizer'
 " Window chooser
-Plug 't9md/vim-choosewin'
+" Plug 't9md/vim-choosewin'
 " Automatically sort python imports
-Plug 'fisadev/vim-isort'
+" Plug 'fisadev/vim-isort'
 " Highlight matching html tags
 Plug 'valloric/MatchTagAlways'
 " Generate html in a simple way
-Plug 'mattn/emmet-vim'
+" Plug 'mattn/emmet-vim'
 " Git integration
-Plug 'tpope/vim-fugitive'
+" Plug 'tpope/vim-fugitive'
 " Git/mercurial/others diff icons on the side of the file lines
-Plug 'mhinz/vim-signify'
+" Plug 'mhinz/vim-signify'
 " Yank history navigation
-Plug 'vim-scripts/YankRing.vim'
+" Plug 'vim-scripts/YankRing.vim'
 " Linters
 Plug 'neomake/neomake'
 " Relative numbering of lines (0 is the current line)
@@ -113,7 +114,7 @@ Plug 'neomake/neomake'
 " to avoid that)
 Plug 'myusuf3/numbers.vim'
 " Nice icons in the file explorer and file type status line.
-Plug 'ryanoasis/vim-devicons'
+" Plug 'ryanoasis/vim-devicons'
 
 if using_vim
     " Consoles as buffers (neovim has its own consoles as buffers)
@@ -200,7 +201,10 @@ if has('gui_running') || using_neovim || (&term =~? 'mlterm\|xterm\|xterm-256\|s
     if !has('gui_running')
         let &t_Co = 256
     endif
-    colorscheme vim-monokai-tasty
+    "colorscheme vim-monokai-tasty
+
+    colorscheme gruvbox
+    set bg=dark
 else
     colorscheme delek
 endif

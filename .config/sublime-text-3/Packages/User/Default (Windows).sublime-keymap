@@ -1,4 +1,0 @@
-[
-	{ "keys": ["ctrl+t"], "command": "toggle_comment", "args": { "block": false } },
-
-]
