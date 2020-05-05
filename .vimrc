@@ -440,6 +440,7 @@ nnoremap dw diw
 nnoremap c( ci(
 nnoremap c' ci'
 nnoremap c" ci"
+xnoremap p pgvy
 
 " Include user's custom nvim configurations
 let custom_configs_path = "~/.vim/custom.vim"
