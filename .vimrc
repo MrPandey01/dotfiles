@@ -4,6 +4,7 @@ let fancy_symbols_enabled=1
 set encoding=utf-8
 let using_neovim = has('nvim')
 let using_vim = !using_neovim
+set pyx=2
 
 " ============================================================================
 " Vim-plug initialization
@@ -48,73 +49,57 @@ call plug#begin("~/.vim/plugged")
 
 " Now the actual plugins:
 
-" Override configs by directory
-Plug 'arielrossanigo/dir-configs-override.vim'
-" Code commenter
-Plug 'scrooloose/nerdcommenter'
-" Better file browser
-" Plug 'scrooloose/nerdtree'
-" Class/module browser
-" Plug 'majutsushi/tagbar'
-" Search results counter
-Plug 'vim-scripts/IndexedSearch'
-" A couple of nice colorschemes
+Plug 'arielrossanigo/dir-configs-override.vim' " Override configs by directory
+
+Plug 'scrooloose/nerdcommenter' " Code commenter
+
+Plug 'vim-scripts/IndexedSearch'  " Search results counter
+
+" A couple of nice color schemes
 " Plug 'fisadev/fisa-vim-colorscheme'
 "Plug 'patstockwell/vim-monokai-tasty'
 Plug 'morhetz/gruvbox'
 " Airline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+
 " Code and files fuzzy finder
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-" Pending tasks list
-" Plug 'fisadev/FixedTaskList.vim'
-" Async autocompletion
-Plug 'roxma/nvim-yarp'
-" Completion from other opened files
-" Plug 'Shougo/context_filetype.vim'
-" Just to add the python go-to-definition and similar features, autocompletion
-" from this plugin is disabled
-Plug 'davidhalter/jedi-vim'
-" Automatically close parenthesis, etc
-Plug 'Townk/vim-autoclose'
+
+Plug 'roxma/nvim-yarp' " Async autocompletion
+
+Plug 'Townk/vim-autoclose' " Automatically close parenthesis, etc
+
 " Surround
 Plug 'tpope/vim-surround'
+
 " Indent text object
 Plug 'michaeljsmith/vim-indent-object'
+
 " Indentation based movements
 Plug 'jeetsukumaran/vim-indentwise'
+
 " Better language packs
 Plug 'sheerun/vim-polyglot'
-" Ack code search (requires ack installed in the system)
-Plug 'mileszs/ack.vim'
+
 " Paint css colors with the real color
 Plug 'lilydjwg/colorizer'
-" Window chooser
-" Plug 't9md/vim-choosewin'
-" Automatically sort python imports
-" Plug 'fisadev/vim-isort'
-" Highlight matching html tags
-Plug 'valloric/MatchTagAlways'
-" Generate html in a simple way
-" Plug 'mattn/emmet-vim'
-" Git integration
-" Plug 'tpope/vim-fugitive'
-" Git/mercurial/others diff icons on the side of the file lines
-" Plug 'mhinz/vim-signify'
-" Yank history navigation
-" Plug 'vim-scripts/YankRing.vim'
-" Linters
-Plug 'neomake/neomake'
+
+ "Deoplete: on the fly completion suggestions
+Plug 'Shougo/deoplete.nvim'
+Plug 'roxma/nvim-yarp'
+Plug 'roxma/vim-hug-neovim-rpc'
+
 " Relative numbering of lines (0 is the current line)
 " (disabled by default because is very intrusive and can't be easily toggled
 " on/off. When the plugin is present, will always activate the relative
 " numbering every time you go to normal mode. Author refuses to add a setting
 " to avoid that)
 Plug 'myusuf3/numbers.vim'
+
 " Nice icons in the file explorer and file type status line.
-" Plug 'ryanoasis/vim-devicons'
+Plug 'ryanoasis/vim-devicons'
 
 if using_vim
     " Consoles as buffers (neovim has its own consoles as buffers)
@@ -123,11 +108,14 @@ if using_vim
     Plug 'vim-scripts/matchit.zip'
 endif
 
-" Code searcher. If you enable it, you should also configure g:hound_base_url 
-" and g:hound_port, pointing to your hound instance
-" Plug 'mattn/webapi-vim'
-" Plug 'jfo/hound.vim'
+Plug 'lervag/vimtex' " Latex plugin
 
+" Track the engine.
+Plug 'SirVer/ultisnips'
+"
+" " Snippets are separated from the engine. Add this if you want them:
+Plug 'honza/vim-snippets'
+"
 " Tell vim-plug we finished declaring plugins, so it can load them
 call plug#end()
 
@@ -163,6 +151,10 @@ if using_vim
 
     " syntax highlight on
     syntax on
+
+    set clipboard=unnamedplus  " maps system keyboard to vim's paste buffer
+
+    set spell spelllang=en_us
 
     " better backup, swap and undos storage for vim (nvim has nice ones by
     " default)
@@ -274,11 +266,6 @@ let g:DevIconsEnableFoldersOpenClose = 1
 " Fix directory colors
 highlight! link NERDTreeFlags NERDTreeDir
 
-" Remove expandable arrow
-let g:WebDevIconsNerdTreeBeforeGlyphPadding = ""
-let NERDTreeDirArrowExpandable = "\u00a0"
-let NERDTreeDirArrowCollapsible = "\u00a0"
-let NERDTreeNodeDelimiter = "\x07"
 
 " Autorefresh on tree focus
 function! NERDTreeRefresh()
@@ -288,25 +275,6 @@ function! NERDTreeRefresh()
 endfunction
 
 autocmd BufEnter * call NERDTreeRefresh()
-
-" Tasklist ------------------------------
-
-" show pending tasks list
-map <F2> :TaskList<CR>
-
-" Neomake ------------------------------
-
-" Run linter on write
-autocmd! BufWritePost * Neomake
-
-" Check code as python3 by default
-let g:neomake_python_python_maker = neomake#makers#ft#python#python()
-let g:neomake_python_flake8_maker = neomake#makers#ft#python#flake8()
-let g:neomake_python_python_maker.exe = 'python3 -m py_compile'
-let g:neomake_python_flake8_maker.exe = 'python3 -m flake8'
-
-" Disable error messages inside the buffer, next to the problematic line
-let g:neomake_virtualtext_current_error = 0
 
 " Fzf ------------------------------
 
@@ -341,49 +309,13 @@ let g:deoplete#enable_smart_case = 1
 let g:context_filetype#same_filetypes = {}
 let g:context_filetype#same_filetypes._ = '_'
 
-" Jedi-vim ------------------------------
-
-" Disable autocompletion (using deoplete instead)
-let g:jedi#completions_enabled = 0
-
-" All these mappings work only for python code:
-" Go to definition
-let g:jedi#goto_command = ',d'
-" Find ocurrences
-let g:jedi#usages_command = ',o'
-" Find assignments
-let g:jedi#goto_assignments_command = ',a'
-" Go to definition in new tab
-nmap ,D :tab split<CR>:call jedi#goto()<CR>
-
-" Ack.vim ------------------------------
-
-" mappings
-nmap ,r :Ack 
-nmap ,wr :execute ":Ack " . expand('<cword>')<CR>
 
 " Window Chooser ------------------------------
-
 " mapping
 nmap  -  <Plug>(choosewin)
 " show big letters
 let g:choosewin_overlay_enable = 1
 
-" Signify ------------------------------
-
-" this first setting decides in which order try to guess your current vcs
-" UPDATE it to reflect your preferences, it will speed up opening files
-let g:signify_vcs_list = ['git', 'hg']
-" mappings to jump to changed blocks
-nmap <leader>sn <plug>(signify-next-hunk)
-nmap <leader>sp <plug>(signify-prev-hunk)
-" nicer colors
-highlight DiffAdd           cterm=bold ctermbg=none ctermfg=119
-highlight DiffDelete        cterm=bold ctermbg=none ctermfg=167
-highlight DiffChange        cterm=bold ctermbg=none ctermfg=227
-highlight SignifySignAdd    cterm=bold ctermbg=237  ctermfg=119
-highlight SignifySignDelete cterm=bold ctermbg=237  ctermfg=167
-highlight SignifySignChange cterm=bold ctermbg=237  ctermfg=227
 
 " Autoclose ------------------------------
 
@@ -393,34 +325,8 @@ highlight SignifySignChange cterm=bold ctermbg=237  ctermfg=227
 let g:AutoClosePumvisible = {"ENTER": "\<C-Y>", "ESC": "\<ESC>"}
 
 " Yankring -------------------------------
-
 let g:yankring_history_dir = '~/.vim/dirs/'
 
-" Airline ------------------------------
-
-let g:airline_powerline_fonts = 0
-let g:airline_theme = 'bubblegum'
-let g:airline#extensions#whitespace#enabled = 0
-
-" Fancy Symbols!!
-
-if fancy_symbols_enabled
-    let g:webdevicons_enable = 1
-
-    " custom airline symbols
-    if !exists('g:airline_symbols')
-       let g:airline_symbols = {}
-    endif
-    let g:airline_left_sep = ''
-    let g:airline_left_alt_sep = ''
-    let g:airline_right_sep = ''
-    let g:airline_right_alt_sep = ''
-    let g:airline_symbols.branch = '⭠'
-    let g:airline_symbols.readonly = '⭤'
-    let g:airline_symbols.linenr = '⭡'
-else
-    let g:webdevicons_enable = 0
-endif
 
 " Custom configurations ----------------
 " Disable arrow keys
@@ -432,8 +338,9 @@ noremap  <Left> ""
 noremap! <Left> <Esc>
 noremap  <Right> ""
 noremap! <Right> <Esc>
-imap jj <Esc>
 
+imap jj <Esc>
+imap kk <Esc>
 
 nnoremap cw ciw
 nnoremap dw diw
@@ -442,8 +349,28 @@ nnoremap c' ci'
 nnoremap c" ci"
 xnoremap p pgvy
 
+set splitbelow
+set splitright
+
+" Split navigation mappings
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+" Trigger configuration. Do not use <tab> if you use " https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+"
+" " If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical""
+
 " Include user's custom nvim configurations
 let custom_configs_path = "~/.vim/custom.vim"
 if filereadable(expand(custom_configs_path))
   execute "source " . custom_configs_path
 endif
+
+" turn-on mouse suppot
+:set mouse=a
