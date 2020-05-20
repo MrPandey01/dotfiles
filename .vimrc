@@ -4,7 +4,6 @@ let fancy_symbols_enabled=1
 set encoding=utf-8
 let using_neovim = has('nvim')
 let using_vim = !using_neovim
-set pyx=2
 
 " ============================================================================
 " Vim-plug initialization
@@ -86,7 +85,7 @@ Plug 'sheerun/vim-polyglot'
 " Paint css colors with the real color
 Plug 'lilydjwg/colorizer'
 
- "Deoplete: on the fly completion suggestions
+" Deoplete: on the fly completion suggestions
 Plug 'Shougo/deoplete.nvim'
 Plug 'roxma/nvim-yarp'
 Plug 'roxma/vim-hug-neovim-rpc'
@@ -98,8 +97,6 @@ Plug 'roxma/vim-hug-neovim-rpc'
 " to avoid that)
 Plug 'myusuf3/numbers.vim'
 
-" Nice icons in the file explorer and file type status line.
-Plug 'ryanoasis/vim-devicons'
 
 if using_vim
     " Consoles as buffers (neovim has its own consoles as buffers)
@@ -215,13 +212,6 @@ set wildmode=list:longest
 " save as sudo
 ca w!! w !sudo tee "%"
 
-" tab navigation mappings
-map tt :tabnew 
-map <M-Right> :tabn<CR>
-imap <M-Right> <ESC>:tabn<CR>
-map <M-Left> :tabp<CR>
-imap <M-Left> <ESC>:tabp<CR>
-
 " when scrolling, keep cursor 3 lines away from screen border
 set scrolloff=3
 
@@ -258,10 +248,6 @@ map <F3> :NERDTreeToggle<CR>
 nmap ,t :NERDTreeFind<CR>
 " don;t show these file types
 let NERDTreeIgnore = ['\.pyc$', '\.pyo$']
-
-" Enable folder icons
-let g:WebDevIconsUnicodeDecorateFolderNodes = 1
-let g:DevIconsEnableFoldersOpenClose = 1
 
 " Fix directory colors
 highlight! link NERDTreeFlags NERDTreeDir
