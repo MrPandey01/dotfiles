@@ -50,6 +50,8 @@ call plug#begin("~/.vim/plugged")
 
 Plug 'arielrossanigo/dir-configs-override.vim' " Override configs by directory
 
+Plug 'tpope/vim-obsession' " :mksession alternative
+
 Plug 'scrooloose/nerdcommenter' " Code commenter
 
 Plug 'vim-scripts/IndexedSearch'  " Search results counter
@@ -343,6 +345,14 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+
+" Statusline options
+set statusline=%{ObsessionStatus()}
+
+" Set F5 to save and run the current python file
+autocmd FileType python map <buffer> <F5> :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
+autocmd FileType python imap <buffer> <F5> <esc>:w<CR>:exec '!python3' shellescape(@%, 1)<CR>
+
 
 " Trigger configuration. Do not use <tab> if you use " https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<tab>"
