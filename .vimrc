@@ -97,7 +97,6 @@ Plug 'roxma/vim-hug-neovim-rpc'
 " to avoid that)
 Plug 'myusuf3/numbers.vim'
 
-
 if using_vim
     " Consoles as buffers (neovim has its own consoles as buffers)
     Plug 'rosenfeld/conque-term'
@@ -149,7 +148,7 @@ if using_vim
     " syntax highlight on
     syntax on
 
-    set clipboard=unnamedplus  " maps system keyboard to vim's paste buffer
+    "set clipboard=unnamedplus  " maps system keyboard to vim's paste buffer
 
     set spell spelllang=en_us
 
@@ -233,13 +232,6 @@ au FileType python map <silent> <leader>b Oimport ipdb; ipdb.set_trace()<esc>
 " Plugins settings and mappings
 " Edit them as you wish.
 
-" Tagbar -----------------------------
-
-" toggle tagbar display
-map <F4> :TagbarToggle<CR>
-" autofocus on tagbar open
-let g:tagbar_autofocus = 1
-
 " NERDTree -----------------------------
 
 " toggle nerdtree display
@@ -286,8 +278,6 @@ nmap ,wF :execute ":Lines " . expand('<cword>')<CR>
 nmap ,c :Commands<CR>
 
 " Deoplete -----------------------------
-
-" Use deoplete.
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_ignore_case = 1
 "let g:deoplete#enable_smart_case = 1
@@ -327,6 +317,7 @@ noremap! <Right> <Esc>
 
 imap jj <Esc>
 imap kk <Esc>
+imap jk <Esc>
 
 nnoremap cw ciw
 nnoremap dw diw
@@ -360,11 +351,11 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 " " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical""
 
+" turn-on mouse suppot
+:set mouse=a
+
 " Include user's custom nvim configurations
 let custom_configs_path = "~/.vim/custom.vim"
 if filereadable(expand(custom_configs_path))
   execute "source " . custom_configs_path
 endif
-
-" turn-on mouse suppot
-:set mouse=a
