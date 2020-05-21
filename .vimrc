@@ -68,8 +68,6 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
-Plug 'roxma/nvim-yarp' " Async autocompletion
-
 Plug 'Townk/vim-autoclose' " Automatically close parenthesis, etc
 
 " Surround
