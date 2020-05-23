@@ -156,10 +156,10 @@ if using_vim
     inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 
     " global color settings
-    set bg=dark
-    if (has('termguicolors'))
-      set termguicolors
-    endif
+    set background=dark
+    "if (has('termguicolors'))
+      "set termguicolors
+    "endif
 
     " reopen the file at same cursor location
     if has("autocmd")
