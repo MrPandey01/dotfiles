@@ -33,6 +33,7 @@ if vim_plug_just_installed
     :execute 'source '.fnameescape(vim_plug_path)
 endif
 
+
 " Obscure hacks done, you can now modify the rest of the config down below 
 " as you wish :)
 " IMPORTANT: some things in the config are vim or neovim specific. It's easy 
@@ -60,6 +61,12 @@ Plug 'vim-scripts/IndexedSearch'  " Search results counter
 " Plug 'fisadev/fisa-vim-colorscheme'
 "Plug 'patstockwell/vim-monokai-tasty'
 Plug 'morhetz/gruvbox'
+Plug 'arcticicestudio/nord-vim'
+Plug 'dylanaraps/wal'
+Plug 'chriskempson/base16-vim'
+Plug 'drewtempelmeyer/palenight.vim'
+Plug 'kaicataldo/material.vim'
+
 " Airline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -78,12 +85,6 @@ Plug 'michaeljsmith/vim-indent-object'
 
 " Indentation based movements
 Plug 'jeetsukumaran/vim-indentwise'
-
-" Better language packs
-Plug 'sheerun/vim-polyglot'
-
-" Paint css colors with the real color
-Plug 'lilydjwg/colorizer'
 
 " Deoplete: on the fly completion suggestions
 Plug 'Shougo/deoplete.nvim'
@@ -152,6 +153,12 @@ if using_vim
 
     set spell spelllang=en_us
 
+    " global color settings
+    set bg=dark
+    if (has('termguicolors'))
+      set termguicolors
+    endif
+
     " better backup, swap and undos storage for vim (nvim has nice ones by
     " default)
     set directory=~/.vim/dirs/tmp     " directory to place swap files in
@@ -189,10 +196,22 @@ if has('gui_running') || using_neovim || (&term =~? 'mlterm\|xterm\|xterm-256\|s
     if !has('gui_running')
         let &t_Co = 256
     endif
-    "colorscheme vim-monokai-tasty
 
-    colorscheme gruvbox
-    set bg=dark
+    "colorscheme gruvbox
+    "colorscheme palenight
+    "colorscheme wal
+    "colorscheme base16-nord
+    
+    " Material theme settings
+    let g:material_theme_style = 'palenight' " default' | 'palenight' | 'ocean' | 'lighter' | 'darker'
+    let g:material_terminal_italics = 1
+    colorscheme material
+
+    " Settings for arcticnord theme
+    "let g:nord_cursor_line_number_background = 1
+    "let g:nord_bold = 0
+    "colorscheme nord
+
 else
     colorscheme delek
 endif
@@ -303,6 +322,15 @@ let g:AutoClosePumvisible = {"ENTER": "\<C-Y>", "ESC": "\<ESC>"}
 " Yankring -------------------------------
 let g:yankring_history_dir = '~/.vim/dirs/'
 
+" Vimtex ---------------------------------
+let g:tex_flavor='latex'
+let g:vimtex_view_method='zathura'
+let g:vimtex_quickfix_mode=0
+set conceallevel=1
+let g:tex_conceal='abdmg'
+
+" Autocorrect spelling mistake on-the-fly
+inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 
 " Custom configurations ----------------
 " Disable arrow keys
@@ -351,10 +379,10 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 " " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical""
 
-" turn-on mouse suppot
+" turn-on mouse support
 :set mouse=a
 
-" Include user's custom nvim configurations
+" Include user's custom vim configurations
 let custom_configs_path = "~/.vim/custom.vim"
 if filereadable(expand(custom_configs_path))
   execute "source " . custom_configs_path
