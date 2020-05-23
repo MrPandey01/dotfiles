@@ -1,9 +1,8 @@
-let fancy_symbols_enabled=1
-
 
 set encoding=utf-8
 let using_neovim = has('nvim')
 let using_vim = !using_neovim
+let fancy_symbols_enabled=1
 
 " ============================================================================
 " Vim-plug initialization
@@ -149,7 +148,8 @@ if using_vim
     " syntax highlight on
     syntax on
 
-    "set clipboard=unnamedplus  " maps system keyboard to vim's paste buffer
+    " Cursorline
+    set cursorline
 
     set spell spelllang=en_us
 
@@ -197,15 +197,18 @@ if has('gui_running') || using_neovim || (&term =~? 'mlterm\|xterm\|xterm-256\|s
         let &t_Co = 256
     endif
 
-    "colorscheme gruvbox
-    "colorscheme palenight
     "colorscheme wal
     "colorscheme base16-nord
     
+    " gruvbox settings
+    let g:gruvbox_italic = '1'
+    let g:gruvbox_contrast_dark = 'hard'
+    colorscheme gruvbox
+
     " Material theme settings
-    let g:material_theme_style = 'palenight' " default' | 'palenight' | 'ocean' | 'lighter' | 'darker'
-    let g:material_terminal_italics = 1
-    colorscheme material
+    "let g:material_theme_style = 'default' " default' | 'palenight' | 'ocean' | 'lighter' | 'darker'
+    "let g:material_terminal_italics = 1
+    "colorscheme material
 
     " Settings for arcticnord theme
     "let g:nord_cursor_line_number_background = 1
