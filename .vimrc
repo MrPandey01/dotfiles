@@ -159,6 +159,12 @@ if using_vim
       set termguicolors
     endif
 
+    " reopen the file at same cursor location
+    if has("autocmd")
+    au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
+        \| exe "normal! g`\"" | endif
+    endif
+
     " better backup, swap and undos storage for vim (nvim has nice ones by
     " default)
     set directory=~/.vim/dirs/tmp     " directory to place swap files in
