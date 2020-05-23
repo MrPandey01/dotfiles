@@ -239,7 +239,6 @@ snippet template_article "Basic template" b
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{textcomp}
-\usepackage[dutch]{babel}
 \usepackage{amsmath, amssymb}
 
 
@@ -257,13 +256,14 @@ snippet template_article "Basic template" b
 \pdfsuppresswarningpagegroup=1
 
 \title{${1:Title}}
+\date{\today}
 
 \author{%
-Arun Pandey\\
-Department of Electrical Engineering\\
-ESAT-STADIUS, KU Leuven\\
-Kasteelpark Arenberg 10, B-3001 Leuven, Belgium\\
-\texttt{arun.pandey@esat.kuleuven.be} \\
+Arun Pandey \\\[1ex]
+Department of Electrical Engineering \\\
+ESAT-STADIUS, KU Leuven \\\
+Kasteelpark Arenberg 10, B-3001 Leuven, Belgium \\\
+\texttt{arun.pandey@esat.kuleuven.be} 
 }
 
 \begin{document}
@@ -271,7 +271,7 @@ Kasteelpark Arenberg 10, B-3001 Leuven, Belgium\\
 
 \begin{abstract}
 abstract...
-\end{end}
+\end{abstract}
 
 \section{Introduction}
 $0
