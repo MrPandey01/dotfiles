@@ -62,8 +62,6 @@ Plug 'vim-scripts/IndexedSearch'  " Search results counter
 Plug 'morhetz/gruvbox'
 Plug 'arcticicestudio/nord-vim'
 Plug 'dylanaraps/wal'
-Plug 'chriskempson/base16-vim'
-Plug 'drewtempelmeyer/palenight.vim'
 Plug 'kaicataldo/material.vim'
 
 " Airline
@@ -125,7 +123,6 @@ endif
 
 " ============================================================================
 " Vim settings and mappings
-" You can edit them as you wish
  
 if using_vim
     " A bunch of things that are set by default in neovim, but not in vim
@@ -151,7 +148,12 @@ if using_vim
     " Cursorline
     set cursorline
 
+    " turn-on mouse support
+    :set mouse=a
+
     set spell spelllang=en_us
+    " Autocorrect spelling mistake on-the-fly
+    inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 
     " global color settings
     set bg=dark
@@ -203,9 +205,6 @@ if has('gui_running') || using_neovim || (&term =~? 'mlterm\|xterm\|xterm-256\|s
         let &t_Co = 256
     endif
 
-    "colorscheme wal
-    "colorscheme base16-nord
-    
     " gruvbox settings
     let g:gruvbox_italic = '1'
     let g:gruvbox_contrast_dark = 'hard'
@@ -272,7 +271,6 @@ let NERDTreeIgnore = ['\.pyc$', '\.pyo$']
 " Fix directory colors
 highlight! link NERDTreeFlags NERDTreeDir
 
-
 " Autorefresh on tree focus
 function! NERDTreeRefresh()
     if &filetype == "nerdtree"
@@ -322,14 +320,10 @@ let g:choosewin_overlay_enable = 1
 
 
 " Autoclose ------------------------------
-
 " Fix to let ESC work as espected with Autoclose plugin
 " (without this, when showing an autocompletion window, ESC won't leave insert
 "  mode)
 let g:AutoClosePumvisible = {"ENTER": "\<C-Y>", "ESC": "\<ESC>"}
-
-" Yankring -------------------------------
-let g:yankring_history_dir = '~/.vim/dirs/'
 
 " Vimtex ---------------------------------
 let g:tex_flavor='latex'
@@ -338,8 +332,6 @@ let g:vimtex_quickfix_mode=0
 set conceallevel=1
 let g:tex_conceal='abdmg'
 
-" Autocorrect spelling mistake on-the-fly
-inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 
 " Custom configurations ----------------
 " Disable arrow keys
@@ -366,7 +358,7 @@ xnoremap p pgvy
 set splitbelow
 set splitright
 
-" Split navigation mappings
+" SplitScreen navigation mappings
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
@@ -379,17 +371,13 @@ set statusline=%{ObsessionStatus()}
 autocmd FileType python map <buffer> <F5> :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
 autocmd FileType python imap <buffer> <F5> <esc>:w<CR>:exec '!python3' shellescape(@%, 1)<CR>
 
-
-" Trigger configuration. Do not use <tab> if you use " https://github.com/Valloric/YouCompleteMe.
+" Snippets Trigger configuration. Do not use <tab> if you use " https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 "
 " " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical""
-
-" turn-on mouse support
-:set mouse=a
 
 " Include user's custom vim configurations
 let custom_configs_path = "~/.vim/custom.vim"
