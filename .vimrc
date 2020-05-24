@@ -52,7 +52,7 @@ Plug 'arielrossanigo/dir-configs-override.vim' " Override configs by directory
 
 Plug 'tpope/vim-obsession' " :mksession alternative
 
-Plug 'scrooloose/nerdcommenter' " Code commenter
+Plug 'preservim/nerdcommenter'
 
 Plug 'vim-scripts/IndexedSearch'  " Search results counter
 
@@ -341,6 +341,25 @@ let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<shift+tab>"
 
 let g:UltiSnipsEditSplit="vertical""
+
+" NerdCommenter ------------------------
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+
+" Align line-wise comment delimiters flush left instead of following code indentation
+let g:NERDDefaultAlign = 'left'
+
+" Allow commenting and inverting empty lines (useful when commenting a region)
+let g:NERDCommentEmptyLines = 1
+
+" Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
+
+" Enable NERDCommenterToggle to check all selected lines is commented or not 
+let g:NERDToggleCheckAllLines = 1
+
+nnoremap <C-T> :call NERDComment(0,"toggle")<CR>
+vnoremap <C-T> :call NERDComment(0,"toggle")<CR>
 
 " Custom configurations ----------------
 " Disable arrow keys

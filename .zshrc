@@ -79,6 +79,26 @@ alias dpuom="dotfiles push -u origin master"
 alias dcm='f() {dotfiles commit -m $1}; f'
 
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME/'
+alias py='python'
+alias rm='rm -i'
+alias gpu='watch nvidia-smi'
+
+# vim
+type vim &>/dev/null && {
+  alias vi='vim'
+  alias vii='vim --noplugin'
+  alias viii='vim -u NONE'
+}
+
+#pdf2image () {
+  #if [ $# -ne 2 ]; then
+    #echo "Usage: pdf2png INPUT_FILE OUTPUT_FILE"
+    #return 1
+  #fi
+  #pdf_file=$1
+  #out_file=$2
+  #convert -density 300x300 -quality 95 $pdf_file $out_file
+#}
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
