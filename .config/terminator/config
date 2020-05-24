@@ -6,9 +6,11 @@
   suppress_multiple_term_dialog = True
 [keybindings]
   new_tab = <Primary>t
-  split_horiz = <Primary>h
-  split_vert = <Primary>v
+  split_horiz = <Primary><Alt>h
+  split_vert = <Primary><Alt>v
   close_term = <Primary>w
+  copy = <Primary>c
+  paste = <Primary>v
   close_window = <Primary><Shift>w
 [profiles]
   [[default]]

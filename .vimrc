@@ -128,8 +128,7 @@ if using_vim
     " A bunch of things that are set by default in neovim, but not in vim
 
     set nocompatible
-    filetype plugin on
-    filetype indent on
+    filetype plugin indent on
     set ls=2  " always show statusbar
     set incsearch  " Incremental search
     set hlsearch  " highlight search results
@@ -143,6 +142,14 @@ if using_vim
     "if (has('termguicolors'))
       "set termguicolors
     "endif
+    " clipboard
+    "
+    " Use the OS clipboard by default (on versions compiled with `+clipboard`)
+    if has('unnamedplus')
+        set clipboard=unnamed,unnamedplus
+    else
+        set clipboard=unnamed
+    endif
 
     " reopen the file at same cursor location
     if has("autocmd")
@@ -152,22 +159,22 @@ if using_vim
 
     " better backup, swap and undos storage for vim (nvim has nice ones by
     " default)
-    set directory=~/.vim/dirs/tmp     " directory to place swap files in
-    set backup                        " make backup files
-    set backupdir=~/.vim/dirs/backups " where to put backup files
-    set undofile                      " persistent undos - undo after you re-open the file
-    set undodir=~/.vim/dirs/undos
-    set viminfo+=n~/.vim/dirs/viminfo
-    " create needed directories if they don't exist
-    if !isdirectory(&backupdir)
-        call mkdir(&backupdir, "p")
-    endif
-    if !isdirectory(&directory)
-        call mkdir(&directory, "p")
-    endif
-    if !isdirectory(&undodir)
-        call mkdir(&undodir, "p")
-    endif
+    "set directory=~/.vim/dirs/tmp     " directory to place swap files in
+    "set backup                        " make backup files
+    "set backupdir=~/.vim/dirs/backups " where to put backup files
+    "set undofile                      " persistent undos - undo after you re-open the file
+    "set undodir=~/.vim/dirs/undos
+    "set viminfo+=n~/.vim/dirs/viminfo
+     "create needed directories if they don't exist
+    "if !isdirectory(&backupdir)
+        "call mkdir(&backupdir, "p")
+    "endif
+    "if !isdirectory(&directory)
+        "call mkdir(&directory, "p")
+    "endif
+    "if !isdirectory(&undodir)
+        "call mkdir(&undodir, "p")
+    "endif
 end
 
 " tabs and spaces handling
@@ -212,9 +219,19 @@ endif
 " disabled by default because preview makes the window flicker
 set completeopt-=preview
 
-" autocompletion of files and commands behaves like shell
+" Autocompletion of files and commands behaves like shell
 " (complete only the common part, list the options that match)
-set wildmode=list:longest
+set wildmenu
+set wildignore+=*.dll,*.o,*.pyc,*.bak,*.exe,*.jpg,*.jpeg,*.png,*.gif,*$py.class,*.class,*/*.dSYM/*,*.dylib,*.so,*.swp,*.zip,*.tgz,*.gz
+set wildmode=list,full
+
+" Ignore compiled files
+set wildignore=*.o,*~,*.pyc
+if has("win16") || has("win32")
+  set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store
+else
+  set wildignore+=.git\*,.hg\*,.svn\*
+endif
 
 " save as sudo
 ca w!! w !sudo tee "%"
@@ -335,6 +352,12 @@ noremap  <Left> ""
 noremap! <Left> <Esc>
 noremap  <Right> ""
 noremap! <Right> <Esc>
+
+" copy-paste to system clipboard
+noremap <Leader>y "*y
+noremap <Leader>p "*p
+noremap <Leader>Y "+y
+noremap <Leader>P "+p
 
 imap jj <Esc>
 imap kk <Esc>
