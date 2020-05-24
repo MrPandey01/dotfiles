@@ -77,10 +77,12 @@ alias gpuom="git push -u origin master"
 alias pau="priv_files add -u; echo priv_files add -u"
 alias pcm='priv_files commit -m "updates"; echo priv_files committed'
 alias ppuom="priv_files push -u origin master; echo priv_files pushed"
+alias pfr="priv_files fetch --all && priv_files reset --hard origin/master"
 
 alias dau="dotfiles add -u && echo dotfiles add -u"
 alias dcm='f() {dotfiles commit -m $1}; f'
 alias dpuom="dotfiles push -u origin master; pau; pcm; ppuom"
+alias dfr="dotfiles fetch --all; dotfiles reset --hard origin/master; pfr"
 
 
 alias priv_files='/usr/bin/git --git-dir=$HOME/.priv_files/ --work-tree=$HOME/'
