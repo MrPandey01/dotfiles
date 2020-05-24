@@ -2,7 +2,6 @@
 set encoding=utf-8
 let using_neovim = has('nvim')
 let using_vim = !using_neovim
-let fancy_symbols_enabled=1
 
 " ============================================================================
 " Vim-plug initialization
@@ -57,7 +56,6 @@ Plug 'preservim/nerdcommenter'
 Plug 'vim-scripts/IndexedSearch'  " Search results counter
 
 " A couple of nice color schemes
-" Plug 'fisadev/fisa-vim-colorscheme'
 "Plug 'patstockwell/vim-monokai-tasty'
 Plug 'morhetz/gruvbox'
 Plug 'arcticicestudio/nord-vim'
@@ -110,6 +108,7 @@ Plug 'SirVer/ultisnips'
 " " Snippets are separated from the engine. Add this if you want them:
 Plug 'honza/vim-snippets'
 "
+Plug 'ryanoasis/vim-devicons'
 " Tell vim-plug we finished declaring plugins, so it can load them
 call plug#end()
 

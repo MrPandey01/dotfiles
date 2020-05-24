@@ -69,19 +69,27 @@ fi
 source $HOME/.oh-my-zsh/custom/custom_alias.zsh
 
 # Git aliases
-alias gpuom="git push -u origin master"
 alias gau="git add -u"
 alias gcm='f() {git commit -m $1}; f'
 alias gfr="git fetch --all && git reset --hard origin/master"
-alias dropbox="~/.dropbox-dist/dropboxd"
-alias dau="dotfiles add -u && echo dotfiles add -u"
-alias dpuom="dotfiles push -u origin master"
-alias dcm='f() {dotfiles commit -m $1}; f'
+alias gpuom="git push -u origin master"
 
+alias pau="priv_files add -u; echo priv_files add -u"
+alias pcm='priv_files commit -m "updates"; echo priv_files committed'
+alias ppuom="priv_files push -u origin master; echo priv_files pushed"
+
+alias dau="dotfiles add -u && echo dotfiles add -u"
+alias dcm='f() {dotfiles commit -m $1}; f'
+alias dpuom="dotfiles push -u origin master; pau; pcm; ppuom"
+
+
+alias priv_files='/usr/bin/git --git-dir=$HOME/.priv_files/ --work-tree=$HOME/'
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME/'
+alias dropbox="~/.dropbox-dist/dropboxd"
 alias py='python'
 alias rm='rm -i'
 alias gpu='watch nvidia-smi'
+alias src='source'
 
 # vim
 type vim &>/dev/null && {
