@@ -1,13 +1,23 @@
 [global_config]
-  enabled_plugins = LaunchpadCodeURLHandler, APTURLHandler, LaunchpadBugURLHandler
   focus = system
   geometry_hinting = True
   inactive_color_offset = 1.0
+  enabled_plugins = LaunchpadCodeURLHandler, APTURLHandler, LaunchpadBugURLHandler
   suppress_multiple_term_dialog = True
 [keybindings]
+  new_tab = <Primary>t
+  split_horiz = <Primary>h
+  split_vert = <Primary>v
   close_term = <Primary>w
   close_window = <Primary><Shift>w
-  new_tab = <Primary>t
+[profiles]
+  [[default]]
+    background_color = "#282828"
+    cursor_shape = ibeam
+    cursor_color = "#aaaaaa"
+    foreground_color = "#ffffff"
+    scroll_on_output = True
+    scrollback_lines = 1000
 [layouts]
   [[default]]
     [[[child1]]]
@@ -17,10 +27,3 @@
       parent = ""
       type = Window
 [plugins]
-[profiles]
-  [[default]]
-    cursor_color = "#aaaaaa"
-    cursor_shape = ibeam
-    scroll_on_output = True
-    scrollback_lines = 1000
-    use_theme_colors = True

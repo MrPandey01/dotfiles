@@ -127,36 +127,19 @@ endif
 if using_vim
     " A bunch of things that are set by default in neovim, but not in vim
 
-    " no vi-compatible
     set nocompatible
-
-    " allow plugins by file type (required for plugins!)
     filetype plugin on
     filetype indent on
-
-    " always show status bar
-    set ls=2
-
-    " incremental search
-    set incsearch
-    " highlighted search results
-    set hlsearch
-
-    " syntax highlight on
+    set ls=2  " always show statusbar
+    set incsearch  " Incremental search
+    set hlsearch  " highlight search results
     syntax on
-
-    " Cursorline
     set cursorline
-
-    " turn-on mouse support
-    :set mouse=a
-
+    set mouse=a
     set spell spelllang=en_us
-    " Autocorrect spelling mistake on-the-fly
-    inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
+    set background=dark
 
     " global color settings
-    set background=dark
     "if (has('termguicolors'))
       "set termguicolors
     "endif
@@ -201,9 +184,7 @@ set fillchars+=vert:\
 
 " use 256 colors when possible
 if has('gui_running') || using_neovim || (&term =~? 'mlterm\|xterm\|xterm-256\|screen-256')
-    if !has('gui_running')
-        let &t_Co = 256
-    endif
+    let t_Co = 256
 
     " gruvbox settings
     let g:gruvbox_italic = '1'
@@ -335,6 +316,14 @@ if empty(v:servername) && exists('*remote_startserver')
     call remote_startserver('VIM')
 endif
 
+" UltiSnippets ---------------------------
+" Snippets Trigger configuration. 
+" Do not use <tab> if you use " https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<shift+tab>"
+
+let g:UltiSnipsEditSplit="vertical""
 
 " Custom configurations ----------------
 " Disable arrow keys
@@ -367,6 +356,9 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+" Autocorrect spelling mistake on-the-fly
+inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
+
 " Statusline options
 set statusline=%{ObsessionStatus()}
 
@@ -374,13 +366,6 @@ set statusline=%{ObsessionStatus()}
 autocmd FileType python map <buffer> <F5> :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
 autocmd FileType python imap <buffer> <F5> <esc>:w<CR>:exec '!python3' shellescape(@%, 1)<CR>
 
-" Snippets Trigger configuration. Do not use <tab> if you use " https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<shift+tab>"
-"
-" " If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical""
 
 " Include user's custom vim configurations
 let custom_configs_path = "~/.vim/custom.vim"
