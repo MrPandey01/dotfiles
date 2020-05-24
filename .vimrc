@@ -397,6 +397,11 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+" alternate of :w is :update i.e write only when there is change
+" in document
+nnoremap zz :update<cr>
+inoremap zz <Esc>:update<cr>gi
+
 " Autocorrect spelling mistake on-the-fly
 inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 

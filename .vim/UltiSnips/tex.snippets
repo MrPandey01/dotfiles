@@ -233,14 +233,33 @@ snippet fig "Figure environment" b
 endsnippet
 
 # Article class template
-snippet template_article "Basic template" b
+snippet template_arxiv "Basic template" b
 \documentclass[a4paper]{article}
 
+\usepackage{times}
+\usepackage[left=1in, right=1in, top=1in, bottom=1in]{geometry}
+\usepackage{breakcites}
+
+\usepackage{cite}
+\usepackage{graphicx}
+
+\usepackage{bm}
+\usepackage{mathtools}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{hyperref}
+\usepackage{multicol}
+\usepackage{tabu}
+\usepackage{multirow}
+\usepackage{ctable} %
+\usepackage{subcaption}
+\usepackage{adjustbox}
+\usepackage{placeins}
+\usepackage{wrapfig}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{textcomp}
 \usepackage{amsmath, amssymb}
-
 
 % figure support
 \usepackage{import}
@@ -258,12 +277,10 @@ snippet template_article "Basic template" b
 \title{${1:Title}}
 \date{\today}
 
-\author{%
-Arun Pandey \\\[1ex]
-Department of Electrical Engineering \\\
-ESAT-STADIUS, KU Leuven \\\
-Kasteelpark Arenberg 10, B-3001 Leuven, Belgium \\\
-\texttt{arun.pandey@esat.kuleuven.be} 
+\author{Arun Pandey, Joachim Schreurs \& Johan A. K. Suykens \\\
+	Department of Electrical Engineering, ESAT-STADIUS,\\\
+	KU Leuven. Kasteelpark Arenberg 10, B-3001 Leuven, Belgium\\\
+	\texttt{\\{arun.pandey,joachim.schreurs,johan.suykens\\}@esat.kuleuven.be} 
 }
 
 \begin{document}
@@ -279,7 +296,136 @@ $0
 
 \section{Description}
 
-\section{conclusion}
+\section{Conclusion}
 	
+\subsubsection*{Acknowledgments}
+\footnotesize{
+EU: The research leading to these results has received funding from
+the European Research Council under the European Union's Horizon
+    2020 research and innovation program / ERC Advanced Grant E-DUALITY
+    (787960). This paper reflects only the authors' views and the Union
+    is not liable for any use that may be made of the contained information.
+Research Council KUL: Optimization frameworks for deep kernel machines C14/18/068
+Flemish Government:
+FWO: projects: GOA4917N (Deep Restricted Kernel Machines:
+        Methods and Foundations), PhD/Postdoc grant
+Impulsfonds AI: VR 2019 2203 DOC.0318/1QUATER Kenniscentrum Data
+        en Maatschappij
+Ford KU Leuven Research Alliance Project KUL0076 (Stability analysis
+    and performance improvement of deep reinforcement learning algorithms).}%
+
+# \bibliographystyle{ieeetr}
+# \bibliography{IEEEabrv,References}
+
 \end{document}
 endsnippet
+
+snippet beamer_template "KUL Beamer template" b
+
+%\usetheme[sedes]{kuleuven2}    %THEME OPTIONS for LOGO: kul (default), kulak, lrd,    ; OPTIONS for TITLE PAGE: normal (default), sedes
+%!TEX program = xelatex
+%!BIB program = biber
+\documentclass[aspectratio=169, xcolor={dvipsnames}, 9pt]{beamer}
+\usetheme[style=kul]{MathijsCustom}
+
+%%% OTHER SETTINGS
+\usefonttheme[onlymath]{serif}          % math font with serifs, delete to make it sans-serif
+\setbeamertemplate{footline}[body]      % delete this line to remove footline bar on all frames
+%\usepackage[orientation=landscape,size=custom,width=16,height=9,scale=0.3,debug]{beamerposter} %enable for widescreen 16:9 ratio
+%\titlegraphic{ \includegraphics[width=.2\paperwidth]{mytitlepagepic.png} } %optional title page image
+
+
+%%% ADDED PACKAGES:
+\usepackage[english]{babel}
+\usepackage{amsfonts, amsmath, amssymb}
+\usepackage{mathtools}
+\usepackage{bm}
+\usepackage{multicol}
+\usepackage{multirow}
+
+% citation styles
+\usepackage[doi=false,isbn=false,url=false,backref=false]{biblatex} % chem-angew
+\addbibresource{references.bib}
+\AtEveryCitekey{\clearfield{pages}}
+\AtEveryCitekey{\clearfield{volume}}
+\AtEveryCitekey{\clearfield{number}}
+
+
+%%% TITLE PAGE INFO:
+\title[title]{title} %[]] will appear in footline
+\subtitle{ERC Advanced Grant `E-Duality' Project}
+
+\author{\textbf{Ph.D. Candidate: }Arun Pandey \\ \textbf{Promoter: } Prof. Johan A. K. Suykens}
+\institute{ESAT-STADIUS, KU Leuven}
+\date{\today}
+
+
+\begin{document}
+
+
+%%
+%%  0. TITLE PAGE and TABLE OF CONTENT
+%%
+% Title page
+\begin{frame}[plain,noframenumbering]
+    \titlepage
+\end{frame}
+
+
+% Table of Contents
+\begin{frame}{Outline}
+    \hfill  {\large \parbox{.961\textwidth}{\tableofcontents[]}}
+\end{frame}
+
+
+\section{Research objectives}
+
+%
+\subsection{Motivation}
+\begin{frame}{Motivation}
+    Some motivation
+\end{frame}
+%
+
+\section{Work Progress}
+\subsection{Completed - Generative Restricted Kernel Machines}
+\begin{frame}{Introduction}
+    Some Intro
+\end{frame}
+%
+
+%%
+\begin{frame}{Experiments}
+
+\end{frame}
+% %
+% %
+\begin{frame}{Next Steps}
+    \begin{itemize}
+    	    	\setlength\itemsep{1em}
+        \item A
+        \item B
+         \begin{itemize}
+             \item B1
+             \item B2
+         \end{itemize}
+    \end{itemize}
+\end{frame}
+% %
+
+\begin{frame}[plain, noframenumbering]
+    % improvise this
+    Thank you
+\end{frame}
+
+% %
+% %
+\section{Appendix}
+
+\begin{frame}[noframenumbering]{\emph{proof of Proposition}:}
+
+\end{frame}
+%
+\end{document}
+endsnippet
+
