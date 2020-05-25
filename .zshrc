@@ -93,6 +93,15 @@ alias rm='rm -i'
 alias gpu='watch nvidia-smi'
 alias src='source'
 
+cdalias () {
+  if [ $# -ne 1 ]; then
+    echo "Input alias name to cd in current directory"
+    return 1
+  fi
+  echo "alias $1='cd $PWD'" >> $HOME/.oh-my-zsh/custom/custom_alias.zsh
+}
+
+
 # vim
 type vim &>/dev/null && {
   alias vi='vim'
