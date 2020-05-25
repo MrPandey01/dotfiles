@@ -93,6 +93,7 @@ alias rm='rm -i'
 alias gpu='watch nvidia-smi'
 alias src='source'
 
+# Dynamically set alias to cd in directory
 cdalias () {
   if [ $# -ne 1 ]; then
     echo "Input alias name to cd in current directory"
