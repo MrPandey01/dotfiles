@@ -341,6 +341,14 @@ let g:UltiSnipsJumpBackwardTrigger="<shift+tab>"
 
 let g:UltiSnipsEditSplit="vertical""
 
+" let g:UltiSnipsSnippetsDir="~/.priv_files/custom_snippets"
+" Add your private snippet path to runtimepath
+
+" set runtimepath^=~/.priv_files/custom_snippets
+" When vim starts, Ultisnips tries to find snippet directories defined below, under the paths in runtimepath.
+let g:UltiSnipsSnippetDirectories=["UltiSnips", "custom_snippets"]
+
+
 " NerdCommenter ------------------------
 " Add spaces after comment delimiters by default
 let g:NERDSpaceDelims = 1
