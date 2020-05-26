@@ -394,6 +394,7 @@ nnoremap c" ci"
 
 set splitbelow
 set splitright
+set autochdir
 
 " SplitScreen navigation mappings
 nnoremap <C-J> <C-W><C-J>
