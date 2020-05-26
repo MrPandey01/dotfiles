@@ -233,3 +233,28 @@ snippet fig "Figure environment" b
 endsnippet
 
 
+snippet standalone "Stanalone figure" b
+\documentclass[varwidth, border=0cm]{standalone}
+
+\usepackage[export]{adjustbox}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{tabu}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{makecell}
+
+\newcommand{\tabfigure}[2]{\raisebox{-.5\height}{\includegraphics[#1]{#2}}}
+
+\begin{document}
+
+\begin{figure}
+\centering
+\setlength\tabcolsep{0pt}
+\def\arraystretch{0.0}%  1 is the default, change whatever you need
+\begin{tabu}{c}
+	\tabfigure{height=1cm, width=1cm}{$0}                              
+\end{tabu}
+\end{figure}
+\end{document}
+endsnippet
