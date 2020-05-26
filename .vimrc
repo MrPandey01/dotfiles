@@ -380,15 +380,17 @@ noremap <Leader>Y "+y
 noremap <Leader>P "+p
 
 imap jj <Esc>
+imap ll <Esc>
+imap hh <Esc>
 imap kk <Esc>
 imap jk <Esc>
 
 nnoremap cw ciw
 nnoremap dw diw
 nnoremap c( ci(
+nnoremap c{ ci{
 nnoremap c' ci'
 nnoremap c" ci"
-xnoremap p pgvy
 
 set splitbelow
 set splitright
