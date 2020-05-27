@@ -88,6 +88,8 @@ alias dfr="dotfiles fetch --all; dotfiles reset --hard origin/master; pfr"
 alias priv_files='/usr/bin/git --git-dir=$HOME/.priv_files/ --work-tree=$HOME/'
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME/'
 alias dropbox="~/.dropbox-dist/dropboxd"
+alias vrc="vim $HOME/.vimrc"
+alias zrc="vim $HOME/.zshrc"
 alias py='python'
 alias rm='rm -i'
 alias gpu='watch nvidia-smi'
