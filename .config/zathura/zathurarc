@@ -25,3 +25,6 @@ set scroll-step 100
 #zoom settings
 set zoom-min 10
 set guioptions ""
+
+set synctex true
+set synctex-editor-command "gvim --remote-silent +%{line} %{input}"
