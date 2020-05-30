@@ -77,7 +77,11 @@ alias py='python'
 alias rm='rm -i'
 alias gpu='watch nvidia-smi'
 alias src='source'
-alias arxiv_latex_clean="arxiv_latex $PWD"
+
+arxiv () {
+    echo "arxiv_latex $PWD"
+    arxiv_latex $PWD
+}
 
 # Dynamically set alias to cd in directory
 cdalias () {
