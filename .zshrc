@@ -70,6 +70,7 @@ alias dfr="dotfiles fetch --all; dotfiles reset --hard origin/master; pfr"
 
 alias priv_files='/usr/bin/git --git-dir=$HOME/.priv_files/ --work-tree=$HOME/'
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME/'
+
 alias dropbox="~/.dropbox-dist/dropboxd"
 alias vrc="vim $HOME/.vimrc"
 alias zrc="vim $HOME/.zshrc"
@@ -77,6 +78,9 @@ alias py='python'
 alias rm='rm -i'
 alias gpu='watch nvidia-smi'
 alias src='source'
+
+alias up='cd ..'
+alias upup='cd ../..'
 
 arxiv () {
     echo "arxiv_latex $PWD"
@@ -100,15 +104,15 @@ type vim &>/dev/null && {
   alias viii='vim -u NONE'
 }
 
-#pdf2image () {
-  #if [ $# -ne 2 ]; then
-    #echo "Usage: pdf2png INPUT_FILE OUTPUT_FILE"
-    #return 1
-  #fi
-  #pdf_file=$1
-  #out_file=$2
-  #convert -density 300x300 -quality 95 $pdf_file $out_file
-#}
+pdf2image () {
+  if [ $# -ne 2 ]; then
+    echo "Usage: pdf2png INPUT_FILE OUTPUT_FILE"
+    return 1
+  fi
+  pdf_file=$1
+  out_file=$2
+  convert -density 300x300 -quality 95 $pdf_file $out_file
+}
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
