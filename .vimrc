@@ -195,10 +195,8 @@ au FileType python map <silent> <leader>b Oimport ipdb; ipdb.set_trace()<esc>
 map <F3> :NERDTreeToggle<CR>
 " open nerdtree with the current file selected
 nmap ,t :NERDTreeFind<CR>
-" don;t show these file types
 let NERDTreeIgnore = ['\.pyc$', '\.pyo$']
 
-" Fix directory colors
 highlight! link NERDTreeFlags NERDTreeDir
 
 " Autorefresh on tree focus
@@ -282,19 +280,10 @@ let g:UltiSnipsSnippetDirectories=["UltiSnips", "custom_snippets"]
 
 
 " NerdCommenter ------------------------
-" Add spaces after comment delimiters by default
 let g:NERDSpaceDelims = 1
-
-" Align line-wise comment delimiters flush left instead of following code indentation
 let g:NERDDefaultAlign = 'left'
-
-" Allow commenting and inverting empty lines (useful when commenting a region)
 let g:NERDCommentEmptyLines = 1
-
-" Enable trimming of trailing whitespace when uncommenting
 let g:NERDTrimTrailingWhitespace = 1
-
-" Enable NERDCommenterToggle to check all selected lines is commented or not 
 let g:NERDToggleCheckAllLines = 1
 
 nnoremap <C-T> :call NERDComment(0,"toggle")<CR>
