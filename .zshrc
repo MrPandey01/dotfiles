@@ -31,7 +31,7 @@ COMPLETION_WAITING_DOTS="true"
 # much, much faster.
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-plugins=(fzf ssh-agent git fast-syntax-highlighting zsh-autosuggestions)
+plugins=(fzf ssh-agent git fast-syntax-highlighting zsh-autosuggestions colored-man-pages)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -79,8 +79,8 @@ alias rm='rm -i'
 alias gpu='watch nvidia-smi'
 alias src='source'
 
-alias up='cd ..'
-alias upup='cd ../..'
+alias ..='cd ..'
+alias ...='cd ../../'
 
 arxiv () {
     echo "arxiv_latex $PWD"
@@ -112,6 +112,20 @@ pdf2image () {
   pdf_file=$1
   out_file=$2
   convert -density 300x300 -quality 95 $pdf_file $out_file
+}
+
+# ----------------------
+# Make manpages look nicer
+# ----------------------
+man () {
+    LESS_TERMCAP_mb=$(tput setaf 4)\
+    LESS_TERMCAP_md=$(tput setaf 4;tput bold) \
+    LESS_TERMCAP_so=$(tput setaf 7;tput setab 4;tput bold) \
+    LESS_TERMCAP_us=$(tput setaf 6) \
+    LESS_TERMCAP_me=$(tput sgr0) \
+    LESS_TERMCAP_se=$(tput sgr0) \
+    LESS_TERMCAP_ue=$(tput sgr0) \
+    command man "$@"
 }
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
