@@ -306,11 +306,16 @@ imap kk <Esc>
 imap jk <Esc>
 
 nnoremap cw ciw
-nnoremap dw diw
 nnoremap c( ci(
 nnoremap c{ ci{
 nnoremap c' ci'
 nnoremap c" ci"
+
+nnoremap dw diw
+nnoremap d" da"
+nnoremap d' da'
+nnoremap d( da(
+nnoremap d{ da{
 
 set splitbelow
 set splitright
@@ -327,7 +332,7 @@ nnoremap <C-H> <C-W><C-H>
 nnoremap zz :update<cr>
 inoremap zz <Esc>:update<cr>gi
 
-" Autocorrect spelling mistake on-the-fly
+" Autocorrect spelling mistake on-the-fly (with the first suggestion)
 inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 
 " Statusline options
