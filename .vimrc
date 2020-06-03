@@ -72,17 +72,12 @@ Plug 'roxma/vim-hug-neovim-rpc'
 " to avoid that)
 Plug 'myusuf3/numbers.vim'
 
-" Consoles as buffers (neovim has its own consoles as buffers)
-Plug 'rosenfeld/conque-term'
-" XML/HTML tags navigation (neovim has its own)
-Plug 'vim-scripts/matchit.zip'
-
 Plug 'lervag/vimtex' " Latex plugin
 
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
-Plug 'ryanoasis/vim-devicons'
+Plug 'ryanoasis/vim-devicons'  " Icons for NerdTree
 call plug#end()
 
 " ============================================================================
@@ -160,7 +155,6 @@ set wildignore+=*.dll,*.o,*.pyc,*.bak,*.exe,*.jpg,*.jpeg,*.png,*.gif,*$py.class,
 set wildmode=list,full
 
 " Ignore compiled files
-set wildignore=*.o,*~,*.pyc
 if has("win16") || has("win32")
   set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store
 else
