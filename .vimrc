@@ -36,7 +36,9 @@ call plug#begin("~/.vim/plugged")
 
 Plug 'arielrossanigo/dir-configs-override.vim' " Override configs by directory
 
-Plug 'tpope/vim-obsession' " :mksession alternative
+Plug 'tpope/vim-obsession' " :Mk session alternative
+Plug 'tpope/vim-abolish'  " spell-checker, substitute and coercer
+Plug '907th/vim-auto-save'
 Plug 'preservim/nerdcommenter'
 Plug 'vim-scripts/IndexedSearch'  " Search results counter
 
@@ -106,12 +108,18 @@ set nu  " show line numbers
 set splitbelow
 set splitright
 set autochdir
+set scrolloff=3
+set shell=/bin/zsh
 
 " Tabs and spaces handling
 set expandtab
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
+
+" Clear search results
+nnoremap <silent> // :noh<CR>
+
 
 " Remove ugly vertical lines on window division
 set fillchars+=vert:\ 
@@ -165,21 +173,8 @@ else
   set wildignore+=.git\*,.hg\*,.svn\*
 endif
 
-" Save as sudo
-ca w!! w !sudo tee "%"
-
-" When scrolling, keep cursor 3 lines away from screen border
-set scrolloff=3
-
-" Clear search results
-nnoremap <silent> // :noh<CR>
-
 " Clear empty spaces at the end of lines on save of python files
 autocmd BufWritePre *.py :%s/\s\+$//e
-
-" Fix problems with uncommon shells (fish, xonsh) and plugins running commands
-" (neomake, ...)
-set shell=/bin/zsh
 
 " Ability to add python breakpoints
 " (I use ipdb, but you can change it to whatever tool you use for debugging)
@@ -206,6 +201,7 @@ endfunction
 
 autocmd BufEnter * call NERDTreeRefresh()
 
+
 " Fzf ------------------------------
 " file finder mapping
 nmap ,e :Files<CR>
@@ -228,6 +224,7 @@ nmap ,wF :execute ":Lines " . expand('<cword>')<CR>
 " commands finder mapping
 nmap ,c :Commands<CR>
 
+
 " Deoplete -----------------------------
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_ignore_case = 1
@@ -244,6 +241,7 @@ set completeopt+=noinsert
 " disabled by default because preview makes the window flicker
 " set completeopt-=preview
 
+
 " Window Chooser ------------------------------
 " mapping
 nmap  -  <Plug>(choosewin)
@@ -251,11 +249,18 @@ nmap  -  <Plug>(choosewin)
 let g:choosewin_overlay_enable = 1
 
 
+" Autosave settings ---------------------------
+let g:auto_save        = 1
+let g:auto_save_silent = 1
+let g:auto_save_events = ["InsertLeave", "TextChanged", "FocusLost"]
+
+
 " Autoclose ------------------------------
 " Fix to let ESC work as espected with Autoclose plugin
 " (without this, when showing an autocompletion window, ESC won't leave insert
 "  mode)
 let g:AutoClosePumvisible = {"ENTER": "\<C-Y>", "ESC": "\<ESC>"}
+
 
 " Vimtex ---------------------------------
 let g:tex_flavor='latex'
@@ -266,6 +271,7 @@ let g:tex_conceal='abdmg'
 if empty(v:servername) && exists('*remote_startserver')
     call remote_startserver('VIM')
 endif
+
 
 " UltiSnippets ---------------------------
 " Snippets Trigger configuration. 
@@ -286,6 +292,12 @@ let g:NERDToggleCheckAllLines = 1
 
 nnoremap <C-T> :call NERDComment(0,"toggle")<CR>
 vnoremap <C-T> :call NERDComment(0,"toggle")<CR>
+
+
+" Obsession --------------------------
+" Statusline options
+set statusline=%{ObsessionStatus()}
+
 
 " Key configurations ----------------
 " Disable arrow keys
@@ -324,7 +336,6 @@ nnoremap v' vi'
 nnoremap v( vi(
 nnoremap v{ vi{
 
-
 " SplitScreen navigation mappings
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
@@ -339,8 +350,6 @@ inoremap zz <Esc>:update<cr>gi
 " Autocorrect spelling mistake on-the-fly (with the first suggestion)
 inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 
-" Statusline options
-set statusline=%{ObsessionStatus()}
 
 " Set F5 to save and run the current python file
 autocmd FileType python map <buffer> <F5> :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
