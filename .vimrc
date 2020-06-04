@@ -73,6 +73,7 @@ Plug 'roxma/vim-hug-neovim-rpc'
 Plug 'myusuf3/numbers.vim'
 
 Plug 'lervag/vimtex' " Latex plugin
+Plug 'vimwiki/vimwiki'
 
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
@@ -102,6 +103,9 @@ set mouse=a
 set spell spelllang=en_us
 set background=dark
 set nu  " show line numbers
+set splitbelow
+set splitright
+set autochdir
 
 " Tabs and spaces handling
 set expandtab
@@ -299,21 +303,27 @@ imap hh <Esc>
 imap kk <Esc>
 imap jk <Esc>
 
+" Copy remaps
 nnoremap cw ciw
 nnoremap c( ci(
 nnoremap c{ ci{
 nnoremap c' ci'
 nnoremap c" ci"
 
+" Delete remaps
 nnoremap dw diw
 nnoremap d" da"
 nnoremap d' da'
 nnoremap d( da(
 nnoremap d{ da{
 
-set splitbelow
-set splitright
-set autochdir
+" Select remaps
+nnoremap vw viw
+nnoremap v" vi"
+nnoremap v' vi'
+nnoremap v( vi(
+nnoremap v{ vi{
+
 
 " SplitScreen navigation mappings
 nnoremap <C-J> <C-W><C-J>
