@@ -5,7 +5,6 @@ let using_vim = !using_neovim
 
 " ============================================================================
 " Vim-plug initialization
-" Avoid modifying this section, unless you are very sure of what you are doing
 
 let vim_plug_just_installed = 0
 if using_neovim
@@ -26,24 +25,40 @@ if !filereadable(vim_plug_path)
     let vim_plug_just_installed = 1
 endif
 
-" manually load vim-plug the first time
+" Manually load vim-plug the first time
 if vim_plug_just_installed
     :execute 'source '.fnameescape(vim_plug_path)
 endif
 
 " ============================================================================
 call plug#begin("~/.vim/plugged")
+"
+" Code and files fuzzy finder
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
-Plug 'arielrossanigo/dir-configs-override.vim' " Override configs by directory
+Plug 'Townk/vim-autoclose' " Automatically close parenthesis, etc
+
+" Deoplete: on the fly completion suggestions
+Plug 'Shougo/deoplete.nvim'
+Plug 'roxma/nvim-yarp'
+Plug 'roxma/vim-hug-neovim-rpc'
+
+Plug 'lervag/vimtex' " Latex plugin
+Plug 'vimwiki/vimwiki'
+
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+
+Plug 'ryanoasis/vim-devicons'  " Icons for NerdTree
 
 Plug 'tpope/vim-obsession' " :Mk session alternative
-Plug 'tpope/vim-abolish'  " spell-checker, substitute and coercer
+Plug 'tpope/vim-abolish'  " Spell-checker, substitute and coercer
 Plug '907th/vim-auto-save'
 Plug 'preservim/nerdcommenter'
 Plug 'vim-scripts/IndexedSearch'  " Search results counter
 
 " A couple of nice color schemes
-"Plug 'patstockwell/vim-monokai-tasty'
 Plug 'morhetz/gruvbox'
 Plug 'arcticicestudio/nord-vim'
 Plug 'dylanaraps/wal'
@@ -53,34 +68,6 @@ Plug 'kaicataldo/material.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
-" Code and files fuzzy finder
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
-
-Plug 'Townk/vim-autoclose' " Automatically close parenthesis, etc
-Plug 'tpope/vim-surround'
-Plug 'michaeljsmith/vim-indent-object'
-Plug 'jeetsukumaran/vim-indentwise'
-
-" Deoplete: on the fly completion suggestions
-Plug 'Shougo/deoplete.nvim'
-Plug 'roxma/nvim-yarp'
-Plug 'roxma/vim-hug-neovim-rpc'
-
-" Relative numbering of lines (0 is the current line)
-" (disabled by default because is very intrusive and can't be easily toggled
-" on/off. When the plugin is present, will always activate the relative
-" numbering every time you go to normal mode. Author refuses to add a setting
-" to avoid that)
-Plug 'myusuf3/numbers.vim'
-
-Plug 'lervag/vimtex' " Latex plugin
-Plug 'vimwiki/vimwiki'
-
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
-
-Plug 'ryanoasis/vim-devicons'  " Icons for NerdTree
 call plug#end()
 
 " ============================================================================
@@ -104,7 +91,7 @@ set cursorline
 set mouse=a
 set spell spelllang=en_us
 set background=dark
-set nu  " show line numbers
+set rnu  " show relative line numbers
 set splitbelow
 set splitright
 set autochdir
@@ -119,7 +106,6 @@ set shiftwidth=4
 
 " Clear search results
 nnoremap <silent> // :noh<CR>
-
 
 " Remove ugly vertical lines on window division
 set fillchars+=vert:\ 
@@ -241,14 +227,6 @@ set completeopt+=noinsert
 " disabled by default because preview makes the window flicker
 " set completeopt-=preview
 
-
-" Window Chooser ------------------------------
-" mapping
-nmap  -  <Plug>(choosewin)
-" show big letters
-let g:choosewin_overlay_enable = 1
-
-
 " Autosave settings ---------------------------
 let g:auto_save        = 1
 let g:auto_save_silent = 1
@@ -351,10 +329,15 @@ inoremap zz <Esc>:update<cr>gi
 inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 
 
-" Set F5 to save and run the current python file
+" Set Fa to save and run the current python file
 autocmd FileType python map <buffer> <F5> :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
 autocmd FileType python imap <buffer> <F5> <esc>:w<CR>:exec '!python3' shellescape(@%, 1)<CR>
 
+" Improve scroll performance
+augroup syntaxSyncMinLines
+    autocmd!
+    autocmd Syntax * syntax sync minlines=2000
+augroup END
 
 " Include user's custom vim configurations
 let custom_configs_path = "~/.vim/custom.vim"
