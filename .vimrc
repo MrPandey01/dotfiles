@@ -58,7 +58,7 @@ Plug '907th/vim-auto-save'
 Plug 'preservim/nerdcommenter'
 Plug 'vim-scripts/IndexedSearch'  " Search results counter
 
-" A couple of nice color schemes
+" Couple of nice color schemes
 Plug 'morhetz/gruvbox'
 Plug 'arcticicestudio/nord-vim'
 Plug 'dylanaraps/wal'
@@ -83,7 +83,7 @@ endif
  
 set nocompatible
 filetype plugin indent on
-set ls=2  " always show statusbar
+set ls=2  " always show status bar
 set incsearch  " Incremental search
 set hlsearch  " highlight search results
 syntax on
@@ -116,6 +116,16 @@ if has('unnamedplus')
 else
     set clipboard=unnamed
 endif
+
+" Change cursor shape in different modes
+let &t_SI = "\e[5 q"
+let &t_EI = "\e[1 q"
+
+" optional reset cursor on start:
+augroup myCmds
+au!
+autocmd VimEnter * silent !echo -ne "\e[2 q"
+augroup END
 
 " Reopen the file at same cursor location
 if has("autocmd")
@@ -251,6 +261,11 @@ if empty(v:servername) && exists('*remote_startserver')
 endif
 
 
+" VimWiki --------------------------------
+nmap <Leader>tl <Plug>VimwikiToggleListItem
+vmap <Leader>tl <Plug>VimwikiToggleListItem
+
+
 " UltiSnippets ---------------------------
 " Snippets Trigger configuration. 
 " Do not use <tab> if you use " https://github.com/Valloric/YouCompleteMe.
@@ -263,7 +278,7 @@ let g:UltiSnipsSnippetDirectories=["UltiSnips", "custom_snippets"]
 
 " NerdCommenter ------------------------
 let g:NERDSpaceDelims = 1
-let g:NERDDefaultAlign = 'left'
+" let g:NERDDefaultAlign = 'left'
 let g:NERDCommentEmptyLines = 1
 let g:NERDTrimTrailingWhitespace = 1
 let g:NERDToggleCheckAllLines = 1

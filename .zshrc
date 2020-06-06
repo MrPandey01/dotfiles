@@ -7,19 +7,6 @@ ZSH_THEME="af-magic"
 # Uncomment the following line to use case-sensitive completion.
 CASE_SENSITIVE="true"
 
-# Uncomment the following line to use hyphen-insensitive completion.
-# Case-sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
-
-# Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS=true
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
 # Uncomment the following line to enable command auto-correction.
 ENABLE_CORRECTION="true"
 
@@ -34,9 +21,6 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 plugins=(fzf ssh-agent git fast-syntax-highlighting zsh-autosuggestions colored-man-pages)
 
 source $ZSH/oh-my-zsh.sh
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
@@ -66,7 +50,6 @@ alias dau="dotfiles add -u && echo dotfiles add -u"
 alias dcm='f() {dotfiles commit -m $1}; f'
 alias dpuom="dotfiles push -u origin master; pau; pcm; ppuom"
 alias dfr="dotfiles fetch --all; dotfiles reset --hard origin/master; pfr"
-
 
 alias priv_files='/usr/bin/git --git-dir=$HOME/.priv_files/ --work-tree=$HOME/'
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME/'
