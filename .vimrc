@@ -97,6 +97,7 @@ set splitright
 set autochdir
 set scrolloff=3
 set shell=/bin/zsh
+set display+=lastline
 
 " Tabs and spaces handling
 set expandtab
@@ -283,8 +284,9 @@ let g:NERDCommentEmptyLines = 1
 let g:NERDTrimTrailingWhitespace = 1
 let g:NERDToggleCheckAllLines = 1
 
-nnoremap <C-T> :call NERDComment(0,"toggle")<CR>
-vnoremap <C-T> :call NERDComment(0,"toggle")<CR>
+" Comment toggle with Ctrl-/
+nnoremap <C-_> :call NERDComment(0,"toggle")<CR>
+vnoremap <C-_> :call NERDComment(0,"toggle")<CR>
 
 
 " Obsession --------------------------
@@ -335,14 +337,12 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-" alternate of :w is :update i.e write only when there is change
-" in document
-nnoremap zz :update<cr>
-inoremap zz <Esc>:update<cr>gi
+" Tab navigation
+nnoremap <C-H> :tabprevious<CR>
+nnoremap <C-L> :tabnext<CR>
 
 " Autocorrect spelling mistake on-the-fly (with the first suggestion)
 inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
-
 
 " Set Fa to save and run the current python file
 autocmd FileType python map <buffer> <F5> :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
