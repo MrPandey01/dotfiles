@@ -97,6 +97,8 @@ set autochdir
 set scrolloff=3
 set shell=/bin/zsh
 set display+=lastline
+
+" For hybrid line numbers
 set number relativenumber
 set nu rnu
 
@@ -239,10 +241,11 @@ set completeopt+=noinsert
 " disabled by default because preview makes the window flicker
 " set completeopt-=preview
 
-" Autosave settings ---------------------------
+" Auto-save settings ---------------------------
 let g:auto_save        = 1
 let g:auto_save_silent = 1
-let g:auto_save_events = ["InsertLeave", "TextChanged", "FocusLost"]
+let g:auto_save_in_insert_mode = 0  " do not save while in insert mode
+let g:auto_save_events = ["InsertLeave", "TextChanged"]
 
 
 " Autoclose ------------------------------
