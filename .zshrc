@@ -97,19 +97,6 @@ pdf2image () {
   convert -density 300x300 -quality 95 $pdf_file $out_file
 }
 
-# ----------------------
-# Make manpages look nicer
-# ----------------------
-man () {
-    LESS_TERMCAP_mb=$(tput setaf 4)\
-    LESS_TERMCAP_md=$(tput setaf 4;tput bold) \
-    LESS_TERMCAP_so=$(tput setaf 7;tput setab 4;tput bold) \
-    LESS_TERMCAP_us=$(tput setaf 6) \
-    LESS_TERMCAP_me=$(tput sgr0) \
-    LESS_TERMCAP_se=$(tput sgr0) \
-    LESS_TERMCAP_ue=$(tput sgr0) \
-    command man "$@"
-}
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh

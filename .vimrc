@@ -91,13 +91,14 @@ set cursorline
 set mouse=a
 set spell spelllang=en_us
 set background=dark
-set rnu  " show relative line numbers
 set splitbelow
 set splitright
 set autochdir
 set scrolloff=3
 set shell=/bin/zsh
 set display+=lastline
+set number relativenumber
+set nu rnu
 
 " Tabs and spaces handling
 set expandtab
