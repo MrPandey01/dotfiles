@@ -342,10 +342,10 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 " Tab navigation
-nnoremap <C-H> :tabprevious<CR>
-nnoremap <C-L> :tabnext<CR>
+nnoremap <C-[> :tabprevious<CR>
+nnoremap <C-]> :tabnext<CR>
 
-" Autocorrect spelling mistake on-the-fly (with the first suggestion)
+" Auto correct spelling mistake on-the-fly (with the first suggestion)
 inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 
 " Set Fa to save and run the current python file
