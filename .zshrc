@@ -29,9 +29,6 @@ else
 export EDITOR='vim'
 fi
 
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
 # Aliases -----------------
 source $HOME/.oh-my-zsh/custom/custom_alias.zsh
 
@@ -65,15 +62,16 @@ alias src='source'
 alias ..='cd ..'
 alias ...='cd ../../'
 
+# Prepare current latex project for arXiv
 arxiv () {
     echo "arxiv_latex $PWD"
     arxiv_latex $PWD
     app="_arXiv"
-    echo "Converting eps to pdf in dir: $PWD$app ..."
+    echo "Converting eps to pdf in $PWD$app ..."
     cd $PWD$app
     find . -name "*.eps" -exec epstopdf {} \;
     rm *.eps
-    echo "replacing .eps to .pdf "
+    echo "Replacing .eps to .pdf "
     find $PWD -type f -exec sed -i 's/\.eps/\.pdf/g' {} \;
 }
 
