@@ -58,7 +58,7 @@ alias dropbox="~/.dropbox-dist/dropboxd"
 alias vrc="vim $HOME/.vimrc"
 alias zrc="vim $HOME/.zshrc"
 alias py='python'
-alias rm='rm -i'
+# alias rm='rm -i'
 alias gpu='watch nvidia-smi'
 alias src='source'
 
@@ -68,6 +68,13 @@ alias ...='cd ../../'
 arxiv () {
     echo "arxiv_latex $PWD"
     arxiv_latex $PWD
+    app="_arXiv"
+    echo "Converting eps to pdf in dir: $PWD$app ..."
+    cd $PWD$app
+    find . -name "*.eps" -exec epstopdf {} \;
+    rm *.eps
+    echo "replacing .eps to .pdf "
+    find $PWD -type f -exec sed -i 's/\.eps/\.pdf/g' {} \;
 }
 
 # Dynamically set alias to cd in directory
