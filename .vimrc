@@ -269,6 +269,7 @@ endif
 " VimWiki --------------------------------
 nmap <Leader>tl <Plug>VimwikiToggleListItem
 vmap <Leader>tl <Plug>VimwikiToggleListItem
+let g:vimwiki_hl_cb_checked = 2
 
 
 " UltiSnippets ---------------------------
