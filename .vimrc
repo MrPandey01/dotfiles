@@ -37,8 +37,6 @@ call plug#begin("~/.vim/plugged")
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
-Plug 'Townk/vim-autoclose' " Automatically close parenthesis, etc
-
 " Deoplete: on the fly completion suggestions
 Plug 'Shougo/deoplete.nvim'
 Plug 'roxma/nvim-yarp'
@@ -50,8 +48,8 @@ Plug 'vimwiki/vimwiki'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
+Plug 'Townk/vim-autoclose' " Automatically close parenthesis, etc
 Plug 'ryanoasis/vim-devicons'  " Icons for NerdTree
-
 Plug 'tpope/vim-obsession' " :Mk session alternative
 Plug 'tpope/vim-abolish'  " Spell-checker, substitute and coercer
 Plug '907th/vim-auto-save'
@@ -61,7 +59,6 @@ Plug 'vim-scripts/IndexedSearch'  " Search results counter
 " Couple of nice color schemes
 Plug 'morhetz/gruvbox'
 Plug 'arcticicestudio/nord-vim'
-Plug 'dylanaraps/wal'
 Plug 'kaicataldo/material.vim'
 
 " Airline
@@ -74,7 +71,7 @@ call plug#end()
 " Install plugins the first time vim runs
 
 if vim_plug_just_installed
-    echo "Installing Bundles, please ignore key map error messages"
+    echo "Installing Bundles, please ignore key map  messages"
     :PlugInstall
 endif
 
@@ -97,6 +94,7 @@ set autochdir
 set scrolloff=3
 set shell=/bin/zsh
 set display+=lastline
+set conceallevel=2  " for better readability
 
 " For hybrid line numbers
 set number relativenumber
@@ -147,9 +145,9 @@ if has('gui_running') || using_neovim || (&term =~? 'mlterm\|xterm\|xterm-256\|s
     colorscheme gruvbox
 
     " Material theme settings
-    "let g:material_theme_style = 'default' " default' | 'palenight' | 'ocean' | 'lighter' | 'darker'
-    "let g:material_terminal_italics = 1
-    "colorscheme material
+    " let g:material_theme_style = 'darker' " default' | 'palenight' | 'ocean' | 'lighter' | 'darker'
+    " " let g:material_terminal_italics = 1
+    " colorscheme material
 
     " Settings for arcticnord theme
     "let g:nord_cursor_line_number_background = 1
@@ -259,7 +257,6 @@ let g:AutoClosePumvisible = {"ENTER": "\<C-Y>", "ESC": "\<ESC>"}
 let g:tex_flavor='latex'
 let g:vimtex_view_method='zathura'
 let g:vimtex_quickfix_mode=0
-set conceallevel=1
 let g:tex_conceal='abdmg'
 if empty(v:servername) && exists('*remote_startserver')
     call remote_startserver('VIM')
@@ -269,7 +266,7 @@ endif
 " VimWiki --------------------------------
 nmap <Leader>tl <Plug>VimwikiToggleListItem
 vmap <Leader>tl <Plug>VimwikiToggleListItem
-let g:vimwiki_hl_cb_checked = 2
+" let g:vimwiki_hl_cb_checked = 2
 
 
 " UltiSnippets ---------------------------
@@ -336,6 +333,7 @@ nnoremap v' vi'
 nnoremap v( vi(
 nnoremap v{ vi{
 
+
 " SplitScreen navigation mappings
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
@@ -347,7 +345,7 @@ nnoremap <C-[> :tabprevious<CR>
 nnoremap <C-]> :tabnext<CR>
 
 " Auto correct spelling mistake on-the-fly (with the first suggestion)
-inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
+inoremap <C-c> <c-g>u<Esc>[s1z=`]a<c-g>u
 
 " Set Fa to save and run the current python file
 autocmd FileType python map <buffer> <F5> :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
@@ -356,7 +354,7 @@ autocmd FileType python imap <buffer> <F5> <esc>:w<CR>:exec '!python3' shellesca
 " Improve scroll performance
 augroup syntaxSyncMinLines
     autocmd!
-    autocmd Syntax * syntax sync minlines=2000
+    autocmd Syntax * syntax sync minlines=1000
 augroup END
 
 " Include user's custom vim configurations

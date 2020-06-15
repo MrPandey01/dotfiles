@@ -125,3 +125,5 @@ unset __conda_setup
 
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export GEM_HOME="$HOME/gems"
+export PATH="$HOME/gems/bin:$PATH"
