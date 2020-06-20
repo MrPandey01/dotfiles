@@ -58,6 +58,7 @@ alias py='python'
 # alias rm='rm -i'
 alias gpu='watch nvidia-smi'
 alias src='source'
+alias wiki='vim -c VimwikiIndex'
 
 alias ..='cd ..'
 alias ...='cd ../../'

@@ -50,16 +50,12 @@ Plug 'honza/vim-snippets'
 
 Plug 'Townk/vim-autoclose' " Automatically close parenthesis, etc
 Plug 'ryanoasis/vim-devicons'  " Icons for NerdTree
-Plug 'tpope/vim-obsession' " :Mk session alternative
-Plug 'tpope/vim-abolish'  " Spell-checker, substitute and coercer
 Plug '907th/vim-auto-save'
 Plug 'preservim/nerdcommenter'
 Plug 'vim-scripts/IndexedSearch'  " Search results counter
 
-" Couple of nice color schemes
+" color scheme
 Plug 'morhetz/gruvbox'
-Plug 'arcticicestudio/nord-vim'
-Plug 'kaicataldo/material.vim'
 
 " Airline
 Plug 'vim-airline/vim-airline'
@@ -144,39 +140,21 @@ if has('gui_running') || using_neovim || (&term =~? 'mlterm\|xterm\|xterm-256\|s
     let g:gruvbox_contrast_dark = 'hard'
     colorscheme gruvbox
 
-    " Material theme settings
-    " let g:material_theme_style = 'darker' " default' | 'palenight' | 'ocean' | 'lighter' | 'darker'
-    " " let g:material_terminal_italics = 1
-    " colorscheme material
-
-    " Settings for arcticnord theme
-    "let g:nord_cursor_line_number_background = 1
-    "let g:nord_bold = 0
-    "colorscheme nord
-
 else
     colorscheme delek
 endif
 
+
 " Autocompletion of files and commands behaves like shell
 " (complete only the common part, list the options that match)
 set wildmenu
-set wildignore+=*.dll,*.o,*.pyc,*.bak,*.exe,*.jpg,*.jpeg,*.png,*.gif,*$py.class,*.class,*/*.dSYM/*,*.dylib,*.so,*.swp,*.zip,*.tgz,*.gz
+set wildignore+=*.dll,*.o,*.pyc,*.bak,*.exe,*.jpg,*.jpeg,*.png,*.gif,*$py.class,*.class,*/*.dSYM/*,*.dylib,*.so,*.swp,*.zip,*.tgz,*.gz,*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store
 set wildmode=list,full
 
-" Ignore compiled files
-if has("win16") || has("win32")
-  set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store
-else
-  set wildignore+=.git\*,.hg\*,.svn\*
-endif
 
 " Clear empty spaces at the end of lines on save of python files
 autocmd BufWritePre *.py :%s/\s\+$//e
 
-" Ability to add python breakpoints
-" (I use ipdb, but you can change it to whatever tool you use for debugging)
-au FileType python map <silent> <leader>b Oimport ipdb; ipdb.set_trace()<esc>
 
 " ============================================================================
 " Plugins settings and mappings
@@ -291,11 +269,6 @@ nnoremap <C-_> :call NERDComment(0,"toggle")<CR>
 vnoremap <C-_> :call NERDComment(0,"toggle")<CR>
 
 
-" Obsession --------------------------
-" Statusline options
-set statusline=%{ObsessionStatus()}
-
-
 " Key configurations ----------------
 " Disable arrow keys
 noremap  <Up> ""
@@ -333,7 +306,6 @@ nnoremap v' vi'
 nnoremap v( vi(
 nnoremap v{ vi{
 
-
 " SplitScreen navigation mappings
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
@@ -347,14 +319,63 @@ nnoremap <C-]> :tabnext<CR>
 " Auto correct spelling mistake on-the-fly (with the first suggestion)
 inoremap <C-c> <c-g>u<Esc>[s1z=`]a<c-g>u
 
-" Set Fa to save and run the current python file
+
+" Sort and highlight ToDo list
+" source: https://www.reddit.com/r/vim/comments/hc3m1w/how_to_sort_nested_todo_list/fvfw4lv?utm_source=share&utm_medium=web2x
+nnoremap <leader>td :TodoSort<CR>
+command! -range=% TodoSort call TodoSort(<line1>,<line2>)
+
+fun! TodoSort(line1, line2)
+  if indent(a:line1) | return | endif
+
+  let Compare = { a, b -> a.line == b.line ? 0 : a.line < b.line ? -1 : 1 }
+  let lines = []
+  let stack = [lines]
+  let previndent = 0
+
+  for lnum in range(a:line1, a:line2)
+    let indent = indent(lnum)
+    if indent > previndent
+       call add(stack, stack[-1][-1].children)
+    elseif indent < previndent
+      for _ in range((previndent - indent) / shiftwidth())
+        call sort(stack[-1], Compare)
+        call remove(stack, -1)
+      endfor
+    endif
+    call add(stack[-1], { 'line': getline(lnum), 'children': [] })
+    let previndent = indent
+  endfor
+
+  call sort(lines, Compare)
+
+  fun! Flatten(lines, ...)
+    let out = a:0 ? a:1 : []
+    for line in a:lines
+      call add(out, line.line)
+      call Flatten(line.children, out)
+    endfor
+    return out
+  endfun
+
+  call setline(a:line1, Flatten(lines))
+endfun
+" highlight less done items
+augroup VimWikiToDo
+    autocmd!
+    autocmd FileType vimwiki syntax match VimWikiToDoDone '\v^((\*|\s{4}\*|\t\*)\s\[(\.|o|O|X)\]\s)'
+    autocmd FileType vimwiki highlight link VimWikiToDoDone Comment
+augroup END
+
+
+" Set F5 to save and run the current python file
 autocmd FileType python map <buffer> <F5> :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
 autocmd FileType python imap <buffer> <F5> <esc>:w<CR>:exec '!python3' shellescape(@%, 1)<CR>
 
 " Improve scroll performance
 augroup syntaxSyncMinLines
     autocmd!
-    autocmd Syntax * syntax sync minlines=1000
+    autocmd Syntax * syntax sync minlines=500
 augroup END
 
 " Include user's custom vim configurations
