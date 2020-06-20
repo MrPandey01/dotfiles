@@ -46,7 +46,7 @@ alias pfr="priv_files fetch --all && priv_files reset --hard origin/master"
 alias dau="dotfiles add -u && echo dotfiles add -u"
 alias dcm='f() {dotfiles commit -m $1}; f'
 alias dpuom="dotfiles push -u origin master; pau; pcm; ppuom"
-alias dfr="dotfiles fetch --all; dotfiles reset --hard origin/master; pfr"
+alias dfr="dotfiles fetch --all; dotfiles reset --hard origin/master"
 
 alias priv_files='/usr/bin/git --git-dir=$HOME/.priv_files/ --work-tree=$HOME/'
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME/'
