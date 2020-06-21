@@ -103,6 +103,17 @@ pdf2image () {
   convert -density 300x300 -quality 95 $pdf_file $out_file
 }
 
+# Watch videos from terminal
+btpl(){
+
+PAGE=$(curl -s $1)
+url="$(echo \"$PAGE\" | grep -Eoi '<source [^>]+>' | grep -Eo 'src="[^\"]+"' | grep -Eo '(http|https)://[^"]+')"
+# url="$(curl -s $1 | grep -Eoi '<source [^>]+>' | grep -Eo 'src="[^\"]+"' | grep -Eo '(http|https)://[^"]+')"
+TITLE=$(echo \"$PAGE\" | grep -oEi "<title>(.*)</title>" | cut -d '>' -f2 | cut -d '<' -f1)
+
+mpv --ontop=yes --title="$TITLE" --snap-window=yes --autofit-larger='25%' --geometry='-10-10' --speed=1.25 $url &
+}
+
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
