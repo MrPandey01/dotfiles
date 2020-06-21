@@ -323,50 +323,114 @@ inoremap <C-c> <c-g>u<Esc>[s1z=`]a<c-g>u
 " Sort and highlight ToDo list
 " source: https://www.reddit.com/r/vim/comments/hc3m1w/how_to_sort_nested_todo_list/fvfw4lv?utm_source=share&utm_medium=web2x
 nnoremap <leader>td :TodoSort<CR>
-command! -range=% TodoSort call TodoSort(<line1>,<line2>)
+" command! -range=% TodoSort call TodoSort(<line1>,<line2>)
+"
+" fun! TodoSort(line1, line2)
+  " if indent(a:line1) | return | endif
+"
+  " let Compare = { a, b -> a.line == b.line ? 0 : a.line < b.line ? -1 : 1 }
+  " let lines = []
+  " let stack = [lines]
+  " let previndent = 0
+"
+  " for lnum in range(a:line1, a:line2)
+    " let indent = indent(lnum)
+    " if indent > previndent
+       " call add(stack, stack[-1][-1].children)
+    " elseif indent < previndent
+      " for _ in range((previndent - indent) / shiftwidth())
+        " call sort(stack[-1], Compare)
+        " call remove(stack, -1)
+      " endfor
+    " endif
+    " call add(stack[-1], { 'line': getline(lnum), 'children': [] })
+    " let previndent = indent
+  " endfor
+"
+  " call sort(lines, Compare)
+"
+  " fun! Flatten(lines, ...)
+    " let out = a:0 ? a:1 : []
+    " for line in a:lines
+      " call add(out, line.line)
+      " call Flatten(line.children, out)
+    " endfor
+    " return out
+  " endfun
+"
+  " call setline(a:line1, Flatten(lines))
+" endfun
+
+" highlight less done items
+" augroup VimWikiToDo
+    " autocmd!
+    " autocmd FileType vimwiki syntax match VimWikiToDoDone '\v^((\*|\s{4}\*|\t\*)\s\[(\.|o|O|X)\]\s)'
+    " autocmd FileType vimwiki highlight link VimWikiToDoDone Comment
+" augroup END
+command! -range=% TodoSort call setline(<line1>, TodoSort(<line1>,<line2>))
 
 fun! TodoSort(line1, line2)
-  if indent(a:line1) | return | endif
+  let line1 = a:line1
 
-  let Compare = { a, b -> a.line == b.line ? 0 : a.line < b.line ? -1 : 1 }
-  let lines = []
-  let stack = [lines]
+  let stack = [{ 'children': [], 'trailing': [] }]
+  let out = []
   let previndent = 0
 
-  for lnum in range(a:line1, a:line2)
+  let order = get(g:, 'vimwiki_listsyms', ' .oOX')
+  let Match = { line -> matchlist(line, '^\s*- \[\(.\)\] ') }
+
+  fun! Compare(a, b) closure
+    let a = Match(a:a.line)
+    let b = Match(a:b.line)
+    return a[1] == b[1]
+          \? a:a.lnum - a:b.lnum
+          \: stridx(order, a[1]) - stridx(order, b[1])
+  endfun
+
+  fun! Pop(n) closure
+    return map(remove(stack, -a:n, -1), { _, e -> sort(e.children, 'Compare') })[0]
+  endfun
+
+  while empty(Match(getline(line1)))
+    call add(out, getline(line1))
+    let line1 += 1
+  endwhile
+
+  for lnum in range(line1, a:line2)
+    let line = getline(lnum)
+    if empty(Match(line))
+      call add(stack[-1].children[-1].trailing, line)
+      continue
+    endif
+
     let indent = indent(lnum)
     if indent > previndent
-       call add(stack, stack[-1][-1].children)
+      call add(stack, stack[-1].children[-1])
     elseif indent < previndent
-      for _ in range((previndent - indent) / shiftwidth())
-        call sort(stack[-1], Compare)
-        call remove(stack, -1)
-      endfor
+      call Pop((previndent - indent) / shiftwidth())
     endif
-    call add(stack[-1], { 'line': getline(lnum), 'children': [] })
+
+    call add(stack[-1].children, {
+          \ 'line': getline(lnum),
+          \ 'lnum': lnum,
+          \ 'children': [],
+          \ 'trailing': [],
+          \})
     let previndent = indent
   endfor
-
-  call sort(lines, Compare)
 
   fun! Flatten(lines, ...)
     let out = a:0 ? a:1 : []
     for line in a:lines
       call add(out, line.line)
+      call extend(out, line.trailing)
       call Flatten(line.children, out)
     endfor
     return out
   endfun
 
-  call setline(a:line1, Flatten(lines))
+  return Flatten(Pop(len(stack)), out)
 endfun
-" highlight less done items
-augroup VimWikiToDo
-    autocmd!
-    autocmd FileType vimwiki syntax match VimWikiToDoDone '\v^((\*|\s{4}\*|\t\*)\s\[(\.|o|O|X)\]\s)'
-    autocmd FileType vimwiki highlight link VimWikiToDoDone Comment
-augroup END
-
 
 " Set F5 to save and run the current python file
 autocmd FileType python map <buffer> <F5> :w<CR>:exec '!python3' shellescape(@%, 1)<CR>

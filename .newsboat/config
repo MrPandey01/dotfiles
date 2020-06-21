@@ -20,15 +20,9 @@ color listfocus_unread blue default reverse bold
 
 text-width 80
 
-
 # -- navigation ----------------------------------------------------------------
 
 goto-next-feed no
-
-browser "firefox --new-tab %u"
-# browser nautilus
-# only for zsh users
-macro b set browser "source $HOME/.zshrc && btpl "; open-in-browser ;
 
 bind-key j down feedlist
 bind-key k up feedlist
@@ -41,6 +35,9 @@ bind-key k up article
 
 
 # -- misc ----------------------------------------------------------------------
+
+browser firefox
+macro m set browser "setsid -f mpv"; open-in-browser ; set browser firefox
 
 unbind-key C feedlist
 confirm-exit no
