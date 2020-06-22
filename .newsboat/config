@@ -10,7 +10,7 @@ color listfocus blue default reverse bold
 color listfocus_unread blue default reverse bold
 
 highlight all "---.*---" yellow
-highlight feedlist ".*(0/0))" blue
+highlight feedlist ".*(0/0))" black
 highlight article "(^Feed:.*|^Title:.*|^Author:.*)" cyan default bold
 highlight article "(^Link:.*|^Date:.*)" default default
 highlight article "https?://[^ ]+" green default
