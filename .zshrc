@@ -59,6 +59,8 @@ alias py='python'
 alias gpu='watch nvidia-smi'
 alias src='source'
 alias wiki='vim -c VimwikiIndex'
+alias nu='vim ~/.newsboat/urls'
+alias nc='vim ~/.newsboat/config'
 
 alias ..='cd ..'
 alias ...='cd ../../'
