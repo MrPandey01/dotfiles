@@ -20,6 +20,7 @@
     foreground_color = "#ffffff"
     scroll_on_output = True
     scrollback_lines = 1000
+    scrollback_infinite = True
 [layouts]
   [[default]]
     [[[child1]]]

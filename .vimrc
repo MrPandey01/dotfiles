@@ -312,10 +312,6 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-" Tab navigation
-nnoremap <C-[> :tabprevious<CR>
-nnoremap <C-]> :tabnext<CR>
-
 " Auto correct spelling mistake on-the-fly (with the first suggestion)
 inoremap <C-c> <c-g>u<Esc>[s1z=`]a<c-g>u
 
@@ -361,7 +357,7 @@ fun! TodoSort(line1, line2)
   call setline(a:line1, Flatten(lines))
 endfun
 
-" highlight less done items
+" highlight-less done items
 augroup VimWikiToDo
     autocmd!
     autocmd FileType vimwiki syntax match VimWikiToDoDone '\v^((\*|\s{4}\*|\t\*)\s\[(\.|o|O|X)\]\s)'
