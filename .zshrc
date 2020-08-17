@@ -106,6 +106,22 @@ pdf2image () {
 }
 
 
+# Sabitize pdf of its metadata
+clean_pdf() {
+ pdftk $1 dump_data | \
+  sed -e 's/\(InfoValue:\)\s.*/\1\ /g' | \
+  pdftk $1 update_info - output clean-$1
+
+ exiftool -all:all= clean-$1
+ exiftool -all:all clean-$1
+ exiftool -extractEmbedded -all:all clean-$1
+ qpdf --linearize clean-$1 clean2-$1
+
+ pdftk clean2-$1 dump_data
+ exiftool clean2-$1
+ pdfinfo -meta clean2-$1
+}
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
 
