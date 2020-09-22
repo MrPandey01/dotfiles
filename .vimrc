@@ -56,6 +56,7 @@ Plug 'vim-scripts/IndexedSearch'  " Search results counter
 
 " color scheme
 Plug 'morhetz/gruvbox'
+Plug 'sainnhe/gruvbox-material'
 
 " Airline
 Plug 'vim-airline/vim-airline'
@@ -136,9 +137,21 @@ if has('gui_running') || using_neovim || (&term =~? 'mlterm\|xterm\|xterm-256\|s
     let t_Co = 256
 
     " gruvbox settings
-    let g:gruvbox_italic = '1'
-    let g:gruvbox_contrast_dark = 'hard'
-    colorscheme gruvbox
+    " let g:gruvbox_italic = '1'
+    " let g:gruvbox_contrast_dark = 'hard'
+    " colorscheme gruvbox
+
+
+    " Gruvbox material settings
+    " Set contrast.
+    " This configuration option should be placed before `colorscheme gruvbox-material`.
+    " Available values: 'hard', 'medium'(default), 'soft'
+    let g:gruvbox_material_background = 'hard'
+    let g:gruvbox_material_enable_italic = 1
+    let g:gruvbox_material_enable_bold = 1
+    let g:gruvbox_material_palette = 'material'
+    " let g:gruvbox_material_transparent_background = 1
+    colorscheme gruvbox-material
 
 else
     colorscheme delek

@@ -60,11 +60,11 @@ _{$1} $0
 endsnippet
 
 context "math()"
-snippet // "Fraction" iA
+snippet / "Fraction" iA
 \\frac{$1}{$2} $0
 endsnippet
 
-snippet / "Visual mode Fraction"
+snippet // "Visual mode Fraction"
 \\frac{${VISUAL}}{$1}$0
 endsnippet
 
@@ -230,6 +230,13 @@ snippet fig "Figure environment" b
 \end{figure}
 endsnippet
 
+snippet " "Visual Surround Double Quotes" iA
+\`\`${1:${VISUAL}}" $0
+endsnippet
+
+snippet ' "Visual Surround Single Quotes" iA
+\`${1:${VISUAL}}' $0
+endsnippet
 
 snippet template_standalone "Standlone figure" b
 \documentclass[varwidth, border=0cm]{standalone}
