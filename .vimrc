@@ -57,6 +57,7 @@ Plug 'vim-scripts/IndexedSearch'  " Search results counter
 " color scheme
 Plug 'morhetz/gruvbox'
 Plug 'sainnhe/gruvbox-material'
+Plug 'dylanaraps/wal.vim'
 
 " Airline
 Plug 'vim-airline/vim-airline'
@@ -81,7 +82,7 @@ set ls=2  " always show status bar
 set incsearch  " Incremental search
 set hlsearch  " highlight search results
 syntax on
-set cursorline
+" set cursorline
 set mouse=a
 set spell spelllang=en_us
 set background=dark
@@ -91,7 +92,8 @@ set autochdir
 set scrolloff=3
 set shell=/bin/zsh
 set display+=lastline
-set conceallevel=2  " for better readability
+set conceallevel=1  " for better readability
+hi Conceal ctermbg=none
 
 " For hybrid line numbers
 set number relativenumber
@@ -106,7 +108,7 @@ set shiftwidth=4
 " Clear search results
 nnoremap <silent> // :noh<CR>
 
-" Remove ugly vertical lines on window division
+" Remove vertical lines on window division
 set fillchars+=vert:\ 
 
 " Use the OS clipboard by default (on versions compiled with `+clipboard`)
@@ -152,6 +154,8 @@ if has('gui_running') || using_neovim || (&term =~? 'mlterm\|xterm\|xterm-256\|s
     let g:gruvbox_material_palette = 'material'
     " let g:gruvbox_material_transparent_background = 1
     colorscheme gruvbox-material
+    
+    " colorscheme wal
 
 else
     colorscheme delek
