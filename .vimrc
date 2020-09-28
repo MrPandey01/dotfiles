@@ -82,10 +82,9 @@ set ls=2  " always show status bar
 set incsearch  " Incremental search
 set hlsearch  " highlight search results
 syntax on
-" set cursorline
 set mouse=a
-set spell spelllang=en_us
-set background=dark
+" set spell spelllang=en_us
+" set background=dark
 set splitbelow
 set splitright
 set autochdir
@@ -94,6 +93,7 @@ set shell=/bin/zsh
 set display+=lastline
 set conceallevel=1  " for better readability
 hi Conceal ctermbg=none
+set backspace=start,eol,indent
 
 " For hybrid line numbers
 set number relativenumber
