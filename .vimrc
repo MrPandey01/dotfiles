@@ -84,7 +84,7 @@ set hlsearch  " highlight search results
 syntax on
 set mouse=a
 " set spell spelllang=en_us
-" set background=dark
+set background=dark
 set splitbelow
 set splitright
 set autochdir
