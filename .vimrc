@@ -236,9 +236,9 @@ set completeopt+=noinsert
 
 " Auto-save settings ---------------------------
 let g:auto_save        = 1
-let g:auto_save_silent = 1
+let g:auto_save_silent = 0
 let g:auto_save_in_insert_mode = 0  " do not save while in insert mode
-let g:auto_save_events = ["InsertLeave", "TextChanged"]
+" let g:auto_save_events = ["InsertLeave", "TextChanged"]
 
 
 " Autoclose ------------------------------
