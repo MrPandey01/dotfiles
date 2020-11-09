@@ -61,6 +61,7 @@ alias src='source'
 alias wiki='vim -c VimwikiIndex'
 alias nu='vim ~/.newsboat/urls'
 alias nc='vim ~/.newsboat/config'
+alias cheat='~/bin/cheat-linux-amd64'
 
 alias ..='cd ..'
 alias ...='cd ../../'
