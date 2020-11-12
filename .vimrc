@@ -58,6 +58,7 @@ Plug 'vim-scripts/IndexedSearch'  " Search results counter
 Plug 'morhetz/gruvbox'
 Plug 'sainnhe/gruvbox-material'
 Plug 'dylanaraps/wal.vim'
+Plug 'tpope/vim-vividchalk'
 
 " Airline
 Plug 'vim-airline/vim-airline'
@@ -148,14 +149,16 @@ if has('gui_running') || using_neovim || (&term =~? 'mlterm\|xterm\|xterm-256\|s
     " Set contrast.
     " This configuration option should be placed before `colorscheme gruvbox-material`.
     " Available values: 'hard', 'medium'(default), 'soft'
-    let g:gruvbox_material_background = 'hard'
-    let g:gruvbox_material_enable_italic = 1
-    let g:gruvbox_material_enable_bold = 1
-    let g:gruvbox_material_palette = 'material'
-    " let g:gruvbox_material_transparent_background = 1
-    colorscheme gruvbox-material
+    " let g:gruvbox_material_background = 'hard'
+    " let g:gruvbox_material_enable_italic = 1
+    " let g:gruvbox_material_enable_bold = 1
+    " let g:gruvbox_material_palette = 'material'
+    " " let g:gruvbox_material_transparent_background = 1
+    " colorscheme gruvbox-material
     
     " colorscheme wal
+
+    colorscheme vividchalk
 
 else
     colorscheme delek
