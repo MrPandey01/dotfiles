@@ -5,7 +5,6 @@
   enabled_plugins = LaunchpadCodeURLHandler, APTURLHandler, LaunchpadBugURLHandler
   suppress_multiple_term_dialog = True
   title_font = Droid Sans 12
-  dbus = True
 [keybindings]
   new_tab = <Primary><Alt>t
   split_horiz = <Primary><Alt>h
@@ -14,6 +13,15 @@
   copy = <Primary>c
   paste = <Primary>v
   close_window = <Primary><Shift>w
+  switch_to_tab_1 = <Alt>1
+  switch_to_tab_2 = <Alt>2
+  switch_to_tab_3 = <Alt>3
+  switch_to_tab_4 = <Alt>4
+  switch_to_tab_5 = <Alt>5
+  switch_to_tab_6 = <Alt>6
+  switch_to_tab_7 = <Alt>7
+  switch_to_tab_8 = <Alt>8
+  switch_to_tab_9 = <Alt>9
 [profiles]
   [[default]]
     background_color = "#282828"
