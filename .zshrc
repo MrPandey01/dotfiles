@@ -62,6 +62,8 @@ alias wiki='vim -c VimwikiIndex'
 alias nu='vim ~/.newsboat/urls'
 alias nc='vim ~/.newsboat/config'
 alias cheat='~/bin/cheat-linux-amd64'
+alias cfg='cd $HOME/.config; ls'
+
 
 alias ..='cd ..'
 alias ...='cd ../../'

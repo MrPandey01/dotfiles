@@ -5,6 +5,7 @@
   enabled_plugins = LaunchpadCodeURLHandler, APTURLHandler, LaunchpadBugURLHandler
   suppress_multiple_term_dialog = True
   title_font = Droid Sans 12
+  dbus = True
 [keybindings]
   new_tab = <Primary><Alt>t
   split_horiz = <Primary><Alt>h
@@ -27,6 +28,7 @@
     [[[child1]]]
       parent = window0
       type = Terminal
+      profile = default
     [[[window0]]]
       parent = ""
       type = Window
