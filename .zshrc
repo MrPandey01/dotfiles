@@ -109,7 +109,7 @@ pdf2image () {
 }
 
 
-# Sabitize pdf of its metadata
+# Sanitize pdf of its metadata
 clean_pdf() {
  pdftk $1 dump_data | \
   sed -e 's/\(InfoValue:\)\s.*/\1\ /g' | \
