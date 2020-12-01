@@ -32,10 +32,6 @@ endif
 
 " ============================================================================
 call plug#begin("~/.vim/plugged")
-"
-" Code and files fuzzy finder
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
 
 " Deoplete: on the fly completion suggestions
 Plug 'Shougo/deoplete.nvim'
@@ -54,7 +50,7 @@ Plug '907th/vim-auto-save'
 Plug 'preservim/nerdcommenter'
 Plug 'vim-scripts/IndexedSearch'  " Search results counter
 
-" color scheme
+" Color scheme
 Plug 'morhetz/gruvbox'
 Plug 'sainnhe/gruvbox-material'
 Plug 'dylanaraps/wal.vim'
@@ -198,29 +194,6 @@ endfunction
 autocmd BufEnter * call NERDTreeRefresh()
 
 
-" Fzf ------------------------------
-" file finder mapping
-nmap ,e :Files<CR>
-" tags (symbols) in current file finder mapping
-nmap ,g :BTag<CR>
-" the same, but with the word under the cursor pre filled
-nmap ,wg :execute ":BTag " . expand('<cword>')<CR>
-" tags (symbols) in all files finder mapping
-nmap ,G :Tags<CR>
-" the same, but with the word under the cursor pre filled
-nmap ,wG :execute ":Tags " . expand('<cword>')<CR>
-" general code finder in current file mapping
-nmap ,f :BLines<CR>
-" the same, but with the word under the cursor pre filled
-nmap ,wf :execute ":BLines " . expand('<cword>')<CR>
-" general code finder in all files mapping
-nmap ,F :Lines<CR>
-" the same, but with the word under the cursor pre filled
-nmap ,wF :execute ":Lines " . expand('<cword>')<CR>
-" commands finder mapping
-nmap ,c :Commands<CR>
-
-
 " Deoplete -----------------------------
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_ignore_case = 1
@@ -300,31 +273,39 @@ noremap! <Left> <Esc>
 noremap  <Right> ""
 noremap! <Right> <Esc>
 
+" For escaping
 imap jj <Esc>
 imap hh <Esc>
 imap kk <Esc>
 imap jk <Esc>
 
-" Copy remaps
+" Change remaps
 nnoremap cw ciw
 nnoremap c( ci(
 nnoremap c{ ci{
 nnoremap c' ci'
 nnoremap c" ci"
 
+" Yank remaps
+nnoremap yw yiw
+nnoremap y( yi(
+nnoremap y{ yi{
+nnoremap y' yi'
+nnoremap y" yi"
+
 " Delete remaps
 nnoremap dw diw
-nnoremap d" da"
-nnoremap d' da'
 nnoremap d( da(
 nnoremap d{ da{
+nnoremap d' da'
+nnoremap d" da"
 
 " Select remaps
 nnoremap vw viw
-nnoremap v" vi"
-nnoremap v' vi'
 nnoremap v( vi(
 nnoremap v{ vi{
+nnoremap v' vi'
+nnoremap v" vi"
 
 " SplitScreen navigation mappings
 nnoremap <C-J> <C-W><C-J>
