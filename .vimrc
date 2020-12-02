@@ -49,6 +49,7 @@ Plug 'ryanoasis/vim-devicons'  " Icons for NerdTree
 Plug '907th/vim-auto-save'
 Plug 'preservim/nerdcommenter'
 Plug 'vim-scripts/IndexedSearch'  " Search results counter
+Plug 'tpope/vim-surround'
 
 " Color scheme
 Plug 'morhetz/gruvbox'
