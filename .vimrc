@@ -49,13 +49,16 @@ Plug 'ryanoasis/vim-devicons'  " Icons for NerdTree
 Plug '907th/vim-auto-save'
 Plug 'preservim/nerdcommenter'
 Plug 'vim-scripts/IndexedSearch'  " Search results counter
+
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'  " extends functionality of vim surround 
 
 " Color scheme
 Plug 'morhetz/gruvbox'
 Plug 'sainnhe/gruvbox-material'
 Plug 'dylanaraps/wal.vim'
 Plug 'tpope/vim-vividchalk'
+Plug 'arcticicestudio/nord-vim'
 
 " Airline
 Plug 'vim-airline/vim-airline'
@@ -156,6 +159,8 @@ if has('gui_running') || using_neovim || (&term =~? 'mlterm\|xterm\|xterm-256\|s
     " colorscheme wal
 
     colorscheme vividchalk
+    " colorscheme nord
+
 
 else
     colorscheme delek
@@ -280,33 +285,59 @@ imap hh <Esc>
 imap kk <Esc>
 imap jk <Esc>
 
-" Change remaps
+" For Change 
 nnoremap cw ciw
 nnoremap c( ci(
 nnoremap c{ ci{
 nnoremap c' ci'
 nnoremap c" ci"
 
-" Yank remaps
+" For Yank 
 nnoremap yw yiw
 nnoremap y( yi(
 nnoremap y{ yi{
 nnoremap y' yi'
 nnoremap y" yi"
 
-" Delete remaps
+" For Delete 
 nnoremap dw diw
 nnoremap d( da(
 nnoremap d{ da{
 nnoremap d' da'
 nnoremap d" da"
 
-" Select remaps
+" For Select 
 nnoremap vw viw
 nnoremap v( vi(
 nnoremap v{ vi{
 nnoremap v' vi'
 nnoremap v" vi"
+
+" Toggle Surround tpope/surround mappings
+function! Toggle_Surround(char)
+  let pos = getcurpos()
+  let cur = col(".")
+  exe "norm! va".a:char
+  let start = col("v")
+  let end = col(".")
+  exe "norm! \<esc>"
+  call cursor(pos[1], pos[2])
+  if start <= cur && cur <= end && start != end
+    " inside quote :)
+    exe "norm ds".a:char
+    call cursor(pos[1], pos[2]-len(a:char))
+  else
+    " not inside a quote
+    " hapens when cur <= start or end <= cur_sol or cur == start == end
+    exe "norm ysiw".a:char
+    call cursor(pos[1], pos[2]+len(a:char))
+  endif
+endfunction
+
+nmap <silent> <leader>" :call Toggle_Surround('"')<cr>
+nmap <silent> <leader>) :call Toggle_Surround(')')<cr>
+nmap <silent> <leader>) :call Toggle_Surround(')')<cr>
+nmap <silent> <leader>} :call Toggle_Surround('}')<cr>
 
 " SplitScreen navigation mappings
 nnoremap <C-J> <C-W><C-J>

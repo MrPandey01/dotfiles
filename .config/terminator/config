@@ -27,10 +27,11 @@
     background_color = "#282828"
     cursor_shape = ibeam
     cursor_color = "#aaaaaa"
-    font = Droid Sans 12
+    font = Source Code Pro 12
     foreground_color = "#ffffff"
     scrollback_lines = 1000
     scrollback_infinite = True
+    use_system_font = False
 [layouts]
   [[default]]
     [[[child1]]]
