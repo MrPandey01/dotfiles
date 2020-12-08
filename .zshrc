@@ -65,8 +65,13 @@ alias cheat='~/bin/cheat-linux-amd64'
 alias cfg='cd $HOME/.config; ls'
 
 
-alias ..='cd ..'
-alias ...='cd ../../'
+alias ..='cd .. ; ls -a'
+alias ...='cd ../../ ; ls -a'
+# cd-ls alias
+function chpwd() {
+    emulate -L zsh
+    ls -a
+}
 
 # Prepare current latex project for arXiv
 arxiv () {
