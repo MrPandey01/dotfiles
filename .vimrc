@@ -289,6 +289,7 @@ imap jk <Esc>
 nnoremap cw ciw
 nnoremap c( ci(
 nnoremap c{ ci{
+nnoremap c[ ci[
 nnoremap c' ci'
 nnoremap c" ci"
 
@@ -296,6 +297,7 @@ nnoremap c" ci"
 nnoremap yw yiw
 nnoremap y( yi(
 nnoremap y{ yi{
+nnoremap y[ yi[
 nnoremap y' yi'
 nnoremap y" yi"
 
@@ -303,6 +305,7 @@ nnoremap y" yi"
 nnoremap dw diw
 nnoremap d( da(
 nnoremap d{ da{
+nnoremap d[ da[
 nnoremap d' da'
 nnoremap d" da"
 
@@ -310,6 +313,7 @@ nnoremap d" da"
 nnoremap vw viw
 nnoremap v( vi(
 nnoremap v{ vi{
+nnoremap v[ vi[
 nnoremap v' vi'
 nnoremap v" vi"
 
