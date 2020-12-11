@@ -3,6 +3,7 @@ set encoding=utf-8
 let using_neovim = has('nvim')
 let using_vim = !using_neovim
 
+
 " ============================================================================
 " Vim-plug initialization
 
@@ -25,10 +26,12 @@ if !filereadable(vim_plug_path)
     let vim_plug_just_installed = 1
 endif
 
+
 " Manually load vim-plug the first time
 if vim_plug_just_installed
     :execute 'source '.fnameescape(vim_plug_path)
 endif
+
 
 " ============================================================================
 call plug#begin("~/.vim/plugged")
@@ -66,6 +69,7 @@ Plug 'vim-airline/vim-airline-themes'
 
 call plug#end()
 
+
 " ============================================================================
 " Install plugins the first time vim runs
 
@@ -73,6 +77,7 @@ if vim_plug_just_installed
     echo "Installing Bundles, please ignore key map  messages"
     :PlugInstall
 endif
+
 
 " ============================================================================
 " Vim settings and mappings
@@ -92,13 +97,15 @@ set autochdir
 set scrolloff=3
 set shell=/bin/zsh
 set display+=lastline
-set conceallevel=1  " for better readability
+set conceallevel=0  " for better readability
 hi Conceal ctermbg=none
 set backspace=start,eol,indent
+
 
 " For hybrid line numbers
 set number relativenumber
 set nu rnu
+
 
 " Tabs and spaces handling
 set expandtab
@@ -106,11 +113,14 @@ set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 
+
 " Clear search results
 nnoremap <silent> // :noh<CR>
 
+
 " Remove vertical lines on window division
 set fillchars+=vert:\ 
+
 
 " Use the OS clipboard by default (on versions compiled with `+clipboard`)
 if has('unnamedplus')
@@ -119,9 +129,11 @@ else
     set clipboard=unnamed
 endif
 
+
 " Change cursor shape in different modes
 let &t_SI = "\e[5 q"
 let &t_EI = "\e[1 q"
+
 
 " optional reset cursor on start:
 augroup myCmds
@@ -129,11 +141,13 @@ au!
 autocmd VimEnter * silent !echo -ne "\e[2 q"
 augroup END
 
+
 " Reopen the file at same cursor location
 if has("autocmd")
 au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
     \| exe "normal! g`\"" | endif
 endif
+
 
 " use 256 colors when possible
 if has('gui_running') || using_neovim || (&term =~? 'mlterm\|xterm\|xterm-256\|screen-256')
@@ -165,6 +179,10 @@ if has('gui_running') || using_neovim || (&term =~? 'mlterm\|xterm\|xterm-256\|s
 else
     colorscheme delek
 endif
+
+
+"Custom comments color, keep below theme to overload
+highlight Comment cterm=italic ctermfg=gray gui=italic guifg=white
 
 
 " Autocompletion of files and commands behaves like shell
@@ -234,7 +252,8 @@ let g:AutoClosePumvisible = {"ENTER": "\<C-Y>", "ESC": "\<ESC>"}
 let g:tex_flavor='latex'
 let g:vimtex_view_method='zathura'
 let g:vimtex_quickfix_mode=0
-let g:tex_conceal='abdmg'
+let g:tex_conceal=''
+let g:vimtex_compiler_latexmk = {'continuous': 0}
 if empty(v:servername) && exists('*remote_startserver')
     call remote_startserver('VIM')
 endif
@@ -279,13 +298,14 @@ noremap! <Left> <Esc>
 noremap  <Right> ""
 noremap! <Right> <Esc>
 
+
 " For escaping
 imap jj <Esc>
 imap hh <Esc>
 imap kk <Esc>
-imap jk <Esc>
 
-" For Change 
+
+" For Changing
 nnoremap cw ciw
 nnoremap c( ci(
 nnoremap c{ ci{
@@ -293,7 +313,8 @@ nnoremap c[ ci[
 nnoremap c' ci'
 nnoremap c" ci"
 
-" For Yank 
+
+" For Yanking
 nnoremap yw yiw
 nnoremap y( yi(
 nnoremap y{ yi{
@@ -301,7 +322,8 @@ nnoremap y[ yi[
 nnoremap y' yi'
 nnoremap y" yi"
 
-" For Delete 
+
+" For Deleting
 nnoremap dw diw
 nnoremap d( da(
 nnoremap d{ da{
@@ -309,13 +331,15 @@ nnoremap d[ da[
 nnoremap d' da'
 nnoremap d" da"
 
-" For Select 
+
+" For Selecting
 nnoremap vw viw
 nnoremap v( vi(
 nnoremap v{ vi{
 nnoremap v[ vi[
 nnoremap v' vi'
 nnoremap v" vi"
+
 
 " Toggle Surround tpope/surround mappings
 function! Toggle_Surround(char)
@@ -340,14 +364,19 @@ endfunction
 
 nmap <silent> <leader>" :call Toggle_Surround('"')<cr>
 nmap <silent> <leader>) :call Toggle_Surround(')')<cr>
-nmap <silent> <leader>) :call Toggle_Surround(')')<cr>
+nmap <silent> <leader>( :call Toggle_Surround('(')<cr>
+nmap <silent> <leader>] :call Toggle_Surround(']')<cr>
+nmap <silent> <leader>[ :call Toggle_Surround('[')<cr>
 nmap <silent> <leader>} :call Toggle_Surround('}')<cr>
+nmap <silent> <leader>{ :call Toggle_Surround('{')<cr>
+
 
 " SplitScreen navigation mappings
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+
 
 " Auto correct spelling mistake on-the-fly (with the first suggestion)
 inoremap <C-c> <c-g>u<Esc>[s1z=`]a<c-g>u
@@ -394,6 +423,7 @@ fun! TodoSort(line1, line2)
   call setline(a:line1, Flatten(lines))
 endfun
 
+
 " highlight-less done items
 augroup VimWikiToDo
     autocmd!
@@ -401,15 +431,18 @@ augroup VimWikiToDo
     autocmd FileType vimwiki highlight link VimWikiToDoDone Comment
 augroup END
 
+
 " Set F5 to save and run the current python file
 autocmd FileType python map <buffer> <F5> :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
 autocmd FileType python imap <buffer> <F5> <esc>:w<CR>:exec '!python3' shellescape(@%, 1)<CR>
+
 
 " Improve scroll performance
 augroup syntaxSyncMinLines
     autocmd!
     autocmd Syntax * syntax sync minlines=500
 augroup END
+
 
 " Include user's custom vim configurations
 let custom_configs_path = "~/.vim/custom.vim"

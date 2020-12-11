@@ -67,11 +67,11 @@ alias cfg='cd $HOME/.config; ls'
 
 alias ..='cd .. ; ls -a'
 alias ...='cd ../../ ; ls -a'
-# cd-ls alias
-function chpwd() {
-    emulate -L zsh
-    ls -a
-}
+# # cd-ls alias
+# function chpwd() {
+    # emulate -L zsh
+    # ls -a
+# }
 
 # Prepare current latex project for arXiv
 arxiv () {
