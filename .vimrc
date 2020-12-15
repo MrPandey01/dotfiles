@@ -36,14 +36,17 @@ endif
 " ============================================================================
 call plug#begin("~/.vim/plugged")
 
-" Deoplete: on the fly completion suggestions
+" Deoplete: on the fly completion suggestions.
 Plug 'Shougo/deoplete.nvim'
 Plug 'roxma/nvim-yarp'
 Plug 'roxma/vim-hug-neovim-rpc'
 
-Plug 'lervag/vimtex' " Latex plugin
+" Latex plugin
+Plug 'lervag/vimtex' 
+
 Plug 'vimwiki/vimwiki'
 
+" Code snippets
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
@@ -59,9 +62,8 @@ Plug 'tpope/vim-repeat'  " extends functionality of vim surround
 " Color scheme
 Plug 'morhetz/gruvbox'
 Plug 'sainnhe/gruvbox-material'
-Plug 'dylanaraps/wal.vim'
 Plug 'tpope/vim-vividchalk'
-Plug 'arcticicestudio/nord-vim'
+Plug 'altercation/vim-colors-solarized'
 
 " Airline
 Plug 'vim-airline/vim-airline'
@@ -88,15 +90,13 @@ set ls=2  " always show status bar
 set incsearch  " Incremental search
 set hlsearch  " highlight search results
 syntax on
+let python_highlight_all=1
 set mouse=a
-" set spell spelllang=en_us
 set background=dark
 set splitbelow
 set splitright
 set autochdir
 set scrolloff=3
-set shell=/bin/zsh
-set display+=lastline
 set conceallevel=0  " for better readability
 hi Conceal ctermbg=none
 set backspace=start,eol,indent
@@ -135,7 +135,7 @@ let &t_SI = "\e[5 q"
 let &t_EI = "\e[1 q"
 
 
-" optional reset cursor on start:
+" Optional reset cursor on start:
 augroup myCmds
 au!
 autocmd VimEnter * silent !echo -ne "\e[2 q"
@@ -158,7 +158,6 @@ if has('gui_running') || using_neovim || (&term =~? 'mlterm\|xterm\|xterm-256\|s
     " let g:gruvbox_contrast_dark = 'hard'
     " colorscheme gruvbox
 
-
     " Gruvbox material settings
     " Set contrast.
     " This configuration option should be placed before `colorscheme gruvbox-material`.
@@ -170,19 +169,21 @@ if has('gui_running') || using_neovim || (&term =~? 'mlterm\|xterm\|xterm-256\|s
     " " let g:gruvbox_material_transparent_background = 1
     " colorscheme gruvbox-material
     
-    " colorscheme wal
-
-    colorscheme vividchalk
-    " colorscheme nord
-
-
+    " colorscheme vividchalk
+    " colorscheme vim-colors-solarized
 else
-    colorscheme delek
+    " colorscheme delek
 endif
 
 
 "Custom comments color, keep below theme to overload
-highlight Comment cterm=italic ctermfg=gray gui=italic guifg=white
+" highlight Comment cterm=italic ctermfg=gray gui=italic guifg=white
+
+
+" Enable spell check only for markdown files
+autocmd FileType markdown setlocal spell
+hi clear SpellBad
+hi SpellBad cterm=underline
 
 
 " Autocompletion of files and commands behaves like shell
@@ -229,10 +230,6 @@ let g:context_filetype#same_filetypes._ = '_'
 " Needed so deoplete can auto select the first suggestion
 set completeopt+=noinsert
 
-" Comment this line to enable autocompletion preview window
-" (displays documentation related to the selected completion option)
-" disabled by default because preview makes the window flicker
-" set completeopt-=preview
 
 " Auto-save settings ---------------------------
 let g:auto_save        = 1
@@ -277,7 +274,6 @@ let g:UltiSnipsSnippetDirectories=["UltiSnips", "custom_snippets"]
 
 " NerdCommenter ------------------------
 let g:NERDSpaceDelims = 1
-" let g:NERDDefaultAlign = 'left'
 let g:NERDCommentEmptyLines = 1
 let g:NERDTrimTrailingWhitespace = 1
 let g:NERDToggleCheckAllLines = 1
@@ -340,6 +336,7 @@ nnoremap v[ vi[
 nnoremap v' vi'
 nnoremap v" vi"
 
+map <space> <leader>
 
 " Toggle Surround tpope/surround mappings
 function! Toggle_Surround(char)
@@ -379,11 +376,11 @@ nnoremap <C-H> <C-W><C-H>
 
 
 " Auto correct spelling mistake on-the-fly (with the first suggestion)
-inoremap <C-c> <c-g>u<Esc>[s1z=`]a<c-g>u
+" inoremap <C-c> <c-g>u<Esc>[s1z=`]a<c-g>u
 
 
 " Sort and highlight ToDo list
-" source: https://www.reddit.com/r/vim/comments/hc3m1w/how_to_sort_nested_todo_list/fvfw4lv?utm_source=share&utm_medium=web2x
+" Source: https://www.reddit.com/r/vim/comments/hc3m1w/how_to_sort_nested_todo_list/fvfw4lv?utm_source=share&utm_medium=web2x
 nnoremap <leader>td :TodoSort<CR>
 command! -range=% TodoSort call TodoSort(<line1>,<line2>)
 
@@ -424,7 +421,7 @@ fun! TodoSort(line1, line2)
 endfun
 
 
-" highlight-less done items
+" Highlight-less done items
 augroup VimWikiToDo
     autocmd!
     autocmd FileType vimwiki syntax match VimWikiToDoDone '\v^((\*|\s{4}\*|\t\*)\s\[(\.|o|O|X)\]\s)'
