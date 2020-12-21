@@ -100,6 +100,7 @@ set scrolloff=3
 set conceallevel=0  " for better readability
 hi Conceal ctermbg=none
 set backspace=start,eol,indent
+set wrap linebreak nolist
 
 
 " For hybrid line numbers
@@ -300,6 +301,11 @@ imap jj <Esc>
 imap hh <Esc>
 imap kk <Esc>
 
+" For navigation
+vmap j gj
+nmap j gj
+vmap k gk
+nmap k gk
 
 " For Changing
 nnoremap cw ciw
