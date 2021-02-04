@@ -138,15 +138,15 @@ let &t_EI = "\e[1 q"
 
 " Optional reset cursor on start:
 augroup myCmds
-au!
-autocmd VimEnter * silent !echo -ne "\e[2 q"
+    au!
+    autocmd VimEnter * silent !echo -ne "\e[2 q"
 augroup END
 
 
 " Reopen the file at same cursor location
 if has("autocmd")
-au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
-    \| exe "normal! g`\"" | endif
+    au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
+                \| exe "normal! g`\"" | endif
 endif
 
 
@@ -169,7 +169,7 @@ if has('gui_running') || using_neovim || (&term =~? 'mlterm\|xterm\|xterm-256\|s
     " let g:gruvbox_material_palette = 'material'
     " " let g:gruvbox_material_transparent_background = 1
     " colorscheme gruvbox-material
-    
+
     " colorscheme vividchalk
     " colorscheme vim-colors-solarized
 else
@@ -346,23 +346,23 @@ map <space> <leader>
 
 " Toggle Surround tpope/surround mappings
 function! Toggle_Surround(char)
-  let pos = getcurpos()
-  let cur = col(".")
-  exe "norm! va".a:char
-  let start = col("v")
-  let end = col(".")
-  exe "norm! \<esc>"
-  call cursor(pos[1], pos[2])
-  if start <= cur && cur <= end && start != end
-    " inside quote :)
-    exe "norm ds".a:char
-    call cursor(pos[1], pos[2]-len(a:char))
-  else
-    " not inside a quote
-    " hapens when cur <= start or end <= cur_sol or cur == start == end
-    exe "norm ysiw".a:char
-    call cursor(pos[1], pos[2]+len(a:char))
-  endif
+    let pos = getcurpos()
+    let cur = col(".")
+    exe "norm! va".a:char
+    let start = col("v")
+    let end = col(".")
+    exe "norm! \<esc>"
+    call cursor(pos[1], pos[2])
+    if start <= cur && cur <= end && start != end
+        " inside quote :)
+        exe "norm ds".a:char
+        call cursor(pos[1], pos[2]-len(a:char))
+    else
+        " not inside a quote
+        " hapens when cur <= start or end <= cur_sol or cur == start == end
+        exe "norm ysiw".a:char
+        call cursor(pos[1], pos[2]+len(a:char))
+    endif
 endfunction
 
 nmap <silent> <leader>" :call Toggle_Surround('"')<cr>
@@ -391,39 +391,39 @@ nnoremap <leader>td :TodoSort<CR>
 command! -range=% TodoSort call TodoSort(<line1>,<line2>)
 
 fun! TodoSort(line1, line2)
-  if indent(a:line1) | return | endif
+    if indent(a:line1) | return | endif
 
-  let Compare = { a, b -> a.line == b.line ? 0 : a.line < b.line ? -1 : 1 }
-  let lines = []
-  let stack = [lines]
-  let previndent = 0
+    let Compare = { a, b -> a.line == b.line ? 0 : a.line < b.line ? -1 : 1 }
+    let lines = []
+    let stack = [lines]
+    let previndent = 0
 
-  for lnum in range(a:line1, a:line2)
-    let indent = indent(lnum)
-    if indent > previndent
-       call add(stack, stack[-1][-1].children)
-    elseif indent < previndent
-      for _ in range((previndent - indent) / shiftwidth())
-        call sort(stack[-1], Compare)
-        call remove(stack, -1)
-      endfor
-    endif
-    call add(stack[-1], { 'line': getline(lnum), 'children': [] })
-    let previndent = indent
-  endfor
-
-  call sort(lines, Compare)
-
-  fun! Flatten(lines, ...)
-    let out = a:0 ? a:1 : []
-    for line in a:lines
-      call add(out, line.line)
-      call Flatten(line.children, out)
+    for lnum in range(a:line1, a:line2)
+        let indent = indent(lnum)
+        if indent > previndent
+            call add(stack, stack[-1][-1].children)
+        elseif indent < previndent
+            for _ in range((previndent - indent) / shiftwidth())
+                call sort(stack[-1], Compare)
+                call remove(stack, -1)
+            endfor
+        endif
+        call add(stack[-1], { 'line': getline(lnum), 'children': [] })
+        let previndent = indent
     endfor
-    return out
-  endfun
 
-  call setline(a:line1, Flatten(lines))
+    call sort(lines, Compare)
+
+    fun! Flatten(lines, ...)
+        let out = a:0 ? a:1 : []
+        for line in a:lines
+            call add(out, line.line)
+            call Flatten(line.children, out)
+        endfor
+        return out
+    endfun
+
+    call setline(a:line1, Flatten(lines))
 endfun
 
 

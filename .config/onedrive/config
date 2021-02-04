@@ -5,7 +5,7 @@
 # For explanations see the README.md or the man page.
 #
 # sync_dir = "~/OneDrive"
-skip_file = "~*|.~*|*.tmp|*.synctex.gz|*.aux|*.log|*.out|*.blg|*.fls|*.fdb_latexmk|*.vrb|*.snm|*.nav|*.xml|*.toc|*.bcf|*.xdv"
+skip_file = "*.git*|~*|.~*|*.tmp|*.synctex.gz|*.aux|*.log|*.out|*.blg|*.fls|*.fdb_latexmk|*.vrb|*.snm|*.nav|*.xml|*.toc|*.bcf|*.xdv|*.clo|*.bst"
 # monitor_interval = "45"
 # skip_dir = ""
 # log_dir = "/var/log/onedrive/"
