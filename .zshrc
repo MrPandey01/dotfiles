@@ -65,13 +65,30 @@ alias cheat='~/bin/cheat-linux-amd64'
 alias cfg='cd $HOME/.config; ls'
 
 
-alias ..='cd .. ; ls -a'
-alias ...='cd ../../ ; ls -a'
+alias ..='cd .. ; colorls -a'
+alias ...='cd ../../ ; colorls -a'
+alias ls='colorls'
+
 # # cd-ls alias
 # function chpwd() {
     # emulate -L zsh
     # ls -a
 # }
+
+# Open files in terminal    
+function open () {
+    xdg-open "$*" &>/dev/null
+}
+
+alias -s pdf=open
+alias -s png=open
+alias -s jpg=open
+alias -s jpeg=open
+alias -s txt=open
+alias -s py=open
+alias -s m=open
+
+
 
 # Prepare current latex project for arXiv
 arxiv () {
