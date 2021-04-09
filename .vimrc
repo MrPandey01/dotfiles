@@ -62,8 +62,6 @@ Plug 'tpope/vim-repeat'  " extends functionality of vim surround
 " Color scheme
 Plug 'morhetz/gruvbox'
 Plug 'sainnhe/gruvbox-material'
-Plug 'tpope/vim-vividchalk'
-Plug 'altercation/vim-colors-solarized'
 
 " Airline
 Plug 'vim-airline/vim-airline'
@@ -167,11 +165,9 @@ if has('gui_running') || using_neovim || (&term =~? 'mlterm\|xterm\|xterm-256\|s
     " let g:gruvbox_material_enable_italic = 1
     " let g:gruvbox_material_enable_bold = 1
     " let g:gruvbox_material_palette = 'material'
-    " " let g:gruvbox_material_transparent_background = 1
+    " let g:gruvbox_material_transparent_background = 1
     " colorscheme gruvbox-material
 
-    " colorscheme vividchalk
-    " colorscheme vim-colors-solarized
 else
     " colorscheme delek
 endif
@@ -261,7 +257,16 @@ endif
 nmap <Leader>tl <Plug>VimwikiToggleListItem
 vmap <Leader>tl <Plug>VimwikiToggleListItem
 " let g:vimwiki_hl_cb_checked = 2
+" let g:vimwiki_list = [{'path': '~/vimwiki/',
+                      " \ 'syntax': 'markdown', 'ext': '.md'}]
+let g:vimwiki_table_mappings = 0
+" Disable <CR> mapping
+inoremap <F13> <Esc>:VimwikiReturn 1 5<CR>
 
+" Only run VimwikiReturn if the popup menu is not showing, otherwise close it
+inoremap <silent><expr><CR>
+            \ pumvisible() ? deoplete#close_popup()
+            \ : "<Esc>:VimwikiReturn 1 5<CR>"
 
 " UltiSnippets ---------------------------
 " Snippets Trigger configuration. 
