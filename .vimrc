@@ -62,6 +62,7 @@ Plug 'tpope/vim-repeat'  " extends functionality of vim surround
 " Color scheme
 Plug 'morhetz/gruvbox'
 Plug 'sainnhe/gruvbox-material'
+Plug 'vim-python/python-syntax'
 
 " Airline
 Plug 'vim-airline/vim-airline'
