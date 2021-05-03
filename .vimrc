@@ -85,11 +85,12 @@ endif
  
 set nocompatible
 filetype plugin indent on
-set ls=2  " always show status bar
+set ls=2       " always show status bar
 set incsearch  " Incremental search
-set hlsearch  " highlight search results
+set hlsearch   " highlight search results
 syntax on
 let python_highlight_all=1
+set termguicolors
 set mouse=a
 set background=dark
 set splitbelow
@@ -159,9 +160,7 @@ if has('gui_running') || using_neovim || (&term =~? 'mlterm\|xterm\|xterm-256\|s
     " colorscheme gruvbox
 
     " Gruvbox material settings
-    " Set contrast.
-    " This configuration option should be placed before `colorscheme gruvbox-material`.
-    " Available values: 'hard', 'medium'(default), 'soft'
+    " Set contrast. This configuration option should be placed before `colorscheme gruvbox-material`. Available values: 'hard', 'medium'(default), 'soft'
     " let g:gruvbox_material_background = 'hard'
     " let g:gruvbox_material_enable_italic = 1
     " let g:gruvbox_material_enable_bold = 1
