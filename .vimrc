@@ -37,9 +37,10 @@ endif
 call plug#begin("~/.vim/plugged")
 
 " Deoplete: on the fly completion suggestions.
-Plug 'Shougo/deoplete.nvim'
-Plug 'roxma/nvim-yarp'
-Plug 'roxma/vim-hug-neovim-rpc'
+" Plug 'Shougo/deoplete.nvim'
+" Plug 'roxma/nvim-yarp'
+" Plug 'roxma/vim-hug-neovim-rpc'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Latex plugin
 Plug 'lervag/vimtex' 
@@ -167,7 +168,6 @@ if has('gui_running') || using_neovim || (&term =~? 'mlterm\|xterm\|xterm-256\|s
     " let g:gruvbox_material_palette = 'material'
     " let g:gruvbox_material_transparent_background = 1
     " colorscheme gruvbox-material
-
 else
     " colorscheme delek
 endif
