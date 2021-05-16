@@ -36,10 +36,6 @@ endif
 " ============================================================================
 call plug#begin("~/.vim/plugged")
 
-" Deoplete: on the fly completion suggestions.
-" Plug 'Shougo/deoplete.nvim'
-" Plug 'roxma/nvim-yarp'
-" Plug 'roxma/vim-hug-neovim-rpc'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Latex plugin
@@ -50,6 +46,7 @@ Plug 'vimwiki/vimwiki'
 " Code snippets
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
+
 
 Plug 'Townk/vim-autoclose' " Automatically close parenthesis, etc
 Plug 'ryanoasis/vim-devicons'  " Icons for NerdTree
@@ -173,10 +170,6 @@ else
 endif
 
 
-"Custom comments color, keep below theme to overload
-" highlight Comment cterm=italic ctermfg=gray gui=italic guifg=white
-
-
 " Enable spell check only for markdown files
 autocmd FileType markdown setlocal spell
 hi clear SpellBad
@@ -216,17 +209,6 @@ endfunction
 autocmd BufEnter * call NERDTreeRefresh()
 
 
-" Deoplete -----------------------------
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#enable_ignore_case = 1
-"let g:deoplete#enable_smart_case = 1
-" Complete with words from any opened file
-let g:context_filetype#same_filetypes = {}
-let g:context_filetype#same_filetypes._ = '_'
-
-" Needed so deoplete can auto select the first suggestion
-set completeopt+=noinsert
-
 
 " Auto-save settings ---------------------------
 let g:auto_save        = 1
@@ -265,8 +247,9 @@ inoremap <F13> <Esc>:VimwikiReturn 1 5<CR>
 
 " Only run VimwikiReturn if the popup menu is not showing, otherwise close it
 inoremap <silent><expr><CR>
-            \ pumvisible() ? deoplete#close_popup()
+            \ pumvisible() ? coc#_select_confirm()
             \ : "<Esc>:VimwikiReturn 1 5<CR>"
+
 
 " UltiSnippets ---------------------------
 " Snippets Trigger configuration. 
