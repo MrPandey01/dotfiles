@@ -36,17 +36,15 @@ endif
 " ============================================================================
 call plug#begin("~/.vim/plugged")
 
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'} " word completion
 
-" Latex plugin
-Plug 'lervag/vimtex' 
+Plug 'lervag/vimtex' " Latex plugin 
 
-Plug 'vimwiki/vimwiki'
+Plug 'vimwiki/vimwiki' " Note making
 
 " Code snippets
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-
 
 Plug 'Townk/vim-autoclose' " Automatically close parenthesis, etc
 Plug 'ryanoasis/vim-devicons'  " Icons for NerdTree
@@ -234,6 +232,13 @@ if empty(v:servername) && exists('*remote_startserver')
     call remote_startserver('VIM')
 endif
 
+" Remap compile and view keys
+augroup vimrc_tex
+    au!
+    au FileType tex nmap <buffer><silent> <F5> <plug>(vimtex-compile)
+    au FileType tex nmap <buffer><silent> <localleader>v <plug>(vimtex-view)
+augroup END
+
 
 " VimWiki --------------------------------
 nmap <Leader>tl <Plug>VimwikiToggleListItem
@@ -246,9 +251,9 @@ let g:vimwiki_table_mappings = 0
 inoremap <F13> <Esc>:VimwikiReturn 1 5<CR>
 
 " Only run VimwikiReturn if the popup menu is not showing, otherwise close it
-inoremap <silent><expr><CR>
-            \ pumvisible() ? coc#_select_confirm()
-            \ : "<Esc>:VimwikiReturn 1 5<CR>"
+" inoremap <silent><expr><CR>
+            " \ pumvisible() ? coc#_select_confirm()
+            " \ : "<Esc>:VimwikiReturn 1 5<CR>"
 
 
 " UltiSnippets ---------------------------
@@ -289,7 +294,7 @@ imap jj <Esc>
 imap hh <Esc>
 imap kk <Esc>
 
-" For navigation
+" For navigation (treat line breaks as new lines)
 vmap j gj
 nmap j gj
 vmap k gk
@@ -362,7 +367,7 @@ nmap <silent> <leader>} :call Toggle_Surround('}')<cr>
 nmap <silent> <leader>{ :call Toggle_Surround('{')<cr>
 
 
-" SplitScreen navigation mappings
+" SplitScreen navigation mappings 
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
