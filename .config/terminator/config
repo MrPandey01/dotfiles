@@ -12,6 +12,8 @@
   close_term = <Primary>w
   copy = <Primary>c
   paste = <Primary>v
+  page_up = <Shift>Page_Up
+  page_down = <Shift>Page_Down
   close_window = <Primary><Shift>w
   switch_to_tab_1 = <Alt>1
   switch_to_tab_2 = <Alt>2

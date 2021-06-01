@@ -28,3 +28,6 @@ set guioptions ""
 
 set synctex true
 set synctex-editor-command "gvim --remote-silent +%{line} %{input}"
+
+set highlight-active-color "#ffffff"
+set highlight-transparency 1
