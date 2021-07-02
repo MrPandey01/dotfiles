@@ -63,6 +63,7 @@ alias nu='vim ~/.newsboat/urls'
 alias nc='vim ~/.newsboat/config'
 alias cheat='~/bin/cheat-linux-amd64'
 alias cfg='cd $HOME/.config; ls'
+alias jl='jupyter-lab'
 
 
 alias ..='cd .. ; colorls -a'
@@ -85,6 +86,8 @@ alias -s png=open
 alias -s jpg=open
 alias -s jpeg=open
 alias -s txt=open
+alias -s dat=open
+alias -s log=open
 alias -s py=open
 alias -s m=open
 
@@ -106,10 +109,17 @@ arxiv () {
 # Dynamically set alias to cd in directory
 cdalias () {
   if [ $# -ne 1 ]; then
-    echo "Input alias name to cd in current directory"
+    echo "Input alias name to cd in the current directory"
     return 1
   fi
-  echo "alias $1='cd $PWD'" >> $HOME/.oh-my-zsh/custom/custom_alias.zsh
+
+  if alias $1 2>/dev/null; then
+    echo "alias '$1' already exists! Use another name."
+  else
+    echo "alias $1='cd $PWD'" >> $HOME/.oh-my-zsh/custom/custom_alias.zsh
+    echo "Created alias '$1'. Restart terminal for the changes to take effect."
+  fi
+
 }
 
 
