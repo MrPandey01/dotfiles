@@ -58,7 +58,9 @@ alias py='python'
 # alias rm='rm -i'
 alias gpu='watch nvidia-smi'
 alias src='source'
-alias wiki='vim -c VimwikiIndex'
+
+# alias gvim='gvim -p --remote-tab-silent'
+alias wiki='vim $HOME/vimwiki/index.wiki'
 alias nu='vim ~/.newsboat/urls'
 alias nc='vim ~/.newsboat/config'
 alias cheat='~/bin/cheat-linux-amd64'
@@ -66,8 +68,8 @@ alias cfg='cd $HOME/.config; ls'
 alias jl='jupyter-lab'
 
 
-alias ..='cd .. ; colorls -a'
-alias ...='cd ../../ ; colorls -a'
+# alias ..='cd .. ; colorls -a'
+# alias ...='cd ../../ ; colorls -a'
 alias ls='colorls'
 
 # # cd-ls alias
@@ -76,7 +78,8 @@ alias ls='colorls'
     # ls -a
 # }
 
-# Open files in terminal    
+# Open files in default programs (without specifying the name)
+# from terminal
 function open () {
     xdg-open "$*" &>/dev/null
 }
@@ -88,8 +91,6 @@ alias -s jpeg=open
 alias -s txt=open
 alias -s dat=open
 alias -s log=open
-alias -s py=open
-alias -s m=open
 
 
 
@@ -141,6 +142,12 @@ pdf2image () {
 }
 
 
+# Go back n directories. For ex: ..3, to go up 3 dirs
+function .. {
+  for i in $(seq 1 $1); do cd ..; done
+}
+
+
 # sanitize pdf of its metadata
 # clean_pdf() {
  # pdftk $1 dump_data | \
@@ -176,8 +183,9 @@ else
 fi
 unset __conda_setup
 # <<< conda init <<<
-
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export GEM_HOME="$HOME/gems"
 export PATH="$HOME/gems/bin:$PATH"
+
+source $HOME/.config/broot/launcher/bash/br
+eval "$(mcfly init zsh)"
