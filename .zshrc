@@ -55,28 +55,15 @@ alias dropbox="~/.dropbox-dist/dropboxd"
 alias vrc="vim $HOME/.vimrc"
 alias zrc="vim $HOME/.zshrc"
 alias py='python'
-# alias rm='rm -i'
 alias gpu='watch nvidia-smi'
 alias src='source'
 
-# alias gvim='gvim -p --remote-tab-silent'
 alias wiki='vim $HOME/vimwiki/index.wiki'
 alias nu='vim ~/.newsboat/urls'
 alias nc='vim ~/.newsboat/config'
 alias cheat='~/bin/cheat-linux-amd64'
-alias cfg='cd $HOME/.config; ls'
 alias jl='jupyter-lab'
-
-
-# alias ..='cd .. ; colorls -a'
-# alias ...='cd ../../ ; colorls -a'
 alias ls='colorls'
-
-# # cd-ls alias
-# function chpwd() {
-    # emulate -L zsh
-    # ls -a
-# }
 
 # Open files in default programs (without specifying the name)
 # from terminal
@@ -107,23 +94,6 @@ arxiv () {
     find $PWD -type f -exec sed -i 's/\.eps/\.pdf/g' {} \;
 }
 
-# Dynamically set alias to cd in directory
-cdalias () {
-  if [ $# -ne 1 ]; then
-    echo "Input alias name to cd in the current directory"
-    return 1
-  fi
-
-  if alias $1 2>/dev/null; then
-    echo "alias '$1' already exists! Use another name."
-  else
-    echo "alias $1='cd $PWD'" >> $HOME/.oh-my-zsh/custom/custom_alias.zsh
-    echo "Created alias '$1'. Restart terminal for the changes to take effect."
-  fi
-
-}
-
-
 # vim
 type vim &>/dev/null && {
   alias vi='vim'
@@ -133,7 +103,7 @@ type vim &>/dev/null && {
 
 pdf2image () {
   if [ $# -ne 2 ]; then
-    echo "Usage: pdf2png INPUT_FILE OUTPUT_FILE"
+    echo "Usage: pdf2image INPUT_FILE OUTPUT_FILE"
     return 1
   fi
   pdf_file=$1
@@ -146,6 +116,48 @@ pdf2image () {
 function .. {
   for i in $(seq 1 $1); do cd ..; done
 }
+
+# mkdir and cd
+mkcd() { mkdir -p "$@" && cd "$1"; }
+
+# DIRECTORY BOOKMARKS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+# Src https://pilabor.com/blog/2021/03/unix-shell-tricks/
+# choose a directory where bookmarks are stored
+FAV_DIR="$HOME/.fav"
+
+# create the directory, if it does not exist
+test -d "$FAV_DIR" || mkdir -p "$FAV_DIR"
+
+# make cd lookup bookmark directory by default
+export CDPATH=".:$FAV_DIR"
+
+## create a bookmark name for current directory (e.g. favmk @dotfiles) 
+function favmk {
+  mkdir -p "$FAV_DIR"; 
+  [ -d "${FAV_DIR}" ] && (ln -s "$(pwd)" "$FAV_DIR/$1") || (echo "fav directory ${FAV_DIR} could not be created")
+}
+
+## remove a bookmark (e.g. favrm @dotfiles)
+function favrm {
+  rm -i "$FAV_DIR/$1"
+}
+
+## goto bookmark or list existing bookmarks (e.g. fav or fav @dotfiles)
+function fav {
+  if [ ! -z "$1" ]; then
+    [ -e "$FAV_DIR/$1" ] && cd -P "$FAV_DIR/$1" && return 0
+
+    echo "No such fav: $1"
+    echo "Would you like to create one? [y/N]"
+    read RESPONSE
+    if [ "$RESPONSE" = "y" ]; then
+      favmk "$1"
+    fi
+  fi
+
+  ls -l "$FAV_DIR" | sed 's/  / /g' | cut -d' ' -f9-
+}
+# %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 # sanitize pdf of its metadata
@@ -183,6 +195,7 @@ else
 fi
 unset __conda_setup
 # <<< conda init <<<
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export GEM_HOME="$HOME/gems"
 export PATH="$HOME/gems/bin:$PATH"
