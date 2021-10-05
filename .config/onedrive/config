@@ -4,8 +4,8 @@
 # All values need to be enclosed in quotes
 # For explanations see the README.md or the man page.
 #
-# sync_dir = "~/OneDrive"
-skip_file = "*.git*|~*|.~*|*.tmp|*.synctex.gz|*.aux|*.log|*.out|*.blg|*.fls|*.fdb_latexmk|*.vrb|*.snm|*.nav|*.xml|*.toc|*.bcf|*.xdv|*.clo|*.bst"
+sync_dir = "~/OneDrive"
+skip_file = "*.git*|~*|.~*|*.tmp|*.synctex.gz|*.aux|*.log|*.out|*.blg|*.fls|*.fdb_latexmk|*.vrb|*.snm|*.nav|*.xml|*.toc|*.bcf|*.xdv|*.clo|*.bst|*.synctex(busy)"
 # monitor_interval = "45"
 # skip_dir = ""
 # log_dir = "/var/log/onedrive/"

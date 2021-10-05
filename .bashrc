@@ -137,3 +137,5 @@ unset __conda_setup
 . $HOME/anaconda3/etc/profile.d/conda.sh
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+source /home/maverick/.config/broot/launcher/bash/br

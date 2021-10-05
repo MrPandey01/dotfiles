@@ -147,6 +147,7 @@ function fav {
   if [ ! -z "$1" ]; then
     [ -e "$FAV_DIR/$1" ] && cd -P "$FAV_DIR/$1" && return 0
 
+    echo "Supported functions: favmk @<name>, favrm @<name>"
     echo "No such fav: $1"
     echo "Would you like to create one? [y/N]"
     read RESPONSE

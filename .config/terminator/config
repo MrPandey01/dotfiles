@@ -29,7 +29,7 @@
     background_color = "#282828"
     cursor_shape = ibeam
     cursor_color = "#aaaaaa"
-    font = RobotoMono Nerd Font Mono 11
+    font = SauceCodePro Nerd Font Mono 11
     foreground_color = "#ffffff"
     scrollback_lines = 1000
     scrollback_infinite = True
@@ -38,7 +38,7 @@
     background_color = "#282828"
     cursor_shape = ibeam
     cursor_color = "#aaaaaa"
-    font = Source Code Pro 11
+    font = SauceCodePro Nerd Font Mono 11
     foreground_color = "#ffffff"
     use_system_font = False
 [layouts]
