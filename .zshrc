@@ -24,9 +24,9 @@ source $ZSH/oh-my-zsh.sh
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
-export EDITOR='vim'
+export EDITOR='nvim'
 else
-export EDITOR='vim'
+export EDITOR='nvim'
 fi
 
 # Aliases -----------------
@@ -52,15 +52,15 @@ alias priv_files='/usr/bin/git --git-dir=$HOME/.priv_files/ --work-tree=$HOME/'
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME/'
 
 alias dropbox="~/.dropbox-dist/dropboxd"
-alias vrc="vim $HOME/.vimrc"
-alias zrc="vim $HOME/.zshrc"
+alias vrc="nvim $HOME/.vimrc"
+alias zrc="nvim $HOME/.zshrc"
 alias py='python'
 alias gpu='watch nvidia-smi'
 alias src='source'
 
-alias wiki='vim $HOME/vimwiki/index.wiki'
-alias nu='vim ~/.newsboat/urls'
-alias nc='vim ~/.newsboat/config'
+alias wiki='nvim $HOME/vimwiki/index.wiki'
+alias nu='nvim ~/.newsboat/urls'
+alias nc='nvim ~/.newsboat/config'
 alias cheat='~/bin/cheat-linux-amd64'
 alias jl='jupyter-lab'
 alias ls='colorls'
