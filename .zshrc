@@ -79,7 +79,30 @@ alias -s txt=open
 alias -s dat=open
 alias -s log=open
 
-
+# compressed file expander
+# (from https://github.com/myfreeweb/zshuery/blob/master/zshuery.sh)
+ex() {
+    if [[ -f $1 ]]; then
+        case $1 in
+          *.tar.bz2) tar xvjf $1;;
+          *.tar.gz) tar xvzf $1;;
+          *.tar.xz) tar xvJf $1;;
+          *.tar.lzma) tar --lzma xvf $1;;
+          *.bz2) bunzip $1;;
+          *.rar) unrar $1;;
+          *.gz) gunzip $1;;
+          *.tar) tar xvf $1;;
+          *.tbz2) tar xvjf $1;;
+          *.tgz) tar xvzf $1;;
+          *.zip) unzip -d ${1%.zip} $1;;
+          *.Z) uncompress $1;;
+          *.7z) 7z x $1;;
+          *) echo "'$1' cannot be extracted via >ex<";;
+    esac
+    else
+        echo "'$1' is not a valid file"
+    fi
+}
 
 # Prepare current latex project for arXiv
 arxiv () {
@@ -96,9 +119,7 @@ arxiv () {
 
 # vim
 type vim &>/dev/null && {
-  alias vi='vim'
-  alias vii='vim --noplugin'
-  alias viii='vim -u NONE'
+  alias vi='nvim'
 }
 
 pdf2image () {
