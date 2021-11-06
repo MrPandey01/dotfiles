@@ -54,7 +54,7 @@ alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME/'
 alias dropbox="~/.dropbox-dist/dropboxd"
 alias vrc="nvim $HOME/.vimrc"
 alias zrc="nvim $HOME/.zshrc"
-alias py='python'
+alias py='python3'
 alias gpu='watch nvidia-smi'
 alias src='source'
 

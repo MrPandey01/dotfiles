@@ -26,8 +26,9 @@ set scroll-step 100
 set zoom-min 10
 set guioptions ""
 
-set synctex true
-set synctex-editor-command "gvim --remote-silent +%{line} %{input}"
-
 set highlight-active-color "#ffffff"
+
+# Synctex support
+set synctex true
+set synctex-editor-command "nvim --remote-silent +%{line} %{input}"
 set highlight-transparency 1
