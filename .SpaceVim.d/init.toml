@@ -1,0 +1,130 @@
+#=============================================================================
+# dark_powered.toml --- dark powered configuration example for SpaceVim
+# Copyright (c) 2016-2020 Wang Shidong & Contributors
+# Author: Wang Shidong < wsdjeg at 163.com >
+# URL: https://spacevim.org
+# License: GPLv3
+#=============================================================================
+
+# All SpaceVim option below [option] section, in context of layers loaded by default.
+[options]
+    # set spacevim theme. by default colorscheme layer is not loaded,
+    # if you want to use more colorscheme, please load the colorscheme
+    # layer
+
+    colorscheme = "material"
+    colorscheme_bg = "dark"
+
+    # Disable guicolors in basic mode, many terminal do not support 24bit
+    # true colors
+    enable_guicolors = true
+
+    # Disable statusline separator, if you want to use other value, please
+    # install nerd fonts
+
+    statusline_separator = "arrow"
+    statusline_iseparator = "arrow"
+    buffer_index_type = 4
+    enable_tabline_filetype_icon = true
+    enable_statusline_mode = true
+    
+    # guifont = "SouceCodePro Nerd Font Mono:h11"
+    automatic_update = true
+    bootstrap_after = "myconfig#after"
+    bootstrap_before = "myconfig#before"
+
+    filemanager = "nerdtree"
+    enable_filetree_gitstatus = true
+    filetree_direction = "left"
+
+    # autocomplete layer options
+    autocomplete_method = "coc"
+    snippet_engine = "ultisnips"
+    auto_completion_return_key_behavior = "complete"
+    auto_completion_tab_key_behavior = "smart"
+
+
+
+# Call private layers and specify options below ==============================================================
+[[layers]]
+    name = "ui"
+
+[[layers]]
+  name = "core#statusline"
+
+[[layers]]
+  name = "core#tabline"
+
+[[layers]]
+  name = "colorscheme"
+
+[[layers]]
+    name = "lang#latex"
+
+[[layers]]
+    name = "lang#python"
+    python_interpreter = '~/anaconda3/bin/python' 
+
+# needed with lang#python
+[[layers]]
+    name = 'lsp'
+    enabled_clients = ['pyright']
+
+[[layers]]
+    name = "debug"
+
+[[layers]]
+    name = "default"
+
+[[layers]]
+    name = "git"
+
+[[layers]]
+    name = "shell"
+    default_position = "bottom"
+    default_height = 10
+
+[[layers]]
+    name = "incsearch"
+
+[[layers]]
+    name = "gtags"
+    gtagslabel = "ctags"
+
+[[layers]]
+    name = "ctrlspace"
+    autosave-workspaces = "true"
+    enable-spacevim-styled-keys = "true"
+
+[[layers]]
+    name = "fzf"
+
+[[layers]]
+  name = "lang#markdown"
+  enabled_formater = "prettier"
+
+# Custom Plugins ==============================================================
+[[custom_plugins]]
+    repo = "lervag/vimtex"
+    merged = false
+
+[[custom_plugins]]
+    name = "dracula/vim"
+    merged = 0
+
+[[custom_plugins]]
+    name = "vim-python/python-syntax"
+    merged = true
+
+[[custom_plugins]]
+    name="907th/vim-auto-save"
+    merged = true
+
+[[custom_plugins]]
+    name="kaicataldo/material.vim"
+    branch='main'
+    merged = false
+
+[[custom_plugins]]
+    name="numirias/semshi"
+    merged = true
