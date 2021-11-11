@@ -128,7 +128,7 @@ augroup END
   let g:UltiSnipsJumpForwardTrigger="<tab>"
   let g:UltiSnipsJumpBackwardTrigger="<shift+tab>"
   let g:UltiSnipsEditSplit="vertical""
-  let g:UltiSnipsSnippetDirectories=["UltiSnips", "custom_snippets"]
+  let g:UltiSnipsSnippetDirectories=["UltiSnips", "priv_snippets"]
 
 
   let g:pydocstring_doq_path = '~/.conda/envs/py_env/bin/doq'

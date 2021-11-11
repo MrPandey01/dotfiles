@@ -22,6 +22,8 @@
     # Disable statusline separator, if you want to use other value, please
     # install nerd fonts
 
+    disabled_plugins = ["neosnippet-snippets", "vim-snippets"]
+
     statusline_separator = "arrow"
     statusline_iseparator = "arrow"
     buffer_index_type = 4
