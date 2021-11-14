@@ -52,7 +52,6 @@ alias priv_files='/usr/bin/git --git-dir=$HOME/.priv_files/ --work-tree=$HOME/'
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME/'
 
 alias dropbox="~/.dropbox-dist/dropboxd"
-alias vrc="nvim $HOME/.vimrc"
 alias zrc="nvim $HOME/.zshrc"
 alias py='python3'
 alias gpu='watch nvidia-smi'

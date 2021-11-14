@@ -18,11 +18,14 @@
     # Disable guicolors in basic mode, many terminal do not support 24bit
     # true colors
     enable_guicolors = true
+    sidebar_width = 20
+    enable_tabline_ft_icon = 1
 
     # Disable statusline separator, if you want to use other value, please
     # install nerd fonts
 
     disabled_plugins = ["neosnippet-snippets", "vim-snippets"]
+    vimcompatible = true
 
     statusline_separator = "arrow"
     statusline_iseparator = "arrow"
@@ -65,7 +68,7 @@
 
 [[layers]]
     name = "lang#python"
-    python_interpreter = '~/anaconda3/bin/python' 
+    python_interpreter = 'python' 
 
 # needed with lang#python
 [[layers]]
@@ -129,4 +132,9 @@
 
 [[custom_plugins]]
     name="numirias/semshi"
-    merged = true
+    merged = false
+
+[[custom_plugins]]
+    name="ryanoasis/vim-devicons"
+    merged = false
+

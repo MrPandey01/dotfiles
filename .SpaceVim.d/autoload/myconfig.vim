@@ -3,8 +3,15 @@ function! myconfig#before() abort
 "    if empty(v:servername) && exists('*remote_startserver')
 "      call remote_startserver('VIM')
 "    endif
+"
+  " Firenvim setup
+  au BufEnter github.com_*.txt set filetype=markdown
+  au BufEnter *TiddlyWiki/index.html*.txt set ft=latex
 
   let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+
+
+  syntax on
 
   " Material theme extra configuration
   let g:material_terminal_italics = 1
@@ -36,8 +43,7 @@ endfunction
 
 
 function! myconfig#after() abort
-  
-  
+
   " Use the OS clipboard by default (on versions compiled with `+clipboard`)
   if has('unnamedplus')
       set clipboard=unnamed,unnamedplus
@@ -64,21 +70,6 @@ augroup END
   inoremap <C-f> <Esc>: silent exec '.!inkscape-figures create "'.getline('.').'" "'.b:vimtex.root.'/figures/"'<CR><CR>:w<CR>
   nnoremap <C-f> : silent exec '!inkscape-figures edit "'.b:vimtex.root.'/figures/" > /dev/null 2>&1 &'<CR><CR>:redraw!<CR>
   "
-" automatic NERDTree mirroring on tab switching
-" when having just one window in the tab
-" function MirrorNerdTreeIfOneWindow()
-"   if winnr("$") < 2
-"     NERDTreeMirror
-"
-"     " hack to move the focus from the NERDTree to the main window
-"     wincmd p
-"     wincmd l
-"   endif
-" endfunction
-"
-" autocmd GuiEnter * silent NERDTree
-" autocmd VimEnter * silent NERDTree
-" autocmd TabEnter * silent exe MirrorNerdTreeIfOneWindow()
 
   " Change cursor shape in different modes
   let &t_SI = "\e[5 q"
