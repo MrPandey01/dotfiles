@@ -1,15 +1,7 @@
 function! myconfig#before() abort
 
-"    if empty(v:servername) && exists('*remote_startserver')
-"      call remote_startserver('VIM')
-"    endif
-"
-  " Firenvim setup
-  au BufEnter github.com_*.txt set filetype=markdown
-  au BufEnter *TiddlyWiki/index.html*.txt set ft=latex
 
   let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-
 
   syntax on
 
@@ -33,6 +25,10 @@ function! myconfig#before() abort
 
   let g:semshi#filetypes=['python', 'tex']
 
+  set wildignore+=*.pyc,*.o,*.obj,*.svn,*.swp,*.class,*.hg,*.DS_Store,*.min.*,*.tmp,*.synctex.gz,*.aux,*.log,*.out,*.blg,*.fls,*.fdb_latexmk,*.vrb,*.snm,*.nav,*.xml,*.toc,*.bcf,*.xdv,*.clo,*.bst,*.synctex(busy),*.bbl
+
+  let NERDTreeRespectWildIgnore=1
+
   " Code folding
   set foldmethod=indent
   set nofoldenable
@@ -53,7 +49,8 @@ function! myconfig#after() abort
 
   set modifiable
   set wrap
-  set conceallevel=0
+
+
 
    " Neovim Synctex setup (requires pip install neovim-remote)
 function! s:write_server_name() abort
@@ -115,7 +112,7 @@ augroup END
   " UltiSnippets ---------------------------
   " Snippets Trigger configuration.
   " Do not use <tab> if you use " https://github.com/Valloric/YouCompleteMe.
-  let g:UltiSnipsExpandTrigger="<tab>"
+  let g:UltiSnipsExpandTrigger="<Tab>"
   let g:UltiSnipsJumpForwardTrigger="<tab>"
   let g:UltiSnipsJumpBackwardTrigger="<shift+tab>"
   let g:UltiSnipsEditSplit="vertical""
@@ -140,7 +137,7 @@ augroup END
   au TabLeave * let g:lasttab = tabpagenr()
 
   " New tab
-  nnoremap <C-t> :tabnew<CR>
+  " nnoremap <C-t> :tabnew<CR>
 
   " Disable arrow keys
   " noremap  <Up> ""

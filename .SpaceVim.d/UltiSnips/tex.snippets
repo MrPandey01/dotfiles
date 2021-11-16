@@ -59,7 +59,7 @@ $0
 endsnippet
 
 snippet \subsec "subsection with label" b!
-\section{${1:subsection name}}
+\subsection{${1:subsection name}}
 \label{sec:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/g}}}
 $0
 endsnippet
@@ -74,6 +74,10 @@ snippet \beq "begin equation" bA
 \begin{equation}
 	$0
 \end{equation}
+endsnippet
+
+snippet \textbf "\textbf{VISUAL}"
+\textbf{${VISUAL}} $0
 endsnippet
 
 snippet \bfra "begin frame" bA
@@ -134,6 +138,9 @@ snippet \bfig "Figure environment" bA
 \end{figure}
 endsnippet
 
+snippet \emp "\emph {}" A
+\emph{$1} $0
+endsnippet
 
 # Special context snippets --------------------------------------------------
 global !p
