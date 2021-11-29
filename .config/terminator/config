@@ -29,7 +29,7 @@
     background_color = "#282828"
     cursor_shape = ibeam
     cursor_color = "#aaaaaa"
-    font = SauceCodePro Nerd Font Mono 11
+    font = SauceCodePro Nerd Font Mono Medium 11
     foreground_color = "#ffffff"
     scrollback_lines = 1000
     scrollback_infinite = True

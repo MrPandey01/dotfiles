@@ -33,7 +33,7 @@
     enable_tabline_filetype_icon = true
     enable_statusline_mode = true
     
-    # guifont = "SouceCodePro Nerd Font Mono:h11"
+    # guifont = "SauceCodePro Nerd Font Mono:h11"
     automatic_update = true
     bootstrap_after = "myconfig#after"
     bootstrap_before = "myconfig#before"
@@ -109,9 +109,9 @@
   enabled_formater = "prettier"
 
 # Custom Plugins ==============================================================
-[[custom_plugins]]
-    repo = "lervag/vimtex"
-    merged = false
+# [[custom_plugins]]
+#     repo = "lervag/vimtex"
+#     merged = false
 
 [[custom_plugins]]
     name = "dracula/vim"

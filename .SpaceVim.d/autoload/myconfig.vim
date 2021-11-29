@@ -8,6 +8,7 @@ function! myconfig#before() abort
   " Material theme extra configuration
   let g:material_terminal_italics = 1
   let g:material_theme_style = 'darker'
+  let g:airline_theme = 'material'
 
   " Vimtex ---------------------------------
   " let g:tex_conceal=''
@@ -34,6 +35,8 @@ function! myconfig#before() abort
   set nofoldenable
   set foldlevel=2
 
+  set breakindent
+  let &showbreak=' '
 
 endfunction
 
