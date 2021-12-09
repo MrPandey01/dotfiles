@@ -27,6 +27,7 @@
     disabled_plugins = ["neosnippet-snippets", "vim-snippets"]
     vimcompatible = true
 
+    conceallevel = 1
     statusline_separator = "arrow"
     statusline_iseparator = "arrow"
     buffer_index_type = 4
@@ -51,8 +52,6 @@
 
 
 # Call private layers and specify options below ==============================================================
-[[layers]]
-    name = "ui"
 
 [[layers]]
   name = "core#statusline"
@@ -109,9 +108,6 @@
   enabled_formater = "prettier"
 
 # Custom Plugins ==============================================================
-# [[custom_plugins]]
-#     repo = "lervag/vimtex"
-#     merged = false
 
 [[custom_plugins]]
     name = "dracula/vim"

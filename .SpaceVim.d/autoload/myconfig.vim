@@ -11,8 +11,19 @@ function! myconfig#before() abort
   let g:airline_theme = 'material'
 
   " Vimtex ---------------------------------
-  " let g:tex_conceal=''
-  " let g:vimtex_view_method = 'zathura'
+  let g:vimtex_syntax_conceal = {
+        \ 'accents': 1,
+        \ 'cites': 1,
+        \ 'fancy': 1,
+        \ 'greek': 1,
+        \ 'math_bounds': 1,
+        \ 'math_delimiters': 1,
+        \ 'math_fracs': 1,
+        \ 'math_super_sub': 1,
+        \ 'math_symbols': 1,
+        \ 'sections': 0,
+        \ 'styles': 1,
+        \}
 
   let g:vimtex_quickfix_mode=0
   let g:vimtex_quickfix_open_on_warning=0
@@ -34,6 +45,7 @@ function! myconfig#before() abort
   set foldmethod=indent
   set nofoldenable
   set foldlevel=2
+  set conceallevel=2
 
   set breakindent
   let &showbreak=' '
