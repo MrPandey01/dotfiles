@@ -29,7 +29,7 @@ function! myconfig#before() abort
   let g:vimtex_quickfix_open_on_warning=0
   let g:vimtex_view_general_viewer='qpdfview'
   let g:vimtex_view_general_options='--unique @pdf\#src:@tex:@line:@col'
-  let g:vimtex_view_general_options_latexmk='--unique'
+  " let g:vimtex_view_general_options_latexmk='--unique'
 
   let g:mapleader = '\'
 
@@ -64,7 +64,7 @@ function! myconfig#after() abort
 
    " Neovim Synctex setup (requires pip install neovim-remote)
 function! s:write_server_name() abort
-  let g:nvim_server_file = (has('win32') ? $TEMP : '/tmp') . '/vimtexserver.txt'
+  let nvim_server_file = (has('win32') ? $TEMP : '/tmp') . '/vimtexserver.txt'
   call writefile([v:servername], nvim_server_file)
 endfunction
 
