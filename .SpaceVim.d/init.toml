@@ -46,8 +46,11 @@
     # autocomplete layer options
     autocomplete_method = "coc"
     snippet_engine = "ultisnips"
-    auto_completion_return_key_behavior = "complete"
-    auto_completion_tab_key_behavior = "smart"
+    auto_completion_return_key_behavior = "nil"
+    auto_completion_tab_key_behavior = "complete"
+
+    # Show txt files editable by vim
+    wildignore='*.pyc,*.o,*.obj,*.svn,*.swp,*.class,*.hg,*.DS_Store,*.min.*,*.tmp,*.toc,*.aux,*.log,*.bbl,*.blg,*.log,*.lof,*.lot,*.ilg,*.out,*.glo,*.gls,*.nlo,*.nls,*.brf,*.ist,*.glg,*.synctex.gz,*.tgz,*.idx,*.ind,-blx.bib,*.fdb_latexmk,*.run.xml,*.bcf,*.glsdefs,*.fls,*.eps,*.pdf,*.png,*.jpg'
 
 
 

@@ -37,10 +37,6 @@ function! myconfig#before() abort
 
   let g:semshi#filetypes=['python', 'tex']
 
-  set wildignore+=*.pyc,*.o,*.obj,*.svn,*.swp,*.class,*.hg,*.DS_Store,*.min.*,*.tmp,*.synctex.gz,*.aux,*.log,*.out,*.blg,*.fls,*.fdb_latexmk,*.vrb,*.snm,*.nav,*.xml,*.toc,*.bcf,*.xdv,*.clo,*.bst,*.synctex(busy),*.bbl
-
-  let NERDTreeRespectWildIgnore=1
-
   " Code folding
   set foldmethod=indent
   set nofoldenable
@@ -50,6 +46,7 @@ function! myconfig#before() abort
   set breakindent
   let &showbreak=' '
 
+  let g:NERDTreeRespectWildIgnore=1
 endfunction
 
 
@@ -65,11 +62,9 @@ function! myconfig#after() abort
   set modifiable
   set wrap
 
-
-
    " Neovim Synctex setup (requires pip install neovim-remote)
 function! s:write_server_name() abort
-  let nvim_server_file = (has('win32') ? $TEMP : '/tmp') . '/vimtexserver.txt'
+  let g:nvim_server_file = (has('win32') ? $TEMP : '/tmp') . '/vimtexserver.txt'
   call writefile([v:servername], nvim_server_file)
 endfunction
 
