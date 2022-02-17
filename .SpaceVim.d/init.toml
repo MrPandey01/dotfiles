@@ -50,7 +50,7 @@
     auto_completion_tab_key_behavior = "complete"
 
     # Show txt files editable by vim
-    wildignore='*.pyc,*.o,*.obj,*.svn,*.swp,*.class,*.hg,*.DS_Store,*.min.*,*.tmp,*.toc,*.aux,*.log,*.bbl,*.blg,*.log,*.lof,*.lot,*.ilg,*.out,*.glo,*.gls,*.nlo,*.nls,*.brf,*.ist,*.glg,*.synctex.gz,*.tgz,*.idx,*.ind,-blx.bib,*.fdb_latexmk,*.run.xml,*.bcf,*.glsdefs,*.fls,*.eps,*.pdf,*.png,*.jpg'
+    wildignore='*.pyc,*.o,*.obj,*.svn,*.swp,*.class,*.hg,*.DS_Store,*.min.*,*.tmp,*.toc,*.aux,*.log,*.bbl,*.blg,*.log,*.lof,*.lot,*.ilg,*.out,*.glo,*.gls,*.nlo,*.nls,*.brf,*.ist,*.glg,*.synctex.gz,*.tgz,*.idx,*.ind,*blx.bib,*.fdb_latexmk,*.run.xml,*.bcf,*.glsdefs,*.fls,*.eps,*.pdf,*.png,*.jpg'
 
 
 
@@ -79,6 +79,7 @@
 
 [[layers]]
     name = "debug"
+    debugger_plugin = "vimspector"
 
 [[layers]]
     name = "default"
@@ -111,10 +112,6 @@
   enabled_formater = "prettier"
 
 # Custom Plugins ==============================================================
-
-[[custom_plugins]]
-    name = "dracula/vim"
-    merged = 0
 
 [[custom_plugins]]
     name = "vim-python/python-syntax"
