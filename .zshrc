@@ -29,6 +29,11 @@ else
 export EDITOR='nvim'
 fi
 
+# vim
+type vim &>/dev/null && {
+  alias vi='nvim'
+}
+
 # Aliases -----------------
 source $HOME/.oh-my-zsh/custom/custom_alias.zsh
 
@@ -126,11 +131,6 @@ arxiv () {
     rm *.eps
     echo "Replacing .eps to .pdf "
     find $PWD -type f -exec sed -i 's/\.eps/\.pdf/g' {} \;
-}
-
-# vim
-type vim &>/dev/null && {
-  alias vi='nvim'
 }
 
 pdf2image () {
