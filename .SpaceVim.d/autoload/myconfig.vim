@@ -29,6 +29,19 @@ function! myconfig#before() abort
   let g:vimtex_quickfix_open_on_warning=0
   let g:vimtex_view_general_viewer='qpdfview'
   let g:vimtex_view_general_options='--unique @pdf\#src:@tex:@line:@col'
+  let g:vimtex_compiler_latexmk = {
+      \ 'build_dir' : '',
+      \ 'callback' : 1,
+      \ 'continuous' : 0,
+      \ 'executable' : 'latexmk',
+      \ 'hooks' : [],
+      \ 'options' : [
+      \   '-verbose',
+      \   '-file-line-error',
+      \   '-synctex=1',
+      \   '-interaction=nonstopmode',
+      \ ],
+      \}
   " let g:vimtex_view_general_options_latexmk='--unique'
 
   let g:mapleader = '\'
@@ -110,8 +123,8 @@ augroup END
   augroup END
 
   " Comment toggle with Ctrl-/
-    nnoremap <silent> <C-_> :call NERDComment(0,"toggle")<CR>
-    vnoremap <silent> <C-_> :call NERDComment(0,"toggle")<CR>
+  nnoremap <silent> <C-_> :call NERDComment(0,"toggle")<CR>
+  vnoremap <silent> <C-_> :call NERDComment(0,"toggle")<CR>
 
   " Set F5 to save and run the current python file
   autocmd FileType python map <buffer> <F5> :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
@@ -161,8 +174,8 @@ augroup END
 
 
   " For escaping
-  imap jj <Esc>
   imap hh <Esc>
+  imap jj <Esc>
   imap kk <Esc>
 
   " For navigation (treat line breaks as new lines)
