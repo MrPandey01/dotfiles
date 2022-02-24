@@ -50,12 +50,20 @@ function! myconfig#before() abort
 
   let g:semshi#filetypes=['python', 'tex']
 
+
   " Code folding
   set foldmethod=indent
   set nofoldenable
   set foldlevel=2
   set conceallevel=2
-
+  
+  " Spell check and completion
+  set complete+=kspell
+  set spelllang=en_us,cjk 
+  set spellsuggest=best,8
+  set spellfile=~/.vim/spell/en.utf-8.add
+  setlocal spell 
+  
   set breakindent
   let &showbreak=' '
 
@@ -64,6 +72,22 @@ endfunction
 
 
 function! myconfig#after() abort
+  set noro
+
+   " Neovim Synctex setup (requires pip install neovim-remote)
+  function! s:write_server_name() abort
+    let nvim_server_file = (has('win32') ? $TEMP : '/tmp') . '/vimtexserver.txt'
+    call writefile([v:servername], nvim_server_file)
+  endfunction
+
+  augroup vimtex_common
+    autocmd!
+    autocmd FileType tex call s:write_server_name()
+  augroup END
+
+  if empty(v:servername) && exists('*remote_startserver')
+      call remote_startserver('VIM')
+  endif
 
   " Use the OS clipboard by default (on versions compiled with `+clipboard`)
   if has('unnamedplus')
@@ -72,24 +96,12 @@ function! myconfig#after() abort
       set clipboard=unnamed
   endif
 
-  set modifiable
-  set wrap
-
-   " Neovim Synctex setup (requires pip install neovim-remote)
-function! s:write_server_name() abort
-  let nvim_server_file = (has('win32') ? $TEMP : '/tmp') . '/vimtexserver.txt'
-  call writefile([v:servername], nvim_server_file)
-endfunction
-
-augroup vimtex_common
-  autocmd!
-  autocmd FileType tex call s:write_server_name()
-augroup END
-
   " Inkscape-figures 
   inoremap <C-f> <Esc>: silent exec '.!inkscape-figures create "'.getline('.').'" "'.b:vimtex.root.'/figures/"'<CR><CR>:w<CR>
   nnoremap <C-f> : silent exec '!inkscape-figures edit "'.b:vimtex.root.'/figures/" > /dev/null 2>&1 &'<CR><CR>:redraw!<CR>
-  "
+  
+  set modifiable
+  set wrap
 
   " Change cursor shape in different modes
   let &t_SI = "\e[5 q"
@@ -110,17 +122,12 @@ augroup END
   " Clear search results with //
   nnoremap <silent> // :noh<CR>
 
+  " Spelling mistakes will also be colored red if you uncomment the colors.
+  hi SpellBad cterm=underline "ctermfg=203 guifg=#ff5f5f
+  hi SpellLocal cterm=underline "ctermfg=203 guifg=#ff5f5f
+  hi SpellRare cterm=underline "ctermfg=203 guifg=#ff5f5f
+  hi SpellCap cterm=underline "ctermfg=203 guifg=#ff5f5f
 
-  if empty(v:servername) && exists('*remote_startserver')
-      call remote_startserver('VIM')
-  endif
-
-  " Remap compile and view keys
-  augroup vimrc_tex
-      au!
-      au FileType tex nmap <buffer><silent> <F5> <plug>(vimtex-compile)
-      au FileType tex nmap <buffer><silent> <localleader>v <plug>(vimtex-view)
-  augroup END
 
   " Comment toggle with Ctrl-/
   nnoremap <silent> <C-_> :call NERDComment(0,"toggle")<CR>
