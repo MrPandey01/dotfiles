@@ -51,6 +51,7 @@ alias dfr="dotfiles fetch --all; dotfiles reset --hard origin/master"
 alias priv_files='/usr/bin/git --git-dir=$HOME/.priv_files/ --work-tree=$HOME/'
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME/'
 
+# Other aliases
 alias dropbox="~/.dropbox-dist/dropboxd"
 alias zrc="nvim $HOME/.zshrc"
 alias py='python3'
@@ -62,9 +63,20 @@ alias nu='nvim ~/.newsboat/urls'
 alias nc='nvim ~/.newsboat/config'
 alias cheat='~/bin/cheat-linux-amd64'
 alias jl='jupyter-lab'
-alias ls='colorls'
 
-# Open files in default programs (without specifying the name)
+# exa settings and aliases
+exa_params=('--git' '--icons' '--classify' '--group-directories-first' '--time-style=long-iso' '--group' '--color-scale')
+
+alias ls='exa ${exa_params}'
+alias l='exa --git-ignore ${exa_params}'
+alias ll='exa --all --header --long ${exa_params}'
+alias llm='exa --all --header --long --sort=modified ${exa_params}'
+alias la='exa -lbhHigUmuSa'
+alias lx='exa -lbhHigUmuSa@'
+alias lt='exa --tree --level=2'
+alias tree='exa --tree --level=2'
+
+# Open files with default programs (without specifying the name)
 # from terminal
 function open () {
     xdg-open "$*" &>/dev/null
@@ -78,7 +90,7 @@ alias -s txt=open
 alias -s dat=open
 alias -s log=open
 
-# compressed file expander
+# Compressed file expander
 # (from https://github.com/myfreeweb/zshuery/blob/master/zshuery.sh)
 ex() {
     if [[ -f $1 ]]; then
@@ -200,23 +212,6 @@ function fav {
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
 
-# added by Anaconda3 5.3.0 installer
-# >>> conda init >>>
-# !! Contents within this block are managed by 'conda init' !!
-_conda_setup="$(CONDA_REPORT_ERRORS=false '$HOME/anaconda3/bin/conda' shell.bash hook 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    \eval "$__conda_setup"
-else
-    if [ -f "$HOME/anaconda3/etc/profile.d/conda.sh" ]; then
-# . "$HOME/anaconda3/etc/profile.d/conda.sh"  # commented out by conda initialize
-        CONDA_CHANGEPS1=false conda activate base
-    else
-        \export PATH="$HOME/anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda init <<<
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export GEM_HOME="$HOME/gems"
 export PATH="$HOME/gems/bin:$PATH"
@@ -226,14 +221,14 @@ eval "$(mcfly init zsh)"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/maverick/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('$HOME/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/home/maverick/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/maverick/miniconda3/etc/profile.d/conda.sh"
+    if [ -f "$HOME/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "$HOME/miniconda3/etc/profile.d/conda.sh"
     else
-        export PATH="/home/maverick/miniconda3/bin:$PATH"
+        export PATH="$HOME/miniconda3/bin:$PATH"
     fi
 fi
 unset __conda_setup
