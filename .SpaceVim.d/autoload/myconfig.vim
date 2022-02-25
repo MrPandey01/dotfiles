@@ -27,7 +27,22 @@ function! myconfig#before() abort
 
   let g:vimtex_quickfix_mode=0
   let g:vimtex_quickfix_open_on_warning=0
-  let g:vimtex_view_general_viewer='qpdfview'
+  " let g:vimtex_lint_chktex_ignore_warnings='-n1 -n3 -n8 -n25 -n36 -n12'
+  
+  " Disable custom warnings based on regexp
+  let g:vimtex_quickfix_ignore_filters = [
+        \ 'Marginpar on page',
+        \ 'Underfull',
+        \ 'hyperref',
+        \ 'typearea',
+        \ 'Delete this space',
+        \ 'Non-breaking space',
+        \ 'Interword spacing',
+        \ 'Use either',
+        \ 'Delete this space',
+        \ 'You should',
+        \]
+let g:vimtex_view_general_viewer='qpdfview'
   let g:vimtex_view_general_options='--unique @pdf\#src:@tex:@line:@col'
   let g:vimtex_compiler_latexmk = {
       \ 'build_dir' : '',
