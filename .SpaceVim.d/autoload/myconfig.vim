@@ -21,26 +21,27 @@ function! myconfig#before() abort
         \ 'math_fracs': 1,
         \ 'math_super_sub': 1,
         \ 'math_symbols': 1,
-        \ 'sections': 0,
+        \ 'sections': 1,
         \ 'styles': 1,
         \}
 
   let g:vimtex_quickfix_mode=0
   let g:vimtex_quickfix_open_on_warning=0
-  " let g:vimtex_lint_chktex_ignore_warnings='-n1 -n3 -n8 -n25 -n36 -n12'
+  let g:vimtex_lint_chktex_ignore_warnings='-n1 -n2 -n3 -n8 -n25 -n24 -n2'
   
   " Disable custom warnings based on regexp
   let g:vimtex_quickfix_ignore_filters = [
-        \ 'Marginpar on page',
-        \ 'Underfull',
-        \ 'hyperref',
-        \ 'typearea',
-        \ 'Delete this space',
-        \ 'Non-breaking space',
-        \ 'Interword spacing',
-        \ 'Use either',
-        \ 'Delete this space',
-        \ 'You should',
+        \ ' Marginpar on page ',
+        \ ' Underfull ',
+        \ ' Overfull ',
+        \ ' hyperref ',
+        \ ' typearea ',
+        \ ' Delete this space ',
+        \ ' Non-breaking space ',
+        \ ' Interword spacing ',
+        \ ' Use either ',
+        \ ' Delete this space ',
+        \ ' You should ',
         \]
 let g:vimtex_view_general_viewer='qpdfview'
   let g:vimtex_view_general_options='--unique @pdf\#src:@tex:@line:@col'
