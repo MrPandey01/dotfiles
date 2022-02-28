@@ -27,7 +27,6 @@ function! myconfig#before() abort
 
   let g:vimtex_quickfix_mode=0
   let g:vimtex_quickfix_open_on_warning=0
-  let g:vimtex_lint_chktex_ignore_warnings='-n1 -n2 -n3 -n8 -n25 -n24 -n2'
   
   " Disable custom warnings based on regexp
   let g:vimtex_quickfix_ignore_filters = [
@@ -43,7 +42,7 @@ function! myconfig#before() abort
         \ ' Delete this space ',
         \ ' You should ',
         \]
-let g:vimtex_view_general_viewer='qpdfview'
+  let g:vimtex_view_general_viewer='qpdfview'
   let g:vimtex_view_general_options='--unique @pdf\#src:@tex:@line:@col'
   let g:vimtex_compiler_latexmk = {
       \ 'build_dir' : '',
@@ -104,6 +103,8 @@ function! myconfig#after() abort
   if empty(v:servername) && exists('*remote_startserver')
       call remote_startserver('VIM')
   endif
+
+  let g:vimtex_lint_chktex_ignore_warnings='-n1 -n2 -n3 -n8 -n25 -n24 -n2'
 
   " Use the OS clipboard by default (on versions compiled with `+clipboard`)
   if has('unnamedplus')
