@@ -6,9 +6,13 @@ function! myconfig#before() abort
   syntax on
 
   " Material theme extra configuration
-  let g:material_terminal_italics = 1
-  let g:material_theme_style = 'darker'
-  let g:airline_theme = 'material'
+  " let g:material_terminal_italics = 1
+  " let g:material_theme_style = 'darker'
+  " let g:airline_theme = 'material'
+
+  " vsc_dark_plus theme extra configuration
+  let g:vsc_dark_plus_enable_bold = 1
+  let g:airline_theme = 'vsc_dark_plus'
 
   " Vimtex ---------------------------------
   let g:vimtex_syntax_conceal = {
@@ -58,7 +62,8 @@ function! myconfig#before() abort
       \ ],
       \}
   " let g:vimtex_view_general_options_latexmk='--unique'
-
+  let g:vimtex_lint_chktex_ignore_warnings='-n1 -n2 -n3 -n8 -n25 -n24 -n2'
+  let g:neomake_enabled_tex_makers = []
   let g:mapleader = '\'
 
   let g:auto_save = 1  " enable AutoSave on Vim startup
@@ -104,7 +109,6 @@ function! myconfig#after() abort
       call remote_startserver('VIM')
   endif
 
-  let g:vimtex_lint_chktex_ignore_warnings='-n1 -n2 -n3 -n8 -n25 -n24 -n2'
 
   " Use the OS clipboard by default (on versions compiled with `+clipboard`)
   if has('unnamedplus')

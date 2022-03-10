@@ -8,51 +8,51 @@
 
 # All SpaceVim option below [option] section, in context of layers loaded by default.
 [options]
-    # set spacevim theme. by default colorscheme layer is not loaded,
-    # if you want to use more colorscheme, please load the colorscheme
-    # layer
+  # set spacevim theme. by default colorscheme layer is not loaded,
+  # if you want to use more colorscheme, please load the colorscheme
+  # layer
 
-    # Core layer
+  # Core layer
 
-    colorscheme = "material"
-    colorscheme_bg = "dark"
+  colorscheme = "vsc_dark_plus" # "material"
+  colorscheme_bg = "dark"
 
-    # Disable guicolors in basic mode, many terminal do not support 24bit
-    # true colors
-    enable_guicolors = true
-    sidebar_width = 20
-    enable_tabline_ft_icon = 1
+  # Disable guicolors in basic mode, many terminal do not support 24bit
+  # true colors
+  enable_guicolors = true
+  sidebar_width = 20
+  enable_tabline_ft_icon = 1
 
-    # Disable statusline separator, if you want to use other value, please
-    # install nerd fonts
+  # Disable statusline separator, if you want to use other value, please
+  # install nerd fonts
 
-    disabled_plugins = ["neosnippet-snippets", "vim-snippets"]
-    vimcompatible = true
+  disabled_plugins = ["neosnippet-snippets", "vim-snippets"]
+  vimcompatible = true
 
-    conceallevel = 1
-    statusline_separator = "arrow"
-    statusline_iseparator = "arrow"
-    buffer_index_type = 4
-    enable_tabline_filetype_icon = true
-    enable_statusline_mode = true
-    
-    # guifont = "SauceCodePro Nerd Font Mono:h11"
-    automatic_update = true
-    bootstrap_after = "myconfig#after"
-    bootstrap_before = "myconfig#before"
+  conceallevel = 1
+  statusline_separator = "arrow"
+  statusline_iseparator = "arrow"
+  buffer_index_type = 4
+  enable_tabline_filetype_icon = true
+  enable_statusline_mode = true
+  
+  # guifont = "SauceCodePro Nerd Font Mono:h11"
+  automatic_update = true
+  bootstrap_after = "myconfig#after"
+  bootstrap_before = "myconfig#before"
 
-    filemanager = "nerdtree"
-    enable_filetree_gitstatus = true
-    filetree_direction = "left"
+  filemanager = "nerdtree"
+  enable_filetree_gitstatus = true
+  filetree_direction = "left"
 
-    # autocomplete layer options
-    autocomplete_method = "coc"
-    snippet_engine = "ultisnips"
-    auto_completion_return_key_behavior = "nil"
-    auto_completion_tab_key_behavior = "complete"
+  # autocomplete layer options
+  autocomplete_method = "coc"
+  snippet_engine = "ultisnips"
+  auto_completion_return_key_behavior = "nil"
+  auto_completion_tab_key_behavior = "complete"
 
-    # Show txt files editable by vim
-    wildignore='*.pyc,*.o,*.obj,*.svn,*.swp,*.class,*.hg,*.DS_Store,*.min.*,*.tmp,*.toc,*.aux,*.log,*.bbl,*.blg,*.log,*.lof,*.lot,*.ilg,*.out,*.glo,*.gls,*.nlo,*.nls,*.brf,*.ist,*.glg,*.synctex.gz,*.tgz,*.idx,*.ind,*blx.bib,*.fdb_latexmk,*.run.xml,*.bcf,*.glsdefs,*.fls,*.eps,*.pdf,*.png,*.jpg'
+  # Show txt files editable by vim
+  wildignore='*.pyc,*.o,*.obj,*.svn,*.swp,*.class,*.hg,*.DS_Store,*.min.*,*.tmp,*.toc,*.aux,*.log,*.bbl,*.blg,*.log,*.lof,*.lot,*.ilg,*.out,*.glo,*.gls,*.nlo,*.nls,*.brf,*.ist,*.glg,*.synctex.gz,*.tgz,*.idx,*.ind,*blx.bib,*.fdb_latexmk,*.run.xml,*.bcf,*.glsdefs,*.fls,*.eps,*.pdf,*.png,*.jpg'
 
 
 
@@ -68,46 +68,46 @@
   name = "colorscheme"
 
 [[layers]]
-    name = "lang#latex"
+  name = "lang#latex"
 
 [[layers]]
-    name = "lang#python"
-    python_interpreter = 'python' 
+  name = "lang#python"
+  python_interpreter = 'python' 
 
 # needed with lang#python
 [[layers]]
-    name = 'lsp'
-    enabled_clients = ['pyright']
+  name = 'lsp'
+  enabled_clients = ['pyright']
 
 [[layers]]
-    name = "debug"
-    debugger_plugin = "vimspector"
+  name = "debug"
+  debugger_plugin = "vimspector"
 
 [[layers]]
-    name = "default"
+  name = "default"
 
 [[layers]]
-    name = "git"
+  name = "git"
 
 [[layers]]
-    name = "shell"
-    default_position = "bottom"
-    default_height = 10
+  name = "shell"
+  default_position = "bottom"
+  default_height = 10
 
 [[layers]]
-    name = "incsearch"
+  name = "incsearch"
 
 [[layers]]
-    name = "gtags"
-    gtagslabel = "ctags"
+  name = "gtags"
+  gtagslabel = "ctags"
 
 [[layers]]
-    name = "ctrlspace"
-    autosave-workspaces = "true"
-    enable-spacevim-styled-keys = "true"
+  name = "ctrlspace"
+  autosave-workspaces = "true"
+  enable-spacevim-styled-keys = "true"
 
 [[layers]]
-    name = "fzf"
+  name = "fzf"
 
 [[layers]]
   name = "lang#markdown"
@@ -116,23 +116,27 @@
 # Custom Plugins ==============================================================
 
 [[custom_plugins]]
-    name = "vim-python/python-syntax"
-    merged = true
+  name = "vim-python/python-syntax"
+  merged = true
 
 [[custom_plugins]]
-    name="907th/vim-auto-save"
-    merged = true
+  name="907th/vim-auto-save"
+  merged = true
 
 [[custom_plugins]]
-    name="kaicataldo/material.vim"
-    branch='main'
-    merged = false
+  name="kaicataldo/material.vim"
+  branch='main'
+  merged = false
 
 [[custom_plugins]]
-    name="numirias/semshi"
-    merged = false
+  name="numirias/semshi"
+  merged = false
 
 [[custom_plugins]]
-    name="ryanoasis/vim-devicons"
-    merged = false
+  name="ryanoasis/vim-devicons"
+  merged = false
+
+[[custom_plugins]]
+  name="yunlingz/vsc-dark-plus-vim"
+  merged = false
 
