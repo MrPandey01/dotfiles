@@ -2,7 +2,7 @@
   focus = system
   geometry_hinting = True
   inactive_color_offset = 1.0
-  enabled_plugins = LaunchpadCodeURLHandler, APTURLHandler, LaunchpadBugURLHandler
+  enabled_plugins = ActivityWatch, LaunchpadBugURLHandler, LaunchpadCodeURLHandler, APTURLHandler, TerminatorThemes
   suppress_multiple_term_dialog = True
   title_font = Droid Sans 12
 [keybindings]
@@ -26,13 +26,14 @@
   switch_to_tab_9 = <Alt>9
 [profiles]
   [[default]]
-    background_color = "#282828"
+    background_color = "#300a24"
     cursor_shape = ibeam
     cursor_color = "#aaaaaa"
-    font = SauceCodePro Nerd Font Mono Medium 11
+    font = Source Code Pro Medium 11
     foreground_color = "#ffffff"
     scrollback_lines = 1000
     scrollback_infinite = True
+    palette = "#282828:#cc241d:#98971a:#d79921:#458588:#b16286:#689d6a:#a89984:#928374:#fb4934:#b8bb26:#fabd2f:#83a598:#d3869b:#8ec07c:#ebdbb2"
     use_system_font = False
   [[Source Code Pro]]
     background_color = "#282828"
@@ -41,13 +42,33 @@
     font = Source Code Pro 11
     foreground_color = "#ffffff"
     use_system_font = False
+  [[Aci]]
+    background_color = "#0d1926"
+    cursor_shape = ibeam
+    cursor_color = "#c4e9ff"
+    font = Source Code Pro Medium 11
+    foreground_color = "#b4e1fd"
+    scrollback_lines = 1000
+    scrollback_infinite = True
+    palette = "#363636:#ff0883:#83ff08:#ff8308:#0883ff:#8308ff:#08ff83:#b6b6b6:#363636:#ff0883:#83ff08:#ff8308:#0883ff:#8308ff:#08ff83:#b6b6b6"
+    use_system_font = False
 [layouts]
   [[default]]
-    [[[child1]]]
-      parent = window0
-      type = Terminal
-      profile = default
-    [[[window0]]]
-      parent = ""
+    [[[child0]]]
       type = Window
+      parent = ""
+      order = 0
+      position = 0:0
+      maximised = False
+      fullscreen = False
+      size = 960, 1043
+      title = maverick@jigabit: ~/.config/terminator
+      last_active_term = 6b1b7637-67b6-47fa-806c-03692062db65
+      last_active_window = True
+    [[[terminal1]]]
+      type = Terminal
+      parent = child0
+      order = 0
+      profile = Aci
+      uuid = 6b1b7637-67b6-47fa-806c-03692062db65
 [plugins]

@@ -177,7 +177,7 @@ function! myconfig#after() abort
   " Disable welcome screen
   " let g:spacevim_disabled_plugins = ['vim-startify']
 
-  " Key configurations ---------------------------------
+  " Key Configurations ---------------------------------
   
   " TABS -------------------
   " Switch to last-active tab (read as: Tab-Toggle)
@@ -189,6 +189,7 @@ function! myconfig#after() abort
 
   " New tab
   " nnoremap <C-t> :tabnew<CR>
+
 
   " Disable arrow keys
   " noremap  <Up> ""
@@ -206,11 +207,13 @@ function! myconfig#after() abort
   imap jj <Esc>
   imap kk <Esc>
 
+
   " For navigation (treat line breaks as new lines)
   vmap j gj
   nmap j gj
   vmap k gk
   nmap k gk
+
 
   " For Changing
   nnoremap cw ciw

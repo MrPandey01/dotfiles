@@ -124,16 +124,16 @@
   merged = true
 
 [[custom_plugins]]
-  name="kaicataldo/material.vim"
-  branch='main'
-  merged = false
-
-[[custom_plugins]]
   name="numirias/semshi"
   merged = false
 
 [[custom_plugins]]
   name="ryanoasis/vim-devicons"
+  merged = false
+
+[[custom_plugins]]
+  name="kaicataldo/material.vim"
+  branch='main'
   merged = false
 
 [[custom_plugins]]
