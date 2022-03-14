@@ -57,8 +57,8 @@ snippet \sec "Section with label" bA
 $0
 endsnippet
 
-snippet \subsec "subsection with label" b!
-\subsection{${1:subsection name}}~\label{sec:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/g}}}
+snippet \subsec "subsection with label" bA
+\subsection{${1:subsection name}}~\label{subsec:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/g}}}
 $0
 endsnippet
 
@@ -179,7 +179,7 @@ endsnippet
 
 context "math()"
 snippet ... "ldots" iA
-\ldots
+\ldots $0
 endsnippet
 
 context "math()"

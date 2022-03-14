@@ -128,6 +128,10 @@
   merged = false
 
 [[custom_plugins]]
+  name="tpope/vim-obsession"
+  merged = false
+
+[[custom_plugins]]
   name="ryanoasis/vim-devicons"
   merged = false
 
@@ -139,4 +143,3 @@
 [[custom_plugins]]
   name="yunlingz/vsc-dark-plus-vim"
   merged = false
-

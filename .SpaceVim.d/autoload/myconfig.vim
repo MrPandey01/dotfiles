@@ -5,15 +5,6 @@ function! myconfig#before() abort
 
   syntax on
 
-  " Material theme extra configuration
-  " let g:material_terminal_italics = 1
-  " let g:material_theme_style = 'darker'
-  " let g:airline_theme = 'material'
-
-  " vsc_dark_plus theme extra configuration
-  let g:vsc_dark_plus_enable_bold = 1
-  let g:airline_theme = 'vsc_dark_plus'
-
   " Vimtex ---------------------------------
   let g:vimtex_syntax_conceal = {
         \ 'accents': 1,
@@ -88,6 +79,16 @@ function! myconfig#before() abort
   let &showbreak=' '
 
   let g:NERDTreeRespectWildIgnore=1
+  
+  " Material theme extra configuration
+  " let g:material_terminal_italics = 1
+  " let g:material_theme_style = 'darker'
+  " let g:airline_theme = 'material'
+
+  " vsc_dark_plus theme extra configuration
+  let g:vsc_dark_plus_enable_bold = 1
+  let g:airline_theme = 'vsc_dark_plus'
+
 endfunction
 
 
