@@ -59,7 +59,7 @@ function! myconfig#before() abort
 
   let g:auto_save = 1  " enable AutoSave on Vim startup
 
-  let g:semshi#filetypes=['python', 'tex']
+  let g:semshi#filetypes=['python', 'tex'] " Extra syntax highlighting for python
 
 
   " Code folding
@@ -81,13 +81,18 @@ function! myconfig#before() abort
   let g:NERDTreeRespectWildIgnore=1
   
   " Material theme extra configuration
-  " let g:material_terminal_italics = 1
-  " let g:material_theme_style = 'darker'
-  " let g:airline_theme = 'material'
+  let g:material_terminal_italics = 1
+  let g:material_theme_style = 'darker'
+  let g:airline_theme = 'material'
 
   " vsc_dark_plus theme extra configuration
-  let g:vsc_dark_plus_enable_bold = 1
-  let g:airline_theme = 'vsc_dark_plus'
+  " let g:vsc_dark_plus_enable_bold = 1
+  " let g:airline_theme = 'vsc_dark_plus'
+
+  " OceanicNext theme extra configuration
+  " let g:airline_theme = 'OceanicNext'
+  " let g:oceanic_next_terminal_bold = 1
+  " let g:oceanic_next_terminal_italic = 1
 
 endfunction
 

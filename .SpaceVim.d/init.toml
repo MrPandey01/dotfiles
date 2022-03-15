@@ -1,12 +1,5 @@
-#=============================================================================
-# dark_powered.toml --- dark powered configuration example for SpaceVim
-# Copyright (c) 2016-2020 Wang Shidong & Contributors
-# Author: Wang Shidong < wsdjeg at 163.com >
-# URL: https://spacevim.org
-# License: GPLv3
-#=============================================================================
-
 # All SpaceVim option below [option] section, in context of layers loaded by default.
+
 [options]
   # set spacevim theme. by default colorscheme layer is not loaded,
   # if you want to use more colorscheme, please load the colorscheme
@@ -14,7 +7,7 @@
 
   # Core layer
 
-  colorscheme = "vsc_dark_plus" # "material"
+  colorscheme = "material" 
   colorscheme_bg = "dark"
 
   # Disable guicolors in basic mode, many terminal do not support 24bit
@@ -48,10 +41,10 @@
   # autocomplete layer options
   autocomplete_method = "coc"
   snippet_engine = "ultisnips"
-  auto_completion_return_key_behavior = "nil"
+  auto_completion_return_key_behavior = "smart"
   auto_completion_tab_key_behavior = "complete"
 
-  # Show txt files editable by vim
+  # Show only files editable by vim
   wildignore='*.pyc,*.o,*.obj,*.svn,*.swp,*.class,*.hg,*.DS_Store,*.min.*,*.tmp,*.toc,*.aux,*.log,*.bbl,*.blg,*.log,*.lof,*.lot,*.ilg,*.out,*.glo,*.gls,*.nlo,*.nls,*.brf,*.ist,*.glg,*.synctex.gz,*.tgz,*.idx,*.ind,*blx.bib,*.fdb_latexmk,*.run.xml,*.bcf,*.glsdefs,*.fls,*.eps,*.pdf,*.png,*.jpg'
 
 
@@ -117,11 +110,11 @@
 
 [[custom_plugins]]
   name = "vim-python/python-syntax"
-  merged = true
+  merged = false
 
 [[custom_plugins]]
   name="907th/vim-auto-save"
-  merged = true
+  merged = false
 
 [[custom_plugins]]
   name="numirias/semshi"
@@ -135,6 +128,7 @@
   name="ryanoasis/vim-devicons"
   merged = false
 
+# Themes ==============================================================
 [[custom_plugins]]
   name="kaicataldo/material.vim"
   branch='main'
@@ -143,3 +137,11 @@
 [[custom_plugins]]
   name="yunlingz/vsc-dark-plus-vim"
   merged = false
+
+[[custom_plugins]]
+  name="mhartington/oceanic-next"
+  branch='main'
+  merged = false
+# ====================================================================
+
+# ============================================================================
