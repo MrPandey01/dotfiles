@@ -68,13 +68,13 @@
   python_interpreter = 'python' 
 
 # needed with lang#python
-[[layers]]
-  name = 'lsp'
-  enabled_clients = ['pyright']
-
-[[layers]]
-  name = "debug"
-  debugger_plugin = "vimspector"
+# [[layers]]
+#   name = 'lsp'
+#   enabled_clients = ['pyright']
+#
+# [[layers]]
+#   name = "debug"
+#   debugger_plugin = "vimspector"
 
 [[layers]]
   name = "default"

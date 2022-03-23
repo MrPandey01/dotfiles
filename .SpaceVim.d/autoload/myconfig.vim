@@ -184,18 +184,6 @@ function! myconfig#after() abort
   " let g:spacevim_disabled_plugins = ['vim-startify']
 
   " Key Configurations ---------------------------------
-  
-  " TABS -------------------
-  " Switch to last-active tab (read as: Tab-Toggle)
-  if !exists('g:lasttab')
-    let g:lasttab = 1
-  endif
-  nmap <Tab>t :exe "tabn ".g:lasttab<CR>
-  au TabLeave * let g:lasttab = tabpagenr()
-
-  " New tab
-  " nnoremap <C-t> :tabnew<CR>
-
 
   " Disable arrow keys
   " noremap  <Up> ""
