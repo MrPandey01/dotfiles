@@ -20,6 +20,11 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 plugins=(fzf ssh-agent git fast-syntax-highlighting zsh-autosuggestions colored-man-pages)
 
+# Man page completions
+zstyle ':completion:*:manuals'    separate-sections true
+zstyle ':completion:*:manuals.*'  insert-sections   true
+zstyle ':completion:*:man:*'      menu yes select
+
 source $ZSH/oh-my-zsh.sh
 
 # Preferred editor for local and remote sessions
@@ -234,3 +239,7 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+# nala zsh completions
+autoload bashcompinit
+bashcompinit
+source /usr/share/bash-completion/completions/nala
