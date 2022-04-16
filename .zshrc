@@ -20,7 +20,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 plugins=(fzf ssh-agent git fast-syntax-highlighting zsh-autosuggestions colored-man-pages)
 
-# Man page completions
+# Man page completions (with Tab)
 zstyle ':completion:*:manuals'    separate-sections true
 zstyle ':completion:*:manuals.*'  insert-sections   true
 zstyle ':completion:*:man:*'      menu yes select
