@@ -59,7 +59,18 @@ function! myconfig#before() abort
 
   let g:auto_save = 1  " enable AutoSave on Vim startup
 
-  let g:semshi#filetypes=['python', 'tex'] " Extra syntax highlighting for python
+  " let g:semshi#filetypes=['python', 'tex'] " Extra syntax highlighting for python
+
+  " COC settings
+  let g:coc_config_home = '~/.SpaceVim.d/'
+  let g:coc_global_extensions = [
+        \ 'coc-dictionary',
+        \ 'coc-word',
+        \ 'coc-texlab',
+        \'coc-pyright',
+        \'coc-snippets',
+        \ ]
+
 
 
   " Code folding
@@ -94,11 +105,32 @@ function! myconfig#before() abort
   " let g:oceanic_next_terminal_bold = 1
   " let g:oceanic_next_terminal_italic = 1
 
+  let g:python_highlight_all = 1
+
+  " UltiSnippets ---------------------------
+  " Snippets Trigger configuration.
+  " Do not use <tab> if you use " https://github.com/Valloric/YouCompleteMe.
+  let g:UltiSnipsExpandTrigger="<tab>"
+  let g:UltiSnipsJumpForwardTrigger="<tab>"
+  let g:UltiSnipsJumpBackwardTrigger="<shift+tab>"
+  let g:UltiSnipsEditSplit="vertical""
+  let g:UltiSnipsSnippetDirectories=["UltiSnips", "priv_snippets"]
+
+
+  let g:pydocstring_doq_path = '~/.conda/envs/py_env/bin/doq'
+
+  let g:webdevicons_enable_startify = 1
+
+  " Disable welcome screen
+  " let g:spacevim_disabled_plugins = ['vim-startify']
+  let g:coc_snippet_next = '<tab>'
+
 endfunction
 
 
 function! myconfig#after() abort
   set noro
+
 
    " Neovim Synctex setup (requires pip install neovim-remote)
   function! s:write_server_name() abort
@@ -123,10 +155,6 @@ function! myconfig#after() abort
       set clipboard=unnamed
   endif
 
-  " Inkscape-figures 
-  inoremap <C-f> <Esc>: silent exec '.!inkscape-figures create "'.getline('.').'" "'.b:vimtex.root.'/figures/"'<CR><CR>:w<CR>
-  nnoremap <C-f> : silent exec '!inkscape-figures edit "'.b:vimtex.root.'/figures/" > /dev/null 2>&1 &'<CR><CR>:redraw!<CR>
-  
   set modifiable
   set wrap
 
@@ -164,24 +192,58 @@ function! myconfig#after() abort
   autocmd FileType python map <buffer> <F5> :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
   autocmd FileType python imap <buffer> <F5> <esc>:w<CR>:exec '!python3' shellescape(@%, 1)<CR>
 
-  let g:python_highlight_all = 1
-
-  " UltiSnippets ---------------------------
-  " Snippets Trigger configuration.
-  " Do not use <tab> if you use " https://github.com/Valloric/YouCompleteMe.
-  let g:UltiSnipsExpandTrigger="<Tab>"
-  let g:UltiSnipsJumpForwardTrigger="<tab>"
-  let g:UltiSnipsJumpBackwardTrigger="<shift+tab>"
-  let g:UltiSnipsEditSplit="vertical""
-  let g:UltiSnipsSnippetDirectories=["UltiSnips", "priv_snippets"]
 
 
-  let g:pydocstring_doq_path = '~/.conda/envs/py_env/bin/doq'
+  " CoC settings --------------------------------------------------------------------
+  " Use `[g` and `]g` to navigate diagnostics
+  " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
+  nmap <silent> [g <Plug>(coc-diagnostic-prev)
+  nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
-  let g:webdevicons_enable_startify = 1
+  " GoTo code navigation.
+  nmap <silent> gd <Plug>(coc-definition)
+  nmap <silent> gy <Plug>(coc-type-definition)
+  nmap <silent> gi <Plug>(coc-implementation)
+  nmap <silent> gr <Plug>(coc-references)
 
-  " Disable welcome screen
-  " let g:spacevim_disabled_plugins = ['vim-startify']
+  " Use K to show documentation in preview window.
+  nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+  function! s:show_documentation()
+    if (index(['vim','help'], &filetype) >= 0)
+      execute 'h '.expand('<cword>')
+    else
+      call CocAction('doHover')
+    endif
+  endfunction
+
+  " Highlight the symbol and its references when holding the cursor.
+  autocmd CursorHold * silent call CocActionAsync('highlight')
+
+  " Symbol renaming.
+  nmap <leader>rn <Plug>(coc-rename)
+
+  " Remap <C-f> and <C-b> for scroll float windows/popups.
+  if has('nvim-0.4.0') || has('patch-8.2.0750')
+    nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+    nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+    inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
+    inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
+    vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+    vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+  endif
+
+  inoremap <silent><expr> <TAB>
+        \ pumvisible() ? coc#_select_confirm() :
+        \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+        \ <SID>check_back_space() ? "\<TAB>" :
+        \ coc#refresh()
+
+  function! s:check_back_space() abort
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~# '\s'
+  endfunction
+
 
   " Key Configurations ---------------------------------
 
