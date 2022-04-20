@@ -18,7 +18,7 @@ COMPLETION_WAITING_DOTS="true"
 # much, much faster.
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-plugins=(fzf ssh-agent git fast-syntax-highlighting zsh-autosuggestions colored-man-pages)
+plugins=(fzf ssh-agent git fast-syntax-highlighting zsh-autosuggestions colored-man-pages zsh-vi-mode)
 
 # Man page completions (with Tab)
 zstyle ':completion:*:manuals'    separate-sections true
