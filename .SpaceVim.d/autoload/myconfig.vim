@@ -66,7 +66,6 @@ function! myconfig#before() abort
   let g:coc_global_extensions = [
         \ 'coc-dictionary',
         \ 'coc-word',
-        \ 'coc-texlab',
         \'coc-pyright',
         \'coc-snippets',
         \ ]
