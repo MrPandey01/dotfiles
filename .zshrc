@@ -20,7 +20,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 plugins=(fzf ssh-agent git fast-syntax-highlighting zsh-autosuggestions colored-man-pages zsh-vi-mode)
 
-# Man page completions (with Tab)
+# Completion suggestions from man pages (using Tab)
 zstyle ':completion:*:manuals'    separate-sections true
 zstyle ':completion:*:manuals.*'  insert-sections   true
 zstyle ':completion:*:man:*'      menu yes select
@@ -72,7 +72,9 @@ alias wiki='nvim $HOME/vimwiki/index.wiki'
 alias nu='nvim ~/.newsboat/urls'
 alias nc='nvim ~/.newsboat/config'
 alias cheat='~/bin/cheat-linux-amd64'
+
 alias jl='jupyter-lab'
+alias ipy="ipython --no-banner --TerminalInteractiveShell.editing_mode=vi --InteractiveShellApp.extensions=\"['autoreload']\" --InteractiveShellApp.exec_lines=\"['%autoreload 2', '%colors Linux', 'import os,sys', 'import numpy as np', 'import matplotlib.pyplot as plt']\""
 
 # exa settings and aliases
 exa_params=('--git' '--icons' '--classify' '--group-directories-first' '--time-style=long-iso' '--group' '--color-scale')
