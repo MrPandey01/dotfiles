@@ -1,8 +1,8 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-export ZSH="$HOME/.oh-my-zsh"
+# export ZSH="$HOME/.oh-my-zsh"
 
-ZSH_THEME="af-magic"
+# ZSH_THEME="af-magic"
 
 # Uncomment the following line to use case-sensitive completion.
 CASE_SENSITIVE="true"
@@ -18,14 +18,31 @@ COMPLETION_WAITING_DOTS="true"
 # much, much faster.
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-plugins=(fzf ssh-agent git fast-syntax-highlighting zsh-autosuggestions colored-man-pages zsh-vi-mode)
+# Download Znap (Plugin Manager), if it's not there yet.
+if [ ! -f ~/.zsh-plugins/zsh-snap/znap.zsh ]; then
+    mkdir ~/.zsh-plugins/zsh-snap;
+    git clone --depth 1 -- \
+        https://github.com/marlonrichert/zsh-snap.git ~/.zsh-plugins/zsh-snap
+fi
+source ~/.zsh-plugins/zsh-snap/znap.zsh  # Start Znap
+
+# `znap prompt` makes your prompt visible in just 15-40ms!
+znap prompt sindresorhus/pure  #vi-mode is default with this 
+
+# `znap source` automatically downloads and starts your plugins.
+znap source ohmyzsh/ohmyzsh lib/{git,theme-and-appearance}
+znap source ohmyzsh/ohmyzsh plugins/{git,ssh-agent,colored-man-pages,fzf}
+znap source marlonrichert/zsh-autocomplete
+znap source zsh-users/zsh-autosuggestions
+znap source zdharma-continuum/fast-syntax-highlighting
+
 
 # Completion suggestions from man pages (using Tab)
 zstyle ':completion:*:manuals'    separate-sections true
 zstyle ':completion:*:manuals.*'  insert-sections   true
 zstyle ':completion:*:man:*'      menu yes select
 
-source $ZSH/oh-my-zsh.sh
+# source $ZSH/oh-my-zsh.sh
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
@@ -40,12 +57,12 @@ type vim &>/dev/null && {
 }
 
 # Aliases -----------------
-source $HOME/.oh-my-zsh/custom/custom_alias.zsh
+source ~/.zsh-plugins/custom_alias.zsh
 
 # Git aliases
 alias gau="git add -u"
 alias gcm='f() {git commit -m $1}; f'
-alias gfr="git fetch --all && git reset --hard origin/master"
+alias gfr="git fetch --all && git reset --hard origin/main"
 alias gpuom="git push -u origin master"
 
 alias pau="priv_files add -u; echo priv_files add -u"
@@ -56,7 +73,7 @@ alias pfr="priv_files fetch --all && priv_files reset --hard origin/master"
 alias dau="dotfiles add -u && echo dotfiles add -u"
 alias dcm='f() {dotfiles commit -m $1}; f'
 alias dpuom="dotfiles push -u origin master; pau; pcm; ppuom"
-alias dfr="dotfiles fetch --all; dotfiles reset --hard origin/master"
+alias dfr="dotfiles fetch --all; dotfiles reset --hard origin/main"
 
 alias priv_files='/usr/bin/git --git-dir=$HOME/.priv_files/ --work-tree=$HOME/'
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME/'
@@ -67,11 +84,6 @@ alias zrc="nvim $HOME/.zshrc"
 alias py='python3'
 alias gpu='watch nvidia-smi'
 alias src='source'
-
-alias wiki='nvim $HOME/vimwiki/index.wiki'
-alias nu='nvim ~/.newsboat/urls'
-alias nc='nvim ~/.newsboat/config'
-alias cheat='~/bin/cheat-linux-amd64'
 
 alias jl='jupyter-lab'
 alias ipy="ipython --no-banner --TerminalInteractiveShell.editing_mode=vi --InteractiveShellApp.extensions=\"['autoreload']\" --InteractiveShellApp.exec_lines=\"['%autoreload 2', '%colors Linux', 'import os,sys', 'import numpy as np', 'import matplotlib.pyplot as plt']\""
@@ -223,8 +235,12 @@ function fav {
 export GEM_HOME="$HOME/gems"
 export PATH="$HOME/gems/bin:$PATH"
 
-source $HOME/.config/broot/launcher/bash/br
+# mcfly (search through command history `ctrl-r`)
 eval "$(mcfly init zsh)"
+export MCFLY_KEY_SCHEME=vim
+export MCFLY_FUZZY=2
+export MCFLY_INTERFACE_VIEW=BOTTOM
+export MCFLY_HISTORY_LIMIT=10000
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
