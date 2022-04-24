@@ -4,7 +4,7 @@
 if command -v zsh &> /dev/null && command -v git &> /dev/null && command -v wget &> /dev/null; then
     echo -e "ZSH and Git are already installed\n"
 else
-    if sudo apt install -y zsh git wget || sudo pacman -S zsh git wget || sudo dnf install -y zsh git wget || sudo yum install -y zsh git wget || sudo brew install git zsh wget || pkg install git zsh wget ; then
+    if sudo apt install -y zsh git wget  || sudo pacman -S zsh git wget || sudo dnf install -y zsh git wget || sudo yum install -y zsh git wget || sudo brew install git zsh wget || pkg install git zsh wget ; then
         echo -e "zsh wget and git Installed\n"
     else
         echo -e "Please install the following packages first, then try again: zsh git wget \n" && exit
@@ -26,9 +26,19 @@ fi
 echo -e "Configuring tmux\n"
 if [ -f ~/.tmux.conf ]; then
    mv -n ~/.tmux.conf ~/.tmux.conf-backup-$(date +"%Y-%m-%d")
-   echo -e " Backed-up \.tmux\.conf to .tmux.conf-backup-date\n"
+   echo -e "Backed-up \.tmux\.conf to .tmux.conf-backup-date and installing new config\n"
+   wget https://raw.githubusercontent.com/MrPandey01/dotfiles/master/.tmux.conf -P $HOME
+ else
+   wget https://raw.githubusercontent.com/MrPandey01/dotfiles/master/.tmux.conf -P $HOME
+fi
+
+echo -e "Configuring exa\n"
+if command -v exa &> /dev/null; then
+    echo -e "exa are already installed\n"
 else
-    wget https://raw.githubusercontent.com/MrPandey01/dotfiles/master/.tmux.conf -P $HOME
+    wget https://github.com/ogham/exa/releases/download/v0.10.0/exa-linux-x86_64-v0.10.0.zip -P ~/.local/share && cd ~/.local/share && unzip -d exa/ exa-linux-x86_64-v0.10.0.zip
+    echo 'export PATH=~/.local/share/exa/bin:$PATH' >> ~/.zshrc
+    echo -e "exa Installed\n"
 fi
 
 
@@ -45,13 +55,5 @@ else
 fi
 
 fc-cache -fv ~/.local/share/fonts
-
-echo -e "Configuring fzf\n"
-if [ -d ~/.fzf ]; then
-    echo -e "\.fzf is already exist\n"
-else
-    git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-    ~/.fzf/install --all --key-bindings --completion --update-rc
-fi
 
 exit 0
