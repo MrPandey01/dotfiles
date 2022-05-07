@@ -119,7 +119,12 @@
   name="tpope/vim-obsession"
   merged = false
 
+# [[custom_plugins]]
+#   name="kaicataldo/material.vim"
+#   branch='main'
+#   merged = false
+#
 [[custom_plugins]]
-  name="kaicataldo/material.vim"
+  name="marko-cerovac/material.nvim"
   branch='main'
   merged = false

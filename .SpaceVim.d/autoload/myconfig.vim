@@ -83,7 +83,7 @@ function! myconfig#before() abort
   set spelllang=en_us,cjk 
   set spellsuggest=best,8
   set spellfile=~/.vim/spell/en.utf-8.add
-  setlocal spell 
+  " setlocal spell  # Uncomment to turn-on by default
   
   set breakindent
   let &showbreak=' '
@@ -91,20 +91,18 @@ function! myconfig#before() abort
   let g:NERDTreeRespectWildIgnore=1
   
   " Material theme extra configuration
-  let g:material_terminal_italics = 1
-  let g:material_theme_style = 'darker'
+  " let g:material_terminal_italics = 1
+  " let g:material_theme_style = 'darker'
+
   let g:airline_theme = 'material'
 
-  " vsc_dark_plus theme extra configuration
-  " let g:vsc_dark_plus_enable_bold = 1
-  " let g:airline_theme = 'vsc_dark_plus'
-
-  " OceanicNext theme extra configuration
-  " let g:airline_theme = 'OceanicNext'
-  " let g:oceanic_next_terminal_bold = 1
-  " let g:oceanic_next_terminal_italic = 1
+  let g:material_style = "darker"
 
   let g:python_highlight_all = 1
+
+  " packadd! ~/.cache/vimfiles/repos/github.com/puremourning/vimspector
+
+  let g:vimspector_base_dir='~/.cache/vimfiles/repos/github.com/puremourning/vimspector'
 
   " UltiSnippets ---------------------------
   " Snippets Trigger configuration.
@@ -122,6 +120,7 @@ function! myconfig#before() abort
 
   " Disable welcome screen
   " let g:spacevim_disabled_plugins = ['vim-startify']
+
   let g:coc_snippet_next = '<tab>'
 
 endfunction

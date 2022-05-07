@@ -33,7 +33,11 @@ znap prompt sindresorhus/pure  #vi-mode is default with this
 znap source ohmyzsh/ohmyzsh lib/{git,theme-and-appearance}
 znap source ohmyzsh/ohmyzsh plugins/{git,ssh-agent,colored-man-pages,fzf}
 znap source marlonrichert/zsh-autocomplete
+
+ZSH_AUTOSUGGEST_STRATEGY=( history )
 znap source zsh-users/zsh-autosuggestions
+
+ZSH_HIGHLIGHT_HIGHLIGHTERS=( main brackets )
 znap source zdharma-continuum/fast-syntax-highlighting
 
 
@@ -227,9 +231,6 @@ function fav {
  # exiftool clean2-$1
  # pdfinfo -meta clean2-$1
 # }
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export GEM_HOME="$HOME/gems"
