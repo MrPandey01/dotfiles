@@ -1,7 +1,9 @@
 function! myconfig#before() abort
 
 
-  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+  if (has('termguicolors'))
+    set termguicolors
+  endif
 
   syntax on
 
@@ -91,12 +93,10 @@ function! myconfig#before() abort
   let g:NERDTreeRespectWildIgnore=1
   
   " Material theme extra configuration
-  " let g:material_terminal_italics = 1
-  " let g:material_theme_style = 'darker'
-
+  let g:material_terminal_italics = 1
+  let g:material_theme_style = 'darker'
   let g:airline_theme = 'material'
 
-  let g:material_style = "darker"
 
   let g:python_highlight_all = 1
 
@@ -107,9 +107,9 @@ function! myconfig#before() abort
   " UltiSnippets ---------------------------
   " Snippets Trigger configuration.
   " Do not use <tab> if you use " https://github.com/Valloric/YouCompleteMe.
-  let g:UltiSnipsExpandTrigger="<tab>"
-  let g:UltiSnipsJumpForwardTrigger="<tab>"
-  let g:UltiSnipsJumpBackwardTrigger="<shift+tab>"
+  " let g:UltiSnipsExpandTrigger="<tab>"
+  " let g:UltiSnipsJumpForwardTrigger="<tab>"
+  " let g:UltiSnipsJumpBackwardTrigger="<shift+tab>"
   let g:UltiSnipsEditSplit="vertical""
   let g:UltiSnipsSnippetDirectories=["UltiSnips", "priv_snippets"]
 
@@ -121,7 +121,7 @@ function! myconfig#before() abort
   " Disable welcome screen
   " let g:spacevim_disabled_plugins = ['vim-startify']
 
-  let g:coc_snippet_next = '<tab>'
+  " let g:coc_snippet_next = '<tab>'
 
 endfunction
 

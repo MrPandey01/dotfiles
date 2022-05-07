@@ -22,7 +22,6 @@
   disabled_plugins = ["neosnippet-snippets", "vim-snippets"]
   vimcompatible = true
 
-  conceallevel = 1
   statusline_separator = "arrow"
   statusline_iseparator = "arrow"
   buffer_index_type = 4
@@ -41,8 +40,6 @@
   # autocomplete layer options
   autocomplete_method = "coc"
   snippet_engine = "ultisnips"
-  auto_completion_return_key_behavior = "smart"
-  auto_completion_tab_key_behavior = "cycle"
 
   # Show only files editable by vim
   wildignore='*.pyc,*.o,*.obj,*.svn,*.swp,*.class,*.hg,*.DS_Store,*.min.*,*.tmp,*.toc,*.aux,*.log,*.bbl,*.blg,*.log,*.lof,*.lot,*.ilg,*.out,*.glo,*.gls,*.nlo,*.nls,*.brf,*.ist,*.glg,*.synctex.gz,*.tgz,*.idx,*.ind,*blx.bib,*.fdb_latexmk,*.run.xml,*.bcf,*.glsdefs,*.fls,*.eps,*.pdf,*.png,*.jpg'
@@ -53,6 +50,21 @@
 
 [[layers]]
   name = "autocomplete"
+  auto_completion_return_key_behavior = "smart"
+  auto_completion_tab_key_behavior = "cycle"
+
+[[layers]]
+  name = "ui"
+  enable_sidebar = false
+  enable_scrollbar = false
+  enable_indentline = true
+  indentline_char = '|'
+  enable_cursorword = true
+  conceallevel = 1
+  concealcursor = ''
+  cursorword_delay = 50
+  cursorword_exclude_filetype = []
+  indentline_exclude_filetype = []
 
 [[layers]]
   name = "core#statusline"
@@ -68,7 +80,7 @@
 
 [[layers]]
   name = "lang#python"
-  python_interpreter = '/usr/bin/env/python3' 
+  # python_interpreter = '/usr/bin/env/python3'
 
 # needed with lang#python
 [[layers]]
@@ -119,12 +131,7 @@
   name="tpope/vim-obsession"
   merged = false
 
-# [[custom_plugins]]
-#   name="kaicataldo/material.vim"
-#   branch='main'
-#   merged = false
-#
 [[custom_plugins]]
-  name="marko-cerovac/material.nvim"
+  name="kaicataldo/material.vim"
   branch='main'
   merged = false
