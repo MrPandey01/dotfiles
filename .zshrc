@@ -104,6 +104,7 @@ alias lx='exa -lbhHigUmuSa@'
 alias lt='exa --tree --level=2'
 alias tree='exa --tree --level=2'
 
+alias tmux='TERM=screen-256color-bce tmux'
 # Open files with default programs (without specifying the name)
 # from terminal
 function open () {
