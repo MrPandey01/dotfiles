@@ -90,6 +90,10 @@ function! myconfig#before() abort
   
   set breakindent
   let &showbreak=' '
+  
+  " Change cursor shape in different modes
+  let &t_SI = "\e[5 q"
+  let &t_EI = "\e[1 q"
 
   let g:NERDTreeRespectWildIgnore=1
   
@@ -156,9 +160,6 @@ function! myconfig#after() abort
   set modifiable
   set wrap
 
-  " Change cursor shape in different modes
-  let &t_SI = "\e[5 q"
-  let &t_EI = "\e[1 q"
 
   " Optional reset cursor on start:
   augroup myCmds
