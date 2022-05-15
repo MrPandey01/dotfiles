@@ -70,7 +70,6 @@ function! myconfig#before() abort
         \ 'coc-dictionary',
         \ 'coc-word',
         \'coc-pyright',
-        \'coc-snippets',
         \ ]
 
 
@@ -112,9 +111,9 @@ function! myconfig#before() abort
   " UltiSnippets ---------------------------
   " Snippets Trigger configuration.
   " Do not use <tab> if you use " https://github.com/Valloric/YouCompleteMe.
-  " let g:UltiSnipsExpandTrigger="<tab>"
-  " let g:UltiSnipsJumpForwardTrigger="<tab>"
-  " let g:UltiSnipsJumpBackwardTrigger="<shift+tab>"
+  let g:UltiSnipsExpandTrigger="<tab>"
+  let g:UltiSnipsJumpForwardTrigger="<tab>"
+  let g:UltiSnipsJumpBackwardTrigger="<shift+tab>"
   let g:UltiSnipsEditSplit="vertical""
   let g:UltiSnipsSnippetDirectories=["UltiSnips", "priv_snippets"]
 
@@ -176,12 +175,6 @@ function! myconfig#after() abort
   " Clear search results with //
   nnoremap <silent> // :noh<CR>
 
-  " Spelling mistakes will also be colored red if you uncomment the colors.
-  hi SpellBad cterm=underline "ctermfg=203 guifg=#ff5f5f
-  hi SpellLocal cterm=underline "ctermfg=203 guifg=#ff5f5f
-  hi SpellRare cterm=underline "ctermfg=203 guifg=#ff5f5f
-  hi SpellCap cterm=underline "ctermfg=203 guifg=#ff5f5f
-
 
   " Comment toggle with Ctrl-/
   nnoremap <silent> <C-_> :call NERDComment(0,"toggle")<CR>
@@ -204,45 +197,8 @@ function! myconfig#after() abort
   nmap <silent> gy <Plug>(coc-type-definition)
   nmap <silent> gi <Plug>(coc-implementation)
   nmap <silent> gr <Plug>(coc-references)
-
-  " Use K to show documentation in preview window.
-  nnoremap <silent> K :call <SID>show_documentation()<CR>
-
-  function! s:show_documentation()
-    if (index(['vim','help'], &filetype) >= 0)
-      execute 'h '.expand('<cword>')
-    else
-      call CocAction('doHover')
-    endif
-  endfunction
-
-  " Highlight the symbol and its references when holding the cursor.
-  autocmd CursorHold * silent call CocActionAsync('highlight')
-
   " Symbol renaming.
   nmap <leader>rn <Plug>(coc-rename)
-
-  " Remap <C-f> and <C-b> for scroll float windows/popups.
-  if has('nvim-0.4.0') || has('patch-8.2.0750')
-    nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-    nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
-    inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
-    inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
-    vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-    vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
-  endif
-
-  inoremap <silent><expr> <TAB>
-        \ pumvisible() ? coc#_select_confirm() :
-        \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-        \ <SID>check_back_space() ? "\<TAB>" :
-        \ coc#refresh()
-
-  function! s:check_back_space() abort
-    let col = col('.') - 1
-    return !col || getline('.')[col - 1]  =~# '\s'
-  endfunction
-
 
   " Key Configurations ---------------------------------
 
