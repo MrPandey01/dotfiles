@@ -1,12 +1,46 @@
 function! myconfig#before() abort
 
+  syntax on
+  let g:mapleader = '\'
+
+  let g:auto_save = 1  " enable AutoSave on Vim startup (autosave plugin)
+
+  " Code folding
+  set foldmethod=indent
+  set nofoldenable
+  set foldlevel=2
+
+  set conceallevel=2
+  set modifiable
+
+  " Spell check and completion
+  set complete+=kspell
+  set spelllang=en_us,cjk 
+  set spellsuggest=best,8
+  set spellfile=~/.vim/spell/en.utf-8.add
+  " setlocal spell  # Uncomment to turn-on by default
+  
+  set breakindent
+  let &showbreak=' '
+  
+  " Change cursor shape in different modes
+  let &t_SI = "\e[5 q"
+  let &t_EI = "\e[1 q"
+
   if (has('termguicolors'))
+    " Color and cursor for tmux
     let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
     let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
     set termguicolors
   endif
 
-  syntax on
+  " Use the OS clipboard by default (on versions compiled with `+clipboard`)
+  if has('unnamedplus')
+      set clipboard=unnamed,unnamedplus
+  else
+      set clipboard=unnamed
+  endif
+
 
   " Vimtex ---------------------------------
   let g:vimtex_syntax_conceal = {
@@ -58,13 +92,10 @@ function! myconfig#before() abort
   " let g:vimtex_view_general_options_latexmk='--unique'
   let g:vimtex_lint_chktex_ignore_warnings='-n1 -n2 -n3 -n8 -n25 -n24 -n2'
   let g:neomake_enabled_tex_makers = []
-  let g:mapleader = '\'
-
-  let g:auto_save = 1  " enable AutoSave on Vim startup
 
   " let g:semshi#filetypes=['python', 'tex'] " Extra syntax highlighting for python
 
-  " COC settings
+  " COC settings ---------------------------------
   let g:coc_config_home = '~/.SpaceVim.d/'
   let g:coc_global_extensions = [
         \ 'coc-dictionary',
@@ -72,31 +103,10 @@ function! myconfig#before() abort
         \'coc-pyright',
         \ ]
 
-
-
-  " Code folding
-  set foldmethod=indent
-  set nofoldenable
-  set foldlevel=2
-  set conceallevel=2
-  
-  " Spell check and completion
-  set complete+=kspell
-  set spelllang=en_us,cjk 
-  set spellsuggest=best,8
-  set spellfile=~/.vim/spell/en.utf-8.add
-  " setlocal spell  # Uncomment to turn-on by default
-  
-  set breakindent
-  let &showbreak=' '
-  
-  " Change cursor shape in different modes
-  let &t_SI = "\e[5 q"
-  let &t_EI = "\e[1 q"
-
+  " NerdTree ---------------------------------
   let g:NERDTreeRespectWildIgnore=1
   
-  " Material theme extra configuration
+  " Material theme extra configuration---------------------------------
   let g:material_terminal_italics = 1
   let g:material_theme_style = 'darker'
   let g:airline_theme = 'material'
@@ -111,11 +121,11 @@ function! myconfig#before() abort
   " UltiSnippets ---------------------------
   " Snippets Trigger configuration.
   " Do not use <tab> if you use " https://github.com/Valloric/YouCompleteMe.
-  let g:UltiSnipsExpandTrigger="<tab>"
-  let g:UltiSnipsJumpForwardTrigger="<tab>"
-  let g:UltiSnipsJumpBackwardTrigger="<shift+tab>"
+  " let g:UltiSnipsExpandTrigger="<tab>"
+  " let g:UltiSnipsJumpForwardTrigger="<tab>"
+  " let g:UltiSnipsJumpBackwardTrigger="<shift+tab>"
   let g:UltiSnipsEditSplit="vertical""
-  let g:UltiSnipsSnippetDirectories=["UltiSnips", "priv_snippets"]
+  let g:UltiSnipsSnippetDirectories=["UltiSnips"]
 
 
   let g:pydocstring_doq_path = '~/.conda/envs/py_env/bin/doq'
@@ -132,6 +142,7 @@ endfunction
 
 function! myconfig#after() abort
 
+  set wrap  " wrap text around the screen
 
    " Neovim Synctex setup (requires pip install neovim-remote)
   function! s:write_server_name() abort
@@ -147,18 +158,6 @@ function! myconfig#after() abort
   if empty(v:servername) && exists('*remote_startserver')
       call remote_startserver('VIM')
   endif
-
-
-  " Use the OS clipboard by default (on versions compiled with `+clipboard`)
-  if has('unnamedplus')
-      set clipboard=unnamed,unnamedplus
-  else
-      set clipboard=unnamed
-  endif
-
-  set modifiable
-  set wrap
-
 
   " Optional reset cursor on start:
   augroup myCmds

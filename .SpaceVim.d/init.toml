@@ -39,6 +39,9 @@
 
   # autocomplete layer options
   autocomplete_method = "coc"
+  auto_completion_return_key_behavior = "smart"
+  auto_completion_tab_key_behavior = "cycle"
+
   snippet_engine = "ultisnips"
 
   # Show only files editable by vim
@@ -50,8 +53,6 @@
 
 [[layers]]
   name = "autocomplete"
-  auto_completion_return_key_behavior = "smart"
-  auto_completion_tab_key_behavior = "cycle"
 
 [[layers]]
   name = "ui"

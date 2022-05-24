@@ -45,7 +45,7 @@ def add_row(snip):
 endglobal
 
 pre_expand "create_table(snip)"
-snippet "gentbl(\d+)x(\d+)" "Generate table of *width* by *height*" r
+snippet "generate_tbl(\d+)x(\d+)" "Generate table of `*width*x*height*`" r
 endsnippet
 
 pre_expand "add_row(snip)"
@@ -132,6 +132,33 @@ snippet \bfig "Figure environment" bA
 \end{figure}
 endsnippet
 
+snippet \bsubfig "Sub-figure environment" bA
+\begin{figure}[${1:htpb}]
+     \centering
+     \begin{subfigure}[b]{0.3\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{graph1}
+         \caption{$y=x$}
+         \label{fig:y equals x}
+     \end{subfigure}
+     \hfill
+     \begin{subfigure}[b]{0.3\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{graph2}
+         \caption{$y=3sinx$}
+         \label{fig:three sin x}
+     \end{subfigure}
+     \hfill
+     \begin{subfigure}[b]{0.3\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{graph3}
+         \caption{$y=5/x$}
+         \label{fig:five over x}
+     \end{subfigure}
+        \caption{Three simple graphs}
+        \label{fig:three graphs}
+\end{figure}
+endsnippet
 
 # Special context snippets --------------------------------------------------
 global !p

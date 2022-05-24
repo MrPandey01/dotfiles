@@ -90,7 +90,13 @@ alias gpu='watch nvidia-smi'
 alias src='source'
 
 alias jl='jupyter-lab'
-alias ipy="ipython --no-banner --TerminalInteractiveShell.editing_mode=vi --InteractiveShellApp.extensions=\"['autoreload']\" --InteractiveShellApp.exec_lines=\"['%autoreload 2', '%colors Linux', 'import os,sys', 'import numpy as np', 'import matplotlib.pyplot as plt']\""
+alias ipy="ipython --matplotlib --no-banner \
+  --TerminalInteractiveShell.editing_mode=vi \
+  --InteractiveShellApp.extensions 'autoreload' \
+  --InteractiveShellApp.exec_lines '%autoreload 2' \
+  --InteractiveShellApp.exec_lines '%colors Linux' \
+  --InteractiveShellApp.exec_lines 'import os,sys' \
+  --InteractiveShellApp.exec_lines 'import numpy as np' "
 
 # exa settings and aliases
 exa_params=('--git' '--icons' '--classify' '--group-directories-first' '--time-style=long-iso' '--group' '--color-scale')
