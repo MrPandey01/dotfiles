@@ -19,7 +19,7 @@
   # Disable statusline separator, if you want to use other value, please
   # install nerd fonts
 
-  disabled_plugins = ["neosnippet-snippets", "vim-snippets"]
+  disabled_plugins = ["neosnippet-snippets", "vim-snippets", "vim-surround"]
   vimcompatible = true
 
   statusline_separator = "arrow"
@@ -68,6 +68,12 @@
   indentline_exclude_filetype = []
 
 [[layers]]
+  name = 'edit'
+  autosave_all_buffers = true
+  autosave_timeout = 120000 # milliseconds
+  autosave_events = ['InsertLeave', 'TextChanged']
+
+[[layers]]
   name = "core#statusline"
 
 [[layers]]
@@ -89,9 +95,9 @@
   filetypes = ["python"]
 #   enabled_clients = ['pyright']
 #
-# [[layers]]
-#   name = "debug"
-#   debugger_plugin = "vimspector"
+[[layers]]
+  name = "debug"
+  debugger_plugin = "vimspector"
 
 [[layers]]
   name = "default"
@@ -121,11 +127,11 @@
   merged = false
 
 [[custom_plugins]]
-  name="907th/vim-auto-save"
+  name="ryanoasis/vim-devicons"
   merged = false
 
 [[custom_plugins]]
-  name="ryanoasis/vim-devicons"
+  name="machakann/vim-sandwich"
   merged = false
 
 [[custom_plugins]]

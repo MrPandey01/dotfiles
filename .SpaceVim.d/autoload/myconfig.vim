@@ -3,8 +3,6 @@ function! myconfig#before() abort
   syntax on
   let g:mapleader = '\'
 
-  let g:auto_save = 1  " enable AutoSave on Vim startup (autosave plugin)
-
   " Code folding
   set foldmethod=indent
   set nofoldenable
