@@ -67,21 +67,15 @@
   cursorword_exclude_filetype = []
   indentline_exclude_filetype = []
 
-[[layers]]
-  name = 'edit'
-  autosave_all_buffers = true
-  autosave_timeout = 120000 # milliseconds
-  autosave_events = ['InsertLeave', 'TextChanged']
+# [[layers]]
+#   name = "core#statusline"
+#
+# [[layers]]
+#   name = "core#tabline"
 
-[[layers]]
-  name = "core#statusline"
-
-[[layers]]
-  name = "core#tabline"
-
-[[layers]]
-  name = "colorscheme"
-
+# [[layers]]
+#   name = "colorscheme"
+#
 [[layers]]
   name = "lang#latex"
 
@@ -132,6 +126,10 @@
 
 [[custom_plugins]]
   name="machakann/vim-sandwich"
+  merged = false
+
+[[custom_plugins]]
+  name="907th/vim-auto-save"
   merged = false
 
 [[custom_plugins]]

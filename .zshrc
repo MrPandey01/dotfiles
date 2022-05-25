@@ -111,6 +111,7 @@ alias lt='exa --tree --level=2'
 alias tree='exa --tree --level=2'
 
 alias tmux='TERM=screen-256color-bce tmux'
+
 # Open files with default programs (without specifying the name)
 # from terminal
 function open () {
@@ -193,7 +194,7 @@ test -d "$FAV_DIR" || mkdir -p "$FAV_DIR"
 # make cd lookup bookmark directory by default
 export CDPATH=".:$FAV_DIR"
 
-## create a bookmark name for current directory (e.g. favmk @dotfiles) 
+# create a bookmark name for current directory (e.g. favmk @dotfiles) 
 function favmk {
   mkdir -p "$FAV_DIR"; 
   [ -d "${FAV_DIR}" ] && (ln -s "$(pwd)" "$FAV_DIR/$1") || (echo "fav directory ${FAV_DIR} could not be created")
