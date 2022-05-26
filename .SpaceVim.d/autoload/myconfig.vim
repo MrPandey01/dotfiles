@@ -10,7 +10,7 @@ function! myconfig#before() abort
   set foldlevel=2
 
   set conceallevel=2
-  set modifiable
+  " set modifiable
 
   " Spell check and completion
   set complete+=kspell

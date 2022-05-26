@@ -81,6 +81,7 @@
 
 [[layers]]
   name = "lang#python"
+  # enabled_linters = ['python', 'pylint']
   # python_interpreter = '/usr/bin/env/python3'
 
 # needed with lang#python
@@ -93,8 +94,8 @@
   name = "debug"
   debugger_plugin = "vimspector"
 
-[[layers]]
-  name = "default"
+# [[layers]]
+#   name = "default"
 
 [[layers]]
   name = "git"
