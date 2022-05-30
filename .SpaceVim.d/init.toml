@@ -96,7 +96,10 @@
 
 # [[layers]]
 #   name = "default"
-
+# [[layers]]
+#   name = "ctrlspace"
+#   autoload-workspaces = true
+#
 [[layers]]
   name = "git"
 

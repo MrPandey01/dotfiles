@@ -136,6 +136,10 @@ function! myconfig#before() abort
 
   " let g:coc_snippet_next = '<tab>'
 
+  " let g:CtrlSpaceLoadLastWorkspaceOnStart = 1
+  " let g:CtrlSpaceSaveWorkspaceOnSwitch = 1
+  " let g:CtrlSpaceSaveWorkspaceOnExit = 1
+
 endfunction
 
 
