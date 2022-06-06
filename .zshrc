@@ -31,7 +31,7 @@ znap prompt sindresorhus/pure  #vi-mode is default with this
 
 # `znap source` automatically downloads and starts your plugins.
 znap source ohmyzsh/ohmyzsh lib/{git,theme-and-appearance}
-znap source ohmyzsh/ohmyzsh plugins/{git,ssh-agent,colored-man-pages,fzf}
+znap source ohmyzsh/ohmyzsh plugins/{git,ssh-agent,colored-man-pages,fzf,z}
 znap source marlonrichert/zsh-autocomplete
 
 ZSH_AUTOSUGGEST_STRATEGY=( history )
@@ -271,4 +271,5 @@ fpath+=${ZDOTDIR:-~}/.zsh_functions
 export NVM_DIR="$HOME/.config/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export PATH=~/.local/share/exa/bin:$PATH
 export PATH=~/.local/share/exa/bin:$PATH
