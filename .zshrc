@@ -46,6 +46,7 @@ zstyle ':completion:*:manuals'    separate-sections true
 zstyle ':completion:*:manuals.*'  insert-sections   true
 zstyle ':completion:*:man:*'      menu yes select
 
+
 # source $ZSH/oh-my-zsh.sh
 
 # Preferred editor for local and remote sessions
@@ -88,6 +89,7 @@ alias zrc="nvim $HOME/.zshrc"
 alias py='python3'
 alias gpu='watch nvidia-smi'
 alias src='source'
+alias tmux='TERM=screen-256color-bce tmux'
 
 alias jl='jupyter-lab'
 alias ipy="ipython --matplotlib --no-banner \
@@ -99,6 +101,12 @@ alias ipy="ipython --matplotlib --no-banner \
   --InteractiveShellApp.exec_lines 'import numpy as np' "
 
 # exa settings and aliases
+if ! command -v exa &> /dev/null
+then
+    wget https://github.com/ogham/exa/releases/download/v0.10.0/exa-linux-x86_64-v0.10.0.zip -P ~/.local/share && cd ~/.local/share && unzip -d exa/ exa-linux-x86_64-v0.10.0.zip
+    echo 'export PATH=~/.local/share/exa/bin:$PATH' >> ~/.zshrc
+    echo -e "exa Installed\n"
+fi
 exa_params=('--git' '--icons' '--classify' '--group-directories-first' '--time-style=long-iso' '--group' '--color-scale')
 
 alias ls='exa ${exa_params}'
@@ -110,7 +118,6 @@ alias lx='exa -lbhHigUmuSa@'
 alias lt='exa --tree --level=2'
 alias tree='exa --tree --level=2'
 
-alias tmux='TERM=screen-256color-bce tmux'
 
 # Open files with default programs (without specifying the name)
 # from terminal
@@ -236,20 +243,12 @@ function fav {
  # qpdf --linearize clean-$1 clean2-$1
 #
  # pdftk clean2-$1 dump_data
- # exiftool clean2-$1
  # pdfinfo -meta clean2-$1
 # }
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export GEM_HOME="$HOME/gems"
 export PATH="$HOME/gems/bin:$PATH"
-
-# mcfly (search through command history `ctrl-r`)
-eval "$(mcfly init zsh)"
-export MCFLY_KEY_SCHEME=vim
-export MCFLY_FUZZY=2
-export MCFLY_INTERFACE_VIEW=BOTTOM
-export MCFLY_HISTORY_LIMIT=10000
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -266,14 +265,12 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-# nala zsh completions
-autoload bashcompinit
-bashcompinit
-source /usr/share/bash-completion/completions/nala
-
 fpath+=${ZDOTDIR:-~}/.zsh_functions
 fpath+=${ZDOTDIR:-~}/.zsh_functions
 
 export NVM_DIR="$HOME/.config/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export PATH=~/.local/share/exa/bin:$PATH
+export PATH=~/.local/share/exa/bin:$PATH
+export PATH=~/.local/share/exa/bin:$PATH
