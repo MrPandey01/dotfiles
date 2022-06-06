@@ -101,7 +101,7 @@ alias ipy="ipython --matplotlib --no-banner \
   --InteractiveShellApp.exec_lines 'import numpy as np' "
 
 # exa settings and aliases
-if ! command -v exa &> /dev/null
+if command -v exa &> /dev/null
 then
     wget https://github.com/ogham/exa/releases/download/v0.10.0/exa-linux-x86_64-v0.10.0.zip -P ~/.local/share && cd ~/.local/share && unzip -d exa/ exa-linux-x86_64-v0.10.0.zip
     echo 'export PATH=~/.local/share/exa/bin:$PATH' >> ~/.zshrc
@@ -271,6 +271,4 @@ fpath+=${ZDOTDIR:-~}/.zsh_functions
 export NVM_DIR="$HOME/.config/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-export PATH=~/.local/share/exa/bin:$PATH
-export PATH=~/.local/share/exa/bin:$PATH
 export PATH=~/.local/share/exa/bin:$PATH
