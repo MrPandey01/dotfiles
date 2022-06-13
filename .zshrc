@@ -1,5 +1,6 @@
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=~/.local/share/exa/bin:$PATH
+export PATH=~/.config/rofi/scripts:$PATH
 
 # export ZSH="$HOME/.oh-my-zsh"
 
@@ -34,12 +35,13 @@ znap prompt sindresorhus/pure  #vi-mode is default with this
 znap source ohmyzsh/ohmyzsh lib/{git,theme-and-appearance}
 znap source ohmyzsh/ohmyzsh plugins/{git,ssh-agent,colored-man-pages,fzf,z}
 znap source marlonrichert/zsh-autocomplete
+znap install esc/conda-zsh-completion 
 
-ZSH_AUTOSUGGEST_STRATEGY=( history )
 znap source zsh-users/zsh-autosuggestions
+ZSH_AUTOSUGGEST_STRATEGY=( history completion )
 
-ZSH_HIGHLIGHT_HIGHLIGHTERS=( main brackets )
 znap source zdharma-continuum/fast-syntax-highlighting
+ZSH_HIGHLIGHT_HIGHLIGHTERS=( main brackets )
 
 
 # Completion suggestions from man pages (using Tab)
@@ -269,6 +271,7 @@ unset __conda_setup
 
 fpath+=${ZDOTDIR:-~}/.zsh_functions
 fpath+=${ZDOTDIR:-~}/.zsh_functions
+# autoload -U compinit && compinit
 
 export NVM_DIR="$HOME/.config/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
