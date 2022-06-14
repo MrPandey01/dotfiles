@@ -92,8 +92,6 @@ function! myconfig#before() abort
   let g:vimtex_lint_chktex_ignore_warnings='-n1 -n2 -n3 -n8 -n25 -n24 -n2'
   let g:neomake_enabled_tex_makers = []
 
-  " let g:semshi#filetypes=['python', 'tex'] " Extra syntax highlighting for python
-
   " COC settings ---------------------------------
   let g:coc_config_home = '~/.SpaceVim.d/'
   let g:coc_global_extensions = [
@@ -110,10 +108,7 @@ function! myconfig#before() abort
   let g:material_theme_style = 'darker'
   let g:airline_theme = 'material'
 
-
   let g:python_highlight_all = 1
-
-  " packadd! ~/.cache/vimfiles/repos/github.com/puremourning/vimspector
 
   let g:vimspector_base_dir='~/.cache/vimfiles/repos/github.com/puremourning/vimspector'
 
