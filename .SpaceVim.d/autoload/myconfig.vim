@@ -110,7 +110,9 @@ function! myconfig#before() abort
 
   let g:python_highlight_all = 1
 
-  let g:vimspector_base_dir='~/.cache/vimfiles/repos/github.com/puremourning/vimspector'
+  " Vimspector ---------------------------------
+  " let g:vimspector_base_dir='~/.cache/vimfiles/repos/github.com/puremourning/vimspector'
+  " let g:vimspector_enable_mappings = 'HUMAN'
 
   " UltiSnippets ---------------------------
   " Snippets Trigger configuration.

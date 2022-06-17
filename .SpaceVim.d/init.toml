@@ -128,6 +128,11 @@
 #   name="numirias/semshi"
 #   merged = false
 #
+#
+# [[custom_plugins]]
+#   name="sagi-z/vimspectorpy"
+#   merged = false
+
 [[custom_plugins]]
   name="ryanoasis/vim-devicons"
   merged = false
