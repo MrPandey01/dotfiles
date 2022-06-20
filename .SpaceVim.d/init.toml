@@ -39,7 +39,7 @@
 
   # autocomplete layer options
   autocomplete_method = "coc"
-  auto_completion_return_key_behavior = "smart"
+  auto_completion_return_key_behavior = "complete"
   auto_completion_tab_key_behavior = "cycle"
 
   snippet_engine = "ultisnips"
@@ -53,6 +53,7 @@
 
 [[layers]]
   name = "autocomplete"
+  auto_completion_enable_snippets_in_popup = true
 
 [[layers]]
   name = "ui"
@@ -87,12 +88,16 @@
 # needed with lang#python
 [[layers]]
   name = 'lsp'
-  filetypes = ["python"]
+  filetypes = ["python",
+                "html"]
 #   enabled_clients = ['pyright']
 #
 [[layers]]
   name = "debug"
   debugger_plugin = "vimspector"
+
+[[layers]]
+  name = "lang#html"
 
 # [[layers]]
 #   name = "default"

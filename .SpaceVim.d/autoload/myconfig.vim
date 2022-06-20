@@ -117,7 +117,7 @@ function! myconfig#before() abort
   " UltiSnippets ---------------------------
   " Snippets Trigger configuration.
   " Do not use <tab> if you use " https://github.com/Valloric/YouCompleteMe.
-  " let g:UltiSnipsExpandTrigger="<tab>"
+  let g:UltiSnipsExpandTrigger="<tab>"
   " let g:UltiSnipsJumpForwardTrigger="<tab>"
   " let g:UltiSnipsJumpBackwardTrigger="<shift+tab>"
   let g:UltiSnipsEditSplit="vertical""
@@ -141,6 +141,7 @@ endfunction
 
 
 function! myconfig#after() abort
+
 
   set wrap  " wrap text around the screen
 

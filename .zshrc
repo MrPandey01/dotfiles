@@ -263,8 +263,7 @@ function fav {
 # }
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export GEM_HOME="$HOME/gems"
-export PATH="$HOME/gems/bin:$PATH"
+
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -289,3 +288,4 @@ export NVM_DIR="$HOME/.config/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 export PATH=~/.local/share/exa/bin:$PATH
+ 
