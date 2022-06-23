@@ -266,7 +266,7 @@ function! myconfig#after() abort
 
 
   " For Deleting
-  nnoremap dw diw
+  nnoremap dw daw
   nnoremap d( da(
   nnoremap d{ da{
   nnoremap d[ da[
@@ -283,3 +283,4 @@ function! myconfig#after() abort
   nnoremap v" vi"
 
 endfunction
+

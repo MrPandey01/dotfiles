@@ -104,7 +104,11 @@ alias zrc="nvim $HOME/.zshrc"
 alias py='python3'
 alias gpu='watch nvidia-smi'
 alias src='source'
+
+# Tmux
 alias tmux='TERM=screen-256color-bce tmux'
+alias tl='tmux list-sessions'
+alias ta='tmux attach'
 
 alias jl='jupyter-lab'
 alias ipy="ipython --matplotlib --no-banner \
