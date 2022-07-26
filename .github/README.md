@@ -17,7 +17,7 @@ git init --bare $HOME/.dotfiles
 Now we create an alias `dotfiles` for running git commands in our `.dotfiles` repository. Add this alias to your `.bashrc` or `.zshrc`. Nice part is that now we can run this command from anywhere.
 
 ```
-alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+alias dotfiles='$(which git) --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 ```
 
 Now we add a remote. Remember to change the following url to point your git repo.
