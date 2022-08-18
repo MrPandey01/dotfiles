@@ -112,14 +112,10 @@ function! myconfig#before() abort
 
   let g:python_highlight_all = 1
 
-  " Vimspector ---------------------------------
-  " let g:vimspector_base_dir='~/.cache/vimfiles/repos/github.com/puremourning/vimspector'
-  " let g:vimspector_enable_mappings = 'HUMAN'
-
   " UltiSnippets ---------------------------
   " Snippets Trigger configuration.
   " Do not use <tab> if you use " https://github.com/Valloric/YouCompleteMe.
-  let g:UltiSnipsExpandTrigger="<Tab>"
+  " let g:UltiSnipsExpandTrigger="<Tab>"
   " let g:UltiSnipsJumpForwardTrigger="<tab>"
   " let g:UltiSnipsJumpBackwardTrigger="<shift+tab>"
   let g:UltiSnipsEditSplit="vertical""

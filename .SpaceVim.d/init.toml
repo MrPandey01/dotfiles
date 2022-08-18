@@ -7,7 +7,7 @@
 
   # Core layer
 
-  colorscheme = "material" 
+  colorscheme = "material"
   colorscheme_bg = "dark"
 
   # Disable guicolors in basic mode, many terminal do not support 24bit
@@ -27,7 +27,7 @@
   buffer_index_type = 4
   enable_tabline_filetype_icon = true
   enable_statusline_mode = true
-  
+
 #guifont = "SauceCodePro Nerd Font Mono:h15"
   automatic_update = true
   bootstrap_after = "myconfig#after"
@@ -39,8 +39,8 @@
 
   # autocomplete layer options
   autocomplete_method = "coc"
-  auto_completion_return_key_behavior = "complete"
-  auto_completion_tab_key_behavior = "cycle"
+  auto_completion_return_key_behavior = "smart"
+  auto_completion_tab_key_behavior = "smart"
 
   snippet_engine = "ultisnips"
 
@@ -68,15 +68,7 @@
   cursorword_exclude_filetype = []
   indentline_exclude_filetype = []
 
-# [[layers]]
-#   name = "core#statusline"
-#
-# [[layers]]
-#   name = "core#tabline"
 
-# [[layers]]
-#   name = "colorscheme"
-#
 [[layers]]
   name = "lang#latex"
 
@@ -90,21 +82,11 @@
   name = 'lsp'
   filetypes = ["python",
                 "html"]
-#   enabled_clients = ['pyright']
-#
-[[layers]]
-  name = "debug"
-  debugger_plugin = "vimspector"
 
 [[layers]]
   name = "lang#html"
 
-# [[layers]]
-#   name = "default"
-# [[layers]]
-#   name = "ctrlspace"
-#   autoload-workspaces = true
-#
+
 [[layers]]
   name = "git"
 
@@ -128,15 +110,6 @@
 [[custom_plugins]]
   name = "vim-python/python-syntax"
   merged = false
-
-# [[custom_plugins]]
-#   name="numirias/semshi"
-#   merged = false
-#
-#
-# [[custom_plugins]]
-#   name="sagi-z/vimspectorpy"
-#   merged = false
 
 [[custom_plugins]]
   name="ryanoasis/vim-devicons"
