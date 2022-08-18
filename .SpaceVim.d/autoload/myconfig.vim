@@ -100,6 +100,7 @@ function! myconfig#before() abort
         \ 'coc-dictionary',
         \ 'coc-word',
         \'coc-pyright',
+        \'coc-ultisnips',
         \ ]
 
   " NerdTree ---------------------------------
