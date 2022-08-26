@@ -130,11 +130,10 @@ function! myconfig#before() abort
   " Disable welcome screen
   " let g:spacevim_disabled_plugins = ['vim-startify']
 
-  " let g:coc_snippet_next = '<tab>'
-
-  " let g:CtrlSpaceLoadLastWorkspaceOnStart = 1
-  " let g:CtrlSpaceSaveWorkspaceOnSwitch = 1
-  " let g:CtrlSpaceSaveWorkspaceOnExit = 1
+  " UltiSnippets ---------------------------
+  let g:slime_paste_file = '~/.slime_paste'
+  let g:slime_target = "tmux"
+  let g:slime_default_config = {"socket_name": "default", "target_pane": "{last}"}
 
 endfunction
 

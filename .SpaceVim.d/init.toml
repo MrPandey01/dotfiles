@@ -131,3 +131,9 @@
   name="kaicataldo/material.vim"
   branch='main'
   merged = false
+
+[[custom_plugins]]
+  name="jpalardy/vim-slime"
+  branch='main'
+  merged = false
+
