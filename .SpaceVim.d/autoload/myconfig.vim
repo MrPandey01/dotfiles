@@ -22,7 +22,6 @@ function! myconfig#before() abort
   set breakindent
   let &showbreak=' '
   
-  set wrap  " wrap text around the screen
 
   " Change cursor shape in different modes
   let &t_SI = "\e[5 q"
@@ -141,6 +140,7 @@ endfunction
 function! myconfig#after() abort
 
 
+  set wrap  " wrap text around the screen
 
    " Neovim Synctex setup (requires pip install neovim-remote)
   function! s:write_server_name() abort
