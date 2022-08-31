@@ -4,5 +4,6 @@
   "python.analysis.diagnosticSeverityOverrides.reportOptionalCall": "none",
   "python.analysis.diagnosticSeverityOverrides.reportOptionalOperand": "none",
   "python.analysis.diagnosticSeverityOverrides.reportPrivateImportUsage": "none",
-  "python.analysis.diagnosticSeverityOverrides.reportOptionalSubscript": "none"
+  "python.analysis.diagnosticSeverityOverrides.reportOptionalSubscript": "none",
+  "coc.source.ultisnips.priority": 200
 }

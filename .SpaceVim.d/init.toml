@@ -38,9 +38,7 @@
   filetree_direction = "left"
 
   # autocomplete layer options
-  autocomplete_method = "coc"
-  auto_completion_return_key_behavior = "smart"
-  auto_completion_tab_key_behavior = "smart"
+  autocomplete_method = "coc"  # also provides lsp features, so no need to enable 'lsp' layer
 
   snippet_engine = "ultisnips"
 
@@ -54,6 +52,8 @@
 [[layers]]
   name = "autocomplete"
   auto_completion_enable_snippets_in_popup = true
+  auto_completion_return_key_behavior = "complete"
+  auto_completion_tab_key_behavior = "smart"
 
 [[layers]]
   name = "ui"
@@ -77,15 +77,8 @@
   # enabled_linters = ['python', 'pylint']
   # python_interpreter = '/usr/bin/env/python3'
 
-# needed with lang#python
-[[layers]]
-  name = 'lsp'
-  filetypes = ["python",
-                "html"]
-
 [[layers]]
   name = "lang#html"
-
 
 [[layers]]
   name = "git"

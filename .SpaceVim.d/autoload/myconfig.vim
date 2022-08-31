@@ -92,14 +92,17 @@ function! myconfig#before() abort
   " let g:vimtex_view_general_options_latexmk='--unique'
   let g:vimtex_lint_chktex_ignore_warnings='-n1 -n2 -n3 -n8 -n25 -n24 -n2'
   let g:neomake_enabled_tex_makers = []
+  let g:neomake_open_list = 0  " Don't open neomake list automatically
 
   " COC settings ---------------------------------
   let g:coc_config_home = '~/.SpaceVim.d/'
   let g:coc_global_extensions = [
-        \ 'coc-dictionary',
-        \ 'coc-word',
+        \'coc-word',
         \'coc-pyright',
         \'coc-ultisnips',
+        \'coc-texlab',
+        \'coc-sql',
+        \'coc-html',
         \ ]
 
   " NerdTree ---------------------------------

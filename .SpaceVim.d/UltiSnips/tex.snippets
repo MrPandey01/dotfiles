@@ -1,3 +1,5 @@
+priority 200
+
 snippet today "Date"
 `date +%F`
 endsnippet
@@ -6,7 +8,7 @@ snippet $ "autocomplete $ $" A
 $ $1 $ $0
 endsnippet
 
-snippet im "inline Math"
+snippet im "inline Math" A
 $ ${1} $`!p
 if t[2] and t[2][0] not in [',', '.', '?', '-', ' ']:
     snip.rv = ' '
@@ -165,7 +167,7 @@ global !p
 def math():
     return vim.eval('vimtex#syntax#in_mathzone()') == '1'
 
-def comment(): 
+def comment():
     return vim.eval('vimtex#syntax#in_comment()') == '1'
 
 def env(name):
@@ -302,13 +304,11 @@ snippet ip "inner product" iA
 \langle $1 \rangle $0
 endsnippet
 
-priority 10
 context "math()"
 snippet "hat" "hat" iA
 \hat{$1}$0
 endsnippet
 
-priority 10
 context "math()"
 snippet "bar" "bar or overline" iA
 \overline{$1}$0
