@@ -1,4 +1,4 @@
-# priority -50
+priority 100
 
 ###########################################################################
 #                            TextMate Snippets                            #
@@ -7,9 +7,9 @@
 global !p
 def x(snip):
 	if snip.ft.startswith("x"):
-	snip.rv = '/'
+		snip.rv = '/'
 	else:
-	snip.rv = ""
+		snip.rv = ""
 endglobal
 
 snippet doctype "HTML - 5.0 (doctype)" b
