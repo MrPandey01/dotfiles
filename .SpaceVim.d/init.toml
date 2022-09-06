@@ -95,9 +95,9 @@
   name = "gtags"
   gtagslabel = "ctags"
 
-[[layers]]
-  name = "fzf"
-
+# [[layers]]
+#   name = "fzf"
+#
 # Custom Plugins ==============================================================
 
 [[custom_plugins]]
@@ -130,3 +130,19 @@
   branch='main'
   merged = false
 
+# Telescope.nvim
+[[custom_plugins]]
+  name="nvim-lua/plenary.nvim"
+  branch='main'
+  merged = false
+
+[[custom_plugins]]
+  name="nvim-telescope/telescope.nvim"
+  branch='0.1.x'
+  merged = false
+
+[[custom_plugins]]
+  name="nvim-telescope/telescope-fzf-native.nvim"
+  branch='0.1.x'
+  merged = false
+  do ='cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build'

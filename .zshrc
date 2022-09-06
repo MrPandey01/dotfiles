@@ -113,6 +113,7 @@ alias ta='tmux attach'
 alias jl='jupyter-lab'
 alias ipy="ipython --matplotlib --no-banner \
   --TerminalInteractiveShell.editing_mode=vi \
+  --TerminalInteractiveShell.autoindent=false \
   --InteractiveShellApp.extensions 'autoreload' \
   --InteractiveShellApp.exec_lines '%autoreload 2' \
   --InteractiveShellApp.exec_lines '%colors Linux' \
@@ -285,11 +286,17 @@ unset __conda_setup
 # <<< conda initialize <<<
 
 fpath+=${ZDOTDIR:-~}/.zsh_functions
-fpath+=${ZDOTDIR:-~}/.zsh_functions
-# autoload -U compinit && compinit
 
 export NVM_DIR="$HOME/.config/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 export PATH=~/.local/share/exa/bin:$PATH
- export PYTHONBREAKPOINT="pudb.set_trace"
+
+export PYTHONBREAKPOINT="pudb.set_trace"
+ 
+# Install Ruby Gems to ~/gems
+export GEM_HOME="$HOME/gems"
+export PATH="$HOME/gems/bin:$PATH"
+source "/etc/profile.d/rvm.sh"
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"

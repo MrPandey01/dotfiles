@@ -9,6 +9,9 @@ function! myconfig#before() abort
   set nofoldenable
   set foldlevel=2
 
+  " When searching, ignore case unless you type a capital, in which case it’ll match case (smartcase).
+  set ignorecase smartcase
+
   set conceallevel=2
   " set modifiable
 
@@ -74,6 +77,7 @@ function! myconfig#before() abort
         \ ' Delete this space ',
         \ ' You should ',
         \]
+
   let g:vimtex_view_general_viewer='qpdfview'
   let g:vimtex_view_general_options='--unique @pdf\#src:@tex:@line:@col'
   let g:vimtex_compiler_latexmk = {
@@ -239,6 +243,13 @@ function! myconfig#after() abort
     vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
     vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
   endif
+
+  " Telescope Settings ---------------------------------
+  nnoremap <leader>ff <cmd>Telescope find_files<cr>
+  nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+  nnoremap <leader>fb <cmd>Telescope buffers<cr>
+  nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+  nnoremap <leader>fc <cmd>Telescope commands<cr>
 
   " Key Configurations ---------------------------------
 
