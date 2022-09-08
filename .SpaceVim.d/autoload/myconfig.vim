@@ -9,6 +9,8 @@ function! myconfig#before() abort
   set nofoldenable
   set foldlevel=2
 
+  set scrolloff=999  " keep the cursor mostly in the middle of the screen
+
   " When searching, ignore case unless you type a capital, in which case it’ll match case (smartcase).
   set ignorecase smartcase
 
@@ -25,7 +27,6 @@ function! myconfig#before() abort
   set breakindent
   let &showbreak=' '
   
-
   " Change cursor shape in different modes
   let &t_SI = "\e[5 q"
   let &t_EI = "\e[1 q"
@@ -252,6 +253,17 @@ function! myconfig#after() abort
   nnoremap <leader>fc <cmd>Telescope commands<cr>
 
   " Key Configurations ---------------------------------
+  " Easy writing and quitting
+  nnoremap <leader>w :w<cr>
+  nnoremap <leader>q :q!<cr>
+  nnoremap <leader>z :wq<cr>
+
+  " Move to beginning and end of line from home row
+  " in both normal and visual mode
+  nnoremap H ^
+  nnoremap L $
+  vnoremap H ^
+  vnoremap L $
 
   " Disable arrow keys
   " noremap  <Up> ""
@@ -311,6 +323,16 @@ function! myconfig#after() abort
   nnoremap v[ vi[
   nnoremap v' vi'
   nnoremap v" vi"
+
+  " For pasting (temporary, need to test for sometime)
+  " Original `p` command still works but with a time-delay
+  nnoremap paw "_dawP
+  nnoremap pi{ "_di{P
+  nnoremap pi} "_di}P
+  nnoremap pi( "_di(P
+  nnoremap pi) "_di)P
+  nnoremap pi' "_di'P
+  nnoremap pi" "_di"P
 
 endfunction
 
