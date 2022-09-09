@@ -95,9 +95,7 @@
   name = "gtags"
   gtagslabel = "ctags"
 
-# [[layers]]
-#   name = "fzf"
-#
+
 # Custom Plugins ==============================================================
 
 [[custom_plugins]]
@@ -130,7 +128,7 @@
   branch='main'
   merged = false
 
-# Telescope.nvim
+# Telescope.nvim ------------------------------
 [[custom_plugins]]
   name="nvim-lua/plenary.nvim"
   branch='main'

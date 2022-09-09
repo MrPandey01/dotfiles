@@ -147,8 +147,16 @@ endfunction
 
 function! myconfig#after() abort
 
-
   set wrap  " wrap text around the screen
+
+  " trigger `autoread` when files changes on disk
+  set autoread
+  autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checktime | endif
+
+  " notification after file change
+  autocmd FileChangedShellPost *
+    \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
+
 
    " Neovim Synctex setup (requires pip install neovim-remote)
   function! s:write_server_name() abort
@@ -188,8 +196,6 @@ function! myconfig#after() abort
   " Set F5 to save and run the current python file
   autocmd FileType python map <buffer> <F5> :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
   autocmd FileType python imap <buffer> <F5> <esc>:w<CR>:exec '!python3' shellescape(@%, 1)<CR>
-
-
 
   " CoC settings --------------------------------------------------------------------
   " Use tab for trigger completion with characters ahead and navigate.
