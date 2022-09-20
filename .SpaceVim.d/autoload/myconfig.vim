@@ -130,7 +130,7 @@ function! myconfig#before() abort
   let g:UltiSnipsSnippetDirectories=["UltiSnips"]
 
 
-  let g:pydocstring_doq_path = '~/.conda/envs/py_env/bin/doq'
+  let g:pydocstring_doq_path = '~/.local/bin/doq'
 
   let g:webdevicons_enable_startify = 1
 
