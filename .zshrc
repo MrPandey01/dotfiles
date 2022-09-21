@@ -251,7 +251,6 @@ function fav {
 }
 # %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
 # sanitize pdf of its metadata
 # clean_pdf() {
  # pdftk $1 dump_data | \
@@ -268,7 +267,6 @@ function fav {
 # }
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
