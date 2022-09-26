@@ -330,13 +330,15 @@ function! myconfig#after() abort
   nnoremap v' vi'
   nnoremap v" vi"
 
-  " For pasting (temporary, need to test for sometime)
+  " For pasting 
   " Original `p` command still works but with a time-delay
   nnoremap paw "_dawP
   nnoremap pi{ "_di{P
   nnoremap pi} "_di}P
   nnoremap pi( "_di(P
   nnoremap pi) "_di)P
+  nnoremap pi] "_di]P
+  nnoremap pi[ "_di[P
   nnoremap pi' "_di'P
   nnoremap pi" "_di"P
 

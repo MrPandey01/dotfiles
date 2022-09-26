@@ -144,3 +144,9 @@
   branch='0.1.x'
   merged = false
   do ='cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build'
+
+[[custom_plugins]]
+  name="nvim-treesitter/nvim-treesitter"
+  branch='main'
+  merged = false
+  do = ':TSUpdate'

@@ -8,7 +8,7 @@ snippet $ "autocomplete $ $" A
 $ $1 $ $0
 endsnippet
 
-snippet im "inline Math" A
+snippet im "inline Math" 
 $ ${1} $`!p
 if t[2] and t[2][0] not in [',', '.', '?', '-', ' ']:
     snip.rv = ' '
@@ -184,6 +184,11 @@ endsnippet
 context "math()"
 snippet _ "subscript box" iA
 _{$1} $0
+endsnippet
+
+context "math()"
+snippet bm "bold Math" 
+\bm{$1} $0
 endsnippet
 
 context "math()"

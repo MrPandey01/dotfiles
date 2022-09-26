@@ -47,6 +47,18 @@ endif
 " noremap  <Right> ""
 " noremap! <Right> <Esc>
 
+" Easy writing and quitting
+nnoremap <leader>w :w<cr>
+nnoremap <leader>q :q!<cr>
+nnoremap <leader>z :wq<cr>
+
+" Move to beginning and end of line from home row
+" in both normal and visual mode
+nnoremap H ^
+nnoremap L $
+vnoremap H ^
+vnoremap L $
+
 
 " For escaping
 imap hh <Esc>
@@ -95,3 +107,16 @@ nnoremap v{ vi{
 nnoremap v[ vi[
 nnoremap v' vi'
 nnoremap v" vi"
+
+" For pasting
+" Original `p` command still works but with a time-delay
+nnoremap paw "_dawP
+nnoremap pi{ "_di{P
+nnoremap pi} "_di}P
+nnoremap pi( "_di(P
+nnoremap pi) "_di)P
+nnoremap pi] "_di]P
+nnoremap pi[ "_di[P
+nnoremap pi' "_di'P
+nnoremap pi" "_di"P
+
