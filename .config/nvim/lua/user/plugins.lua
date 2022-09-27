@@ -55,7 +55,6 @@ return packer.startup(function(use)
   use 'JoosepAlviste/nvim-ts-context-commentstring'
   use "https://git.sr.ht/~jhn/remember.nvim"  -- cursor positon at same location
   use 'lervag/vimtex'
-  use 'lewis6991/impatient.nvim'
   use "lukas-reineke/indent-blankline.nvim"
   use 'goolord/alpha-nvim'
   use  "folke/which-key.nvim"
