@@ -1,0 +1,359 @@
+priority 200
+
+snippet today "Date"
+`date +%F`
+endsnippet
+
+snippet $ "autocomplete $ $" A
+$ $1 $ $0
+endsnippet
+
+snippet im "inline Math" 
+$ ${1} $`!p
+if t[2] and t[2][0] not in [',', '.', '?', '-', ' ']:
+    snip.rv = ' '
+else:
+    snip.rv = ''
+` $2
+endsnippet
+
+extends texmath
+
+global !p
+def create_table(snip):
+	rows = snip.buffer[snip.line].split('x')[0]
+	cols = snip.buffer[snip.line].split('x')[1]
+	int_val = lambda string: int(''.join(s for s in string if s.isdigit()))
+	rows = int_val(rows)
+	cols = int_val(cols)
+	offset = cols + 1
+	old_spacing = snip.buffer[snip.line][:snip.buffer[snip.line].rfind('\t') + 1]
+	snip.buffer[snip.line] = ''
+	final_str = old_spacing + "\\begin{tabular}{|" + "|".join(['$' + str(i + 1) for i in range(cols)]) + "|}\n"
+	for i in range(rows):
+		final_str += old_spacing + '\t'
+		final_str += " & ".join(['$' + str(i * cols + j + offset) for j in range(cols)])
+		final_str += " \\\\\\\n"
+	final_str += old_spacing + "\\end{tabular}\n$0"
+	snip.expand_anon(final_str)
+def add_row(snip):
+	row_len = int(''.join(s for s in snip.buffer[snip.line] if s.isdigit()))
+	old_spacing = snip.buffer[snip.line][:snip.buffer[snip.line].rfind('\t') + 1]
+	snip.buffer[snip.line] = ''
+	final_str = old_spacing
+	final_str += " & ".join(['$' + str(j + 1) for j in range(row_len)])
+	final_str += " \\\\\\"
+	snip.expand_anon(final_str)
+endglobal
+
+pre_expand "create_table(snip)"
+snippet "generate_tbl(\d+)x(\d+)" "Generate table of `*width*x*height*`" r
+endsnippet
+
+pre_expand "add_row(snip)"
+snippet "tr(\d+)" "Add table row of dimension ..." r
+endsnippet
+
+snippet \sec "Section with label" bA
+\section{${1:section name}}~\label{sec:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/g}}}
+$0
+endsnippet
+
+snippet \subsec "subsection with label" bA
+\subsection{${1:subsection name}}~\label{subsec:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/g}}}
+$0
+endsnippet
+
+snippet \beg "begin{} / end{}" bA
+\begin{$1}
+	$0
+\end{$1}
+endsnippet
+
+snippet \beq "begin equation" bA
+\begin{equation}
+	$0
+\end{equation}
+endsnippet
+
+snippet \bfra "begin frame" bA
+% Begin FRAME %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{$1} 
+	$0
+\end{frame}
+endsnippet
+
+snippet \benum "begin enumerate env" bA
+\begin{enumerate}
+	\item $0
+\end{enumerate}
+endsnippet
+
+snippet \bite "begin itemize env" bA
+\begin{itemize}\setlength\itemsep{0em}  % default \setlength\itemsep{0em}
+		\item $0
+\end{itemize}
+endsnippet
+
+snippet \bblock "begin block env" bA
+\begin{block}{$1} 
+	$0
+\end{block}
+endsnippet
+
+snippet \btextblock "floating textblock" bA
+\begin{textblock*}{\textwidth}(0cm,0cm)
+		$0
+\end{textblock*}
+endsnippet
+
+snippet \float_img "Uses tikz to place a picture with caption at arbitray place on the slide" bA
+\tikz[remember picture, overlay] \node[anchor=center] (img) at ($(current page.center)+(0,0)$) {\includegraphics[width=3.5cm]{$1}};
+\tikz[remember picture, overlay] \node (caption) [below of=img, yshift=-0.6cm, xshift=0cm] {$0};
+endsnippet
+
+snippet \btab "Table environment" bA
+\begin{table}[${1:htpb}]
+	\centering
+	\caption{${2:caption}}
+	\label{tab:${3:label}}
+	\resizebox{\textwidth}{!}{
+	\begin{tabular}{${5:c}}
+	$0${5/((?<=.)c|l|r)|./(?1: & )/g}
+	\end{tabular}
+	}
+\end{table}
+endsnippet
+
+snippet \bfig "Figure environment" bA
+\begin{figure}[${1:htpb}]
+	\centering
+	${2:\includegraphics[width=0.8\textwidth]{$3}}
+	\caption{${4:$3}}
+	\label{fig:${5:${3/\W+/-/g}}}
+\end{figure}
+endsnippet
+
+snippet \bsubfig "Sub-figure environment" bA
+\begin{figure}[${1:htpb}]
+     \centering
+     \begin{subfigure}[b]{0.3\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{graph1}
+         \caption{$y=x$}
+         \label{fig:y equals x}
+     \end{subfigure}
+     \hfill
+     \begin{subfigure}[b]{0.3\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{graph2}
+         \caption{$y=3sinx$}
+         \label{fig:three sin x}
+     \end{subfigure}
+     \hfill
+     \begin{subfigure}[b]{0.3\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{graph3}
+         \caption{$y=5/x$}
+         \label{fig:five over x}
+     \end{subfigure}
+        \caption{Three simple graphs}
+        \label{fig:three graphs}
+\end{figure}
+endsnippet
+
+# Special context snippets --------------------------------------------------
+global !p
+def math():
+    return vim.eval('vimtex#syntax#in_mathzone()') == '1'
+
+def comment():
+    return vim.eval('vimtex#syntax#in_comment()') == '1'
+
+def env(name):
+    [x,y] = vim.eval("vimtex#env#is_inside('" + name + "')") 
+    return x != '0' and x != '0'
+
+endglobal
+
+context "math()"
+snippet ^ "superscript box" iA
+^{$1} $0
+endsnippet
+
+context "math()"
+snippet _ "subscript box" iA
+_{$1} $0
+endsnippet
+
+context "math()"
+snippet bm "bold Math" 
+\bm{$1} $0
+endsnippet
+
+context "math()"
+snippet // "Visual mode Fraction" iA
+\\frac{$1}{$2}$0
+endsnippet
+
+context "math()"
+snippet \top "^{\top}" iA
+^{\\top} $0
+endsnippet
+
+context "math()"
+snippet '((\d+)|(\d*)(\\)?([A-Za-z]+)((\^|_)(\{\d+\}|\d))*)/' "Automatic Fraction" wrA
+\\frac{`!p snip.rv = match.group(1)`}{$1} $0
+endsnippet
+
+context "math()"
+snippet mbr "\mathbb{R}" iA
+\mathbb{R}^{$1} $0
+endsnippet
+
+context "math()"
+snippet ... "ldots" iA
+\ldots $0
+endsnippet
+
+context "math()"
+snippet => "implies" Ai
+\implies
+endsnippet
+
+context "math()"
+snippet pmat "pmat" iA
+\begin{pmatrix} $1 \end{pmatrix} $0
+endsnippet
+
+context "math()"
+snippet \bmat "bmat" iA
+\\begin{bmatrix} 
+$1 & $2 \\\
+$3 & $4 
+\end{bmatrix} $0
+endsnippet
+
+context "math()"
+snippet norm "norm" iA
+\left\| $1 \right\| $0
+endsnippet
+
+context "math()"
+snippet (( "left( right)" iA
+\left( ${1:${VISUAL}} \right) $0
+endsnippet
+
+context "math()"
+snippet \sum "sum" w
+\sum_{n=${1:1}}^{${2:\infty}} ${3:a_n z^n}
+endsnippet
+
+context "math()"
+snippet \lim "limit" w
+\lim_{${1:n} \to ${2:\infty}}
+endsnippet
+
+context "math()"
+snippet \prod "product" w
+\prod_{${1:n=${2:1}}}^{${3:\infty}} ${4:${VISUAL}} $0
+endsnippet
+
+context "math()"
+snippet \part "partial derivative d/dx" w
+\frac{\partial ${1:V}}{\partial ${2:x}} $0
+endsnippet
+
+context "math()"
+snippet sq "\sqrt{}" iA
+\sqrt{${1:${VISUAL}}} $0
+endsnippet
+
+context "math()"
+snippet sr "^2" iA
+^{2}
+endsnippet
+
+context "math()"
+snippet cb "^3" iA
+^{3}
+endsnippet
+
+context "math()"
+snippet fa "forall" iA
+\forall $0
+endsnippet
+
+context "math()"
+snippet fa "forall" iA
+\forall $0
+endsnippet
+
+context "math()"
+snippet inf "infinity" iA
+\infty $0
+endsnippet
+
+context "math()"
+snippet mcal "mathcal" iA
+\mathcal{$1} $0
+endsnippet
+
+context "math()"
+snippet xx "cross" iA
+\times $0
+endsnippet
+
+context "math()"
+snippet ip "inner product" iA
+\langle $1 \rangle $0
+endsnippet
+
+context "math()"
+snippet "hat" "hat" iA
+\hat{$1}$0
+endsnippet
+
+context "math()"
+snippet "bar" "bar or overline" iA
+\overline{$1}$0
+endsnippet
+
+
+# Various Templates ------------------------------------------
+snippet template_standalone "Standlone figure" b
+\documentclass[varwidth, border=0cm]{standalone}
+
+\usepackage[export]{adjustbox}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{tabu}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{makecell}
+
+\newcommand{\tabfigure}[2]{\raisebox{-.5\height}{\includegraphics[#1]{#2}}}
+
+\begin{document}
+
+\begin{figure}
+\centering
+\setlength\tabcolsep{0pt}
+\def\arraystretch{0.0}%  1 is the default, change whatever you need
+\begin{tabu}{c}
+	\tabfigure{height=1cm, width=1cm}{$0}                              
+\end{tabu}
+\end{figure}
+\end{document}
+endsnippet
+
+snippet \incfig_command "pdf_tex import command in preamble"
+\usepackage{import}
+\usepackage{pdfpages}
+
+\newcommand{\incfig}[2][1]{%
+	\def\svgwidth{#1\columnwidth}
+	\import{./figures/}{#2.pdf_tex}
+}
+endsnippet
+
