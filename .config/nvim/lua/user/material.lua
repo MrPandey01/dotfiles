@@ -1,9 +1,6 @@
-local status_ok, material = pcall(require, "material")
-if not status_ok then
-	return
-end
+vim.g.material_style = "darker"
 
-material.setup({
+require('material').setup({
 	contrast = {
 		sidebars = false, -- Enable contrast for sidebar-like windows ( for example Nvim-Tree )
 		floating_windows = true, -- Enable contrast for floating windows
@@ -17,7 +14,7 @@ material.setup({
 	italics = {
 		comments = true, -- Enable italic comments
 		keywords = false, -- Enable italic keywords
-		functions = false, -- Enable italic functions
+		functions = true, -- Enable italic functions
 		strings = false, -- Enable italic strings
 		variables = false, -- Enable italic variables
 	},
@@ -67,6 +64,6 @@ material.setup({
 		mini = true,
 	},
 })
-vim.g.material_style = "darker"
-vim.cmd("colorscheme material")
 
+vim.cmd("colorscheme material")
+--[[ vim.highlight.create('Comment', {cterm='italic', gui='italic'}, false) ]]

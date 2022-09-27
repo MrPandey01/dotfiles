@@ -163,6 +163,15 @@ local mappings = {
 		S = { "<cmd>PackerStatus<cr>", "Status" },
 		u = { "<cmd>PackerUpdate<cr>", "Update" },
 	},
+  v = {
+    name = 'VimTex',
+    c = {'<cmd>VimtexClean<cr>', 'Clean'},
+    e = {'<cmd>VimtexErrors<cr>', 'Errors'},
+    l = {'<cmd>VimtexCompile<cr>', 'Compile'},
+    s = {'<cmd>VimtexStop<cr>', 'Stop'},
+    t = {'<cmd>VimtexTocToggle<cr>', 'Table of Contents'},
+    v = {'<cmd>VimtexView<cr>', 'View'},
+  },
 
 	["w"] = { "<cmd>w<CR>", "Write/Save" },
 	["q"] = { "<cmd>q!<CR>", "Quit" },
