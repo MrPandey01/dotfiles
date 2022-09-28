@@ -59,6 +59,7 @@ return packer.startup(function(use)
   use 'goolord/alpha-nvim'
   use  "folke/which-key.nvim"
   use "rhysd/clever-f.vim"
+  use 'lewis6991/impatient.nvim'
 
   -- Buffers
   use {"akinsho/bufferline.nvim", requires ={ 'kyazdani42/nvim-web-devicons'}}

@@ -14,7 +14,7 @@ require('material').setup({
 	italics = {
 		comments = true, -- Enable italic comments
 		keywords = false, -- Enable italic keywords
-		functions = true, -- Enable italic functions
+		functions = false, -- Enable italic functions
 		strings = false, -- Enable italic strings
 		variables = false, -- Enable italic variables
 	},
