@@ -20,4 +20,4 @@ require("user.remember")
 require("user.slime")
 require("user.vimtex")
 require("user.ultisnips")
-require("user.clever")
+require("user.clever")  -- Improve f, F, t, T line searches
