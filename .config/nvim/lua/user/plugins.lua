@@ -15,11 +15,11 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 -- Autocommand that reloads neovim whenever you save the plugins.lua file
-vim.cmd [[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerSync
-  augroup end
+vim.cmd [[ 
+  augroup packer_user_config 
+    autocmd! 
+    autocmd BufWritePost plugins.lua source <afile> | PackerSync 
+  augroup end 
 ]]
 
 -- Use a protected call so we don't error out on first use
@@ -98,6 +98,14 @@ return packer.startup(function(use)
 
   -- Git
   use "lewis6991/gitsigns.nvim"
+
+  -- Debugging
+  use { "mfussenegger/nvim-dap" }
+  use {'theHamsta/nvim-dap-virtual-text'}
+  use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
+  use { "nvim-telescope/telescope-dap.nvim" }
+  use {'mfussenegger/nvim-dap-python'}
+  use {'rcarriga/cmp-dap'}
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

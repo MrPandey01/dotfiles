@@ -40,19 +40,19 @@ cmp.setup {
   },
   mapping = cmp.mapping.preset.insert {
     ["<Tab>"] = cmp.mapping(function(fallback)
-                              if cmp.visible() then
-                                cmp.select_next_item()
-                              else
-                                cmp_ultisnips_mappings.expand_or_jump_forwards(fallback)
-                              end
-                            end, { "i", "s",}),
+      if cmp.visible() then
+        cmp.select_next_item()
+      else
+        cmp_ultisnips_mappings.expand_or_jump_forwards(fallback)
+      end
+    end, { "i", "s", }),
     ["<S-Tab>"] = cmp.mapping(function(fallback)
-                                if cmp.visible() then
-                                  cmp.select_prev_item()
-                                else
-                                cmp_ultisnips_mappings.jump_backwards(fallback)
-                                end
-                              end, { "i", "s",}),
+      if cmp.visible() then
+        cmp.select_prev_item()
+      else
+        cmp_ultisnips_mappings.jump_backwards(fallback)
+      end
+    end, { "i", "s", }),
     ["<CR>"] = cmp.mapping.confirm { select = true },
     ["<C-e>"] = cmp.mapping.abort(),
     ["<Esc>"] = cmp.mapping.close(),
@@ -87,6 +87,10 @@ cmp.setup {
       return vim_item
     end,
   },
+  enabled = function()
+    return vim.api.nvim_buf_get_option(0, "buftype") ~= "prompt"
+        or require("cmp_dap").is_dap_buffer()
+  end
 }
 
 -- Set configuration for specific filetype.
@@ -116,3 +120,8 @@ cmp.setup.cmdline(':', {
   })
 })
 
+cmp.setup.filetype({ "dap-repl", "dapui_watches", "dapui_hover" }, {
+  sources = {
+    { name = "dap" },
+  },
+})

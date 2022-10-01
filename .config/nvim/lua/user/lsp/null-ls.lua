@@ -15,6 +15,7 @@ null_ls.setup {
     formatting.isort,
     formatting.yapf,
     diagnostics.pylint,
-    diagnostics.chtex,
+    diagnostics.chktex,
+    formatting.latexindent,
   },
 }
