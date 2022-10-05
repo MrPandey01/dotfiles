@@ -2,7 +2,7 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=~/.local/share/exa/bin:$PATH
 export PATH=~/.config/rofi/scripts:$PATH
 export PATH=~/neovim/nvim-linux64/bin:$PATH
-
+export PATH=~/Documents/Github/diff-so-fancy:$PATH
 # export ZSH="$HOME/.oh-my-zsh"
 
 # ZSH_THEME="af-magic"

@@ -1,4 +1,5 @@
 local fn = vim.fn
+local utils = require("user.utils")
 
 -- Automatically install packer
 local install_path = fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
@@ -76,20 +77,37 @@ return packer.startup(function(use)
   use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
   use "p00f/nvim-ts-rainbow"
 
+  -- LSP
+  use {
+      "williamboman/mason.nvim",
+      "williamboman/mason-lspconfig.nvim",
+      "neovim/nvim-lspconfig",
+  }
+     use {'L3MON4D3/LuaSnip'}
+   use {'rafamadriz/friendly-snippets'}
+  use {'VonHeikemen/lsp-zero.nvim'}
+  --[[ use {"jose-elias-alvarez/null-ls.nvim", requires = { "nvim-lua/plenary.nvim" }} -- for formatters and linters ]]
+
   -- completion
   use {'hrsh7th/cmp-nvim-lsp'}
   use {'hrsh7th/cmp-nvim-lua'}
   use {'hrsh7th/cmp-buffer'}
   use {'hrsh7th/cmp-path'}
   use {'hrsh7th/cmp-cmdline'}
+  use {'uga-rosa/cmp-dictionary'}
+  use {'hrsh7th/cmp-nvim-lsp-signature-help'}
+  use {'quangnguyen30192/cmp-nvim-tags'}
   use {'hrsh7th/nvim-cmp'}
-  use {'quangnguyen30192/cmp-nvim-ultisnips'}
-  use {'SirVer/ultisnips'}
 
-  -- LSP
-  use "neovim/nvim-lspconfig" -- enable LSP
-  use "williamboman/nvim-lsp-installer" -- simple to use language server installer
-  use {"jose-elias-alvarez/null-ls.nvim", requires = { "nvim-lua/plenary.nvim" }} -- for formatters and linters
+    -- Only install these plugins if ctags are installed on the system
+  if utils.executable("ctags") then
+    -- show file tags in vim window
+    use { "liuchengxu/vista.vim", cmd = "Vista" }
+  end
+
+  -- Snippets
+  use {'SirVer/ultisnips'}
+  use {'quangnguyen30192/cmp-nvim-ultisnips'}
 
   -- colorschemes
   use "kyazdani42/nvim-web-devicons"
