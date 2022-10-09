@@ -52,4 +52,3 @@ vim.cmd([[
   let g:neomake_enabled_tex_makers = []
   let g:neomake_open_list = 0  " Don't open neomake list automatically
 ]])
-

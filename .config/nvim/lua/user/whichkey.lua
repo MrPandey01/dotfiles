@@ -85,7 +85,7 @@ local mappings = {
   b = { name = "Buffers",
     b = { "<cmd>Telescope buffers<cr>", "Find Buffers" },
     d = { "<cmd>Bdelete!<CR>", "Close Buffer" },
-    f = { "<cmd>lua vim.lsp.buf.format { async=true }<cr>", "Format" },
+    f = { "<cmd>lua vim.lsp.buf.format { async = true }<cr>", "Format" },
     h = { "<cmd>Alpha<cr>", "Alpha Home" },
     p = { '<cmd>b#<CR>', 'Previous buffer' },
     r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
@@ -127,6 +127,7 @@ local mappings = {
     k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
     p = { "<cmd>Telescope projects<cr>", "Projects" },
     r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
+    s = { "<cmd>Telescope luasnip<cr>", "Snippets" },
   },
   g = {
     name = "Git",

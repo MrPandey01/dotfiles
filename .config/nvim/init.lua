@@ -6,8 +6,7 @@ require("user.plugins")
 
 require("user.whichkey")  -- keymaps
 
-require("user.cmp")  -- completion
-require("user.lsp")
+require("user.lsp")  -- lsp including cmp
 
 require("user.dap")  -- debug
 require("user.treesitter")
@@ -22,12 +21,13 @@ require("user.remember")  -- remembers last cursor position
 require("user.slime")
 require("user.clever")  -- Improve f, F, t, T line searches
 
--- snippets
 require("user.vimtex")
-require("user.ultisnips")
+--[[ require("user.ultisnips") ]]
 
 -- UI
 require("user.bufferline")
 require("user.indentline")
 require("user.lualine")
 require("user.material")  -- colorscheme
+
+require('telescope').load_extension('luasnip')
