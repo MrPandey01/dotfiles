@@ -19,10 +19,8 @@ require("user.alpha")
 require("user.autosave")
 require("user.remember")  -- remembers last cursor position
 require("user.slime")
-require("user.clever")  -- Improve f, F, t, T line searches
 
 require("user.vimtex")
---[[ require("user.ultisnips") ]]
 
 -- UI
 require("user.bufferline")
