@@ -1,8 +1,8 @@
+require("user.plugins")
 require("impatient") -- Improves Startup Performance
 
 require("user.options")
 require("user.keymaps")
-require("user.plugins")
 
 require("user.whichkey")  -- keymaps
 
