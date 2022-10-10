@@ -66,6 +66,7 @@ return packer.startup(function(use)
   use "folke/which-key.nvim"
   use "rhysd/clever-f.vim"
   use 'lewis6991/impatient.nvim'
+  use { 'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async' }
 
   -- Buffers
   use { "akinsho/bufferline.nvim", requires = { 'kyazdani42/nvim-web-devicons' } }
