@@ -24,7 +24,7 @@ nvim_tree.setup({
   filters = {
     dotfiles = true,
   },
-    ignore_ft_on_setup = {
+  ignore_ft_on_setup = {
     "startify",
     "dashboard",
     "alpha",

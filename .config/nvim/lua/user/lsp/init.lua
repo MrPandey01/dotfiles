@@ -145,6 +145,18 @@ cmp.setup.filetype({ "dap-repl", "dapui_watches", "dapui_hover" }, {
   },
 })
 
+lsp.configure('pyright', {
+  settings = {
+    python = {
+      analysis = {
+        autoSearchPaths = true,
+        useLibraryCodeForTypes = true,
+        typeCheckingMode = "off",
+      }
+    }
+  }
+})
+
 lsp.setup()
 
 
