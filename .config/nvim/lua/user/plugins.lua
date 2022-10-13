@@ -58,23 +58,24 @@ return packer.startup(function(use)
   use "machakann/vim-sandwich"
   use "Pocco81/auto-save.nvim"
   use "jpalardy/vim-slime"
-  use 'JoosepAlviste/nvim-ts-context-commentstring'
   use "https://git.sr.ht/~jhn/remember.nvim" -- cursor positon at same location
   use 'lervag/vimtex'
   use "lukas-reineke/indent-blankline.nvim"
-  use 'goolord/alpha-nvim'
+  use 'goolord/alpha-nvim' -- home page
   use "folke/which-key.nvim"
   use "rhysd/clever-f.vim"
   use 'lewis6991/impatient.nvim'
   use { 'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async' }
+  use 'karb94/neoscroll.nvim'
+  use 'rmagatti/auto-session'
 
   -- Buffers
   use { "akinsho/bufferline.nvim", requires = { 'kyazdani42/nvim-web-devicons' } }
   use "moll/vim-bbye"
 
   -- Comment
-  use "tpope/vim-obsession"
   use "numToStr/Comment.nvim"
+  use 'JoosepAlviste/nvim-ts-context-commentstring'
 
   -- File explorer
   use { 'kyazdani42/nvim-tree.lua', requires = { 'kyazdani42/nvim-web-devicons', }, }

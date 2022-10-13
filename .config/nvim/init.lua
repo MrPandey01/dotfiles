@@ -20,6 +20,7 @@ require("user.autosave")
 require("user.remember")  -- remembers last cursor position
 require("user.slime")
 require("user.ufo")
+require("user.auto-session")
 
 require("user.vimtex")
 
@@ -29,4 +30,5 @@ require("user.indentline")
 require("user.lualine")
 require("user.material")  -- colorscheme
 
+require('neoscroll').setup()
 require('telescope').load_extension('luasnip')

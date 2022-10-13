@@ -68,12 +68,12 @@ local kind_icons = {
 lsp.setup_nvim_cmp({
   sources = {
     { name = 'path' },
-    { name = 'nvim_lsp', keyword_length = 2 },
-    { name = 'buffer', keyword_length = 2 },
-    { name = 'luasnip', keyword_length = 2 },
+    { name = 'buffer' },
+    { name = 'nvim_lsp' },
+    { name = 'luasnip' },
     { name = 'tags' },
     { name = 'nvim_lsp_signature_help' },
-    { name = 'dictionary', keyword_length = 2, },
+    { name = 'dictionary' },
   },
   formatting = {
     fields = { "kind", "abbr", "menu" },
@@ -81,11 +81,11 @@ lsp.setup_nvim_cmp({
       vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
       vim_item.menu = ({
         path = "[Path]",
-        nvim_lsp = "[LSP]",
+        nvim_lsp = "[nvim_lsp]",
         buffer = "[Buffer]",
         luasnip = "[LuaSnip]",
         tags = "[Tags]",
-        nvim_lsp_signature_help = "[LSP]",
+        nvim_lsp_signature_help = "[nvim_lsp_signature]",
         dictionary = "[Dict]",
       })[entry.source.name]
       return vim_item
