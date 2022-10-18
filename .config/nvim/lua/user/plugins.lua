@@ -137,6 +137,7 @@ return packer.startup(function(use)
   use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }
   use { "nvim-telescope/telescope-dap.nvim" }
   use { 'mfussenegger/nvim-dap-python' }
+  use {'jbyuki/one-small-step-for-vimkind'}
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

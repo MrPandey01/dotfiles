@@ -37,4 +37,30 @@ dap.listeners.before.event_exited["dapui_config"] = function()
   dapui.close()
 end
 
-require("user.dap.python").setup()
+require('dap-python').setup('python3')
+
+-- remove default configurations
+local t = require('dap').configurations.python
+for k in pairs (t) do
+    t [k] = nil
+end
+
+table.insert(require('dap').configurations.python, {
+  type = 'python',
+  request = 'launch',
+  name = 'Custom launch configuration',
+  program = '${file}',
+  -- ... more options, see https://github.com/microsoft/debugpy/wiki/Debug-configuration-settings
+})
+
+require "dap".configurations.lua = {
+  {
+    type = 'nlua',
+    request = 'attach',
+    name = "Attach to running Neovim instance",
+  }
+}
+
+dap.adapters.nlua = function(callback, config)
+  callback({ type = 'server', host = config.host or "127.0.0.1", port = config.port or 8086 })
+end

@@ -28,7 +28,9 @@ require("user.vimtex")
 require("user.bufferline")
 require("user.indentline")
 require("user.lualine")
-require("user.material")  -- colorscheme
+
+-- colorscheme
+require("user.material")
 
 require('neoscroll').setup()
 require('telescope').load_extension('luasnip')
