@@ -68,9 +68,10 @@ return packer.startup(function(use)
   use { 'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async' }
   use 'karb94/neoscroll.nvim'
   use 'rmagatti/auto-session'
+  use 'ahmedkhalf/project.nvim'
 
   -- Buffers
-  use { "akinsho/bufferline.nvim", requires = { 'kyazdani42/nvim-web-devicons' } }
+  use { "akinsho/bufferline.nvim", tag = "v3.*", requires = { 'kyazdani42/nvim-web-devicons' } }
   use "moll/vim-bbye"
 
   -- Comment
@@ -127,7 +128,8 @@ return packer.startup(function(use)
   use "kyazdani42/nvim-web-devicons"
   use 'marko-cerovac/material.nvim'
   use { 'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons', opt = true } }
-
+  use { 'm-demare/hlargs.nvim', requires = { 'nvim-treesitter/nvim-treesitter' } }
+  
   -- Git
   use "lewis6991/gitsigns.nvim"
 
@@ -137,7 +139,7 @@ return packer.startup(function(use)
   use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }
   use { "nvim-telescope/telescope-dap.nvim" }
   use { 'mfussenegger/nvim-dap-python' }
-  use {'jbyuki/one-small-step-for-vimkind'}
+  use { 'jbyuki/one-small-step-for-vimkind' }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
