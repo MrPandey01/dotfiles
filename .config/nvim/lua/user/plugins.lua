@@ -42,8 +42,9 @@ packer.init {
 -- Install your plugins here
 return packer.startup(function(use)
   use "wbthomason/packer.nvim" -- Have packer manage itself
+  use 'lewis6991/impatient.nvim'
   use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
-  use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
+  use "nvim-lua/plenary.nvim" -- Useful lua functions used by lots of plugins
   use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
   use { 'nvim-telescope/telescope.nvim', branch = '0.1.x',
     requires = { 'nvim-lua/plenary.nvim' } }
@@ -64,7 +65,6 @@ return packer.startup(function(use)
   use 'goolord/alpha-nvim' -- home page
   use "folke/which-key.nvim"
   use "rhysd/clever-f.vim"
-  use 'lewis6991/impatient.nvim'
   use { 'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async' }
   use 'karb94/neoscroll.nvim'
   use 'rmagatti/auto-session'
@@ -129,7 +129,7 @@ return packer.startup(function(use)
   use 'marko-cerovac/material.nvim'
   use { 'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons', opt = true } }
   use { 'm-demare/hlargs.nvim', requires = { 'nvim-treesitter/nvim-treesitter' } }
-  
+
   -- Git
   use "lewis6991/gitsigns.nvim"
 
@@ -140,6 +140,12 @@ return packer.startup(function(use)
   use { "nvim-telescope/telescope-dap.nvim" }
   use { 'mfussenegger/nvim-dap-python' }
   use { 'jbyuki/one-small-step-for-vimkind' }
+
+  -- temporary
+  use {
+    'glacambre/firenvim',
+    run = function() vim.fn['firenvim#install'](0) end
+  }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
