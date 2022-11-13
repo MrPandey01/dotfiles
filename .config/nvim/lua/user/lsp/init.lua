@@ -102,14 +102,6 @@ require("cmp_dictionary").setup({
   dic = {
     ["*"] = { "~/.local/bin/en.dict" },
   },
-  exact = 2,
-  first_case_insensitive = true,
-  document = true,
-  document_command = "wn %s -over",
-  async = false,
-  max_items = -1,
-  capacity = 5,
-  debug = false,
 })
 
 -- Set configuration for specific filetype.

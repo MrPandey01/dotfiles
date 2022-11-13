@@ -200,6 +200,22 @@ local vmappings = {
   },
 }
 
+local nopts_wo_leader = {
+  mode = "n", -- NORMAL mode
+  prefix = nil,
+  buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
+  silent = true, -- use `silent` when creating keymaps
+  noremap = true, -- use `noremap` when creating keymaps
+  nowait = true, -- use `nowait` when creating keymaps
+}
+local nmappings_wo_leader = {
+  ["<F5>"] = { "<cmd>lua require'dap'.continue()<cr>", "Debugger Start" },
+  ["<F6>"] = { "<cmd>lua require'dap'.step_over()<cr>", "Debugger Step Over" },
+  ["<F7>"] = { "<cmd>lua require'dap'.step_into()<cr>", "Debugger Step Into" },
+  ["<F8>"] = { "<cmd>lua require'dap'.terminate()<cr>", "Debugger Terminate" },
+}
+
 which_key.setup(setup)
 which_key.register(mappings, opts)
 which_key.register(vmappings, vopts)
+which_key.register(nmappings_wo_leader, nopts_wo_leader)

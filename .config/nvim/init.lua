@@ -25,6 +25,9 @@ require("project_nvim").setup()
 
 require("user.vimtex")
 
+require('leap').add_default_mappings()
+require('flit').setup()
+
 -- UI
 require("user.bufferline")
 require("user.indentline")

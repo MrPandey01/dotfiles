@@ -1,27 +1,8 @@
-local dap_breakpoint = {
-  error = {
-    text = "🟥",
-    texthl = "LspDiagnosticsSignError",
-    linehl = "",
-    numhl = "",
-  },
-  rejected = {
-    text = "",
-    texthl = "LspDiagnosticsSignHint",
-    linehl = "",
-    numhl = "",
-  },
-  stopped = {
-    text = "⭐️",
-    texthl = "LspDiagnosticsSignInformation",
-    linehl = "DiagnosticUnderlineInfo",
-    numhl = "LspDiagnosticsSignInformation",
-  },
-}
-
-vim.fn.sign_define("DapBreakpoint", dap_breakpoint.error)
-vim.fn.sign_define("DapStopped", dap_breakpoint.stopped)
-vim.fn.sign_define("DapBreakpointRejected", dap_breakpoint.rejected)
+vim.fn.sign_define('DapBreakpoint', { text='', texthl='DapBreakpoint',  numhl='DapBreakpoint' })
+vim.fn.sign_define('DapBreakpointCondition', { text='ﳁ', texthl='DapBreakpoint', numhl='DapBreakpoint' })
+vim.fn.sign_define('DapBreakpointRejected', { text='', texthl='DapBreakpoint', linehl='DapBreakpoint', numhl= 'DapBreakpoint' })
+vim.fn.sign_define('DapLogPoint', { text='', texthl='DapLogPoint', linehl='DapLogPoint', numhl= 'DapLogPoint' })
+vim.fn.sign_define('DapStopped', { text='', texthl='DapStopped', linehl='DapStopped', numhl= 'DapStopped' })
 
 require("user.dap.nvim-dap-virtual-text")
 require("user.dap.dapui")

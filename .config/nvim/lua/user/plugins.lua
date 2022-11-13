@@ -64,7 +64,9 @@ return packer.startup(function(use)
   use "lukas-reineke/indent-blankline.nvim"
   use 'goolord/alpha-nvim' -- home page
   use "folke/which-key.nvim"
-  use "rhysd/clever-f.vim"
+  --[[ use "rhysd/clever-f.vim" ]]
+  use 'ggandor/leap.nvim'
+  use 'ggandor/flit.nvim'
   use { 'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async' }
   use 'karb94/neoscroll.nvim'
   use 'rmagatti/auto-session'
@@ -115,6 +117,16 @@ return packer.startup(function(use)
       --[[ use { 'SirVer/ultisnips' } ]]
       --[[ use { 'quangnguyen30192/cmp-nvim-ultisnips' } ]]
 
+      use {
+        "folke/zen-mode.nvim",
+        config = function()
+          require("zen-mode").setup {
+            -- your configuration comes here
+            -- or leave it empty to use the default settings
+            -- refer to the configuration section below
+          }
+        end
+      }
     }
   }
 
