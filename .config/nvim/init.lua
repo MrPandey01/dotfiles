@@ -18,7 +18,6 @@ require("user.nvim-tree") -- file explorer
 require("user.alpha")
 require("user.autosave")
 require("user.remember") -- remembers last cursor position
-require("user.slime")
 require("user.ufo")
 require("user.auto-session")
 require("project_nvim").setup()

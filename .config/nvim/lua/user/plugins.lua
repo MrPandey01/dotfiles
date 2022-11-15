@@ -58,7 +58,6 @@ return packer.startup(function(use)
   }
   use "machakann/vim-sandwich"
   use "Pocco81/auto-save.nvim"
-  use "jpalardy/vim-slime"
   use "https://git.sr.ht/~jhn/remember.nvim" -- cursor positon at same location
   use 'lervag/vimtex'
   use "lukas-reineke/indent-blankline.nvim"
@@ -71,6 +70,7 @@ return packer.startup(function(use)
   use 'karb94/neoscroll.nvim'
   use 'rmagatti/auto-session'
   use 'ahmedkhalf/project.nvim'
+  use 'tpope/vim-repeat'
 
   -- Buffers
   use { "akinsho/bufferline.nvim", tag = "v3.*", requires = { 'kyazdani42/nvim-web-devicons' } }

@@ -289,7 +289,6 @@ fpath+=${ZDOTDIR:-~}/.zsh_functions
 export NVM_DIR="$HOME/.config/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-export PATH=~/.local/share/exa/bin:$PATH
 
 export PYTHONBREAKPOINT="pudb.set_trace"
  
@@ -299,13 +298,3 @@ export PATH="$HOME/gems/bin:$PATH"
 source "/etc/profile.d/rvm.sh"
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
-
-# Auto activate conda environments
-if [ -e "environment.yml" ]; then
-  ENV_NAME=$(head -n 1 environment.yml | cut -f2 -d ' ')
-  # Check if you are already in the environment
-  if [[ $CONDA_PREFIX != *$ENV_NAME* ]]; then
-    # Try to activate environment
-    conda activate $ENV_NAME &>/dev/null
-  fi
-fi
