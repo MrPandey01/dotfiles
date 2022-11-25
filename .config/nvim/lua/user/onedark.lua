@@ -33,7 +33,7 @@ require('onedark').setup {
         ["@field"] = {fg = '#EEFFFF'},
         ["@parameter"] = {fg = '#F78C6c'},
         ["@string"] = {fg = '#C3E88D'},
-        ["@spell"] = {fg = '#616161', fmt = 'italic'},
+        -- ["@spell"] = {fg = '#616161', fmt = 'italic'},
         ["@constructor"] = {fg = '#82AAFF', fmt = 'none'},
         ["@function.call"] = {fg = '#82AAFF', fmt = 'none'},
         ["@constant.builtin"] = {fg = '#82AAFF', fmt = 'italic'},
