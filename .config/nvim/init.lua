@@ -27,16 +27,19 @@ require("user.vimtex")
 require('leap').add_default_mappings()
 require('flit').setup()
 
+-- colorscheme
+require("user.onedark")
+require('hlargs').setup()
+
 -- UI
 require("user.bufferline")
 require("user.indentline")
 require("user.lualine")
 
--- colorscheme
-require("user.material")
-require('hlargs').setup()
+
 
 require('neoscroll').setup()  -- smooth scrolling
 
 require('telescope').load_extension('luasnip')
 require('telescope').load_extension('projects')
+

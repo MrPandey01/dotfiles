@@ -85,6 +85,7 @@ return packer.startup(function(use)
 
   -- Syntax highlighting
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+  use 'nvim-treesitter/playground'
   use "p00f/nvim-ts-rainbow"
 
   use {
@@ -117,16 +118,6 @@ return packer.startup(function(use)
       --[[ use { 'SirVer/ultisnips' } ]]
       --[[ use { 'quangnguyen30192/cmp-nvim-ultisnips' } ]]
 
-      use {
-        "folke/zen-mode.nvim",
-        config = function()
-          require("zen-mode").setup {
-            -- your configuration comes here
-            -- or leave it empty to use the default settings
-            -- refer to the configuration section below
-          }
-        end
-      }
     }
   }
 
@@ -138,7 +129,9 @@ return packer.startup(function(use)
 
   -- Colorschemes
   use "kyazdani42/nvim-web-devicons"
-  use 'marko-cerovac/material.nvim'
+  --[[ use 'marko-cerovac/material.nvim' ]]
+  --[[ use { 'kaicataldo/material.vim', branch = main } ]]
+  use 'navarasu/onedark.nvim'
   use { 'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons', opt = true } }
   use { 'm-demare/hlargs.nvim', requires = { 'nvim-treesitter/nvim-treesitter' } }
 
@@ -152,7 +145,20 @@ return packer.startup(function(use)
   use { "nvim-telescope/telescope-dap.nvim" }
   use { 'mfussenegger/nvim-dap-python' }
   use { 'jbyuki/one-small-step-for-vimkind' }
+  use {
+    "Djancyp/custom-theme.nvim",
+    config = function()
+      require("custom-theme").setup()
+    end,
+  }
 
+  use {
+    'norcalli/nvim-colorizer.lua',
+    config = function()
+      require('colorizer').setup()
+    end,
+  }
+  --
   -- temporary
   use {
     'glacambre/firenvim',
