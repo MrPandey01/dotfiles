@@ -72,7 +72,6 @@ lsp.setup_nvim_cmp({
     { name = 'nvim_lsp' },
     { name = 'nvim_lsp_signature_help' },
     { name = 'luasnip' },
-    --[[ { name = 'tags' }, ]]
     { name = 'dictionary' },
   },
   formatting = {
@@ -84,7 +83,6 @@ lsp.setup_nvim_cmp({
         nvim_lsp = "[nvim_lsp]",
         buffer = "[Buffer]",
         luasnip = "[LuaSnip]",
-        --[[ tags = "[Tags]", ]]
         nvim_lsp_signature_help = "[nvim_lsp_signature]",
         dictionary = "[Dict]",
       })[entry.source.name]

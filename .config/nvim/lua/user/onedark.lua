@@ -29,9 +29,19 @@ require('onedark').setup {
   -- Custom Highlights --
   colors = {}, -- Override default colors
   highlights = {
-        ["@variable"] = {fg = '#94DFD5'},
-        ["@parameter"] = {fg = '#EA7140'},
-        ["@constructor"] = {fg = '#4fa6ed', fmt = 'none'},
+        ["@variable"] = {fg = '#EEFFFF'},
+        ["@field"] = {fg = '#EEFFFF'},
+        ["@parameter"] = {fg = '#F78C6c'},
+        ["@string"] = {fg = '#C3E88D'},
+        ["@spell"] = {fg = '#616161', fmt = 'italic'},
+        ["@constructor"] = {fg = '#82AAFF', fmt = 'none'},
+        ["@function.call"] = {fg = '#82AAFF', fmt = 'none'},
+        ["@constant.builtin"] = {fg = '#82AAFF', fmt = 'italic'},
+        ["@string.escape"] = {fg = '#89DDFF', fmt = 'none'},
+        ["@number"] = {fg = '#F78C6c', fmt = 'none'},
+        ["@HlargsNamedParams"] = {fg = '#F78C6c', fmt = 'none'},
+        ["@type"] = {fg = '#FFCB6B', fmt = 'none'},
+        ["@include"] = {fg = '#89DDFF', fmt = 'italic'},
   }, 
 
   -- Plugins Config --
