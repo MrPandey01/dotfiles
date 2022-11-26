@@ -1,11 +1,10 @@
-export PATH=$HOME/bin:/usr/local/bin:$PATH
-export PATH=~/.local/share/exa/bin:$PATH
-export PATH=~/.config/rofi/scripts:$PATH
-export PATH=~/neovim/nvim-linux64/bin:$PATH
-export PATH=~/Documents/Github/diff-so-fancy:$PATH
-# export ZSH="$HOME/.oh-my-zsh"
 
-# ZSH_THEME="af-magic"
+# Settings specific to machines such as local, remote etc.
+if [ ! -f ~/.zsh-plugins/zsh-snap/znap.zsh ]; then
+  touch ~/.machine_specific.zsh
+fi
+source ~/.machine_specific.zsh
+
 
 # Uncomment the following line to use case-sensitive completion.
 CASE_SENSITIVE="true"
@@ -78,7 +77,6 @@ type vim &>/dev/null && {
 }
 
 # Aliases -----------------
-source ~/.zsh-plugins/custom_alias.zsh
 
 # Git aliases
 alias gau="git add -u"
@@ -125,8 +123,10 @@ alias ipy="ipython --matplotlib --no-banner \
 if exa ; then
   echo " "
 else
-    wget https://github.com/ogham/exa/releases/download/v0.10.0/exa-linux-x86_64-v0.10.0.zip -P ~/.local/share && cd ~/.local/share && unzip -d exa/ exa-linux-x86_64-v0.10.0.zip
-    echo 'export PATH=~/.local/share/exa/bin:$PATH' >> ~/.zshrc
+    wget https://github.com/ogham/exa/releases/download/v0.10.0/exa-linux-x86_64-v0.10.0.zip -P ~/.local/share \
+    && cd ~/.local/share \
+    && unzip -d exa/ exa-linux-x86_64-v0.10.0.zip
+    echo 'export PATH=~/.local/share/exa/bin:$PATH' >> ~/.machine_specific.zsh
     echo -e "exa Installed\n"
 fi
 exa_params=('--git' '--icons' '--classify' '--group-directories-first' '--time-style=long-iso' '--group' '--color-scale')
@@ -286,15 +286,6 @@ unset __conda_setup
 
 fpath+=${ZDOTDIR:-~}/.zsh_functions
 
-export NVM_DIR="$HOME/.config/nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
 export PYTHONBREAKPOINT="pudb.set_trace"
+
  
-# Install Ruby Gems to ~/gems
-export GEM_HOME="$HOME/gems"
-export PATH="$HOME/gems/bin:$PATH"
-source "/etc/profile.d/rvm.sh"
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
