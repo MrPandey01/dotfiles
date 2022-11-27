@@ -1,3 +1,16 @@
+# nvim download -----------------------------------------
+if [ ! -f $HOME/nvim-linux64/bin/nvim ]; then
+    wget https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.tar.gz -P $HOME/ \
+    && cd $HOME/ \
+    && tar xf nvim-linux64.tar.gz
+fi
+
+# fzf download -----------------------------------------
+if [ ! -d $HOME/.fzf/ ]; then
+  git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf \
+    && $HOME/.fzf/install
+fi
+source ~/.fzf.zsh
 
 # Settings specific to machines such as local, remote etc.
 if [ ! -f ~/.zsh-plugins/zsh-snap/znap.zsh ]; then
@@ -5,20 +18,6 @@ if [ ! -f ~/.zsh-plugins/zsh-snap/znap.zsh ]; then
 fi
 source ~/.machine_specific.zsh
 
-
-# Uncomment the following line to use case-sensitive completion.
-CASE_SENSITIVE="true"
-
-# Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Download Znap (Plugin Manager), if it's not there yet.
 if [ ! -f ~/.zsh-plugins/zsh-snap/znap.zsh ]; then
@@ -44,13 +43,18 @@ znap source zdharma-continuum/fast-syntax-highlighting
 ZSH_HIGHLIGHT_HIGHLIGHTERS=( main brackets )
 
 
+# ZSH Settings --------------------------------------------------------
+# the detailed meaning of the below three variable can be found in `man zshparam`.
+CASE_SENSITIVE="true"
+ENABLE_CORRECTION="true"
+COMPLETION_WAITING_DOTS="true"
+DISABLE_UNTRACKED_FILES_DIRTY="true"
+
 # Completion suggestions from man pages (using Tab)
 zstyle ':completion:*:manuals'    separate-sections true
 zstyle ':completion:*:manuals.*'  insert-sections   true
 zstyle ':completion:*:man:*'      menu yes select
 
-# ZSH_HISTORY Settings --------------------------------------------------------
-# the detailed meaning of the below three variable can be found in `man zshparam`.
 export HISTFILE=~/.zsh_history
 export HISTSIZE=1000000   # the number of items for the internal history list
 export SAVEHIST=1000000   # maximum number of items for the history file
@@ -62,13 +66,11 @@ setopt HIST_REDUCE_BLANKS  # remove unnecessary blanks
 setopt INC_APPEND_HISTORY_TIME  # append command to history file immediately after execution
 setopt EXTENDED_HISTORY  # record command start time
 
-# source $ZSH/oh-my-zsh.sh
-
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
-export EDITOR='nvim'
+  export EDITOR='nvim'
 else
-export EDITOR='nvim'
+  export EDITOR='nvim'
 fi
 
 # vim
@@ -98,7 +100,7 @@ alias priv_files='/usr/bin/git --git-dir=$HOME/.priv_files/ --work-tree=$HOME/'
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME/'
 
 # Other aliases
-alias dropbox="~/.dropbox-dist/dropboxd"
+alias dropbox="$HOME/.dropbox-dist/dropboxd"
 alias zrc="nvim $HOME/.zshrc"
 alias py='python3'
 alias gpu='watch nvidia-smi'
@@ -123,10 +125,10 @@ alias ipy="ipython --matplotlib --no-banner \
 if exa ; then
   echo " "
 else
-    wget https://github.com/ogham/exa/releases/download/v0.10.0/exa-linux-x86_64-v0.10.0.zip -P ~/.local/share \
-    && cd ~/.local/share \
+    wget https://github.com/ogham/exa/releases/download/v0.10.0/exa-linux-x86_64-v0.10.0.zip -P $HOME/.local/share \
+    && cd $HOME/.local/share \
     && unzip -d exa/ exa-linux-x86_64-v0.10.0.zip
-    echo 'export PATH=~/.local/share/exa/bin:$PATH' >> ~/.machine_specific.zsh
+    echo 'export PATH=$HOME/.local/share/exa/bin:$PATH' >> $HOME/.machine_specific.zsh
     echo -e "exa Installed\n"
 fi
 exa_params=('--git' '--icons' '--classify' '--group-directories-first' '--time-style=long-iso' '--group' '--color-scale')
@@ -252,22 +254,6 @@ function fav {
 }
 # %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-# sanitize pdf of its metadata
-# clean_pdf() {
- # pdftk $1 dump_data | \
-  # sed -e 's/\(InfoValue:\)\s.*/\1\ /g' | \
-  # pdftk $1 update_info - output clean-$1
-#
- # exiftool -all:all= clean-$1
- # exiftool -all:all clean-$1
- # exiftool -extractEmbedded -all:all clean-$1
- # qpdf --linearize clean-$1 clean2-$1
-#
- # pdftk clean2-$1 dump_data
- # pdfinfo -meta clean2-$1
-# }
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!

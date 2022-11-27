@@ -31,6 +31,9 @@ require('flit').setup()
 require("user.onedark")
 require('hlargs').setup()
 
+require("custom-theme").setup()
+require('colorizer').setup()
+
 -- UI
 require("user.bufferline")
 require("user.indentline")
@@ -38,8 +41,7 @@ require("user.lualine")
 
 
 
-require('neoscroll').setup()  -- smooth scrolling
+require('neoscroll').setup() -- smooth scrolling
 
 require('telescope').load_extension('luasnip')
 require('telescope').load_extension('projects')
-

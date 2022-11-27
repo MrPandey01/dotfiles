@@ -115,8 +115,8 @@ return packer.startup(function(use)
       { 'rafamadriz/friendly-snippets' },
 
       -- Snippets
-      --[[ use { 'SirVer/ultisnips' } ]]
-      --[[ use { 'quangnguyen30192/cmp-nvim-ultisnips' } ]]
+      -- use { 'SirVer/ultisnips' }
+      -- use { 'quangnguyen30192/cmp-nvim-ultisnips' }
 
     }
   }
@@ -129,11 +129,13 @@ return packer.startup(function(use)
 
   -- Colorschemes
   use "kyazdani42/nvim-web-devicons"
-  --[[ use 'marko-cerovac/material.nvim' ]]
-  --[[ use { 'kaicataldo/material.vim', branch = main } ]]
+  -- use 'marko-cerovac/material.nvim'
+  -- use { 'kaicataldo/material.vim', branch = main }
   use 'navarasu/onedark.nvim'
   use { 'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons', opt = true } }
   use { 'm-demare/hlargs.nvim', requires = { 'nvim-treesitter/nvim-treesitter' } }
+  use { "Djancyp/custom-theme.nvim" }
+  use { 'norcalli/nvim-colorizer.lua' }
 
   -- Git
   use "lewis6991/gitsigns.nvim"
@@ -145,20 +147,7 @@ return packer.startup(function(use)
   use { "nvim-telescope/telescope-dap.nvim" }
   use { 'mfussenegger/nvim-dap-python' }
   use { 'jbyuki/one-small-step-for-vimkind' }
-  use {
-    "Djancyp/custom-theme.nvim",
-    config = function()
-      require("custom-theme").setup()
-    end,
-  }
 
-  use {
-    'norcalli/nvim-colorizer.lua',
-    config = function()
-      require('colorizer').setup()
-    end,
-  }
-  --
   -- temporary
   use {
     'glacambre/firenvim',
