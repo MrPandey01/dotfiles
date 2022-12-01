@@ -41,7 +41,6 @@ require('telescope').load_extension('projects')
 
 -- colorscheme (keep last to over-ride default colors)
 require('hlargs').setup()
-require("custom-theme").setup()
 require('colorizer').setup()
 require("user.onedark")
 
