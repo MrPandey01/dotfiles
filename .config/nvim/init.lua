@@ -4,12 +4,14 @@ require("impatient") -- Improves Startup Performance
 require("user.options")
 require("user.keymaps")
 
-require("user.whichkey") -- keymaps
-
+require("user.treesitter")
 require("user.lsp") -- lsp including cmp, snippets
 
+require("user.whichkey") -- keymaps
+
+
 require("user.dap") -- debug
-require("user.treesitter")
+
 require("user.vista") -- tags
 require("user.autopairs")
 require("user.comment")
@@ -27,21 +29,19 @@ require("user.vimtex")
 require('leap').add_default_mappings()
 require('flit').setup()
 
--- colorscheme
-require("user.onedark")
-require('hlargs').setup()
-
-require("custom-theme").setup()
-require('colorizer').setup()
-
 -- UI
 require("user.bufferline")
 require("user.indentline")
 require("user.lualine")
 
-
-
 require('neoscroll').setup() -- smooth scrolling
 
 require('telescope').load_extension('luasnip')
 require('telescope').load_extension('projects')
+
+-- colorscheme (keep last to over-ride default colors)
+require('hlargs').setup()
+require("custom-theme").setup()
+require('colorizer').setup()
+require("user.onedark")
+

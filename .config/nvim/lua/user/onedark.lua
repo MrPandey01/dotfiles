@@ -27,21 +27,25 @@ require('onedark').setup {
   },
 
   -- Custom Highlights --
-  colors = {}, -- Override default colors
+  colors = {
+    bg0 = "#212121",
+    bg1 = "#181818",
+  }, -- Override default colors
+
   highlights = {
-        ["@variable"] = {fg = '#EEFFFF'},
-        ["@field"] = {fg = '#EEFFFF'},
-        ["@parameter"] = {fg = '#F78C6c'},
-        ["@string"] = {fg = '#C3E88D'},
-        ["@constructor"] = {fg = '#82AAFF', fmt = 'none'},
-        ["@function.call"] = {fg = '#82AAFF', fmt = 'none'},
-        ["@constant.builtin"] = {fg = '#82AAFF', fmt = 'italic'},
-        ["@string.escape"] = {fg = '#89DDFF', fmt = 'none'},
-        ["@number"] = {fg = '#F78C6c', fmt = 'none'},
-        ["@HlargsNamedParams"] = {fg = '#F78C6c', fmt = 'none'},
-        ["@type"] = {fg = '#FFCB6B', fmt = 'none'},
-        ["@include"] = {fg = '#89DDFF', fmt = 'italic'},
-  }, 
+    ["@variable"] = { fg = '#EEFFFF' },
+    ["@field"] = { fg = '#EEFFFF' },
+    ["@parameter"] = { fg = '#F78C6c' },
+    ["@string"] = { fg = '#C3E88D' },
+    ["@constructor"] = { fg = '#82AAFF', fmt = 'none' },
+    ["@function.call"] = { fg = '#82AAFF', fmt = 'none' },
+    ["@constant.builtin"] = { fg = '#82AAFF', fmt = 'italic' },
+    ["@string.escape"] = { fg = '#89DDFF', fmt = 'none' },
+    ["@number"] = { fg = '#F78C6c', fmt = 'none' },
+    ["@HlargsNamedParams"] = { fg = '#F78C6c', fmt = 'none' },
+    ["@type"] = { fg = '#FFCB6B', fmt = 'none' },
+    ["@include"] = { fg = '#89DDFF', fmt = 'italic' },
+  },
 
   -- Plugins Config --
   diagnostics = {
@@ -49,6 +53,6 @@ require('onedark').setup {
     undercurl = true, -- use undercurl instead of underline for diagnostics
     background = true, -- use background color for virtual text
   },
-}
+} 
 
 require('onedark').load()
