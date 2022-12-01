@@ -6,7 +6,7 @@ require("user.keymaps")
 
 require("user.whichkey") -- keymaps
 
-require("user.lsp") -- lsp including cmp
+require("user.lsp") -- lsp including cmp, snippets
 
 require("user.dap") -- debug
 require("user.treesitter")

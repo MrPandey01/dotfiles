@@ -64,7 +64,7 @@ local kind_icons = {
   TypeParameter = "",
 }
 -- find more here: https://www.nerdfonts.com/cheat-sheet
---
+
 lsp.setup_nvim_cmp({
   sources = {
     { name = 'path' },
@@ -160,7 +160,11 @@ null_ls.setup({
     null_opts.on_attach(client, bufnr)
     --- you can add more stuff here if you need it
   end,
+  -- formatters
   sources = {
     null_ls.builtins.formatting.black,
+    null_ls.builtins.formatting.isort,
+    null_ls.builtins.formatting.latexindent,
+    null_ls.builtins.diagnostics.proselint,
   }
 })

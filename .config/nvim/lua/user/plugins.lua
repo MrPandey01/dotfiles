@@ -1,28 +1,17 @@
 local fn = vim.fn
 local utils = require("user.utils")
 
--- Automatically install packer
-local install_path = fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
-if fn.empty(fn.glob(install_path)) > 0 then
-  PACKER_BOOTSTRAP = fn.system {
-    "git",
-    "clone",
-    "--depth",
-    "1",
-    "https://github.com/wbthomason/packer.nvim",
-    install_path,
-  }
-  print "Installing packer close and reopen Neovim..."
-  vim.cmd [[packadd packer.nvim]]
+local ensure_packer = function()
+  local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
+  if fn.empty(fn.glob(install_path)) > 0 then
+    fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path })
+    vim.cmd [[packadd packer.nvim]]
+    return true
+  end
+  return false
 end
 
--- Autocommand that reloads neovim whenever you save the plugins.lua file
-vim.cmd [[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerSync
-  augroup end
-]]
+local packer_bootstrap = ensure_packer()
 
 -- Use a protected call so we don't error out on first use
 local status_ok, packer = pcall(require, "packer")
@@ -52,20 +41,16 @@ return packer.startup(function(use)
     run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release \
         && cmake --build build --config Release \
         && cmake --install build --prefix build' }
-  use {
-    "benfowler/telescope-luasnip.nvim",
-    --[[ module = "telescope._extensions.luasnip", -- if you wish to lazy-load ]]
-  }
+  use "benfowler/telescope-luasnip.nvim"
   use "machakann/vim-sandwich"
   use "Pocco81/auto-save.nvim"
-  use "https://git.sr.ht/~jhn/remember.nvim" -- cursor positon at same location
+  use({ 'vladdoster/remember.nvim', config = [[ require('remember') ]] })
   use 'lervag/vimtex'
   use "lukas-reineke/indent-blankline.nvim"
   use 'goolord/alpha-nvim' -- home page
   use "folke/which-key.nvim"
-  --[[ use "rhysd/clever-f.vim" ]]
   use 'ggandor/leap.nvim'
-  use 'ggandor/flit.nvim'
+  use { 'ggandor/flit.nvim', requires = 'ggandor/leap.nvim' }
   use { 'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async' }
   use 'karb94/neoscroll.nvim'
   use 'rmagatti/auto-session'
@@ -78,7 +63,18 @@ return packer.startup(function(use)
 
   -- Comment
   use "numToStr/Comment.nvim"
-  use 'JoosepAlviste/nvim-ts-context-commentstring'
+  use 'JoosepAlviste/nvim-tComments-context-commentstring'
+  
+  -- Docstrings and annotations
+  use {
+    "danymat/neogen",
+    config = function()
+      require('neogen').setup {}
+    end,
+    requires = "nvim-treesitter/nvim-treesitter",
+    -- Uncomment next line if you want to follow only stable versions
+    tag = "*"
+  }
 
   -- File explorer
   use { 'kyazdani42/nvim-tree.lua', requires = { 'kyazdani42/nvim-web-devicons', }, }
@@ -127,10 +123,8 @@ return packer.startup(function(use)
     use { "liuchengxu/vista.vim", cmd = "Vista" }
   end
 
-  -- Colorschemes
+  -- Colorschemes and highlighting
   use "kyazdani42/nvim-web-devicons"
-  -- use 'marko-cerovac/material.nvim'
-  -- use { 'kaicataldo/material.vim', branch = main }
   use 'navarasu/onedark.nvim'
   use { 'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons', opt = true } }
   use { 'm-demare/hlargs.nvim', requires = { 'nvim-treesitter/nvim-treesitter' } }
@@ -142,10 +136,10 @@ return packer.startup(function(use)
 
   -- Debugging
   use { "mfussenegger/nvim-dap" }
-  use { 'theHamsta/nvim-dap-virtual-text' }
+  use { 'theHamsta/nvim-dap-virtual-text', requires = { "mfussenegger/nvim-dap" } }
   use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }
-  use { "nvim-telescope/telescope-dap.nvim" }
-  use { 'mfussenegger/nvim-dap-python' }
+  use { "nvim-telescope/telescope-dap.nvim", requires = { "mfussenegger/nvim-dap" } }
+  use { 'mfussenegger/nvim-dap-python', requires = { "mfussenegger/nvim-dap" } }
   use { 'jbyuki/one-small-step-for-vimkind' }
 
   -- temporary
@@ -156,7 +150,7 @@ return packer.startup(function(use)
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
-  if PACKER_BOOTSTRAP then
-    require("packer").sync()
+  if packer_bootstrap then
+    require('packer').sync()
   end
 end)
