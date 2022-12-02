@@ -107,7 +107,7 @@ alias gpu='watch nvidia-smi'
 alias src='source'
 
 # Tmux
-alias tmux='TERM=screen-256color-bce tmux'
+# alias tmux='TERM=screen-256color-bce tmux'
 alias tl='tmux list-sessions'
 alias ta='tmux attach'
 
