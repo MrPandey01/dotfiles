@@ -45,6 +45,7 @@ require('onedark').setup {
     ["@HlargsNamedParams"] = { fg = '#F78C6c', fmt = 'none' },
     ["@type"] = { fg = '#FFCB6B', fmt = 'none' },
     ["@include"] = { fg = '#89DDFF', fmt = 'italic' },
+    ["Folded"] = { fg = '#212121', bg = '#212121'},
   },
 
   -- Plugins Config --
@@ -53,6 +54,6 @@ require('onedark').setup {
     undercurl = true, -- use undercurl instead of underline for diagnostics
     background = true, -- use background color for virtual text
   },
-} 
+}
 
 require('onedark').load()
