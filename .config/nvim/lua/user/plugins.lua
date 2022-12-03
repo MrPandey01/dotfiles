@@ -56,13 +56,6 @@ return packer.startup(function(use)
     end,
     requires = { "kkharji/sqlite.lua" }
   }
-  use {
-    "nvim-telescope/telescope-frecency.nvim",
-    config = function()
-      require "telescope".load_extension("frecency")
-    end,
-    requires = { "kkharji/sqlite.lua" }
-  }
   use "benfowler/telescope-luasnip.nvim"
   use "machakann/vim-sandwich"
   use "Pocco81/auto-save.nvim"
