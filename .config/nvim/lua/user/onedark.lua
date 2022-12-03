@@ -45,7 +45,8 @@ require('onedark').setup {
     ["@HlargsNamedParams"] = { fg = '#F78C6c', fmt = 'none' },
     ["@type"] = { fg = '#FFCB6B', fmt = 'none' },
     ["@include"] = { fg = '#89DDFF', fmt = 'italic' },
-    ["Folded"] = { fg = '#212121', bg = '#212121'},
+    ["@bracket"] = { fg = '#EEFFFF' },
+    ["Folded"] = { fg = '#212121', bg = '#212121' },
   },
 
   -- Plugins Config --

@@ -28,6 +28,13 @@ packer.init {
   },
 }
 
+vim.cmd([[
+  augroup packer_user_config
+    autocmd!
+    autocmd BufWritePost plugins.lua source <afile> | PackerCompile
+  augroup end
+]])
+
 -- Install your plugins here
 return packer.startup(function(use)
   use "wbthomason/packer.nvim" -- Have packer manage itself
@@ -41,6 +48,21 @@ return packer.startup(function(use)
     run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release \
         && cmake --build build --config Release \
         && cmake --install build --prefix build' }
+  use { "kkharji/sqlite.lua" }
+  use {
+    "nvim-telescope/telescope-frecency.nvim",
+    config = function()
+      require "telescope".load_extension("frecency")
+    end,
+    requires = { "kkharji/sqlite.lua" }
+  }
+  use {
+    "nvim-telescope/telescope-frecency.nvim",
+    config = function()
+      require "telescope".load_extension("frecency")
+    end,
+    requires = { "kkharji/sqlite.lua" }
+  }
   use "benfowler/telescope-luasnip.nvim"
   use "machakann/vim-sandwich"
   use "Pocco81/auto-save.nvim"
