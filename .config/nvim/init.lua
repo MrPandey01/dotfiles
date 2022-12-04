@@ -4,6 +4,7 @@ require("impatient") -- Improves Startup Performance
 require("user.options")
 require("user.keymaps")
 
+require("user.vimtex")
 require("user.treesitter")
 require("user.lsp") -- lsp including cmp, snippets
 
@@ -24,7 +25,6 @@ require("user.ufo")
 require("user.auto-session")
 require("project_nvim").setup()
 
-require("user.vimtex")
 
 require('leap').add_default_mappings()
 require('flit').setup()

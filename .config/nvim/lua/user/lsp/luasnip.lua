@@ -1,5 +1,5 @@
 -- LuaSnip config
-require("luasnip").setup({
+require("luasnip").config.set_config({ -- Setting LuaSnip config
   snip_env = {
     s = require("luasnip.nodes.snippet").S,
     sn = require("luasnip.nodes.snippet").SN,
@@ -27,7 +27,13 @@ require("luasnip").setup({
     parse = require("luasnip.util.parser").parse_snippet,
   },
 
-})
+  update_events = 'TextChanged,TextChangedI',
 
+  -- Enable autotriggered snippets
+  enable_autosnippets = true,
+
+  -- Use Tab (or some other key if you prefer) to trigger visual selection
+  store_selection_keys = "<Tab>",
+})
 -- load custom snippets
 require("luasnip.loaders.from_lua").lazy_load({ paths = "~/.config/nvim/snippets" })
