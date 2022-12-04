@@ -1,6 +1,7 @@
 local fn = vim.fn
 local utils = require("user.utils")
 
+-- Install packer
 local ensure_packer = function()
   local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
   if fn.empty(fn.glob(install_path)) > 0 then
@@ -28,6 +29,7 @@ packer.init {
   },
 }
 
+-- Automatically source and re-compile packer whenever you save this init.lua
 vim.cmd([[
   augroup packer_user_config
     autocmd!
@@ -66,11 +68,11 @@ return packer.startup(function(use)
   use "folke/which-key.nvim"
   use 'ggandor/leap.nvim'
   use { 'ggandor/flit.nvim', requires = 'ggandor/leap.nvim' }
-  use { 'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async' }
+  use { 'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async' } -- code folding
   use 'karb94/neoscroll.nvim'
   use 'rmagatti/auto-session'
   use 'ahmedkhalf/project.nvim'
-  use 'tpope/vim-repeat'
+  use 'tpope/vim-repeat' -- enables . operator to leap and other plugins
 
   -- Buffers
   use { "akinsho/bufferline.nvim", tag = "v3.*", requires = { 'kyazdani42/nvim-web-devicons' } }

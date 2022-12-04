@@ -1,16 +1,5 @@
 local lsp = require('lsp-zero')
-
 lsp.preset('recommended')
-
-lsp.ensure_installed({
-    "sumneko_lua",
-    "pyright",
-    "texlab",
-    "sumneko_lua",
-    "marksman",
-    "sqlls",
-    "yamlls",
-})
 
 -- Disable default keybindings (optional)
 lsp.set_preferences({
@@ -43,105 +32,15 @@ lsp.on_attach(function(client, bufnr)
   vim.keymap.set('n', 'd]', '<cmd>lua vim.diagnostic.goto_next()<cr>', bufopts)
 end)
 
--- nvim-cmp setup
---   פּ ﯟ   some other good icons
-local kind_icons = {
-  Text = "",
-  Method = "m",
-  Function = "",
-  Constructor = "",
-  Field = "",
-  Variable = "",
-  Class = "",
-  Interface = "",
-  Module = "",
-  Property = "",
-  Unit = "",
-  Value = "",
-  Enum = "",
-  Keyword = "",
-  Snippet = "",
-  Color = "",
-  File = "",
-  Reference = "",
-  Folder = "",
-  EnumMember = "",
-  Constant = "",
-  Struct = "",
-  Event = "",
-  Operator = "",
-  TypeParameter = "",
-}
--- find more here: https://www.nerdfonts.com/cheat-sheet
 
-lsp.setup_nvim_cmp({
-  sources = {
-    { name = 'path' },
-    { name = 'buffer' },
-    { name = 'nvim_lsp' },
-    { name = 'nvim_lsp_signature_help' },
-    { name = 'luasnip' },
-    { name = 'dictionary' },
-  },
-  formatting = {
-    fields = { "kind", "abbr", "menu" },
-    format = function(entry, vim_item)
-      vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
-      vim_item.menu = ({
-        path = "[Path]",
-        nvim_lsp = "[nvim_lsp]",
-        buffer = "[Buffer]",
-        luasnip = "[LuaSnip]",
-        nvim_lsp_signature_help = "[nvim_lsp_signature]",
-        dictionary = "[Dict]",
-      })[entry.source.name]
-      return vim_item
-    end,
-  },
-  enabled = function()
-    return vim.api.nvim_buf_get_option(0, "buftype") ~= "prompt"
-        or require("cmp_dap").is_dap_buffer()
-  end
-})
-
-local cmp = require("cmp")
-require("cmp_dictionary").setup({
-  dic = {
-    ["*"] = { "~/.local/bin/en.dict" },
-  },
-})
-
--- Set configuration for specific filetype.
-cmp.setup.filetype('gitcommit', {
-  sources = cmp.config.sources({
-    { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
-  }, {
-    { name = 'buffer' },
-  })
-})
-
--- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
-cmp.setup.cmdline({ '/', '?' }, {
-  mapping = cmp.mapping.preset.cmdline(),
-  sources = {
-    { name = 'buffer' }
-  }
-})
-
--- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
-cmp.setup.cmdline(':', {
-  mapping = cmp.mapping.preset.cmdline(),
-  sources = cmp.config.sources({
-    { name = 'path' }
-  }, {
-    { name = 'cmdline' }
-  })
-})
-
-cmp.setup.filetype({ "dap-repl", "dapui_watches", "dapui_hover" }, {
-  sources = {
-    { name = "dap" },
-  },
+lsp.ensure_installed({
+  "sumneko_lua",
+  "pyright",
+  "texlab",
+  "sumneko_lua",
+  "marksman",
+  "sqlls",
+  "yamlls",
 })
 
 lsp.configure('pyright', {
@@ -156,24 +55,13 @@ lsp.configure('pyright', {
   }
 })
 
+require("user.lsp.luasnip")  -- configure luasnip
+require("user.lsp.cmp")  -- configure cmp 
+
 lsp.setup()
 
-
-
 -- null-ls is not a part of lsp-zero, hence called after lsp.setup()
-local null_ls = require('null-ls')
-local null_opts = lsp.build_options('null-ls', {})
+require("user.lsp.null_ls")
 
-null_ls.setup({
-  on_attach = function(client, bufnr)
-    null_opts.on_attach(client, bufnr)
-    --- you can add more stuff here if you need it
-  end,
-  -- formatters
-  sources = {
-    null_ls.builtins.formatting.black,
-    null_ls.builtins.formatting.isort,
-    null_ls.builtins.formatting.latexindent,
-    null_ls.builtins.diagnostics.proselint,
-  }
-})
+
+
