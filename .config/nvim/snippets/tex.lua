@@ -59,7 +59,7 @@ return {
         i(2)
       },
     ),
-    { condition = in_mathzone }-- `condition` option passed in the snippet `opts` table
+    { condition = tex_utils.in_mathzone }-- `condition` option passed in the snippet `opts` table
   ),
   -- Equation
   s({ trig = "eq", dscr = "Expands 'eq' into an equation environment" },
