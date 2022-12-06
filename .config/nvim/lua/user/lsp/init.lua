@@ -55,8 +55,8 @@ lsp.configure('pyright', {
   }
 })
 
-require("user.lsp.luasnip")  -- configure luasnip
 require("user.lsp.cmp")  -- configure cmp 
+require("user.lsp.luasnip")  -- configure luasnip
 
 lsp.setup()
 

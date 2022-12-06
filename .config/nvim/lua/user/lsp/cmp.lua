@@ -37,9 +37,10 @@ require('lsp-zero').setup_nvim_cmp({
     { name = 'buffer' },
     { name = 'nvim_lsp' },
     { name = 'nvim_lsp_signature_help' },
-    { name = 'luasnip' },
+    { name = 'luasnip', option = { show_autosnippets = true } },
     { name = 'dictionary' },
   },
+
   formatting = {
     fields = { "kind", "abbr", "menu" },
     format = function(entry, vim_item)
@@ -55,6 +56,7 @@ require('lsp-zero').setup_nvim_cmp({
       return vim_item
     end,
   },
+
   enabled = function()
     return vim.api.nvim_buf_get_option(0, "buftype") ~= "prompt"
         or require("cmp_dap").is_dap_buffer()
@@ -99,4 +101,3 @@ cmp.setup.filetype({ "dap-repl", "dapui_watches", "dapui_hover" }, {
     { name = "dap" },
   },
 })
-

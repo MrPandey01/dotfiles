@@ -4,9 +4,9 @@ require("impatient") -- Improves Startup Performance
 require("user.options")
 require("user.keymaps")
 
-require("user.vimtex")
 require("user.treesitter")
 require("user.lsp") -- lsp including cmp, snippets
+require("user.vimtex")
 
 require("user.whichkey") -- keymaps
 
@@ -43,4 +43,3 @@ require('telescope').load_extension('projects')
 require('hlargs').setup()
 require('colorizer').setup()
 require("user.onedark")
-

@@ -169,6 +169,10 @@ local mappings = {
     s = { "<cmd>PackerSync<cr>", "Sync" },
     u = { "<cmd>PackerUpdate<cr>", "Update" },
   },
+  s = {
+    name = "Source",
+    l = { "<cmd>source ~/.config/nvim/lua/user/lsp/luasnip.lua<cr>", "LuaSnippets" },
+  },
   v = {
     name = 'VimTex',
     c = { '<cmd>VimtexCompile<cr>', 'Compile' },

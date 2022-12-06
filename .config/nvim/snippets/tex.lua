@@ -14,52 +14,67 @@ end
 -- ----------------------------------------------------------------------------
 
 -- Some LaTeX-specific conditional expansion functions (requires VimTeX)
-local tex_utils = {}
-tex_utils.in_mathzone = function() -- math context detection
+local tex = {}
+tex.in_mathzone = function()
   return vim.fn['vimtex#syntax#in_mathzone']() == 1
 end
-tex_utils.in_text = function()
-  return not tex_utils.in_mathzone()
-end
-tex_utils.in_comment = function() -- comment detection
-  return vim.fn['vimtex#syntax#in_comment']() == 1
-end
-tex_utils.in_env = function(name) -- generic environment detection
-  local is_inside = vim.fn['vimtex#env#is_inside'](name)
-  return (is_inside[1] > 0 and is_inside[2] > 0)
-end
--- A few concrete environments---adapt as needed
-tex_utils.in_equation = function() -- equation environment detection
-  return tex_utils.in_env('equation')
-end
-tex_utils.in_itemize = function() -- itemize environment detection
-  return tex_utils.in_env('itemize')
-end
-tex_utils.in_tikz = function() -- TikZ picture environment detection
-  return tex_utils.in_env('tikzpicture')
+tex.in_text = function()
+  return not tex.in_mathzone()
 end
 
 
 return {
-  -- Examples of complete snippets using fmt and fmta
+  parse({ trig = "ip", wordTrig = true, snippetType = 'autosnippet', dscr = 'Inner product' },
+    "\\langle $1 \\rangle"),
 
-  -- \texttt
+  parse({ trig = "fr", wordTrig = true, snippetType = 'autosnippet', dscr = '\frac{}{}' },
+    "\\frac{$1}{$2}"),
+
+  parse({ trig = "beg", wordTrig = true, dscr = 'begin env' },
+    "\\begin{$1} \n \t${2:$SELECT_DEDENT} \n \\end{$1}"),
+
+  parse({ trig = "beq", wordTrig = true, dscr = 'begin equation' },
+    "\\begin{equation*}\n\t${1:$SELECT_DEDENT}\n\\end{equation*}"),
+
+  parse({ trig = "bal", wordTrig = true, dscr = 'begin aligned' },
+    "\\begin{aligned}\n\t${1:$SELECT_DEDENT}\n\\end{aligned}"),
+
+  parse({ trig = "bfr", wordTrig = true, dscr = 'begin frame' },
+    "\\begin{frame}\n\\frametitle{$1}\n$2\n\\end{frame}"),
+
+  parse({ trig = "bite", wordTrig = true, dscr = 'begin itemize' },
+    "\\begin{itemize} \n \\item {$1} \n \\end{itemize}"),
+
+  parse({ trig = "lra", wordTrig = true },
+    "\\leftrightarrow"),
+
+  parse({ trig = "Lra", wordTrig = true },
+    "\\Leftrightarrow"),
+
+  parse({ trig = "tr", wordTrig = true },
+    "\\item $1"),
+
+  parse({ trig = "abs", wordTrig = true },
+    "\\lvert ${1:$SELECT_DEDENT} \\rvert"),
+
+  parse({ trig = "*", wordTrig = true },
+    "\\cdot "),
+
+  parse({ trig = "sum", wordTrig = true },
+    [[\sum^{$1}_{$2}]]),
+
+  parse({ trig = "sum", wordTrig = true },
+    [[\sum^{$1}_{$2}]]),
+
+  parse({ trig = "int", wordTrig = true },
+    [[\int_{${1:lower}}^{${2:upper}} $3 \\,d$4]]),
+
+
   s({ trig = "tt", dscr = "Expands 'tt' into '\\texttt{}'" },
     fmta(
       "\\texttt{<>}",
       { i(1) }
     )
-  ),
-  -- \frac
-  s({ trig = "ff", dscr = "Expands 'ff' into '\\frac{}{}'" },
-    fmta(
-      "\\frac{<>}{<>}",
-      {
-        i(1),
-        i(2)
-      },
-    ),
-    { condition = tex_utils.in_mathzone }-- `condition` option passed in the snippet `opts` table
   ),
   -- Equation
   s({ trig = "eq", dscr = "Expands 'eq' into an equation environment" },
@@ -72,7 +87,7 @@ return {
       { i(1) }
     )
   ),
-  s({ trig = "env", snippetType = "autosnippet", dscr = "creates environment" },
+  s({ trig = "env", autoexpand = true, dscr = "creates environment" },
     fmta(
       [[
       \begin{<>}
@@ -86,7 +101,6 @@ return {
       }
     )
   ),
-  -- Example use of insert node placeholder text
   s({ trig = "hr", dscr = "The hyperref package's href{}{} command (for url links)" },
     fmta(
       [[\href{<>}{<>}]],
@@ -104,4 +118,6 @@ return {
       }
     )
   ),
+
+
 }
