@@ -1,5 +1,4 @@
 
-
 return {
-  s("trig", t("loaded!!"))
+  s("check all_lua", t("all.lua is loaded!!"))
 }

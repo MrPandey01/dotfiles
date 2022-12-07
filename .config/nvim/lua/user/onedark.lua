@@ -46,7 +46,7 @@ require('onedark').setup {
     ["@type"] = { fg = '#FFCB6B', fmt = 'none' },
     ["@include"] = { fg = '#89DDFF', fmt = 'italic' },
     ["Folded"] = { fg = '#212121', bg = '#212121' },
-    ["MatchParen"] = { bg = '#FFCB6B' },
+    ["MatchParen"] = { bg = nil, fmt='underline' },
   },
 
   -- Plugins Config --

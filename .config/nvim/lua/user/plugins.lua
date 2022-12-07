@@ -60,8 +60,6 @@ return packer.startup(function(use)
   }
   use "benfowler/telescope-luasnip.nvim"
   use "machakann/vim-sandwich"
-  use "Pocco81/auto-save.nvim"
-  use({ 'vladdoster/remember.nvim', config = [[ require('remember') ]] })
   use 'lervag/vimtex'
   use "lukas-reineke/indent-blankline.nvim"
   use 'goolord/alpha-nvim' -- home page
@@ -70,6 +68,8 @@ return packer.startup(function(use)
   use { 'ggandor/flit.nvim', requires = 'ggandor/leap.nvim' }
   use { 'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async' } -- code folding
   use 'karb94/neoscroll.nvim'
+  use "Pocco81/auto-save.nvim"
+  use 'vladdoster/remember.nvim'
   use 'rmagatti/auto-session'
   use 'ahmedkhalf/project.nvim'
   use 'tpope/vim-repeat' -- enables . operator to leap and other plugins
@@ -125,11 +125,6 @@ return packer.startup(function(use)
 
       -- Snippets
       { 'L3MON4D3/LuaSnip' },
-      --[[ { 'rafamadriz/friendly-snippets' }, ]]
-
-      -- Snippets
-      -- use { 'SirVer/ultisnips' }
-      -- use { 'quangnguyen30192/cmp-nvim-ultisnips' }
 
     }
   }
@@ -164,6 +159,9 @@ return packer.startup(function(use)
     'glacambre/firenvim',
     run = function() vim.fn['firenvim#install'](0) end
   }
+
+  -- for fun
+  use 'eandrju/cellular-automaton.nvim'
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
