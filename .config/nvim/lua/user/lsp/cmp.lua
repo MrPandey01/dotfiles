@@ -33,12 +33,12 @@ local kind_icons = {
 
 require('lsp-zero').setup_nvim_cmp({
   sources = {
+    { name = 'luasnip', option = { show_autosnippets = true } },
     { name = 'path' },
     { name = 'buffer' },
     { name = 'nvim_lsp' },
     { name = 'nvim_lsp_signature_help' },
-    { name = 'luasnip', option = { show_autosnippets = true } },
-    { name = 'dictionary' },
+    { name = 'dictionary', keyword_length = 4 },
   },
 
   formatting = {

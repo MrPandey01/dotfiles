@@ -70,11 +70,13 @@ return {
     { condition = tex_utils.in_mathzone, show_condition = tex_utils.in_mathzone }
   ),
 
-  parse({ trig = "$", wordTrig = true, snippetType = 'autosnippet', dscr = 'in-line math' },
-    "$ $1 $ $0"),
+  parse({ trig = "$",
+          wordTrig = true,
+          snippetType = 'autosnippet',
+          dscr = 'in-line math' },
+        "$ $1 $ $0"),
 
-  parse({ trig = "...", wordTrig = true, snippetType = 'autosnippet', dscr = '\\ldots' },
-    "\\ldots $0"),
+  parse({ trig = "...", wordTrig = true, snippetType = 'autosnippet', dscr = '\\ldots' }, "\\ldots $0"),
 
 
   s({ trig = "^", wordTrig = true, snippetType = 'autosnippet', dscr = 'superscript box' },
@@ -101,7 +103,7 @@ return {
 
   s({ trig = "mbr", wordTrig = true, snippetType = 'autosnippet', dscr = '\\mathbf{R}{$1}' },
     fmta(
-      "\\mathbf{R}^{<>} <>",
+      "\\mathbb{R}^{<>} <>",
       { i(1),
         i(0) }
     ),
@@ -130,6 +132,10 @@ return {
 
   parse({ trig = "subsubsection", wordTrig = true, dscr = 'subsubsection' },
     "\\subsubsection{${1:NAME}} \n \\label{sec:$1}"),
+
+  parse({ trig = "paragraph", wordTrig = true, dscr = 'paragraph' },
+    "\\paragraph{${1:NAME}} \n $1"),
+
 
   parse({ trig = "bequation", wordTrig = true, dscr = 'begin equation' },
     "\\begin{equation*}\n\t${1:$SELECT_DEDENT}\n\\end{equation*}"),
