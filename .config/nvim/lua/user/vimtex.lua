@@ -35,7 +35,7 @@ vim.cmd([[
   let g:vimtex_view_general_viewer='qpdfview'
   let g:vimtex_view_general_options='--unique @pdf\#src:@tex:@line:@col'
   let g:vimtex_compiler_latexmk = {
-      \ 'build_dir' : '',
+      \ 'build_dir' : './build_dir',
       \ 'callback' : 1,
       \ 'continuous' : 0,
       \ 'executable' : 'latexmk',
@@ -52,3 +52,4 @@ vim.cmd([[
   let g:neomake_enabled_tex_makers = []
   let g:neomake_open_list = 0  " Don't open neomake list automatically
 ]])
+
