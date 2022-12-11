@@ -98,7 +98,8 @@ return packer.startup(function(use)
 
   -- Syntax highlighting
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
-  use 'nvim-treesitter/playground'
+  use 'nvim-treesitter/nvim-treesitter-textobjects'
+  use { 'wellle/targets.vim' } -- extends textobjects
   use "p00f/nvim-ts-rainbow"
 
   use {
@@ -140,7 +141,6 @@ return packer.startup(function(use)
   use 'navarasu/onedark.nvim'
   use { 'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons', opt = true } }
   use { 'm-demare/hlargs.nvim', requires = { 'nvim-treesitter/nvim-treesitter' } }
-  use { "Djancyp/custom-theme.nvim" }
   use { 'norcalli/nvim-colorizer.lua' }
 
   -- Git

@@ -35,9 +35,9 @@ vim.opt.scrolloff = 999 -- is one of my fav
 vim.opt.sidescrolloff = 8
 vim.opt.guifont = "SauceCodePro Nerd Font Mono:h11" -- the font used in graphical neovim applications
 vim.opt.wildignore =
-	"*.pyc,*.o,*.obj,*.svn,*.swp,*.class,*.hg,*.DS_Store,*.min.*,*.tmp,*.toc,*.aux,*.log,*.bbl,*.blg,*.log,*.lof,*.lot,*.ilg,*.out,*.glo,*.gls,*.nlo,*.nls,*.brf,*.ist,*.glg,*.synctex.gz,*.tgz,*.idx,*.ind,*blx.bib,*.fdb_latexmk,*.run.xml,*.bcf,*.glsdefs,*.fls,*.eps,*.pdf,*.png,*.jpg" -- Show only files editable by vim
+"*.pyc,*.o,*.obj,*.svn,*.swp,*.class,*.hg,*.DS_Store,*.min.*,*.tmp,*.toc,*.aux,*.log,*.bbl,*.blg,*.log,*.lof,*.lot,*.ilg,*.out,*.glo,*.gls,*.nlo,*.nls,*.brf,*.ist,*.glg,*.synctex.gz,*.tgz,*.idx,*.ind,*blx.bib,*.fdb_latexmk,*.run.xml,*.bcf,*.glsdefs,*.fls,*.eps,*.pdf,*.png,*.jpg" -- Show only files editable by vim
 vim.opt.shortmess:append("c")
-vim.o.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
+vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 vim.g.mapleader = "<Space>"
 
 -- vim.cmd runs vimscript in [[ ]]
@@ -62,5 +62,24 @@ vim.cmd([[
  ]])
 
 
+-- Auto commands
+local augroup = vim.api.nvim_create_augroup('user_cmds', { clear = true })
 
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = { 'help', 'man', 'qf' },
+  group = augroup,
+  desc = 'Use q to close the window',
+  command = 'nnoremap <buffer> q <cmd>quit<cr>'
+})
+
+vim.api.nvim_create_autocmd('TextYankPost', {
+  group = augroup,
+  desc = 'Highlight on yank',
+  callback = function(event)
+    vim.highlight.on_yank({ higroup = 'Visual', timeout = 200 })
+  end
+})
+
+-- User commands
+vim.api.nvim_create_user_command('ReloadConfig', 'source $MYVIMRC', {})
 

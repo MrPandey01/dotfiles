@@ -78,6 +78,7 @@ local opts = {
   nowait = true, -- use `nowait` when creating keymaps
 }
 
+
 local mappings = {
   ["<TAB>"] = { '<cmd>b#<CR>', 'Previous buffer' },
   ["/"] = { '<cmd>lua require("Comment.api").toggle_current_linewise()<CR>', "Comment" },
