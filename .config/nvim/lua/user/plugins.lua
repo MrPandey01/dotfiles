@@ -1,5 +1,4 @@
 local fn = vim.fn
-local utils = require("user.utils")
 
 -- Install packer
 local ensure_packer = function()
@@ -96,7 +95,7 @@ return packer.startup(function(use)
   -- File explorer
   use { 'kyazdani42/nvim-tree.lua', requires = { 'kyazdani42/nvim-web-devicons', }, }
 
-  -- Syntax highlighting
+  -- Syntax highlighting and textobjects
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
   use 'nvim-treesitter/nvim-treesitter-textobjects'
   use { 'wellle/targets.vim' } -- extends textobjects
@@ -129,12 +128,6 @@ return packer.startup(function(use)
 
     }
   }
-
-  -- Only install these plugins if ctags are installed on the system
-  if utils.executable("ctags") then
-    -- show file tags in vim window
-    use { "liuchengxu/vista.vim", cmd = "Vista" }
-  end
 
   -- Colorschemes and highlighting
   use "kyazdani42/nvim-web-devicons"

@@ -13,15 +13,14 @@ require("user.whichkey") -- keymaps
 
 require("user.dap") -- debug
 
-require("user.vista") -- tags
 require("user.autopairs")
 require("user.comment")
 require("user.gitsigns")
 require("user.nvim-tree") -- file explorer
-require("user.alpha")
+require("user.alpha")  -- home screen
 require("user.autosave")
 require("user.remember") -- remembers last cursor position
-require("user.ufo")
+require("user.ufo") -- folds
 require("user.auto-session")
 require("project_nvim").setup()
 
