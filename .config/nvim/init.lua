@@ -5,13 +5,13 @@ require("user.options")
 require("user.keymaps")
 
 require("user.treesitter")
-require("user.lsp") -- lsp including cmp, snippets
+require("user.lsp") -- lsp including cmp, snippets etc.
 require("user.vimtex")
 
 require("user.whichkey") -- keymaps
 
 
-require("user.dap") -- debug
+require("user.dap") -- debugger
 
 require("user.autopairs")
 require("user.comment")
@@ -23,7 +23,6 @@ require("user.remember") -- remembers last cursor position
 require("user.ufo") -- folds
 require("user.auto-session")
 require("project_nvim").setup()
-
 
 require('leap').add_default_mappings()
 require('flit').setup()
