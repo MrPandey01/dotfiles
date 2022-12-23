@@ -48,7 +48,7 @@ return {
     { condition = tex_utils.in_mathzone, show_condition = tex_utils.in_mathzone }
   ),
 
-  s({ trig = "fr", wordTrig = true, snippetType = 'autosnippet', dscr = '\frac{}{}' },
+  s({ trig = "fra", wordTrig = true, snippetType = 'autosnippet', dscr = '\frac{}{}' },
     fmta(
       "\\frac{<>}{<>} <>",
       {
