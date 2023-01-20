@@ -65,7 +65,7 @@ require('lsp-zero').setup_nvim_cmp({
 
 require("cmp_dictionary").setup({
   dic = {
-    ["*"] = { "~/.local/bin/en.dict" },
+    ["*"] = { "~/.config/nvim/spell/en.dict" },
   },
 })
 

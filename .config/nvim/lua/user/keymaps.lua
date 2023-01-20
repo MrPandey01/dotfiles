@@ -104,15 +104,14 @@ keymap("n", "v[", "vi[", opts)
 keymap("n", "v'", "vi'", opts)
 keymap("n", 'v"', 'vi"', opts)
 
--- For pasting 
+-- For pasting
 -- Original `p` command still works but with a time-delay
-keymap("n", "paw", "\"_dawP", opts)
-keymap("n", "pi{", "\"_di{P", opts)
-keymap("n", "pi}", "\"_di}P", opts)
-keymap("n", "pi(", "\"_di(P", opts)
-keymap("n", "pi)", "\"_di)P", opts)
-keymap("n", "pi]", "\"_di]P", opts)
-keymap("n", "pi[", "\"_di[P", opts)
-keymap("n", "pi'", "\"_di'P", opts)
-keymap("n", 'pi"', '\"_di\"P', opts)
-
+keymap("n", "pw", "\"_dawP", opts)
+keymap("n", "p{", "\"_di{P", opts)
+keymap("n", "p}", "\"_di}P", opts)
+keymap("n", "p(", "\"_di(P", opts)
+keymap("n", "p)", "\"_di)P", opts)
+keymap("n", "p]", "\"_di]P", opts)
+keymap("n", "p[", "\"_di[P", opts)
+keymap("n", "p'", "\"_di'P", opts)
+keymap("n", 'p"', '\"_di\"P', opts)

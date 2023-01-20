@@ -62,7 +62,7 @@ return packer.startup(function(use)
   use 'lervag/vimtex'
   use "lukas-reineke/indent-blankline.nvim"
   use 'goolord/alpha-nvim' -- home page
-  use "folke/which-key.nvim"
+  use {"folke/which-key.nvim", config = use('plugins.whichkey')}
   use 'ggandor/leap.nvim'
   use { 'ggandor/flit.nvim', requires = 'ggandor/leap.nvim' }
   use { 'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async' } -- code folding

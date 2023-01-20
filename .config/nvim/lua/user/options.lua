@@ -38,46 +38,9 @@ vim.opt.wildignore = "*.pyc,*.o,*.obj,*.svn,*.swp,*.class,*.hg,*.DS_Store,*.min.
 vim.opt.shortmess:append("c")
 vim.o.sessionoptions = "blank,buffers,curdir,folds,tabpages,winsize,winpos,terminal,localoptions"
 vim.g.mapleader = "<Space>"
+vim.o.spelllang = "en_us"
 
 -- vim.cmd runs vimscript in [[ ]]
 vim.cmd("set whichwrap+=<,>,[,],h,l")
 vim.cmd([[set iskeyword+=-]])
-vim.cmd([[set formatoptions-=cro]]) -- TODO: this doesn't seem to work
-vim.cmd([[ 
-   " Neovim Synctex setup (requires pip install neovim-remote)
-  function! s:write_server_name() abort
-    let nvim_server_file = (has('win32') ? $TEMP : '/tmp') . '/vimtexserver.txt'
-    call writefile([v:servername], nvim_server_file)
-  endfunction
-
-  augroup vimtex_common
-    autocmd!
-    autocmd FileType tex call s:write_server_name()
-  augroup END
-
-  if empty(v:servername) && exists('*remote_startserver')
-      call remote_startserver('VIM')
-  endif
- ]])
-
-
--- Auto commands
-local augroup = vim.api.nvim_create_augroup('user_cmds', { clear = true })
-
-vim.api.nvim_create_autocmd('FileType', {
-  pattern = { 'help', 'man', 'qf' },
-  group = augroup,
-  desc = 'Use q to close the window',
-  command = 'nnoremap <buffer> q <cmd>quit<cr>'
-})
-
-vim.api.nvim_create_autocmd('TextYankPost', {
-  group = augroup,
-  desc = 'Highlight on yank',
-  callback = function(event)
-    vim.highlight.on_yank({ higroup = 'Visual', timeout = 200 })
-  end
-})
-
--- User commands
-vim.api.nvim_create_user_command('ReloadConfig', 'source $MYVIMRC', {})
+vim.cmd([[set formatoptions+=tcq]])
