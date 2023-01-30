@@ -26,6 +26,22 @@ packer.init {
       return require("packer.util").float { border = "rounded" }
     end,
   },
+  git = {
+    cmd = 'git', -- The base command for git operations
+    subcommands = { -- Format strings for git subcommands
+      update         = 'pull --ff-only --progress --rebase=true',
+      install        = 'clone --depth %i --no-single-branch --progress',
+      fetch          = 'fetch --depth 999999 --progress',
+      checkout       = 'checkout %s --',
+      update_branch  = 'merge --ff-only @{u}',
+      current_branch = 'branch --show-current',
+      diff           = 'log --color=never --pretty=format:FMT --no-show-signature HEAD@{1}...HEAD',
+      diff_fmt       = '%%h %%s (%%cr)',
+      get_rev        = 'rev-parse --short HEAD',
+      get_msg        = 'log --color=never --pretty=format:FMT --no-show-signature HEAD -n 1',
+      submodules     = 'submodule update --init --recursive --progress'
+    },
+},
 }
 
 -- Automatically source and re-compile packer whenever you save this init.lua
@@ -59,19 +75,19 @@ return packer.startup(function(use)
   }
   use "benfowler/telescope-luasnip.nvim"
   use "machakann/vim-sandwich"
-  use 'lervag/vimtex'
+  use "lervag/vimtex"
   use "lukas-reineke/indent-blankline.nvim"
-  use 'goolord/alpha-nvim' -- home page
-  use {"folke/which-key.nvim", config = use('plugins.whichkey')}
-  use 'ggandor/leap.nvim'
-  use { 'ggandor/flit.nvim', requires = 'ggandor/leap.nvim' }
-  use { 'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async' } -- code folding
-  use 'karb94/neoscroll.nvim'
+  use "goolord/alpha-nvim" -- home page
+  use { "folke/which-key.nvim" }
+  use "ggandor/leap.nvim"
+  use { "ggandor/flit.nvim", requires = "ggandor/leap.nvim" }
+  use { "kevinhwang91/nvim-ufo", requires = 'kevinhwang91/promise-async' } -- code folding
+  use "karb94/neoscroll.nvim"
   use "Pocco81/auto-save.nvim"
-  use 'vladdoster/remember.nvim'
-  use 'rmagatti/auto-session'
-  use 'ahmedkhalf/project.nvim'
-  use 'tpope/vim-repeat' -- enables . operator to leap and other plugins
+  use "vladdoster/remember.nvim"
+  use { "rmagatti/auto-session" }
+  use "ahmedkhalf/project.nvim"
+  use "tpope/vim-repeat" -- enables . operator to leap and other plugins
 
   -- Buffers
   use { "akinsho/bufferline.nvim", tag = "v3.*", requires = { 'kyazdani42/nvim-web-devicons' } }
@@ -98,6 +114,8 @@ return packer.startup(function(use)
   -- Syntax highlighting and textobjects
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
   use 'nvim-treesitter/nvim-treesitter-textobjects'
+  use 'nvim-treesitter/playground'
+
   use { 'wellle/targets.vim' } -- extends textobjects
   use "p00f/nvim-ts-rainbow"
 
@@ -155,7 +173,6 @@ return packer.startup(function(use)
 
   -- for fun
   use 'eandrju/cellular-automaton.nvim'
-
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then

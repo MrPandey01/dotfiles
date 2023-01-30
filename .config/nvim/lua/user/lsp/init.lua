@@ -62,6 +62,3 @@ lsp.setup()
 
 -- null-ls is not a part of lsp-zero, hence called after lsp.setup()
 require("user.lsp.null_ls")
-
-
-

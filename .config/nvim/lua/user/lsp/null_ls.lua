@@ -12,7 +12,9 @@ null_ls.setup({
     null_ls.builtins.formatting.black,
     null_ls.builtins.formatting.isort,
     null_ls.builtins.formatting.latexindent,
+    --[[ null_ls.builtins.diagnostics.cspell.with({ ]]
+    --[[   extra_filetypes = {"lua", "tex", "python"}, ]]
+    --[[ }), ]]
     --[[ null_ls.builtins.diagnostics.proselint, ]]
   }
 })
-

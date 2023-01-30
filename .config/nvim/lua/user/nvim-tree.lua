@@ -22,7 +22,6 @@ nvim_tree.setup({
   },
   disable_netrw = true,
   hijack_netrw = true,
-  open_on_setup = false,
   sort_by = "case_sensitive",
   renderer = {
     group_empty = true,

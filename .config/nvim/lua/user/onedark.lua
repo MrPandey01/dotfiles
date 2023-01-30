@@ -28,13 +28,13 @@ require('onedark').setup {
 
   -- Custom Highlights --
   colors = {
-    bg0 = "#212121",
-    bg1 = "#181818",
+    bg0 = "#181818",
+    bg1 = "#212121",
   }, -- Override default colors
 
   highlights = {
-    ["@variable"] = { fg = '#EEFFFF' },
-    ["@field"] = { fg = '#EEFFFF' },
+    ["@variable"] = { fg = '#E8FFFB' },
+    ["@field"] = { fg = '#E8FFFB' },
     ["@parameter"] = { fg = '#F78C6c' },
     ["@string"] = { fg = '#C3E88D' },
     ["@constructor"] = { fg = '#82AAFF', fmt = 'none' },
@@ -47,6 +47,8 @@ require('onedark').setup {
     ["@include"] = { fg = '#89DDFF', fmt = 'italic' },
     ["Folded"] = { fg = '#212121', bg = '#212121' },
     ["MatchParen"] = { bg = nil, fmt='underline' },
+    ["texArg"] = { fg = '#E8FFFB' },
+    ["Normal"] = { fg = '#E8FFFB' },
   },
 
   -- Plugins Config --

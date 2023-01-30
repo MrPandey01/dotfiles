@@ -38,7 +38,11 @@ vim.opt.wildignore = "*.pyc,*.o,*.obj,*.svn,*.swp,*.class,*.hg,*.DS_Store,*.min.
 vim.opt.shortmess:append("c")
 vim.o.sessionoptions = "blank,buffers,curdir,folds,tabpages,winsize,winpos,terminal,localoptions"
 vim.g.mapleader = "<Space>"
+
+-- Spell check settings
 vim.o.spelllang = "en_us"
+vim.o.spelloptions = "camel"
+vim.g.tex_comment_nospell = 1
 
 -- vim.cmd runs vimscript in [[ ]]
 vim.cmd("set whichwrap+=<,>,[,],h,l")
