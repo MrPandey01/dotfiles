@@ -29,11 +29,6 @@ nvim_tree.setup({
   filters = {
     dotfiles = true,
   },
-  ignore_ft_on_setup = {
-    "startify",
-    "dashboard",
-    "alpha",
-  },
   open_on_tab = false,
   hijack_cursor = false,
   update_cwd = true,
