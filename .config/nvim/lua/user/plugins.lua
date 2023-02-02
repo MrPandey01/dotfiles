@@ -41,7 +41,7 @@ packer.init {
       get_msg        = 'log --color=never --pretty=format:FMT --no-show-signature HEAD -n 1',
       submodules     = 'submodule update --init --recursive --progress'
     },
-},
+  },
 }
 
 -- Automatically source and re-compile packer whenever you save this init.lua
@@ -145,6 +145,26 @@ return packer.startup(function(use)
       { 'L3MON4D3/LuaSnip' },
 
     }
+  }
+  use {
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    event = "InsertEnter",
+    config = function()
+      require("copilot").setup({
+        suggestion = { enabled = false },
+        panel = { enabled = false },
+      })
+    end,
+  }
+  use {
+    "zbirenbaum/copilot-cmp",
+    after = { "copilot.lua" },
+    config = function()
+      require("copilot_cmp").setup({
+        method = "getCompletionsCycling",
+      })
+    end
   }
 
   -- Colorschemes and highlighting

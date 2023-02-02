@@ -111,7 +111,7 @@ return {
   ),
 
   parse({ trig = "bitemize", wordTrig = true, dscr = 'begin itemize' },
-    "\\begin{itemize} \n \\item $1 \n \\end{itemize}"),
+    "\\begin{itemize} % default \\setlength\\itemsep{0em} \n \\item $1 \n \\end{itemize}"),
 
   s({ trig = "it", wordTrig = true, snippetType = 'autosnippet', dscr = '\\item' },
     fmta(

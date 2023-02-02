@@ -1,5 +1,6 @@
 -- nvim-cmp setup
 local cmp = require("cmp")
+local lsp = require('lsp-zero')
 
 --   פּ ﯟ   some other good icons
 local kind_icons = {
@@ -28,11 +29,13 @@ local kind_icons = {
   Event = "",
   Operator = "",
   TypeParameter = "",
+  Copilot = "",
 }
 -- find more here: https://www.nerdfonts.com/cheat-sheet
 
-require('lsp-zero').setup_nvim_cmp({
+lsp.setup_nvim_cmp({
   sources = {
+    { name = "copilot" },
     { name = 'luasnip', option = { show_autosnippets = true } },
     { name = 'path' },
     { name = 'buffer' },
@@ -41,11 +44,20 @@ require('lsp-zero').setup_nvim_cmp({
     { name = 'dictionary', keyword_length = 4 },
   },
 
+  mapping = lsp.defaults.cmp_mappings({
+    ["<CR>"] = cmp.mapping.confirm({
+      -- this is the important line
+      behavior = cmp.ConfirmBehavior.Replace,
+      select = false,
+    }),
+  }),
+
   formatting = {
     fields = { "kind", "abbr", "menu" },
     format = function(entry, vim_item)
       vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
       vim_item.menu = ({
+        copilot = "[copilot]",
         path = "[Path]",
         nvim_lsp = "[nvim_lsp]",
         buffer = "[Buffer]",
