@@ -1,4 +1,10 @@
-local lsp = require('lsp-zero')
+local status_ok, lsp = pcall(require, "lsp-zero")
+if not status_ok then
+	vim.notify(lsp, vim.log.levels.ERROR)
+  return
+end
+
+--[[ local lsp = require('lsp-zero') ]]
 lsp.preset('recommended')
 
 -- Disable default keybindings (optional)

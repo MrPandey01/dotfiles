@@ -54,10 +54,10 @@ vim.cmd([[
 
 -- Install your plugins here
 return packer.startup(function(use)
-  use { 'lewis6991/impatient.nvim',
-    config = function()
-      require("impatient") -- Improves Startup Performance
-    end }
+  --[[ use { 'lewis6991/impatient.nvim', ]]
+  --[[   config = function() ]]
+  --[[     require("impatient") -- Improves Startup Performance ]]
+  --[[   end } ]]
   use "wbthomason/packer.nvim" -- Have packer manage itself
   use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
   use "nvim-lua/plenary.nvim" -- Useful lua functions used by lots of plugins
@@ -181,7 +181,7 @@ return packer.startup(function(use)
       require("user.plugins.treesitter")
     end }
   use 'nvim-treesitter/nvim-treesitter-textobjects'
-  use 'nvim-treesitter/playground'
+  use { 'nvim-treesitter/playground' }
 
   use { 'wellle/targets.vim' } -- extends textobjects
   use "p00f/nvim-ts-rainbow"
@@ -273,7 +273,7 @@ return packer.startup(function(use)
   use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }
   use { "nvim-telescope/telescope-dap.nvim", requires = { "mfussenegger/nvim-dap" } }
   use { 'mfussenegger/nvim-dap-python', requires = { "mfussenegger/nvim-dap" } }
-  use { 'jbyuki/one-small-step-for-vimkind' }
+  use { 'jbyuki/one-small-step-for-vimkind', requires = { "mfussenegger/nvim-dap" } }
 
   -- temporary
   use {
@@ -281,8 +281,6 @@ return packer.startup(function(use)
     run = function() vim.fn['firenvim#install'](0) end
   }
 
-  -- for fun
-  use 'eandrju/cellular-automaton.nvim'
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then

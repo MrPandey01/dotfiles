@@ -8,7 +8,7 @@ vim.fn.sign_define('DapStopped', { text = '', texthl = 'DapStopped', linehl =
 require("user.plugins.dap.nvim-dap-virtual-text")
 require("user.plugins.dap.dapui")
 
-local dap, dapui = require "dap", require "dapui"
+local dap, dapui = require("dap"), require("dapui")
 dap.listeners.after.event_initialized["dapui_config"] = function()
   dapui.open()
 end
@@ -19,23 +19,31 @@ dap.listeners.before.event_exited["dapui_config"] = function()
   dapui.close()
 end
 
-require('dap-python').setup('python3')
+-- Python setup
+--[[ local status_ok, dap_python = pcall(require, "dap-python") ]]
+--[[ if not status_ok then ]]
+--[[   vim.notify(dap_python, vim.log.levels.INFO) ]]
+--[[   return ]]
+--[[ else ]]
+require("dap-python").setup('python3')
 
 -- remove default configurations
-local t = require('dap').configurations.python
+local t = dap.configurations.python
 for k in pairs(t) do
   t[k] = nil
 end
-
-table.insert(require('dap').configurations.python, {
+table.insert(dap.configurations.python, {
   type = 'python',
   request = 'launch',
   name = 'Custom launch configuration',
   program = '${file}',
   -- ... more options, see https://github.com/microsoft/debugpy/wiki/Debug-configuration-settings
 })
+--[[ end ]]
 
-require "dap".configurations.lua = {
+
+-- Lua setup
+dap.configurations.lua = {
   {
     type = 'nlua',
     request = 'attach',
