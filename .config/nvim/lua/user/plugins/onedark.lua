@@ -1,4 +1,10 @@
-require('onedark').setup {
+local status_ok, onedark = pcall(require, "onedark")
+if not status_ok then
+	vim.notify(onedark, vim.log.levels.ERROR)
+  return
+end
+
+onedark.setup {
   -- Main options --
   style = 'darker', -- Default theme style. Choose between 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
   transparent = false, -- Show/hide background
@@ -59,4 +65,4 @@ require('onedark').setup {
   },
 }
 
-require('onedark').load()
+onedark.load()

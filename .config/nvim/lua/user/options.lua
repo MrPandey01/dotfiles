@@ -44,6 +44,10 @@ vim.o.spelllang = "en_us"
 vim.o.spelloptions = "camel"
 vim.g.tex_comment_nospell = 1
 
+-- nvim-tree specific setting
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 -- vim.cmd runs vimscript in [[ ]]
 vim.cmd("set whichwrap+=<,>,[,],h,l")
 vim.cmd([[set iskeyword+=-]])

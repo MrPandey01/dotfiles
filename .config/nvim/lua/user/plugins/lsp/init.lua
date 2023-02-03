@@ -55,10 +55,10 @@ lsp.configure('pyright', {
   }
 })
 
-require("user.lsp.cmp")  -- configure cmp 
-require("user.lsp.luasnip")  -- configure luasnip
+require("user.plugins.lsp.cmp")  -- configure cmp 
+require("user.plugins.lsp.luasnip")  -- configure luasnip
 
 lsp.setup()
 
 -- null-ls is not a part of lsp-zero, hence called after lsp.setup()
-require("user.lsp.null_ls")
+require("user.plugins.lsp.null_ls")

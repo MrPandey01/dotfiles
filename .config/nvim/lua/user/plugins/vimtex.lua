@@ -1,3 +1,9 @@
+local status_ok, vimtex = pcall(require, "vimtex")
+if not status_ok then
+	vim.notify(vimtex, vim.log.levels.ERROR)
+  return
+end
+
 -- Vimtex options ---------------------------------
 vim.g.vimtex_syntax_conceal = {
   accents = 1,

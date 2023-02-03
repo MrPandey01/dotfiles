@@ -1,4 +1,10 @@
-require("nvim-treesitter.configs").setup {
+local status_ok, tree_sitter_cfg = pcall(require, "nvim-treesitter.configs")
+if not status_ok then
+	vim.notify(tree_sitter_cfg, vim.log.levels.ERROR)
+  return
+end
+
+tree_sitter_cfg.setup {
   ensure_installed = "all",
   sync_install = false,
   ignore_install = { "" }, -- List of parsers to ignore installing

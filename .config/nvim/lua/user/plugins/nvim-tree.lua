@@ -1,12 +1,17 @@
 -- disable netrw at the very start of your init.lua (strongly advised)
+-- following 2 lines are added in user.options
+--[[ vim.g.loaded_netrw = 1 ]]
+--[[ vim.g.loaded_netrwPlugin = 1 ]]
 
 local status_ok, nvim_tree = pcall(require, "nvim-tree")
 if not status_ok then
+	vim.notify(nvim_tree, vim.log.levels.ERROR)
   return
 end
 
 local config_status_ok, nvim_tree_config = pcall(require, "nvim-tree.config")
 if not config_status_ok then
+	vim.notify(nvim_tree_config, vim.log.levels.ERROR)
   return
 end
 

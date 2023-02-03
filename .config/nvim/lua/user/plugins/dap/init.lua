@@ -5,8 +5,8 @@ vim.fn.sign_define('DapBreakpointRejected',
 vim.fn.sign_define('DapLogPoint', { text = '', texthl = 'DapLogPoint', linehl = 'DapLogPoint', numhl = 'DapLogPoint' })
 vim.fn.sign_define('DapStopped', { text = '', texthl = 'DapStopped', linehl = 'DapStopped', numhl = 'DapStopped' })
 
-require("user.dap.nvim-dap-virtual-text")
-require("user.dap.dapui")
+require("user.plugins.dap.nvim-dap-virtual-text")
+require("user.plugins.dap.dapui")
 
 local dap, dapui = require "dap", require "dapui"
 dap.listeners.after.event_initialized["dapui_config"] = function()

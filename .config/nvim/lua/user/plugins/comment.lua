@@ -1,4 +1,9 @@
-local comment = require("Comment")
+local status_ok, comment = pcall(require, "Comment")
+if not status_ok then
+	vim.notify(comment, vim.log.levels.ERROR)
+  return
+end
+
 comment.setup({
   ignore = '^$', -- ignores empty lines
   pre_hook = function(ctx)

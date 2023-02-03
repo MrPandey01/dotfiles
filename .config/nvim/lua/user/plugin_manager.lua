@@ -54,11 +54,18 @@ vim.cmd([[
 
 -- Install your plugins here
 return packer.startup(function(use)
+  use { 'lewis6991/impatient.nvim',
+    config = function()
+      require("impatient") -- Improves Startup Performance
+    end }
   use "wbthomason/packer.nvim" -- Have packer manage itself
-  use 'lewis6991/impatient.nvim'
   use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
   use "nvim-lua/plenary.nvim" -- Useful lua functions used by lots of plugins
-  use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
+  use { "windwp/nvim-autopairs",
+    config = function()
+      require("user.plugins.autopairs")
+    end } -- Autopairs, integrates with both cmp and treesitter
+
   use { 'nvim-telescope/telescope.nvim', branch = '0.1.x',
     requires = { 'nvim-lua/plenary.nvim' } }
   use { 'nvim-telescope/telescope-fzf-native.nvim',
@@ -73,28 +80,79 @@ return packer.startup(function(use)
     end,
     requires = { "kkharji/sqlite.lua" }
   }
-  use "benfowler/telescope-luasnip.nvim"
+  use { "benfowler/telescope-luasnip.nvim",
+    config = function()
+      require("telescope").load_extension("luasnip")
+    end, }
+
   use "machakann/vim-sandwich"
-  use "lervag/vimtex"
-  use "lukas-reineke/indent-blankline.nvim"
-  use "goolord/alpha-nvim" -- home page
-  use { "folke/which-key.nvim" }
-  use "ggandor/leap.nvim"
-  use { "ggandor/flit.nvim", requires = "ggandor/leap.nvim" }
-  use { "kevinhwang91/nvim-ufo", requires = 'kevinhwang91/promise-async' } -- code folding
-  use "karb94/neoscroll.nvim"
-  use "Pocco81/auto-save.nvim"
-  use "vladdoster/remember.nvim"
-  use { "rmagatti/auto-session" }
-  use "ahmedkhalf/project.nvim"
+  use { "lervag/vimtex",
+    ft = { "tex", "bib" },
+    config = function()
+      require("user.plugins.vimtex")
+    end
+  }
+  use { "lukas-reineke/indent-blankline.nvim",
+    config = function()
+      require("user.plugins.indentline")
+    end }
+  use { "goolord/alpha-nvim",
+    config = function()
+      require("user.plugins.alpha") -- home screen
+    end } -- home page
+  use { "folke/which-key.nvim",
+    config = function()
+      require("user.plugins.whichkey") -- keymaps
+    end }
+  use { "ggandor/leap.nvim",
+    config = function()
+      require('leap').add_default_mappings()
+    end }
+  use { "ggandor/flit.nvim", requires = "ggandor/leap.nvim",
+    config = function()
+      require('flit').setup()
+    end }
+  use { "kevinhwang91/nvim-ufo",
+    requires = 'kevinhwang91/promise-async',
+    config = function()
+      require("user.plugins.ufo") -- folds
+    end } -- code folding
+  use { "karb94/neoscroll.nvim",
+    config = function()
+      require('neoscroll').setup() -- smooth scrolling
+    end }
+  use { "Pocco81/auto-save.nvim",
+    config = function()
+      require("user.plugins.autosave")
+    end, }
+  use { "vladdoster/remember.nvim",
+    config = function()
+      require("user.plugins.remember")
+    end, }
+  use { "rmagatti/auto-session",
+    config = function()
+      require("user.plugins.auto-session")
+    end, }
+  use { "ahmedkhalf/project.nvim",
+    config = function()
+      require("project_nvim").setup()
+      require('telescope').load_extension('projects')
+    end, }
   use "tpope/vim-repeat" -- enables . operator to leap and other plugins
 
   -- Buffers
-  use { "akinsho/bufferline.nvim", tag = "v3.*", requires = { 'kyazdani42/nvim-web-devicons' } }
+  use { "akinsho/bufferline.nvim", tag = "v3.*", requires = { 'kyazdani42/nvim-web-devicons' },
+    config = function()
+      require("user.plugins.bufferline")
+    end }
   use "moll/vim-bbye"
 
   -- Comment
-  use "numToStr/Comment.nvim"
+  use { "numToStr/Comment.nvim",
+    config = function()
+      require("user.plugins.comment")
+    end
+  }
   use 'JoosepAlviste/nvim-ts-context-commentstring'
 
   -- Docstrings and annotations
@@ -109,10 +167,19 @@ return packer.startup(function(use)
   }
 
   -- File explorer
-  use { 'kyazdani42/nvim-tree.lua', requires = { 'kyazdani42/nvim-web-devicons', }, }
+  use { 'kyazdani42/nvim-tree.lua',
+    requires = { 'kyazdani42/nvim-web-devicons', },
+    config = function()
+      require("user.plugins.nvim-tree")
+    end }
+
 
   -- Syntax highlighting and textobjects
-  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+  use { 'nvim-treesitter/nvim-treesitter',
+    run = ':TSUpdate',
+    config = function()
+      require("user.plugins.treesitter")
+    end }
   use 'nvim-treesitter/nvim-treesitter-textobjects'
   use 'nvim-treesitter/playground'
 
@@ -144,7 +211,10 @@ return packer.startup(function(use)
       -- Snippets
       { 'L3MON4D3/LuaSnip' },
 
-    }
+    },
+    config = function()
+      require("user.plugins.lsp")
+    end
   }
   use {
     "zbirenbaum/copilot.lua",
@@ -169,16 +239,36 @@ return packer.startup(function(use)
 
   -- Colorschemes and highlighting
   use "kyazdani42/nvim-web-devicons"
-  use 'navarasu/onedark.nvim'
-  use { 'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons', opt = true } }
-  use { 'm-demare/hlargs.nvim', requires = { 'nvim-treesitter/nvim-treesitter' } }
-  use { 'norcalli/nvim-colorizer.lua' }
+  use { 'navarasu/onedark.nvim',
+    config = function()
+      require("user.plugins.onedark")
+    end }
+  use { 'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons', opt = true },
+    config = function()
+      require("user.plugins.lualine")
+    end }
+  use { 'm-demare/hlargs.nvim', requires = { 'nvim-treesitter/nvim-treesitter' },
+    config = function()
+      require("hlargs").setup()
+    end }
+
+  use { 'norcalli/nvim-colorizer.lua',
+    config = function()
+      require('colorizer').setup()
+    end }
+
 
   -- Git
-  use "lewis6991/gitsigns.nvim"
+  use { "lewis6991/gitsigns.nvim",
+    config = function()
+      require("user.plugins.gitsigns")
+    end, }
 
   -- Debugging
-  use { "mfussenegger/nvim-dap" }
+  use { "mfussenegger/nvim-dap",
+    config = function()
+      require("user.plugins.dap") -- debugger
+    end }
   use { 'theHamsta/nvim-dap-virtual-text', requires = { "mfussenegger/nvim-dap" } }
   use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }
   use { "nvim-telescope/telescope-dap.nvim", requires = { "mfussenegger/nvim-dap" } }
