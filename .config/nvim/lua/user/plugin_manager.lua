@@ -44,14 +44,6 @@ packer.init {
   },
 }
 
--- Automatically source and re-compile packer whenever you save this init.lua
-vim.cmd([[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerCompile
-  augroup end
-]])
-
 -- Install your plugins here
 return packer.startup(function(use)
   --[[ use { 'lewis6991/impatient.nvim', ]]
@@ -275,7 +267,6 @@ return packer.startup(function(use)
   use { 'mfussenegger/nvim-dap-python', requires = { "mfussenegger/nvim-dap" } }
   use { 'jbyuki/one-small-step-for-vimkind', requires = { "mfussenegger/nvim-dap" } }
 
-  -- temporary
   use {
     'glacambre/firenvim',
     run = function() vim.fn['firenvim#install'](0) end
