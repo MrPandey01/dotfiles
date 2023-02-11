@@ -106,6 +106,8 @@ alias py='python3'
 alias gpu='watch nvidia-smi'
 alias src='source'
 
+alias nv='nvim'
+
 # Tmux
 # alias tmux='TERM=screen-256color-bce tmux'
 alias tl='tmux list-sessions'
@@ -257,20 +259,22 @@ function fav {
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('$HOME/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('/home/maverick/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "$HOME/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "$HOME/miniconda3/etc/profile.d/conda.sh"
+    if [ -f "/home/maverick/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/maverick/miniconda3/etc/profile.d/conda.sh"
     else
-        export PATH="$HOME/miniconda3/bin:$PATH"
+        export PATH="/home/maverick/miniconda3/bin:$PATH"
     fi
 fi
 unset __conda_setup
 # <<< conda initialize <<<
 
 fpath+=${ZDOTDIR:-~}/.zsh_functions
+fpath+=~/.zfunc
+autoload -Uz compinit && compinit
 
 export PYTHONBREAKPOINT="pudb.set_trace"
 

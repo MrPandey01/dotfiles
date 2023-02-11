@@ -75,6 +75,14 @@ lsp.setup_nvim_cmp({
   end
 })
 
+cmp.event:on("menu_opened", function()
+  vim.b.copilot_suggestion_hidden = true
+end)
+
+cmp.event:on("menu_closed", function()
+  vim.b.copilot_suggestion_hidden = false
+end)
+
 require("cmp_dictionary").setup({
   dic = {
     ["*"] = { "~/.config/nvim/spell/en.dict" },
@@ -88,6 +96,12 @@ cmp.setup.filetype('gitcommit', {
   }, {
     { name = 'buffer' },
   })
+})
+
+cmp.setup.filetype({ "dap-repl", "dapui_watches", "dapui_hover" }, {
+  sources = {
+    { name = "dap" },
+  },
 })
 
 -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
@@ -106,10 +120,4 @@ cmp.setup.cmdline(':', {
   }, {
     { name = 'cmdline' }
   })
-})
-
-cmp.setup.filetype({ "dap-repl", "dapui_watches", "dapui_hover" }, {
-  sources = {
-    { name = "dap" },
-  },
 })

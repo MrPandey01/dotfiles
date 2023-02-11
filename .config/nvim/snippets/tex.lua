@@ -33,6 +33,10 @@ tex_utils.in_itemize = function()
   return tex_utils.in_env("itemize")
 end
 
+tex_utils.in_enumerate = function()
+  return tex_utils.in_env("enumerate")
+end
+
 -- ----------------------------------------------------------------------------
 return {
 
@@ -71,10 +75,10 @@ return {
   ),
 
   parse({ trig = "$",
-          wordTrig = true,
-          snippetType = 'autosnippet',
-          dscr = 'in-line math' },
-        "$ $1 $ $0"),
+    wordTrig = true,
+    snippetType = 'autosnippet',
+    dscr = 'in-line math' },
+    "$ $1 $ $0"),
 
   parse({ trig = "...", wordTrig = true, snippetType = 'autosnippet', dscr = '\\ldots' }, "\\ldots $0"),
 
@@ -118,7 +122,8 @@ return {
       "\\item <>",
       { i(0), }
     ),
-    { condition = tex_utils.in_itemize, show_condition = tex_utils.in_itemize }
+    { condition =  tex_utils.in_itemize,
+      show_condition = tex_utils.in_itemize }
   ),
 
   parse({ trig = "beg", wordTrig = true, dscr = 'begin env' },
@@ -151,6 +156,15 @@ return {
     " \\begin{enumerate} \n \
       \\item  ${1} \n \
       \\end{enumerate}"),
+
+  s({ trig = "it", wordTrig = true, snippetType = 'autosnippet', dscr = '\\item' },
+    fmta(
+      "\\item <>",
+      { i(0), }
+    ),
+    { condition =  tex_utils.in_enumerate,
+      show_condition = tex_utils.in_enumerate }
+  ),
 
   parse({ trig = "bmatrix", wordTrig = true, dscr = 'begin matrix' },
     " \\begin{bmatrix} \n \
@@ -236,6 +250,14 @@ return {
     )
   ),
 
+  s({ trig = "underline", dscr = "\\underline{$VISUAL}" },
+    fmta("\\underline{<>}",
+      {
+        d(1, get_visual),
+      }
+    )
+  ),
+
   s({ trig = "textbf", dscr = "\\textbf{$VISUAL}" },
     fmta("\\textbf{<>}",
       {
@@ -277,7 +299,33 @@ return {
       \\tabfigure{height=1cm, width=1cm}{$0} \
     \\end{tabu} \
     \\end{figure} \
-    \\end{document} "),
+    \\end{document} \
+  "),
 
+  parse({ trig = "template_article", wordTrig = true, dscr = 'basic article' },
+    " \
+    \\documentclass[12pt]{article} \
+    \
+    \\title{TITLE} \
+    \\author{someone} \
+    \\date{\\today} \
+    % sans-serif font \
+    \\renewcommand{\\familydefault}{\\sfdefault} \
+    \
+    \\begin{document} \
+    \\maketitle \
+    \
+    \\begin{abstract} \
+    some abstract \
+    \\end{abstract} \
+    \
+    \\section{Introduction} \
+    This is time for all good men to come to the aid of their party\
+    \
+    \\bibliographystyle{abbrv}\
+    \\bibliography{main}\
+    \
+    \\end{document} \
+  "),
 
 }

@@ -173,7 +173,7 @@ local mappings = {
   },
   s = {
     name = "Source",
-    l = { "<cmd>source ~/.config/nvim/lua/user/lsp/luasnip.lua<cr>", "LuaSnippets" },
+    l = { "<cmd>source ~/.config/nvim/lua/user/plugins/lsp/luasnip.lua<cr>", "LuaSnippets" },
   },
   t = {
     name = "Toggle",
