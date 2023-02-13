@@ -122,7 +122,7 @@ return {
       "\\item <>",
       { i(0), }
     ),
-    { condition =  tex_utils.in_itemize,
+    { condition = tex_utils.in_itemize,
       show_condition = tex_utils.in_itemize }
   ),
 
@@ -162,7 +162,7 @@ return {
       "\\item <>",
       { i(0), }
     ),
-    { condition =  tex_utils.in_enumerate,
+    { condition = tex_utils.in_enumerate,
       show_condition = tex_utils.in_enumerate }
   ),
 
@@ -302,9 +302,24 @@ return {
     \\end{document} \
   "),
 
+
   parse({ trig = "template_article", wordTrig = true, dscr = 'basic article' },
     " \
     \\documentclass[12pt]{article} \
+    \\usepackage[colorlinks = true, \
+      linkcolor = blue, \
+      urlcolor  = blue, \
+      citecolor = blue, \
+      anchorcolor = blue]{hyperref} \
+    \\usepackage{geometry} \
+    \\geometry{ \
+      a4paper, \
+      % total={170mm,257mm}, \
+      left=1in, \
+      right=1in, \
+      top=1in, \
+      bottom=1in,\
+    }\
     \
     \\title{TITLE} \
     \\author{someone} \
@@ -325,6 +340,71 @@ return {
     \\bibliographystyle{abbrv}\
     \\bibliography{main}\
     \
+    \\end{document} \
+  "),
+
+  parse({ trig = "template_letter", wordTrig = true, dscr = 'basic letter' },
+    " \
+    \\documentclass[a4paper, 11pt]{letter} \
+    \\usepackage[colorlinks = true, \
+    linkcolor = blue, \
+    urlcolor  = blue, \
+    citecolor = blue, \
+    anchorcolor = blue]{hyperref} \
+    \\usepackage{geometry} \
+    \\geometry{ \
+    a4paper, \
+    % total={170mm,257mm}, \
+    left=1in, \
+    right=1in, \
+    top=1in, \
+    bottom=1in, \
+    } \
+    \\usepackage{pdfpages} \
+    \
+    % sans-serif font \
+    \\renewcommand{\\familydefault}{\\sfdefault} \
+    \
+    % Name of sender \
+    \\name{NAME} \
+    \
+    % Signature of sender \
+    \\signature{NAME} \
+    \
+    % Address of sender \
+    \\address \
+    { \
+      line 1 \\ \
+      line 2 \\ \
+    } \
+    \\date{\\today} \
+    \
+    \
+    \\begin{document} \
+    \
+      \\begin{letter} \
+      { \
+        To: \\ \
+        The xyz \\ \
+        line 1 \\ \
+        line 2 \\ \
+        \\vspace*{0.5cm} \
+        \\textbf{Subject: something}\\ \
+        \
+        % Opening statement \
+        \\opening{Dear Consular Officer,} \
+        \
+        % Letter body \
+        \
+        something ... \
+        \
+        Yours sincerely,\\ \
+        \
+        xyz  \
+        \
+        \\closing{Yours truly,} \
+        \
+      \\end{letter} \
     \\end{document} \
   "),
 
