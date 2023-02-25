@@ -80,7 +80,8 @@ return {
     dscr = 'in-line math' },
     "$ $1 $ $0"),
 
-  parse({ trig = "...", wordTrig = true, snippetType = 'autosnippet', dscr = '\\ldots' }, "\\ldots $0"),
+  parse({ trig = "...", wordTrig = true, snippetType = 'autosnippet', dscr =
+    '\\ldots' }, "\\ldots $0"),
 
 
   s({ trig = "^", wordTrig = true, snippetType = 'autosnippet', dscr = 'superscript box' },

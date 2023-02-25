@@ -40,10 +40,8 @@ end)
 
 
 lsp.ensure_installed({
-  "sumneko_lua",
   "pyright",
   "texlab",
-  "sumneko_lua",
   "marksman",
   "sqlls",
   "yamlls",

@@ -267,10 +267,10 @@ return packer.startup(function(use)
   use { 'mfussenegger/nvim-dap-python', requires = { "mfussenegger/nvim-dap" } }
   use { 'jbyuki/one-small-step-for-vimkind', requires = { "mfussenegger/nvim-dap" } }
 
-  use {
-    'glacambre/firenvim',
-    run = function() vim.fn['firenvim#install'](0) end
-  }
+  --[[ use { ]]
+  --[[   'glacambre/firenvim', ]]
+  --[[   run = function() vim.fn['firenvim#install'](0) end ]]
+  --[[ } ]]
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
