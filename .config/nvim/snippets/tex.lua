@@ -64,9 +64,10 @@ return {
     { condition = tex_utils.in_mathzone, show_condition = tex_utils.in_mathzone }
   ),
 
-  s({ trig = "top", wordTrig = true, snippetType = 'autosnippet', dscr = '^\top' },
+  s({ trig = "top", wordTrig = false, snippetType = 'autosnippet', dscr =
+    '^\top' },
     fmta(
-      "^\\top <>",
+      "^{\\top} <>",
       {
         i(0)
       }
@@ -168,7 +169,7 @@ return {
   ),
 
   parse({ trig = "bmatrix", wordTrig = true, dscr = 'begin matrix' },
-    " \\begin{bmatrix} \n \
+    " \\begin{bmatrix} \
         $1 & $2 \\\\ \
         $3 & $4 \
       \\end{bmatrix}"),
@@ -216,7 +217,7 @@ return {
     \\end{figure} "),
 
   parse({ trig = "norm", wordTrig = true },
-    "\\lvert ${1:$SELECT_DEDENT} \\rvert"),
+    "\\lVert ${1:$SELECT_DEDENT} \\rVert"),
 
   parse({ trig = "*", wordTrig = true },
     "\\cdot "),

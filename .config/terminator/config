@@ -2,6 +2,7 @@
   focus = system
   geometry_hinting = True
   borderless = True
+  tab_position = hidden
   title_hide_sizetext = True
   inactive_color_offset = 0.8522727272727273
   enabled_plugins = ActivityWatch, LaunchpadBugURLHandler, LaunchpadCodeURLHandler, APTURLHandler, TerminatorThemes
