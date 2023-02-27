@@ -54,7 +54,7 @@ return {
 
   s({ trig = "fra", wordTrig = true, snippetType = 'autosnippet', dscr = '\frac{}{}' },
     fmta(
-      "\\frac{<>}{<>} <>",
+      "\\frac{ <> }{ <> } <>",
       {
         i(1),
         i(2),
@@ -76,7 +76,7 @@ return {
   ),
 
   parse({ trig = "$",
-    wordTrig = true,
+    wordTrig = false,
     snippetType = 'autosnippet',
     dscr = 'in-line math' },
     "$ $1 $ $0"),
@@ -85,9 +85,10 @@ return {
     '\\ldots' }, "\\ldots $0"),
 
 
-  s({ trig = "^", wordTrig = true, snippetType = 'autosnippet', dscr = 'superscript box' },
+  s({ trig = "^", wordTrig = false, snippetType = 'autosnippet', dscr =
+    'superscript box' },
     fmta(
-      "^{<>} <>",
+      "^{ <> } <>",
       {
         i(1),
         i(0)
@@ -96,9 +97,10 @@ return {
     { condition = tex_utils.in_mathzone, show_condition = tex_utils.in_mathzone }
   ),
 
-  s({ trig = "_", wordTrig = true, snippetType = 'autosnippet', dscr = 'subscript box' },
+  s({ trig = "_", wordTrig = false, snippetType = 'autosnippet', dscr =
+    'subscript box' },
     fmta(
-      "_{<>} <>",
+      "_{ <> } <>",
       {
         i(1),
         i(0)
@@ -223,7 +225,7 @@ return {
     "\\cdot "),
 
   parse({ trig = "sum", wordTrig = true },
-    [[\sum^{$1}_{$2}]]),
+    [[\sum_{$1}^{$2}]]),
 
   parse({ trig = "int", wordTrig = true },
     [[\int_{${1:lower}}^{${2:upper}} $3 \\,d$4]]),
