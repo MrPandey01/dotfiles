@@ -9,13 +9,13 @@ if not status_ok then
   return
 end
 
-local config_status_ok, nvim_tree_config = pcall(require, "nvim-tree.config")
-if not config_status_ok then
-	vim.notify(nvim_tree_config, vim.log.levels.ERROR)
-  return
-end
+--[[ local config_status_ok, nvim_tree_config = pcall(require, "nvim-tree.config") ]]
+--[[ if not config_status_ok then ]]
+--[[ 	vim.notify(nvim_tree_config, vim.log.levels.ERROR) ]]
+--[[   return ]]
+--[[ end ]]
 
-local tree_cb = nvim_tree_config.nvim_tree_callback
+--[[ local tree_cb = nvim_tree_config.nvim_tree_callback ]]
 
 
 nvim_tree.setup({
@@ -62,7 +62,6 @@ nvim_tree.setup({
         { key = "h", action = "close_node" },
         { key = "s", action = "vsplit" },
         { key = "t", action = "tabnew" },
-        { key = "H", cb = tree_cb("toggle_dotfiles") },
       },
     },
     number = false,
