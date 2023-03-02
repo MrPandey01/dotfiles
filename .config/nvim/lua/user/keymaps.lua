@@ -58,9 +58,9 @@ keymap('v', 'H', '^', opts)
 keymap('v', 'L', '$', opts)
 
 -- For escaping
-keymap("i", "kk", "<ESC>", opts)
-keymap("i", "jj", "<ESC>", opts)
-keymap("i", "hh", "<ESC>", opts)
+--[[ keymap("i", "kk", "<ESC>", opts) ]]
+--[[ keymap("i", "jj", "<ESC>", opts) ]]
+--[[ keymap("i", "hh", "<ESC>", opts) ]]
 
 -- For navigation (treat line breaks as new lines)
 keymap("v", "j", "gj", opts)

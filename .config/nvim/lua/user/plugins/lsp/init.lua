@@ -41,7 +41,6 @@ end)
 
 lsp.ensure_installed({
   "pyright",
-  "texlab",
   "marksman",
   "sqlls",
   "yamlls",

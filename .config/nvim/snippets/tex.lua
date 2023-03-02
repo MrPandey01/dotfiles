@@ -76,7 +76,7 @@ return {
   ),
 
   parse({ trig = "$",
-    wordTrig = false,
+    wordTrig = true,
     snippetType = 'autosnippet',
     dscr = 'in-line math' },
     "$ $1 $ $0"),
@@ -247,9 +247,10 @@ return {
   ),
 
   s({ trig = "emph", dscr = "\\emph{$VISUAL}" },
-    fmta("\\emph{<>}",
+    fmta("\\emph{<>} <>",
       {
         d(1, get_visual),
+        d(0)
       }
     )
   ),

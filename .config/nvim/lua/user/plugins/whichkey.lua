@@ -1,6 +1,6 @@
 local status_ok, which_key = pcall(require, "which-key")
 if not status_ok then
-	vim.notify(which_key, vim.log.levels.ERROR)
+  vim.notify(which_key, vim.log.levels.ERROR)
   return
 end
 
@@ -173,7 +173,8 @@ local mappings = {
   },
   s = {
     name = "Source",
-    l = { "<cmd>source ~/.config/nvim/lua/user/plugins/lsp/luasnip.lua<cr>", "LuaSnippets" },
+    l = { "<cmd>source ~/.config/nvim/lua/user/plugins/lsp/luasnip.lua | lua print('Reloaded snippets') <cr>",
+      "LuaSnippets" },
   },
   t = {
     name = "Toggle",
@@ -188,7 +189,6 @@ local mappings = {
     t = { '<cmd>VimtexTocToggle<cr>', 'Table of Contents' },
     v = { '<cmd>VimtexView<cr>', 'View' },
   },
-
   ["w"] = { "<cmd>w<CR>", "Write/Save" },
   ["q"] = { "<cmd>q!<CR>", "Quit" },
   ["z"] = { "<cmd>wq!<CR>", "Write & Quite" },
