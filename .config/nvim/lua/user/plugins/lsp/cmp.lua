@@ -44,13 +44,13 @@ lsp.setup_nvim_cmp({
     { name = 'dictionary', keyword_length = 4 },
   },
 
-  mapping = lsp.defaults.cmp_mappings({
-    ["<CR>"] = cmp.mapping.confirm({
-      -- this is the important line
-      behavior = cmp.ConfirmBehavior.Replace,
-      select = false,
-    }),
-  }),
+  --[[ mapping = lsp.defaults.cmp_mappings({ ]]
+  --[[   ["<CR>"] = cmp.mapping.confirm({ ]]
+  --[[     -- this is the important line ]]
+  --[[     behavior = cmp.ConfirmBehavior.Replace, ]]
+  --[[     select = false, ]]
+  --[[   }), ]]
+  --[[ }), ]]
 
   formatting = {
     fields = { "kind", "abbr", "menu" },

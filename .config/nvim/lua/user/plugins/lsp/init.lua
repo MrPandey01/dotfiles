@@ -42,7 +42,6 @@ end)
 lsp.ensure_installed({
   "pyright",
   "marksman",
-  "sqlls",
   "yamlls",
 })
 
