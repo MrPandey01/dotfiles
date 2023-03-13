@@ -119,7 +119,7 @@ return {
   ),
 
   parse({ trig = "bitemize", wordTrig = true, dscr = 'begin itemize' },
-    "\\begin{itemize} % default \\setlength\\itemsep{0em} \n \\item $1 \n \\end{itemize}"),
+    "\\begin{itemize} % \\setlength\\itemsep{0em} \n \\item $1 \n \\end{itemize}"),
 
   s({ trig = "it", wordTrig = true, snippetType = 'autosnippet', dscr = '\\item' },
     fmta(
@@ -157,7 +157,7 @@ return {
     \\begin{frame} \n \\frametitle{$1} \n $2 \n \\end{frame}"),
 
   parse({ trig = "benumerate", wordTrig = true, dscr = 'begin enumerate' },
-    " \\begin{enumerate} \n \
+    " \\begin{enumerate} % \\setlength\\itemsep{0em} \n \
       \\item  ${1} \n \
       \\end{enumerate}"),
 
