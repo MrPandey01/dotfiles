@@ -46,10 +46,6 @@ packer.init {
 
 -- Install your plugins here
 return packer.startup(function(use)
-  --[[ use { 'lewis6991/impatient.nvim', ]]
-  --[[   config = function() ]]
-  --[[     require("impatient") -- Improves Startup Performance ]]
-  --[[   end } ]]
   use "wbthomason/packer.nvim" -- Have packer manage itself
   use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
   use "nvim-lua/plenary.nvim" -- Useful lua functions used by lots of plugins
@@ -266,11 +262,6 @@ return packer.startup(function(use)
   use { "nvim-telescope/telescope-dap.nvim", requires = { "mfussenegger/nvim-dap" } }
   use { 'mfussenegger/nvim-dap-python', requires = { "mfussenegger/nvim-dap" } }
   use { 'jbyuki/one-small-step-for-vimkind', requires = { "mfussenegger/nvim-dap" } }
-
-  --[[ use { ]]
-  --[[   'glacambre/firenvim', ]]
-  --[[   run = function() vim.fn['firenvim#install'](0) end ]]
-  --[[ } ]]
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
