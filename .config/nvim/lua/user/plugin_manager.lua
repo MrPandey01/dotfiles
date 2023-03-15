@@ -27,8 +27,9 @@ packer.init {
     end,
   },
   git = {
-    cmd = 'git', -- The base command for git operations
-    subcommands = { -- Format strings for git subcommands
+    cmd = 'git',    -- The base command for git operations
+    subcommands = {
+                    -- Format strings for git subcommands
       update         = 'pull --ff-only --progress --rebase=true',
       install        = 'clone --depth %i --no-single-branch --progress',
       fetch          = 'fetch --depth 999999 --progress',
@@ -47,8 +48,8 @@ packer.init {
 -- Install your plugins here
 return packer.startup(function(use)
   use "wbthomason/packer.nvim" -- Have packer manage itself
-  use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
-  use "nvim-lua/plenary.nvim" -- Useful lua functions used by lots of plugins
+  use "nvim-lua/popup.nvim"    -- An implementation of the Popup API from vim in Neovim
+  use "nvim-lua/plenary.nvim"  -- Useful lua functions used by lots of plugins
   use { "windwp/nvim-autopairs",
     config = function()
       require("user.plugins.autopairs")
@@ -87,7 +88,7 @@ return packer.startup(function(use)
   use { "goolord/alpha-nvim",
     config = function()
       require("user.plugins.alpha") -- home screen
-    end } -- home page
+    end }                           -- home page
   use { "folke/which-key.nvim",
     config = function()
       require("user.plugins.whichkey") -- keymaps
@@ -104,7 +105,7 @@ return packer.startup(function(use)
     requires = 'kevinhwang91/promise-async',
     config = function()
       require("user.plugins.ufo") -- folds
-    end } -- code folding
+    end }                         -- code folding
   use { "karb94/neoscroll.nvim",
     config = function()
       require('neoscroll').setup() -- smooth scrolling
@@ -191,6 +192,7 @@ return packer.startup(function(use)
       { 'hrsh7th/cmp-nvim-lsp' },
       { 'hrsh7th/cmp-nvim-lua' },
       { 'hrsh7th/cmp-cmdline' },
+      { 'hrsh7th/cmp-omni' },
       { 'uga-rosa/cmp-dictionary' },
       { 'hrsh7th/cmp-nvim-lsp-signature-help' },
       { 'quangnguyen30192/cmp-nvim-tags' },

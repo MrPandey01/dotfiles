@@ -14,7 +14,7 @@ lsp.set_preferences({
 
 lsp.on_attach(function(client, bufnr)
   -- Enable completion triggered by <c-x><c-o>
-  vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+  --[[ vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc') ]]
 
   -- Mappings.
   -- See `:help vim.lsp.*` for documentation on any of the below functions
@@ -43,6 +43,7 @@ lsp.ensure_installed({
   "pyright",
   "marksman",
   "yamlls",
+  "lua_ls",
 })
 
 lsp.configure('pyright', {

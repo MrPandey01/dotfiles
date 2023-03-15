@@ -35,29 +35,22 @@ local kind_icons = {
 
 lsp.setup_nvim_cmp({
   sources = {
+    { name = 'omni' },
     { name = "copilot" },
-    { name = 'luasnip', option = { show_autosnippets = true } },
+    { name = 'luasnip',                option = { show_autosnippets = true } },
     { name = 'path' },
     { name = 'buffer' },
     { name = 'nvim_lsp' },
     { name = 'nvim_lsp_signature_help' },
-    { name = 'dictionary', keyword_length = 4 },
+    { name = 'dictionary',             keyword_length = 4 },
   },
-
-  --[[ mapping = lsp.defaults.cmp_mappings({ ]]
-  --[[   ["<CR>"] = cmp.mapping.confirm({ ]]
-  --[[     -- this is the important line ]]
-  --[[     behavior = cmp.ConfirmBehavior.Replace, ]]
-  --[[     select = false, ]]
-  --[[   }), ]]
-  --[[ }), ]]
-
   formatting = {
     fields = { "kind", "abbr", "menu" },
     format = function(entry, vim_item)
       vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
       vim_item.menu = ({
-        copilot = "[copilot]",
+        omni = "[Omni]",
+        copilot = "[Copilot]",
         path = "[Path]",
         nvim_lsp = "[nvim_lsp]",
         buffer = "[Buffer]",
@@ -68,7 +61,6 @@ lsp.setup_nvim_cmp({
       return vim_item
     end,
   },
-
   enabled = function()
     return vim.api.nvim_buf_get_option(0, "buftype") ~= "prompt"
         or require("cmp_dap").is_dap_buffer()
