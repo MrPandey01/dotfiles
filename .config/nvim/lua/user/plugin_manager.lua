@@ -27,9 +27,9 @@ packer.init {
     end,
   },
   git = {
-    cmd = 'git',    -- The base command for git operations
+    cmd = 'git', -- The base command for git operations
     subcommands = {
-                    -- Format strings for git subcommands
+      -- Format strings for git subcommands
       update         = 'pull --ff-only --progress --rebase=true',
       install        = 'clone --depth %i --no-single-branch --progress',
       fetch          = 'fetch --depth 999999 --progress',
@@ -124,7 +124,7 @@ return packer.startup(function(use)
     end, }
   use { "ahmedkhalf/project.nvim",
     config = function()
-      require("project_nvim").setup()
+      require("project_nvim").setup({})
       require('telescope').load_extension('projects')
     end, }
   use "tpope/vim-repeat" -- enables . operator to leap and other plugins
