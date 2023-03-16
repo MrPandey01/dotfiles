@@ -37,7 +37,6 @@ vim.opt.guifont = "SauceCodePro Nerd Font Mono:h11" -- the font used in graphica
 vim.opt.wildignore = "*.pyc,*.o,*.obj,*.svn,*.swp,*.class,*.hg,*.DS_Store,*.min.*,*.tmp,*.toc,*.aux,*.log,*.bbl,*.blg,*.log,*.lof,*.lot,*.ilg,*.out,*.glo,*.gls,*.nlo,*.nls,*.brf,*.ist,*.glg,*.synctex.gz,*.tgz,*.idx,*.ind,*blx.bib,*.fdb_latexmk,*.run.xml,*.bcf,*.glsdefs,*.fls,*.eps,*.pdf,*.png,*.jpg" -- Show only files editable by vim
 vim.opt.shortmess:append("c")
 vim.o.sessionoptions = "blank,buffers,curdir,folds,tabpages,winsize,winpos,terminal,localoptions"
-vim.g.mapleader = "<Space>"
 
 -- Spell check settings
 vim.o.spelllang = "en_us"
