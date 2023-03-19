@@ -1,6 +1,6 @@
 local status_ok, lsp = pcall(require, "lsp-zero")
 if not status_ok then
-	vim.notify(lsp, vim.log.levels.ERROR)
+  vim.notify(lsp, vim.log.levels.ERROR)
   return
 end
 
@@ -15,7 +15,6 @@ lsp.set_preferences({
 lsp.on_attach(function(client, bufnr)
   -- Enable completion triggered by <c-x><c-o>
   --[[ vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc') ]]
-
   -- Mappings.
   -- See `:help vim.lsp.*` for documentation on any of the below functions
   local bufopts = { noremap = true, silent = true, buffer = bufnr }
@@ -30,9 +29,8 @@ lsp.on_attach(function(client, bufnr)
   vim.keymap.set('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<cr>', bufopts)
   vim.keymap.set('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<cr>', bufopts)
   vim.keymap.set('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<cr>', bufopts)
-  vim.keymap.set('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>', bufopts)
+  vim.keymap.set('n', 'gr', require('telescope.builtin').lsp_references, bufopts)
   --[[ vim.keymap.set('n', '<space>bf', function() vim.lsp.buf.format { async = true } end, bufopts) ]]
-
   vim.keymap.set('n', 'gl', '<cmd>lua vim.diagnostic.open_float()<cr>', bufopts)
   vim.keymap.set('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<cr>', bufopts)
   vim.keymap.set('n', 'd]', '<cmd>lua vim.diagnostic.goto_next()<cr>', bufopts)
@@ -58,8 +56,8 @@ lsp.configure('pyright', {
   }
 })
 
-require("user.plugins.lsp.cmp")  -- configure cmp 
-require("user.plugins.lsp.luasnip")  -- configure luasnip
+require("user.plugins.lsp.cmp")     -- configure cmp
+require("user.plugins.lsp.luasnip") -- configure luasnip
 
 lsp.setup()
 
