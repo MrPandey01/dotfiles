@@ -5,4 +5,3 @@ require("user.commands")
 
 -- load plugins and settings
 require("user.plugin_manager")
-
