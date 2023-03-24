@@ -41,7 +41,7 @@ lsp.setup_nvim_cmp({
     { name = 'path' },
     { name = 'buffer' },
     { name = 'nvim_lsp' },
-    { name = 'nvim_lsp_signature_help' },
+    --[[ { name = 'nvim_lsp_signature_help' }, ]]
     { name = 'dictionary',             keyword_length = 4 },
   },
   formatting = {
@@ -55,7 +55,7 @@ lsp.setup_nvim_cmp({
         nvim_lsp = "[nvim_lsp]",
         buffer = "[Buffer]",
         luasnip = "[LuaSnip]",
-        nvim_lsp_signature_help = "[nvim_lsp_signature]",
+        --[[ nvim_lsp_signature_help = "[nvim_lsp_signature]", ]]
         dictionary = "[Dict]",
       })[entry.source.name]
       return vim_item

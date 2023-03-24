@@ -22,7 +22,10 @@ lsp.on_attach(function(client, bufnr)
   vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>', bufopts)
   vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', bufopts)
   --[[ vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts) ]]
-  vim.keymap.set('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<cr>', bufopts)
+
+  --[[ vim.keymap.set('n', '<M-k>', function() require('lsp_signature').toggle_float_win() end, bufopts) ]]
+  --[[ vim.keymap.set('i', '<M-n>', function() require('lsp_signature').select_signature_key() end, bufopts) ]]
+
   vim.keymap.set('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<cr>', bufopts)
   vim.keymap.set('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<cr>', bufopts)
   vim.keymap.set('n', '<space>wl', function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end, bufopts)

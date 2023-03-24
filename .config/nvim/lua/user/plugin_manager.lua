@@ -198,7 +198,7 @@ require('lazy').setup({
       { 'hrsh7th/cmp-cmdline' },
       { 'hrsh7th/cmp-omni' },
       { 'uga-rosa/cmp-dictionary' },
-      { 'hrsh7th/cmp-nvim-lsp-signature-help' },
+      --[[ { 'hrsh7th/cmp-nvim-lsp-signature-help' }, ]]
       { 'quangnguyen30192/cmp-nvim-tags' },
       { 'rcarriga/cmp-dap' }, -- debugger completion
 
@@ -208,6 +208,20 @@ require('lazy').setup({
     },
     config = function()
       require("user.plugins.lsp")
+    end
+  },
+  {
+    'ray-x/lsp_signature.nvim',
+    config = function()
+      require('lsp_signature').setup({
+        bind = true, -- This is mandatory, otherwise border config won't get registered.
+        handler_opts = {
+          border = "rounded"
+        },
+        toggle_key = '<M-k>',           -- toggle signature on and off in insert mode,  e.g. toggle_key = '<M-x>'
+        select_signature_key = '<M-n>', -- cycle to next signature, e.g. '<M-n>' function overloading
+        move_cursor_key = nil,          -- imap, use nvim_set_current_win to move cursor between current win and floating
+      })
     end
   },
   {
