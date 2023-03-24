@@ -1,20 +1,34 @@
 local status_ok, tree_sitter_cfg = pcall(require, "nvim-treesitter.configs")
 if not status_ok then
-	vim.notify(tree_sitter_cfg, vim.log.levels.ERROR)
+  vim.notify(tree_sitter_cfg, vim.log.levels.ERROR)
   return
 end
 
 tree_sitter_cfg.setup {
-  ensure_installed =  "all" ,
+  ensure_installed = {
+    "bash",
+    "c",
+    "help",
+    "html",
+    "javascript",
+    "json",
+    "lua",
+    "luap",
+    "markdown",
+    "markdown_inline",
+    "python",
+    "regex",
+    "vim",
+    "yaml",
+  },
 
   sync_install = false,
   ignore_install = { "" }, -- List of parsers to ignore installing
   autopairs = { enable = true },
   highlight = {
-    enable = true, -- false will disable the whole extension
-    disable = { "latex" }, -- list of language that will be disabled
+    enable = true,         -- false will disable the whole extension
+    --[[ disable = { "latex" }, -- list of language that will be disabled ]]
     additional_vim_regex_highlighting = true,
-
   },
   indent = { enable = true },
   context_commentstring = {
@@ -32,10 +46,8 @@ tree_sitter_cfg.setup {
   textobjects = {
     select = {
       enable = true,
-
       -- Automatically jump forward to textobj, similar to targets.vim
       lookahead = true,
-
       keymaps = {
         -- You can use the capture groups defined in textobjects.scm
         ["af"] = "@function.outer",
@@ -54,7 +66,7 @@ tree_sitter_cfg.setup {
       -- mapping query_strings to modes.
       selection_modes = {
         ['@parameter.outer'] = 'v', -- charwise
-        ['@function.outer'] = 'V', -- linewise
+        ['@function.outer'] = 'V',  -- linewise
         ['@class.outer'] = '<c-v>', -- blockwise
       },
       -- If you set this to `true` (default is `false`) then any textobject is
