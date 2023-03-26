@@ -1,25 +1,4 @@
-# nvim download -----------------------------------------
-if [ ! -f $HOME/nvim-linux64/bin/nvim ]; then
-    wget https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.tar.gz -P $HOME/ \
-    && cd $HOME/ \
-    && tar xf nvim-linux64.tar.gz
-fi
-
-# fzf download -----------------------------------------
-if [ ! -d $HOME/.fzf/ ]; then
-  git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf \
-    && $HOME/.fzf/install
-fi
-source ~/.fzf.zsh
-
-# Settings specific to machines such as local, remote etc.
-if [ ! -f ~/.zsh-plugins/zsh-snap/znap.zsh ]; then
-  touch ~/.machine_specific.zsh
-fi
-source ~/.machine_specific.zsh
-
-
-# Download Znap (Plugin Manager), if it's not there yet.
+# Znap (Plugin Manager) bootstrap -------------------------
 if [ ! -f ~/.zsh-plugins/zsh-snap/znap.zsh ]; then
     mkdir ~/.zsh-plugins/zsh-snap;
     git clone --depth 1 -- \
@@ -27,19 +6,44 @@ if [ ! -f ~/.zsh-plugins/zsh-snap/znap.zsh ]; then
 fi
 source ~/.zsh-plugins/zsh-snap/znap.zsh  # Start Znap
 
+
+# nvim bootstrap -----------------------------------------
+if [ ! -f $HOME/nvim-linux64/bin/nvim ]; then 
+    wget https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.tar.gz -P $HOME/ \
+    && cd $HOME/ \
+    && tar xf nvim-linux64.tar.gz 
+fi
+
+
+# fzf bootstrap -----------------------------------------
+if [ ! -d $HOME/.fzf/ ]; then
+  git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf \
+    && $HOME/.fzf/install
+fi
+source ~/.fzf.zsh
+
+
+# Machine Specific Settings -----------------------------------------
+if [ ! -f ~/.machine_specific.zsh ]; then
+  touch ~/.machine_specific.zsh
+fi
+source ~/.machine_specific.zsh
+
+
+
 # `znap prompt` makes your prompt visible in just 15-40ms!
-znap prompt sindresorhus/pure  #vi-mode is default with this 
+znap prompt sindresorhus/pure  # vi-mode is default with this 
 
 # `znap source` automatically downloads and starts your plugins.
 znap source ohmyzsh/ohmyzsh lib/{git,theme-and-appearance}
 znap source ohmyzsh/ohmyzsh plugins/{git,ssh-agent,colored-man-pages,fzf,z}
 znap source marlonrichert/zsh-autocomplete
 
-znap source zsh-users/zsh-autosuggestions
 ZSH_AUTOSUGGEST_STRATEGY=( history completion )
+znap source zsh-users/zsh-autosuggestions
 
-znap source zdharma-continuum/fast-syntax-highlighting
 ZSH_HIGHLIGHT_HIGHLIGHTERS=( main brackets )
+znap source zdharma-continuum/fast-syntax-highlighting
 
 
 # ZSH Settings --------------------------------------------------------
@@ -215,53 +219,8 @@ function .. {
 # mkdir and cd
 mkcd() { mkdir -p "$@" && cd "$1"; }
 
-# DIRECTORY BOOKMARKS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-# Src https://pilabor.com/blog/2021/03/unix-shell-tricks/
-# choose a directory where bookmarks are stored
-FAV_DIR="$HOME/.fav"
-
-# create the directory, if it does not exist
-test -d "$FAV_DIR" || mkdir -p "$FAV_DIR"
-
-# make cd lookup bookmark directory by default
-export CDPATH=".:$FAV_DIR"
-
-# create a bookmark name for current directory (e.g. favmk @dotfiles) 
-function favmk {
-  mkdir -p "$FAV_DIR"; 
-  [ -d "${FAV_DIR}" ] && (ln -s "$(pwd)" "$FAV_DIR/$1") || (echo "fav directory ${FAV_DIR} could not be created")
-}
-
-## remove a bookmark (e.g. favrm @dotfiles)
-function favrm {
-  rm -i "$FAV_DIR/$1"
-}
-
-## goto bookmark or list existing bookmarks (e.g. fav or fav @dotfiles)
-function fav {
-  if [ ! -z "$1" ]; then
-    [ -e "$FAV_DIR/$1" ] && cd -P "$FAV_DIR/$1" && return 0
-
-    echo "Supported functions: favmk @<name>, favrm @<name>"
-    echo "No such fav: $1"
-    echo "Would you like to create one? [y/N]"
-    read RESPONSE
-    if [ "$RESPONSE" = "y" ]; then
-      favmk "$1"
-    fi
-  fi
-
-  ls -l "$FAV_DIR" | sed 's/  / /g' | cut -d' ' -f9-
-}
-# %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
 fpath+=${ZDOTDIR:-~}/.zsh_functions
 fpath+=~/.zfunc
 autoload -Uz compinit && compinit
 
 export PYTHONBREAKPOINT="pudb.set_trace"
-
-export LC_ALL=C.UTF-8
-export LANG=C.UTF-8
-
