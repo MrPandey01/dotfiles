@@ -16,8 +16,8 @@ if [ ! -f $HOME/nvim-linux64/bin/nvim ]; then
     && rm nvim-linux64.tar.gz
 fi
 }
-nvim_download >> /tmp/znap_output.txt &  # asynchronous
-disown
+nvim_download > /dev/null 2>&1 &  # asynchronous
+disown >/dev/null 2>&1
 
 
 # fzf bootstrap -----------------------------------------
@@ -28,8 +28,8 @@ if [ ! -d $HOME/.fzf/ ]; then
 fi
 source ~/.fzf.zsh
 }
-fzf_download >> /tmp/znap_output.txt &  # asynchronous  # asynchronous
-disown
+fzf_download > /dev/null 2>&1 &  # asynchronous
+disown >/dev/null 2>&1
 
 
 # Machine Specific Settings -----------------------------------------
@@ -147,8 +147,8 @@ else
     echo -e "exa Installed\n"
 fi
 }
-exa_download >> /tmp/znap_output.txt & # asynchronous
-disown
+exa_download > /dev/null 2>&1 & # asynchronous
+disown >/dev/null 2>&1
 exa_params=('--git' '--icons' '--classify' '--group-directories-first' '--time-style=long-iso' '--group' '--color-scale')
 
 alias ls='exa ${exa_params}'
