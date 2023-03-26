@@ -198,7 +198,6 @@ require('lazy').setup({
       { 'hrsh7th/cmp-cmdline' },
       { 'hrsh7th/cmp-omni' },
       { 'uga-rosa/cmp-dictionary' },
-      --[[ { 'hrsh7th/cmp-nvim-lsp-signature-help' }, ]]
       { 'quangnguyen30192/cmp-nvim-tags' },
       { 'rcarriga/cmp-dap' }, -- debugger completion
 
