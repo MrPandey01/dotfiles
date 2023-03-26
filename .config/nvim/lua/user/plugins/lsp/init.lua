@@ -45,6 +45,7 @@ lsp.ensure_installed({
   "marksman",
   "yamlls",
   "lua_ls",
+  "bashls",
 })
 
 lsp.configure('pyright', {

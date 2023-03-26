@@ -8,19 +8,28 @@ source ~/.zsh-plugins/zsh-snap/znap.zsh  # Start Znap
 
 
 # nvim bootstrap -----------------------------------------
+nvim_download () {
 if [ ! -f $HOME/nvim-linux64/bin/nvim ]; then 
-    wget https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.tar.gz -P $HOME/ \
+    wget --quiet https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.tar.gz -P $HOME/ \
     && cd $HOME/ \
-    && tar xf nvim-linux64.tar.gz 
+    && tar xf nvim-linux64.tar.gz \
+    && rm nvim-linux64.tar.gz
 fi
+}
+nvim_download >> /tmp/znap_output.txt &  # asynchronous
+disown
 
 
 # fzf bootstrap -----------------------------------------
+fzf_download () {
 if [ ! -d $HOME/.fzf/ ]; then
   git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf \
     && $HOME/.fzf/install
 fi
 source ~/.fzf.zsh
+}
+fzf_download >> /tmp/znap_output.txt &  # asynchronous  # asynchronous
+disown
 
 
 # Machine Specific Settings -----------------------------------------
@@ -30,7 +39,7 @@ fi
 source ~/.machine_specific.zsh
 
 
-
+# Plugins ---------------------------------------------------------
 # `znap prompt` makes your prompt visible in just 15-40ms!
 znap prompt sindresorhus/pure  # vi-mode is default with this 
 
@@ -127,6 +136,7 @@ alias ipy="ipython --matplotlib --no-banner \
   --InteractiveShellApp.exec_lines 'import numpy as np' "
 
 # exa settings and aliases
+exa_download () {
 if exa ; then
   echo " "
 else
@@ -136,6 +146,9 @@ else
     echo 'export PATH=$HOME/.local/share/exa/bin:$PATH' >> $HOME/.machine_specific.zsh
     echo -e "exa Installed\n"
 fi
+}
+exa_download >> /tmp/znap_output.txt & # asynchronous
+disown
 exa_params=('--git' '--icons' '--classify' '--group-directories-first' '--time-style=long-iso' '--group' '--color-scale')
 
 alias ls='exa ${exa_params}'
