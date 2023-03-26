@@ -64,7 +64,7 @@ require('lazy').setup({
   {
     "goolord/alpha-nvim",
     config = function()
-      require("user.plugins.alpha") -- home screen
+      require("user.plugins.alpha") 
     end
   },                                -- home page
   {

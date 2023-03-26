@@ -34,15 +34,19 @@ local kind_icons = {
 -- find more here: https://www.nerdfonts.com/cheat-sheet
 
 lsp.setup_nvim_cmp({
+  preselect = cmp.PreselectMode.Item,
+  completion = {
+    completeopt = 'menu,menuone,preview'
+  },
   sources = {
     { name = 'omni' },
     { name = "copilot" },
-    { name = 'luasnip',                option = { show_autosnippets = true } },
+    { name = 'luasnip',    option = { show_autosnippets = true } },
     { name = 'path' },
     { name = 'buffer' },
     { name = 'nvim_lsp' },
     --[[ { name = 'nvim_lsp_signature_help' }, ]]
-    { name = 'dictionary',             keyword_length = 4 },
+    { name = 'dictionary', keyword_length = 4 },
   },
   formatting = {
     fields = { "kind", "abbr", "menu" },

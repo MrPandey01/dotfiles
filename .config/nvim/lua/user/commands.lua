@@ -2,7 +2,17 @@
 local augroup = vim.api.nvim_create_augroup('user_cmds', { clear = true })
 
 vim.api.nvim_create_autocmd('FileType', {
-  pattern = { 'help', 'man', 'qf' },
+  pattern = {
+    "PlenaryTestPopup",
+    "help",
+    "lspinfo",
+    "man",
+    "notify",
+    "qf",
+    "spectre_panel",
+    "startuptime",
+    "tsplayground",
+  },
   group = augroup,
   desc = 'Use q to close the window',
   command = 'nnoremap <buffer> q <cmd>quit<cr>'
@@ -16,7 +26,15 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end
 })
 
-vim.cmd([[ 
+-- resize splits if window got resized
+vim.api.nvim_create_autocmd({ "VimResized" }, {
+  group = augroup,
+  callback = function()
+    vim.cmd("tabdo wincmd =")
+  end,
+})
+
+vim.cmd([[
    " Neovim Synctex setup (requires pip install neovim-remote)
   function! s:write_server_name() abort
     let nvim_server_file = (has('win32') ? $TEMP : '/tmp') . '/vimtexserver.txt'
