@@ -64,9 +64,9 @@ require('lazy').setup({
   {
     "goolord/alpha-nvim",
     config = function()
-      require("user.plugins.alpha") 
+      require("user.plugins.alpha")
     end
-  },                                -- home page
+  }, -- home page
   {
     "folke/which-key.nvim",
     config = function()

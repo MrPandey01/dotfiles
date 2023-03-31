@@ -4,7 +4,6 @@ if not status_ok then
   return
 end
 
---[[ local lsp = require('lsp-zero') ]]
 lsp.preset('recommended')
 
 -- Disable default keybindings (optional)
@@ -18,25 +17,23 @@ lsp.on_attach(function(client, bufnr)
   -- Mappings.
   -- See `:help vim.lsp.*` for documentation on any of the below functions
   local bufopts = { noremap = true, silent = true, buffer = bufnr }
+  vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', bufopts)
   vim.keymap.set('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<cr>', bufopts)
   vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>', bufopts)
-  vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', bufopts)
-  --[[ vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts) ]]
-
-  --[[ vim.keymap.set('n', '<M-k>', function() require('lsp_signature').toggle_float_win() end, bufopts) ]]
-  --[[ vim.keymap.set('i', '<M-n>', function() require('lsp_signature').select_signature_key() end, bufopts) ]]
-
+  vim.keymap.set('n', 'gr', require('telescope.builtin').lsp_references, bufopts)
+  vim.keymap.set('n', 'gl', '<cmd>lua vim.diagnostic.open_float()<cr>', bufopts)
   vim.keymap.set('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<cr>', bufopts)
   vim.keymap.set('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<cr>', bufopts)
   vim.keymap.set('n', '<space>wl', function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end, bufopts)
   vim.keymap.set('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<cr>', bufopts)
-  vim.keymap.set('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<cr>', bufopts)
-  vim.keymap.set('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<cr>', bufopts)
-  vim.keymap.set('n', 'gr', require('telescope.builtin').lsp_references, bufopts)
+  --[[ vim.keymap.set('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<cr>', bufopts) ]]
+  --[[ vim.keymap.set('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<cr>', bufopts) ]]
   --[[ vim.keymap.set('n', '<space>bf', function() vim.lsp.buf.format { async = true } end, bufopts) ]]
-  vim.keymap.set('n', 'gl', '<cmd>lua vim.diagnostic.open_float()<cr>', bufopts)
-  vim.keymap.set('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<cr>', bufopts)
-  vim.keymap.set('n', 'd]', '<cmd>lua vim.diagnostic.goto_next()<cr>', bufopts)
+  --[[ vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts) ]]
+  --[[ vim.keymap.set('n', '<M-k>', function() require('lsp_signature').toggle_float_win() end, bufopts) ]]
+  --[[ vim.keymap.set('i', '<M-n>', function() require('lsp_signature').select_signature_key() end, bufopts) ]]
+  --[[ vim.keymap.set('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<cr>', bufopts) ]]
+  --[[ vim.keymap.set('n', 'd]', '<cmd>lua vim.diagnostic.goto_next()<cr>', bufopts) ]]
 end)
 
 
