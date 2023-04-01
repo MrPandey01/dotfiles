@@ -29,85 +29,65 @@ return {
       sync_install = false,
       ensure_installed = {
         "bash",
-        "dockerfile",
+        "c",
+        "json",
         "help",
         "html",
         "lua",
         "markdown",
         "markdown_inline",
-        "org",
+        "python",
         "query",
         "regex",
         "latex",
         "vim",
         "yaml",
       },
-      highlight = { enable = true, additional_vim_regex_highlighting = { "org", "markdown" } },
-      indent = { enable = true, disable = { "python" } },
-      context_commentstring = { enable = true },
-      incremental_selection = {
+      ignore_install = { "" }, -- List of parsers to ignore installing
+      autopairs = { enable = true },
+      highlight = {
+        enable = true, -- false will disable the whole extension
+        additional_vim_regex_highlighting = true,
+      },
+      indent = { enable = true },
+      context_commentstring = {
         enable = true,
-        keymaps = {
-          init_selection = "gnn",
-          node_incremental = "grn",
-          scope_incremental = "grc",
-          node_decremental = "grm",
-        },
+        enable_autocmd = true,
+      },
+      rainbow = {
+        enable = true,
+        extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
+        max_file_lines = nil, -- Do not enable for files with more than n lines, int
       },
       textobjects = {
         select = {
           enable = true,
-          lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
+          -- Automatically jump forward to textobj, similar to targets.vim
+          lookahead = true,
           keymaps = {
             -- You can use the capture groups defined in textobjects.scm
-            ["aa"] = "@parameter.outer",
-            ["ia"] = "@parameter.inner",
             ["af"] = "@function.outer",
             ["if"] = "@function.inner",
             ["ac"] = "@class.outer",
             ["ic"] = "@class.inner",
+            ["al"] = "@loop.outer",
+            ["il"] = "@loop.inner",
+            ["aa"] = "@parameter.outer",
+            ["ia"] = "@parameter.inner",
+          },
+          selection_modes = {
+            ['@parameter.outer'] = 'v', -- charwise
+            ['@function.outer'] = 'V',  -- linewise
+            ['@class.outer'] = '<c-v>', -- blockwise
           },
         },
-        move = {
-          enable = true,
-          set_jumps = true, -- whether to set jumps in the jumplist
-          goto_next_start = {
-            ["]m"] = "@function.outer",
-            ["]]"] = "@class.outer",
-          },
-          goto_next_end = {
-            ["]M"] = "@function.outer",
-            ["]["] = "@class.outer",
-          },
-          goto_previous_start = {
-            ["[m"] = "@function.outer",
-            ["[["] = "@class.outer",
-          },
-          goto_previous_end = {
-            ["[M"] = "@function.outer",
-            ["[]"] = "@class.outer",
-          },
-        },
-        swap = {
-          enable = true,
-          swap_next = swap_next,
-          swap_previous = swap_prev,
-        },
-      },
-      matchup = {
-        enable = true,
-      },
-      endwise = {
-        enable = true,
-      },
-      autotag = {
-        enable = true,
       },
     },
     config = function(_, opts)
       require("nvim-treesitter.configs").setup(opts)
     end,
   },
+
   {
     "windwp/nvim-autopairs",
     event = "InsertEnter",
