@@ -1,6 +1,6 @@
 return {
   "nvim-lua/plenary.nvim",
-  "nvim-lua/popup.nvim",   -- An implementation of the Popup API from vim in Neovim
+  -- "nvim-lua/popup.nvim",   -- An implementation of the Popup API from vim in Neovim
   {
     "nvim-tree/nvim-web-devicons",
     dependencies = { "DaikyXendo/nvim-material-icon" },
