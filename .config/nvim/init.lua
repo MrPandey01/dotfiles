@@ -1,7 +1,11 @@
--- Native nvim specific setting/commands
-require("user.options")
-require("user.keymaps")
-require("user.commands")
+require "config.options"
+require "config.keymaps"
+require "config.lazy"
 
--- load plugins and settings
-require("user.plugin_manager")
+vim.api.nvim_create_autocmd("User", {
+  pattern = "VeryLazy",
+  callback = function()
+    require "config.autocmds"
+    require "utils.contextmenu"
+  end,
+})
