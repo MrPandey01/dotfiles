@@ -4,7 +4,12 @@ return {
     dependencies = {
       -- LSP Support
       { "neovim/nvim-lspconfig" },
-      { "williamboman/mason.nvim" },
+      {
+        "williamboman/mason.nvim",
+        build = function()
+          pcall(vim.cmd, 'MasonUpdate')
+        end,
+      },
       { "williamboman/mason-lspconfig.nvim" },
 
       -- Autocompletion
@@ -18,6 +23,7 @@ return {
       { "hrsh7th/cmp-omni" },
       { "uga-rosa/cmp-dictionary" },
       { "quangnguyen30192/cmp-nvim-tags" },
+      { "onsails/lspkind.nvim" },
 
       -- Snippets
       { "L3MON4D3/LuaSnip" },
@@ -25,12 +31,7 @@ return {
     event = "BufReadPre",
     config = function()
       local lsp_zero = require "lsp-zero"
-      lsp_zero.preset "recommended"
-
-      -- Disable default keybindings (optional)
-      lsp_zero.set_preferences {
-        set_lsp_keymaps = false,
-      }
+      lsp_zero.preset({ name = 'minimal' })
 
       lsp_zero.on_attach(function(_, bufnr)
         local bufopts = { noremap = true, silent = true, buffer = bufnr }
@@ -44,14 +45,6 @@ return {
           print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
         end, bufopts)
         vim.keymap.set("n", "<space>D", "<cmd>lua vim.lsp.buf.type_definition()<cr>", bufopts)
-        --[[ vim.keymap.set('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<cr>', bufopts) ]]
-        --[[ vim.keymap.set('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<cr>', bufopts) ]]
-        --[[ vim.keymap.set('n', '<space>bf', function() vim.lsp.buf.format { async = true } end, bufopts) ]]
-        --[[ vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts) ]]
-        --[[ vim.keymap.set('n', '<M-k>', function() require('lsp_signature').toggle_float_win() end, bufopts) ]]
-        --[[ vim.keymap.set('i', '<M-n>', function() require('lsp_signature').select_signature_key() end, bufopts) ]]
-        --[[ vim.keymap.set('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<cr>', bufopts) ]]
-        --[[ vim.keymap.set('n', 'd]', '<cmd>lua vim.diagnostic.goto_next()<cr>', bufopts) ]]
       end)
 
       lsp_zero.ensure_installed {
@@ -62,7 +55,7 @@ return {
         "bashls",
       }
 
-      lsp_zero.configure("pyright", {
+      require 'lspconfig'.pyright.setup({
         settings = {
           python = {
             analysis = {
@@ -74,31 +67,28 @@ return {
         },
       })
 
-      lsp_zero.configure("lua_ls", {
+      require 'lspconfig'.lua_ls.setup {
         settings = {
           Lua = {
+            runtime = {
+              version = 'LuaJIT',
+            },
             diagnostics = {
-              -- Get the language server to recognize the `vim` global
               globals = { 'vim' },
+            },
+            workspace = {
+              library = vim.api.nvim_get_runtime_file("", true),
+            },
+            telemetry = {
+              enable = false,
             },
           },
         },
-      })
+      }
 
 
-      -- configure cmp
+      require "plugins.lsp.luasnip".setup()
       require "plugins.lsp.cmp".setup()
-
-
-      -- LuaSnip config
-      require("luasnip.loaders.from_lua").load({ paths = "~/.config/nvim/lua/snippets" })
-      require("luasnip").config.set_config({
-        -- Setting LuaSnip config
-        history = true,
-        update_events = "TextChanged,TextChangedI",
-        enable_autosnippets = true,
-        store_selection_keys = "<Tab>",
-      })
 
       lsp_zero.setup()
     end,

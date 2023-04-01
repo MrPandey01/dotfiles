@@ -4,7 +4,7 @@ opt.shortmess:append { W = true, I = true, c = true }
 opt.breakindent = true
 opt.clipboard = "unnamedplus" -- Access system clipboard
 opt.cmdheight = 1
-opt.completeopt = { "menu,menuone,preview,noinsert,noselect" } -- mostly just for cmp
+opt.completeopt = { "menu,menuone,preview,noinsert" } -- mostly just for cmp
 opt.conceallevel = 0
 opt.confirm = true
 opt.cursorline = true

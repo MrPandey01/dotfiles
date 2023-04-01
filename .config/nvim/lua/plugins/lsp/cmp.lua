@@ -1,50 +1,26 @@
 local M = {}
 
-
 function M.setup()
-  local kind_icons = {
-    Text = "",
-    Method = "m",
-    Function = "",
-    Constructor = "",
-    Field = "",
-    Variable = "",
-    Class = "",
-    Interface = "",
-    Module = "",
-    Property = "",
-    Unit = "",
-    Value = "",
-    Enum = "",
-    Keyword = "",
-    Snippet = "",
-    Color = "",
-    File = "",
-    Reference = "",
-    Folder = "",
-    EnumMember = "",
-    Constant = "",
-    Struct = "",
-    Event = "",
-    Operator = "",
-    TypeParameter = "",
-    Copilot = "",
-  }
-  -- find more here: https://www.nerdfonts.com/cheat-sheet
-
-  -- nvim-cmp setup
   local cmp = require "cmp"
-  local lsp = require "lsp-zero"
+  local cmp_action = require('lsp-zero').cmp_action()
 
-  lsp.setup_nvim_cmp {
-    preselect = cmp.PreselectMode.Item,
-    completion = {
-      completeopt = "menu,menuone,preview,noinsert,noselect",
+  cmp.setup {
+    window = {
+      completion = cmp.config.window.bordered(),
+      documentation = cmp.config.window.bordered(),
     },
-    mapping = lsp.defaults.cmp_mappings {
+    preselect = 'item',
+    completion = {
+      completeopt = "menu,menuone,preview,noinsert",
+    },
+    mapping = {
+      ['<C-f>'] = cmp_action.luasnip_jump_forward(),
+      ['<C-b>'] = cmp_action.luasnip_jump_backward(),
       ["<C-k>"] = cmp.mapping.scroll_docs(-4),
       ["<C-j>"] = cmp.mapping.scroll_docs(4),
       ['<CR>'] = cmp.mapping.confirm({ select = true }),
+      ['<Tab>'] = cmp.mapping.select_next_item(),
+      ['<S-Tab>'] = cmp.mapping.select_prev_item(),
     },
     sources = {
       { name = "omni" },
@@ -53,13 +29,16 @@ function M.setup()
       { name = "path" },
       { name = "buffer" },
       { name = "nvim_lsp" },
+      { name = "nvim_lua" },
       { name = "dictionary", keyword_length = 4 },
     },
     formatting = {
-      fields = { "kind", "abbr", "menu" },
-      format = function(entry, vim_item)
-        vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
-        vim_item.menu = ({
+      fields = { 'abbr', 'kind', 'menu' },
+      format = require('lspkind').cmp_format({
+        mode = 'symbol_text',
+        maxwidth = 50,         -- prevent the popup from showing more than provided characters
+        ellipsis_char = '...', -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead
+        menu = ({
           omni = "[Omni]",
           copilot = "[Copilot]",
           path = "[Path]",
@@ -67,10 +46,8 @@ function M.setup()
           buffer = "[Buffer]",
           luasnip = "[LuaSnip]",
           dictionary = "[Dict]",
-        })[entry.source.name]
-
-        return vim_item
-      end,
+        })
+      })
     },
     enabled = function()
       return vim.api.nvim_buf_get_option(0, "buftype") ~= "prompt" or require("cmp_dap").is_dap_buffer()
