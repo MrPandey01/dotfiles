@@ -11,14 +11,22 @@ return {
       "aaronhallaert/advanced-git-search.nvim",
       "benfowler/telescope-luasnip.nvim",
     },
+    lazy = true,
     cmd = "Telescope",
+    keys = {
+      {
+        "gr",
+        function() require('telescope.builtin').lsp_references() end,
+        desc = "lsp_references with telescope"
+      },
+      { "<leader>f" },
+    },
     config = function(_, _)
       local telescope = require "telescope"
       telescope.load_extension "fzf"
       telescope.load_extension "file_browser"
       telescope.load_extension "project"
       telescope.load_extension "projects"
-      telescope.load_extension "dap"
       telescope.load_extension "frecency"
       telescope.load_extension "luasnip"
     end,

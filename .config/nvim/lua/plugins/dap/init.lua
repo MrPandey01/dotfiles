@@ -1,7 +1,13 @@
 return {
   {
     "mfussenegger/nvim-dap",
+    keys = {
+      { "<F5>" },
+      { "<leader>d" },
+    },
+    lazy = true,
     dependencies = {
+      { "rcarriga/cmp-dap"  }, -- debugger completion
       { "rcarriga/nvim-dap-ui" },
       { "theHamsta/nvim-dap-virtual-text" },
       { "nvim-telescope/telescope-dap.nvim" },
@@ -9,8 +15,11 @@ return {
       { 'mfussenegger/nvim-dap-python',     dependencies = { "mfussenegger/nvim-dap" } },
     },
     config = function()
-      require("plugins.dap.nvim_dap_virtual_text")
-      require("plugins.dap.dapui")
+
+      require("telescope").load_extension "dap"
+
+      require("plugins.dap.nvim_dap_virtual_text").setup()
+      require("plugins.dap.dapui").setup()
 
       local dap, dapui = require("dap"), require("dapui")
       dap.listeners.after.event_initialized["dapui_config"] = function()

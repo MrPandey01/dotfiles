@@ -1,6 +1,7 @@
 local M = {}
 
-function M.setup(_, _)
+
+function M.setup()
   local kind_icons = {
     Text = "",
     Method = "m",
@@ -38,11 +39,12 @@ function M.setup(_, _)
   lsp.setup_nvim_cmp {
     preselect = cmp.PreselectMode.Item,
     completion = {
-      completeopt = "menu,menuone,preview",
+      completeopt = "menu,menuone,preview,noinsert,noselect",
     },
     mapping = lsp.defaults.cmp_mappings {
       ["<C-k>"] = cmp.mapping.scroll_docs(-4),
       ["<C-j>"] = cmp.mapping.scroll_docs(4),
+      ['<CR>'] = cmp.mapping.confirm({ select = true }),
     },
     sources = {
       { name = "omni" },

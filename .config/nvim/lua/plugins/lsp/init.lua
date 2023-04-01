@@ -18,7 +18,6 @@ return {
       { "hrsh7th/cmp-omni" },
       { "uga-rosa/cmp-dictionary" },
       { "quangnguyen30192/cmp-nvim-tags" },
-      { "rcarriga/cmp-dap" }, -- debugger completion
 
       -- Snippets
       { "L3MON4D3/LuaSnip" },
@@ -38,7 +37,6 @@ return {
         vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>", bufopts)
         vim.keymap.set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<cr>", bufopts)
         vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>", bufopts)
-        vim.keymap.set("n", "gr", require("telescope.builtin").lsp_references, bufopts)
         vim.keymap.set("n", "gl", "<cmd>lua vim.diagnostic.open_float()<cr>", bufopts)
         vim.keymap.set("n", "<space>wa", "<cmd>lua vim.lsp.buf.add_workspace_folder()<cr>", bufopts)
         vim.keymap.set("n", "<space>wr", "<cmd>lua vim.lsp.buf.remove_workspace_folder()<cr>", bufopts)
@@ -89,7 +87,7 @@ return {
 
 
       -- configure cmp
-      require "plugins.lsp.cmp"
+      require "plugins.lsp.cmp".setup()
 
 
       -- LuaSnip config
