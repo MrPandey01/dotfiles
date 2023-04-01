@@ -35,6 +35,46 @@ function M.setup(_, _)
   local cmp = require "cmp"
   local lsp = require "lsp-zero"
 
+  lsp.setup_nvim_cmp {
+    preselect = cmp.PreselectMode.Item,
+    completion = {
+      completeopt = "menu,menuone,preview",
+    },
+    mapping = lsp.defaults.cmp_mappings {
+      ["<C-k>"] = cmp.mapping.scroll_docs(-4),
+      ["<C-j>"] = cmp.mapping.scroll_docs(4),
+    },
+    sources = {
+      { name = "omni" },
+      { name = "copilot" },
+      { name = "luasnip",    option = { show_autosnippets = true } },
+      { name = "path" },
+      { name = "buffer" },
+      { name = "nvim_lsp" },
+      { name = "dictionary", keyword_length = 4 },
+    },
+    formatting = {
+      fields = { "kind", "abbr", "menu" },
+      format = function(entry, vim_item)
+        vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
+        vim_item.menu = ({
+          omni = "[Omni]",
+          copilot = "[Copilot]",
+          path = "[Path]",
+          nvim_lsp = "[nvim_lsp]",
+          buffer = "[Buffer]",
+          luasnip = "[LuaSnip]",
+          dictionary = "[Dict]",
+        })[entry.source.name]
+
+        return vim_item
+      end,
+    },
+    enabled = function()
+      return vim.api.nvim_buf_get_option(0, "buftype") ~= "prompt" or require("cmp_dap").is_dap_buffer()
+    end,
+  }
+
   cmp.event:on("menu_opened", function()
     vim.b.copilot_suggestion_hidden = true
   end)
@@ -82,45 +122,35 @@ function M.setup(_, _)
     }),
   })
 
-  lsp.setup_nvim_cmp {
-    preselect = cmp.PreselectMode.Item,
-    completion = {
-      completeopt = "menu,menuone,preview",
-    },
-    mapping = lsp.defaults.cmp_mappings {
-      ["<C-k>"] = cmp.mapping.scroll_docs(-4),
-      ["<C-j>"] = cmp.mapping.scroll_docs(4),
-    },
-    sources = {
-      { name = "omni" },
-      { name = "copilot" },
-      { name = "luasnip", option = { show_autosnippets = true } },
-      { name = "path" },
-      { name = "buffer" },
-      { name = "nvim_lsp" },
-      { name = "dictionary", keyword_length = 4 },
-    },
-    formatting = {
-      fields = { "kind", "abbr", "menu" },
-      format = function(entry, vim_item)
-        vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
-        vim_item.menu = ({
-          omni = "[Omni]",
-          copilot = "[Copilot]",
-          path = "[Path]",
-          nvim_lsp = "[nvim_lsp]",
-          buffer = "[Buffer]",
-          luasnip = "[LuaSnip]",
-          dictionary = "[Dict]",
-        })[entry.source.name]
-
-        return vim_item
-      end,
-    },
-    enabled = function()
-      return vim.api.nvim_buf_get_option(0, "buftype") ~= "prompt" or require("cmp_dap").is_dap_buffer()
-    end,
-  }
+  local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+  local handlers = require('nvim-autopairs.completion.handlers')
+  cmp.event:on(
+    'confirm_done',
+    cmp_autopairs.on_confirm_done({
+      filetypes = {
+        -- "*" is a alias to all filetypes
+        ["*"] = {
+          ["("] = {
+            kind = {
+              cmp.lsp.CompletionItemKind.Function,
+              cmp.lsp.CompletionItemKind.Method,
+            },
+            handler = handlers["*"]
+          }
+        },
+        lua = {
+          ["("] = {
+            kind = {
+              cmp.lsp.CompletionItemKind.Function,
+              cmp.lsp.CompletionItemKind.Method
+            },
+          }
+        },
+        -- Disable for tex
+        tex = false
+      }
+    })
+  )
 end
 
 return M
