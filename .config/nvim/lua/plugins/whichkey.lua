@@ -151,6 +151,13 @@ return {
           s = { "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", "Stage Hunk" },
           u = { "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>", "Undo Stage Hunk" },
         },
+        G = {
+          name = "Generate",
+          a = { function() require("neogen").generate() end, "Annotation", },
+          c = { function() require("neogen").generate { type = "class" } end, "Class", },
+          f = { function() require("neogen").generate { type = "func" } end, "Function", },
+          t = { function() require("neogen").generate { type = "type" } end, "Type", },
+        },
         l = {
           name = "LSP",
           I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },

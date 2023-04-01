@@ -9,7 +9,7 @@ return {
       }
     end,
   },
-  { "tpope/vim-repeat", event = "VeryLazy" }, -- enables . operator to leap and other plugins
+  { "tpope/vim-repeat",   lazy = true,          key = { "." } }, -- enables . operator to leap and other plugins
   {
     "lukas-reineke/indent-blankline.nvim",
     event = { "BufReadPost", "BufNewFile" },
@@ -23,6 +23,13 @@ return {
       use_treesitter = true,
       show_current_context = false,
     },
+  },
+  {
+    'norcalli/nvim-colorizer.lua',
+    event = "VeryLazy",
+    config = function()
+      require 'colorizer'.setup()
+    end
   },
   {
     "numToStr/Comment.nvim",
@@ -46,11 +53,11 @@ return {
     opts = {
       options = { "buffers", "curdir", "tabpages", "winsize", "help" }
     },
-    keys = {
-      { "<leader>qs", function() require("persistence").load() end,                desc = "Restore Session" },
-      { "<leader>ql", function() require("persistence").load({ last = true }) end, desc = "Restore Last Session" },
-      { "<leader>qd", function() require("persistence").stop() end,                desc = "Don't Save Current Session" },
-    },
+  },
+  { 'wellle/targets.vim', event = 'InsertEnter' }, -- extends textobjects
+  {
+    "p00f/nvim-ts-rainbow",
+    event = { "BufReadPost" },
   },
   {
     "vladdoster/remember.nvim",

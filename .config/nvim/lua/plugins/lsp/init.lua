@@ -130,4 +130,40 @@ return {
       }
     end,
   },
+
+  {
+    'ray-x/lsp_signature.nvim',
+    event = { "BufReadPost" },
+    opts = {
+      bind = true, -- This is mandatory, otherwise border config won't get registered.
+      handler_opts = {
+        border = "rounded"
+      },
+      toggle_key = '<M-k>',           -- toggle signature on and off in insert mode,  e.g. toggle_key = '<M-x>'
+      select_signature_key = '<M-n>', -- cycle to next signature, e.g. '<M-n>' function overloading
+      move_cursor_key = nil,          -- imap, use nvim_set_current_win to move cursor between current win and floating
+    },
+  },
+
+  {
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    event = "InsertEnter",
+    config = function()
+      require("copilot").setup({
+        suggestion = { enabled = false },
+        panel = { enabled = false },
+      })
+    end,
+  },
+  {
+    "zbirenbaum/copilot-cmp",
+    event = "InsertEnter",
+    config = function()
+      require("copilot_cmp").setup({
+        method = "getCompletionsCycling",
+      })
+    end,
+    dependencies = { "zbirenbaum/copilot.lua", "hrsh7th/nvim-cmp" },
+  }
 }

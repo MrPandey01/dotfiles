@@ -36,7 +36,6 @@ return {
       },
     },
   },
-  --stylua: ignore
   -- keys = {
   --   { "<leader>cgd", function() require("neogen").generate() end, desc = "Annotation", },
   --   { "<leader>cgc", function() require("neogen").generate { type = "class" } end, desc = "Class", },

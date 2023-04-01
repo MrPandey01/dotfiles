@@ -17,6 +17,11 @@ require("lazy").setup("plugins", {
   defaults = { lazy = true, version = nil },
   install = { missing = true, colorscheme = { "onedark" } },
   checker = { enabled = true },
+  change_detection = {
+    -- automatically check for config file changes and reload the ui
+    enabled = false,
+    notify = true, -- get a notification when changes are found
+  },
   performance = {
     rtp = {
       disabled_plugins = {
