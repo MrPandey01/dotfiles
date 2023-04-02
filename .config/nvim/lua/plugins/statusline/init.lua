@@ -2,7 +2,6 @@ return {
   {
     "nvim-lualine/lualine.nvim",
     event = "VeryLazy",
-
     config = function()
       local components = require "plugins.statusline.components"
 
@@ -32,7 +31,7 @@ return {
             components.separator,
             components.lsp_client,
           },
-          lualine_x = { "filename", components.spaces, "encoding", "fileformat", "filetype", "progress" },
+          lualine_x = { "filename", "aerial", "filetype", "progress" },
           lualine_y = {},
           lualine_z = { "location" },
         },

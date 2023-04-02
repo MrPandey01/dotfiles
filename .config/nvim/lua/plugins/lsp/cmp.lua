@@ -41,10 +41,11 @@ function M.setup()
         menu = ({
           omni = "[Omni]",
           copilot = "[Copilot]",
-          path = "[Path]",
-          nvim_lsp = "[nvim_lsp]",
-          buffer = "[Buffer]",
           luasnip = "[LuaSnip]",
+          path = "[Path]",
+          buffer = "[Buffer]",
+          nvim_lsp = "[nvim_lsp]",
+          nvim_lua = "[nvim_lua]",
           dictionary = "[Dict]",
         })
       })

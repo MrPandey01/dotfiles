@@ -30,29 +30,10 @@ return {
         },
         -- add operators that will trigger motion and text object completion
         -- to enable all native operators, set the preset / operators plugin above
-        -- operators = { gc = "Comments" },
-        key_labels = {
-          -- override the label used to display some keys. It doesn't effect WK in any other way.
-          -- For example:
-          -- ["<space>"] = "SPC",
-          -- ["<cr>"] = "RET",
-          -- ["<tab>"] = "TAB",
-        },
-        icons = {
-          breadcrumb = "»", -- symbol used in the command line area that shows your active key combo
-          separator = "➜", -- symbol used between a key and it's label
-          group = "+",      -- symbol prepended to a group
-        },
+        operators = { gc = "Comments" },
         popup_mappings = {
           scroll_down = "<c-d>", -- binding to scroll down inside the popup
           scroll_up = "<c-u>",   -- binding to scroll up inside the popup
-        },
-        window = {
-          border = "rounded",       -- none, single, double, shadow
-          position = "bottom",      -- bottom, top
-          margin = { 1, 0, 1, 0 },  -- extra window margin [top, right, bottom, left]
-          padding = { 2, 2, 2, 2 }, -- extra window padding [top, right, bottom, left]
-          winblend = 0,
         },
         layout = {
           height = { min = 4, max = 25 },                                             -- min and max height of the columns
@@ -64,14 +45,6 @@ return {
         hidden = { "<silent>", "<cmd>", "<Cmd>", "<CR>", "call", "lua", "^:", "^ " }, -- hide mapping boilerplate
         show_help = true,                                                             -- show help message on the command line when the popup is visible
         triggers = "auto",                                                            -- automatically setup triggers
-        -- triggers = {"<leader>"} -- or specify a list manually
-        triggers_blacklist = {
-          -- list of mode / prefixes that should never be hooked by WhichKey
-          -- this is mostly relevant for key maps that start with a native binding
-          -- most people should not need to change this
-          i = { "j", "k" },
-          v = { "j", "k" },
-        },
       }
 
       local opts = {
@@ -90,7 +63,7 @@ return {
         b = {
           name = "Buffers",
           b = { "<cmd>Telescope buffers<cr>", "Find Buffers" },
-          d = { "<cmd>Bdelete!<CR>", "Close Buffer" },
+          d = { "<cmd>bd<CR>", "Close Buffer" },
           f = { "<cmd>lua vim.lsp.buf.format { async = true }<cr>", "Format" },
           h = { "<cmd>Alpha<cr>", "Alpha Home" },
           p = { "<cmd>b#<CR>", "Previous buffer" },
@@ -132,6 +105,7 @@ return {
           h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
           k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
           p = { "<cmd>Telescope projects<cr>", "Projects" },
+          o = { "<cmd>Telescope aerial<cr>", "(Code) Outline" },
           r = { "<cmd>Telescope frecency<cr>", "Open Recent File" },
           s = { "<cmd>Telescope luasnip<cr>", "Snippets" },
         },
@@ -215,7 +189,6 @@ return {
         nowait = true,  -- use `nowait` when creating keymaps
       }
       local vmappings = {
-        ["/"] = { '<ESC><CMD>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>', "Comment" },
         d = {
           name = "Debug",
           e = { "<cmd>lua require'dapui'.eval()<cr>", "Evaluate" },
@@ -231,6 +204,8 @@ return {
         nowait = true,  -- use `nowait` when creating keymaps
       }
       local nmappings_wo_leader = {
+        ["<F2>"] = { "<cmd>Telescope aerial<CR>", "Code Outline Out" },
+        ["<F3>"] = { "<cmd>NvimTreeToggle<CR>", "File Explorer" },
         ["<F5>"] = { "<cmd>lua require'dap'.continue()<cr>", "Debugger Start" },
         ["<F6>"] = { "<cmd>lua require'dap'.step_over()<cr>", "Debugger Step Over" },
         ["<F7>"] = { "<cmd>lua require'dap'.step_into()<cr>", "Debugger Step Into" },

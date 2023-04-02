@@ -22,7 +22,6 @@ return {
       { "hrsh7th/cmp-cmdline" },
       { "hrsh7th/cmp-omni" },
       { "uga-rosa/cmp-dictionary" },
-      { "quangnguyen30192/cmp-nvim-tags" },
       { "onsails/lspkind.nvim" },
 
       -- Snippets
