@@ -296,137 +296,150 @@ return {
   ),
 
   -- Some Templates ------------------------------------------
-  parse({ trig = "template_standalone", wordTrig = true, dscr = 'standalone figure' },
-    " \
-    \\documentclass[varwidth, border=0cm]{standalone} \
-\
-    \\usepackage[export]{adjustbox} \
-    \\usepackage{graphicx} \
-    \\usepackage{array} \
-    \\usepackage{tabu} \
-    \\usepackage{multirow} \
-    \\usepackage{multicol} \
-    \\usepackage{makecell} \
- \
-    \\newcommand{\\tabfigure}[2]{\\raisebox{-.5\\height}{\\includegraphics[#1]{#2}}} \
- \
-    \\begin{document} \
- \
-    \\begin{figure} \
-    \\centering \
-    \\setlength\tabcolsep{0pt} \
-    \\def\\arraystretch{0.0} %  1 is the default, change whatever you need \
-    \\begin{tabu}{c} \
-      \\tabfigure{height=1cm, width=1cm}{$0} \
-    \\end{tabu} \
-    \\end{figure} \
-    \\end{document} \
-  "),
+  s({ trig = "template_standalone", wordTrig = true, dscr = 'standalone figure' },
+    fmta(
+      [[
+\documentclass[varwidth, border=0cm]{standalone}
+
+\usepackage[export]{adjustbox}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{tabu}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{makecell}
+
+\newcommand{\tabfigure}[2]{\raisebox{-.5\height}{\includegraphics[#1]{#2}}}
+
+\begin{document}
+
+\begin{figure}
+	\centering
+	\setlength\tabcolsep{0pt}
+	\def\\arraystretch{0.0} %  1 is the default, change whatever you need
+	\begin{tabu}{c}
+		\tabfigure{height=1cm, width=1cm}{<>}
+	\end{tabu}
+\end{figure}
+\end{document}
+  ]],
+      {
+        i(0, ""),
+      }
+    )
+  ),
 
 
-  parse({ trig = "template_article", wordTrig = true, dscr = 'basic article' },
-    " \
-    \\documentclass[12pt]{article} \
-    \\usepackage[colorlinks = true, \
-      linkcolor = blue, \
-      urlcolor  = blue, \
-      citecolor = blue, \
-      anchorcolor = blue]{hyperref} \
-    \\usepackage{geometry} \
-    \\geometry{ \
-      a4paper, \
-      % total={170mm,257mm}, \
-      left=1in, \
-      right=1in, \
-      top=1in, \
-      bottom=1in,\
-    }\
-    \
-    \\title{TITLE} \
-    \\author{someone} \
-    \\date{\\today} \
-    % sans-serif font \
-    \\renewcommand{\\familydefault}{\\sfdefault} \
-    \
-    \\begin{document} \
-    \\maketitle \
-    \
-    \\begin{abstract} \
-    some abstract \
-    \\end{abstract} \
-    \
-    \\section{Introduction} \
-    This is time for all good men to come to the aid of their party\
-    \
-    \\bibliographystyle{abbrv}\
-    \\bibliography{main}\
-    \
-    \\end{document} \
-  "),
+  s({ trig = "template_article", wordTrig = true, dscr = 'basic article' },
+    fmta(
+      [[
+\documentclass[12pt]{article}
+\usepackage[colorlinks = true,
+	linkcolor = blue,
+	urlcolor  = blue,
+	citecolor = blue,
+	anchorcolor = blue]{hyperref}
+\usepackage{geometry}
+\geometry{
+	a4paper,
+	% total={170mm,257mm},
+	left=1in,
+	right=1in,
+	top=1in,
+	bottom=1in,
+}
 
-  parse({ trig = "template_letter", wordTrig = true, dscr = 'basic letter' },
-    " \
-    \\documentclass[a4paper, 11pt]{letter} \
-    \\usepackage[colorlinks = true, \
-    linkcolor = blue, \
-    urlcolor  = blue, \
-    citecolor = blue, \
-    anchorcolor = blue]{hyperref} \
-    \\usepackage{geometry} \
-    \\geometry{ \
-    a4paper, \
-    % total={170mm,257mm}, \
-    left=1in, \
-    right=1in, \
-    top=1in, \
-    bottom=1in, \
-    } \
-    \\usepackage{pdfpages} \
-    \
-    % sans-serif font \
-    \\renewcommand{\\familydefault}{\\sfdefault} \
-    \
-    % Name of sender \
-    \\name{NAME} \
-    \
-    % Signature of sender \
-    \\signature{NAME} \
-    \
-    % Address of sender \
-    \\address \
-    { \
-      line 1 \\ \
-      line 2 \\ \
-    } \
-    \\date{\\today} \
-    \
-    \
-    \\begin{document} \
-    \
-      \\begin{letter} \
-      { \
-        To: \\ \
-        The xyz \\ \
-        line 1 \\ \
-        line 2 \\ \
-        \\vspace*{0.5cm} \
-        \\textbf{Subject: something}\\ \
-        \
-        % Opening statement \
-        \\opening{Dear Consular Officer,} \
-        \
-        % Letter body \
-        \
-        something ... \
-        \
-        Yours sincerely,\\ \
-        \
-        xyz  \
-        \
-        \\closing{Yours truly,} \
-        \
-      \\end{letter} \
-    \\end{document} \
-  "),
+\title{<>}
+\author{someone}
+\date{\today}
+% sans-serif font
+\renewcommand{\familydefault}{\sfdefault}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+	some abstract
+\end{abstract}
+
+\section{Introduction}
+This is time for all good men to come to the aid of their party
+
+\bibliographystyle{abbrv}
+\bibliography{main}
+
+\end{document}
+     ]],
+      {
+        i(0, "TITLE"),
+      }
+    )
+  ),
+
+  s({ trig = "template_letter", wordTrig = true, dscr = 'basic letter' },
+    fmta([[
+\documentclass[a4paper, 11pt]{letter}
+\usepackage[colorlinks = true,
+	linkcolor = blue,
+	urlcolor  = blue,
+	citecolor = blue,
+	anchorcolor = blue]{hyperref}
+\usepackage{geometry}
+\geometry{
+	a4paper,
+	% total={170mm,257mm},
+	left=1in,
+	right=1in,
+	top=1in,
+	bottom=1in,}
+\usepackage{pdfpages}
+
+% sans-serif font
+\renewcommand{\familydefault}{\sfdefault}
+
+% Name of sender
+\name{<>}
+
+% Signature of sender
+\signature{NAME}
+
+% Address of sender
+\address
+{
+	line 1 \\
+	line 2 \\
+}
+\date{\\today}
+
+
+\begin{document}
+
+\begin{letter}
+	{
+	To: \\
+	The xyz \\
+	line 1 \\
+	line 2 \\
+	\vspace*{0.5cm}
+	\textbf{Subject: something}\\
+
+	% Opening statement
+	\opening{Dear Consular Officer,}
+
+	% Letter body
+
+	something ...
+
+	Yours sincerely,\\
+
+	xyz
+
+	% \closing{Yours truly,}
+
+\end{letter}
+\end{document}
+      ]], {
+      i(0, "NAME"),
+    })),
 
 }

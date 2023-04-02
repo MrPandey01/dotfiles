@@ -3,15 +3,15 @@ return {
   s({ trig = "fig_matplotlib", wordTrig = true, dscr = 'matplotlib figure' },
     fmta(
       [[
-      fig, ax = plt.subplots(<>, <>, sharex=<>) 
-      ax.plot(<>, label='<>', lw=1) 
-      ax.grid() 
-      ax.legend(loc="upper right") 
-      plt.xlabel('Time steps') 
-      plt.title("dataset") 
-      plt.tight_layout(pad=0.2) 
-      # plt.savefig(f"{save_dir}/plot.svg", format="svg", dpi=800) 
-      plt.show() 
+      fig, ax = plt.subplots(<>, <>, sharex=<>)
+      ax.plot(<>, label='<>', lw=1)
+      ax.grid()
+      ax.legend(loc="upper right")
+      plt.xlabel('Time steps')
+      plt.title("dataset")
+      plt.tight_layout(pad=0.2)
+      # plt.savefig(f"{save_dir}/plot.svg", format="svg", dpi=800)
+      plt.show()
       ]],
       {
         i(1, "1"),
@@ -26,12 +26,12 @@ return {
   s({ trig = "import_common", wordTrig = true, dscr = 'import matplotlib, torch, pandas' },
     fmta(
       [[
-      import matplotlib.pyplot as plt
       import torch
-      import pandas as pd
 
+      import matplotlib.pyplot as plt
       plt.style.use("seaborn-bright")
 
+      import pandas as pd
       pd.set_option("display.max_rows", None)
       pd.set_option("display.max_columns", None)
       pd.set_option("display.width", 1000)
