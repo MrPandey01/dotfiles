@@ -2,54 +2,93 @@ local M = {}
 
 function M.setup()
   local cmp = require "cmp"
-  local cmp_action = require('lsp-zero').cmp_action()
+  local compare = require "cmp.config.compare"
+  local luasnip = require "luasnip"
+  local neogen = require "neogen"
+
+  local has_words_before = function()
+    local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+    return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match "%s" == nil
+  end
 
   cmp.setup {
     window = {
       completion = cmp.config.window.bordered(),
       documentation = cmp.config.window.bordered(),
     },
+    sorting = {
+      priority_weight = 2,
+      comparators = {
+        compare.score,
+        compare.recently_used,
+        compare.offset,
+        compare.exact,
+        compare.kind,
+        compare.sort_text,
+        compare.length,
+        compare.order,
+      },
+    },
+
+    snippet = {
+      expand = function(args)
+        require("luasnip").lsp_expand(args.body)
+      end,
+    },
+
     preselect = 'item',
     completion = {
       completeopt = "menu,menuone,preview,noinsert",
     },
+
     mapping = {
-      ['<C-f>'] = cmp_action.luasnip_jump_forward(),
-      ['<C-b>'] = cmp_action.luasnip_jump_backward(),
+      -- ['<C-f>'] = cmp_action.luasnip_jump_forward(),
+      -- ['<C-b>'] = cmp_action.luasnip_jump_backward(),
+      -- ['<Tab>'] = cmp.mapping.select_next_item(),
+      -- ['<S-Tab>'] = cmp.mapping.select_prev_item(),
       ["<C-k>"] = cmp.mapping.scroll_docs(-4),
       ["<C-j>"] = cmp.mapping.scroll_docs(4),
       ['<CR>'] = cmp.mapping.confirm({ select = true }),
-      ['<Tab>'] = cmp.mapping.select_next_item(),
-      ['<S-Tab>'] = cmp.mapping.select_prev_item(),
+      ['<Tab>'] = cmp.mapping(function(fallback)
+          if cmp.visible() then
+            cmp.select_next_item()
+          elseif luasnip.expand_or_jumpable() then
+            luasnip.expand_or_jump()
+          elseif neogen.jumpable() then
+            neogen.jump_next()
+          elseif has_words_before() then
+            cmp.complete()
+          else
+            fallback()
+          end
+        end,
+        { "i", "s", "c", }),
+      ['<S-Tab>'] = cmp.mapping(function(fallback)
+          if cmp.visible() then
+            cmp.select_prev_item()
+          elseif luasnip.jumpable(-1) then
+            luasnip.jump(-1)
+          elseif neogen.jumpable(true) then
+            neogen.jump_prev()
+          else
+            fallback()
+          end
+        end,
+        { "i", "s", "c", }),
     },
+
     sources = {
       { name = "omni" },
       { name = "copilot" },
-      { name = "luasnip",    option = { show_autosnippets = true } },
-      { name = "path" },
-      { name = "buffer" },
+      { name = "nvim_lsp_signature_help" },
       { name = "nvim_lsp" },
+      { name = "luasnip",                option = { show_autosnippets = true } },
+      { name = "path" },
       { name = "nvim_lua" },
-      { name = "dictionary", keyword_length = 4 },
+      { name = "buffer" },
+      { name = "dictionary",             keyword_length = 4 },
     },
-    formatting = {
-      fields = { 'abbr', 'kind', 'menu' },
-      format = require('lspkind').cmp_format({
-        mode = 'symbol_text',
-        maxwidth = 50,         -- prevent the popup from showing more than provided characters
-        ellipsis_char = '...', -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead
-        menu = ({
-          omni = "[Omni]",
-          copilot = "[Copilot]",
-          luasnip = "[LuaSnip]",
-          path = "[Path]",
-          buffer = "[Buffer]",
-          nvim_lsp = "[nvim_lsp]",
-          nvim_lua = "[nvim_lua]",
-          dictionary = "[Dict]",
-        })
-      })
-    },
+
     enabled = function()
       return vim.api.nvim_buf_get_option(0, "buftype") ~= "prompt" or require("cmp_dap").is_dap_buffer()
     end,
@@ -102,11 +141,9 @@ function M.setup()
     }),
   })
 
-  local cmp_autopairs = require("nvim-autopairs.completion.cmp")
-  local handlers = require('nvim-autopairs.completion.handlers')
   cmp.event:on(
     'confirm_done',
-    cmp_autopairs.on_confirm_done({
+    require("nvim-autopairs.completion.cmp").on_confirm_done({
       filetypes = {
         -- "*" is a alias to all filetypes
         ["*"] = {
@@ -115,7 +152,7 @@ function M.setup()
               cmp.lsp.CompletionItemKind.Function,
               cmp.lsp.CompletionItemKind.Method,
             },
-            handler = handlers["*"]
+            handler = require('nvim-autopairs.completion.handlers')["*"]
           }
         },
         lua = {

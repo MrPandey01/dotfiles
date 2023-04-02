@@ -16,7 +16,6 @@ return {
       { "hrsh7th/nvim-cmp" },
       { "hrsh7th/cmp-buffer" },
       { "hrsh7th/cmp-path" },
-      { "saadparwaiz1/cmp_luasnip" },
       { "hrsh7th/cmp-nvim-lsp" },
       { "hrsh7th/cmp-nvim-lua" },
       { "hrsh7th/cmp-cmdline" },
@@ -26,9 +25,12 @@ return {
 
       -- Snippets
       { "L3MON4D3/LuaSnip" },
+      { "saadparwaiz1/cmp_luasnip" },
     },
     event = "BufReadPre",
     config = function()
+      vim.diagnostic.config({ virtual_text = false })
+
       local lsp_zero = require "lsp-zero"
       lsp_zero.preset({ name = 'minimal' })
 

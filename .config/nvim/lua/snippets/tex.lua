@@ -64,8 +64,13 @@ return {
     { condition = tex_utils.in_mathzone, show_condition = tex_utils.in_mathzone }
   ),
 
-  s({ trig = "top", wordTrig = false, snippetType = 'autosnippet', dscr =
-    '^\top' },
+  s({
+      trig = "top",
+      wordTrig = false,
+      snippetType = 'autosnippet',
+      dscr =
+      '^\top'
+    },
     fmta(
       "^{\\top} <>",
       {
@@ -75,18 +80,30 @@ return {
     { condition = tex_utils.in_mathzone, show_condition = tex_utils.in_mathzone }
   ),
 
-  parse({ trig = "$",
-    wordTrig = true,
-    snippetType = 'autosnippet',
-    dscr = 'in-line math' },
+  parse({
+      trig = "$",
+      wordTrig = true,
+      snippetType = 'autosnippet',
+      dscr = 'in-line math'
+    },
     "$ $1 $ $0"),
 
-  parse({ trig = "...", wordTrig = true, snippetType = 'autosnippet', dscr =
-    '\\ldots' }, "\\ldots $0"),
+  parse({
+    trig = "...",
+    wordTrig = true,
+    snippetType = 'autosnippet',
+    dscr =
+    '\\ldots'
+  }, "\\ldots $0"),
 
 
-  s({ trig = "^", wordTrig = false, snippetType = 'autosnippet', dscr =
-    'superscript box' },
+  s({
+      trig = "^",
+      wordTrig = false,
+      snippetType = 'autosnippet',
+      dscr =
+      'superscript box'
+    },
     fmta(
       "^{ <> } <>",
       {
@@ -97,8 +114,13 @@ return {
     { condition = tex_utils.in_mathzone, show_condition = tex_utils.in_mathzone }
   ),
 
-  s({ trig = "_", wordTrig = false, snippetType = 'autosnippet', dscr =
-    'subscript box' },
+  s({
+      trig = "_",
+      wordTrig = false,
+      snippetType = 'autosnippet',
+      dscr =
+      'subscript box'
+    },
     fmta(
       "_{ <> } <>",
       {
@@ -120,25 +142,24 @@ return {
 
   parse({ trig = "bitemize", wordTrig = true, dscr = 'begin itemize' },
     "\\begin{itemize} % \\setlength\\itemsep{0em} \n \\item $1 \n \\end{itemize}"),
-
   s({ trig = "it", wordTrig = true, snippetType = 'autosnippet', dscr = '\\item' },
     fmta(
       "\\item <>",
       { i(0), }
     ),
-    { condition = tex_utils.in_itemize,
-      show_condition = tex_utils.in_itemize }
+    {
+      condition = tex_utils.in_itemize,
+      show_condition = tex_utils.in_itemize
+    }
   ),
 
   parse({ trig = "beg", wordTrig = true, dscr = 'begin env' },
     "\\begin{${1:ENV_NAME}} \n \t${2:$SELECT_DEDENT} \n \\end{$1}"),
-
   parse({ trig = "section", wordTrig = true, dscr = 'section' },
     "\\section{${1:NAME}} \n \\label{sec:$1}"),
 
   parse({ trig = "subsection", wordTrig = true, dscr = 'subsection' },
     "\\subsection{${1:NAME}} \n \\label{sec:$1}"),
-
   parse({ trig = "subsubsection", wordTrig = true, dscr = 'subsubsection' },
     "\\subsubsection{${1:NAME}} \n \\label{sec:$1}"),
 
@@ -148,14 +169,11 @@ return {
 
   parse({ trig = "bequation", wordTrig = true, dscr = 'begin equation' },
     "\\begin{equation*}\n\t${1:$SELECT_DEDENT}\n\\end{equation*}"),
-
   parse({ trig = "baligned", wordTrig = true, dscr = 'begin aligned' },
     "\\begin{aligned} \n \t${1:$SELECT_DEDENT} \n \\end{aligned}"),
-
   parse({ trig = "bframe", wordTrig = true, dscr = 'begin frame' },
     "% Begin FRAME %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n \
     \\begin{frame} \n \\frametitle{$1} \n $2 \n \\end{frame}"),
-
   parse({ trig = "benumerate", wordTrig = true, dscr = 'begin enumerate' },
     " \\begin{enumerate} % \\setlength\\itemsep{0em} \n \
       \\item  ${1} \n \
@@ -166,8 +184,10 @@ return {
       "\\item <>",
       { i(0), }
     ),
-    { condition = tex_utils.in_enumerate,
-      show_condition = tex_utils.in_enumerate }
+    {
+      condition = tex_utils.in_enumerate,
+      show_condition = tex_utils.in_enumerate
+    }
   ),
 
   parse({ trig = "bmatrix", wordTrig = true, dscr = 'begin matrix' },
@@ -182,7 +202,6 @@ return {
       {\\includegraphics[width=3.5cm]{$1}}; \n \
       \\tikz[remember picture, overlay] \\node (caption)\
       [below of=img, yshift=-0.6cm, xshift=0cm] {$0}; "),
-
   parse({ trig = "bfigure", wordTrig = true, dscr = 'begin figure' },
     " \\begin{figure}[${1:htpb}] \
         \\centering \
@@ -232,10 +251,8 @@ return {
 
   parse({ trig = "lim", wordTrig = true },
     [[\lim_{${1:lower}}^{${2:upper}} $3 \\,d$4]]),
-
   parse({ trig = "partial_derivative", wordTrig = true, dscr = 'partial derivative' },
     [[\frac{\partial ${1:f(x)}}{\partial ${2:x}} $0]]),
-
   s({ trig = "hr", dscr = "The hyperref package's href{}{} command (for url links)" },
     fmta(
       [[\href{<>}{<>}]],
