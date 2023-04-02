@@ -11,7 +11,7 @@ function M.setup()
     return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match "%s" == nil
   end
 
-  cmp.setup {
+  cmp.setup({
     window = {
       completion = cmp.config.window.bordered(),
       documentation = cmp.config.window.bordered(),
@@ -29,18 +29,15 @@ function M.setup()
         compare.order,
       },
     },
-
     snippet = {
       expand = function(args)
         require("luasnip").lsp_expand(args.body)
       end,
     },
-
     preselect = 'item',
     completion = {
       completeopt = "menu,menuone,preview,noinsert",
     },
-
     mapping = {
       -- ['<C-f>'] = cmp_action.luasnip_jump_forward(),
       -- ['<C-b>'] = cmp_action.luasnip_jump_backward(),
@@ -76,7 +73,6 @@ function M.setup()
         end,
         { "i", "s", "c", }),
     },
-
     sources = {
       { name = "omni" },
       { name = "copilot" },
@@ -88,11 +84,10 @@ function M.setup()
       { name = "buffer" },
       { name = "dictionary",             keyword_length = 4 },
     },
-
     enabled = function()
       return vim.api.nvim_buf_get_option(0, "buftype") ~= "prompt" or require("cmp_dap").is_dap_buffer()
     end,
-  }
+  })
 
   cmp.event:on("menu_opened", function()
     vim.b.copilot_suggestion_hidden = true

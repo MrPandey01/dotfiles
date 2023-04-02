@@ -21,7 +21,6 @@ return {
       { "hrsh7th/cmp-cmdline" },
       { "hrsh7th/cmp-omni" },
       { "uga-rosa/cmp-dictionary" },
-      { "onsails/lspkind.nvim" },
 
       -- Snippets
       { "L3MON4D3/LuaSnip" },
