@@ -1,5 +1,26 @@
 return {
   {
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    event = "InsertEnter",
+    config = function()
+      require("copilot").setup({
+        suggestion = { enabled = false },
+        panel = { enabled = false },
+      })
+    end,
+  },
+  {
+    "zbirenbaum/copilot-cmp",
+    event = "InsertEnter",
+    config = function()
+      require("copilot_cmp").setup({
+        method = "getCompletionsCycling",
+      })
+    end,
+    dependencies = { "zbirenbaum/copilot.lua", "hrsh7th/nvim-cmp" },
+  },
+  {
     "VonHeikemen/lsp-zero.nvim",
     dependencies = {
       -- LSP Support
@@ -60,7 +81,7 @@ return {
         "prettier",
       }
 
-      -- fur
+      -- further settings
       require "plugins.lsp.lspconfig".setup()
       require "plugins.lsp.luasnip".setup()
       require "plugins.lsp.cmp".setup()
@@ -106,25 +127,4 @@ return {
     },
   },
 
-  {
-    "zbirenbaum/copilot.lua",
-    cmd = "Copilot",
-    event = "InsertEnter",
-    config = function()
-      require("copilot").setup({
-        suggestion = { enabled = false },
-        panel = { enabled = false },
-      })
-    end,
-  },
-  {
-    "zbirenbaum/copilot-cmp",
-    event = "InsertEnter",
-    config = function()
-      require("copilot_cmp").setup({
-        method = "getCompletionsCycling",
-      })
-    end,
-    dependencies = { "zbirenbaum/copilot.lua", "hrsh7th/nvim-cmp" },
-  }
 }
