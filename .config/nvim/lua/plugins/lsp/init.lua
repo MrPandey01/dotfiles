@@ -52,41 +52,16 @@ return {
         "marksman",
         "yamlls",
         "lua_ls",
+        "stylua",
         "bashls",
+        "texlab",
+        "latexindent",
+        "isort",
+        "prettier",
       }
 
-      require 'lspconfig'.pyright.setup({
-        settings = {
-          python = {
-            analysis = {
-              autoSearchPaths = true,
-              useLibraryCodeForTypes = true,
-              typeCheckingMode = "off",
-            },
-          },
-        },
-      })
-
-      require 'lspconfig'.lua_ls.setup {
-        settings = {
-          Lua = {
-            runtime = {
-              version = 'LuaJIT',
-            },
-            diagnostics = {
-              globals = { 'vim' },
-            },
-            workspace = {
-              library = vim.api.nvim_get_runtime_file("", true),
-            },
-            telemetry = {
-              enable = false,
-            },
-          },
-        },
-      }
-
-
+      -- fur
+      require "plugins.lsp.lspconfig".setup()
       require "plugins.lsp.luasnip".setup()
       require "plugins.lsp.cmp".setup()
 
@@ -106,9 +81,7 @@ return {
       null_ls.setup {
         on_attach = function(client, bufnr)
           null_opts.on_attach(client, bufnr)
-          --- you can add more stuff here if you need it
         end,
-        -- formatters
         sources = {
           null_ls.builtins.formatting.black,
           null_ls.builtins.formatting.isort,

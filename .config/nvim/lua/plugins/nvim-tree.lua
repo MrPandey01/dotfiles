@@ -16,6 +16,7 @@ return {
     update_focused_file = {
       enable = true,
       update_root = true,
+      update_cwd = true,
     },
     actions = {
       open_file = {
@@ -44,9 +45,9 @@ return {
         custom_only = false,
         list = {
           { key = { "l", "<CR>", "o" }, action = "edit" },
-          { key = "h", action = "close_node" },
-          { key = "s", action = "vsplit" },
-          { key = "t", action = "tabnew" },
+          { key = "h",                  action = "close_node" },
+          { key = "s",                  action = "vsplit" },
+          { key = "t",                  action = "tabnew" },
         },
       },
       number = false,

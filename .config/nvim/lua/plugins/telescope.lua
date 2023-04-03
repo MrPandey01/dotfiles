@@ -41,6 +41,7 @@ return {
         detection_methods = { "pattern", "lsp" },
         patterns = { ".git" },
         ignore_lsp = { "null-ls" },
+        manual_mode = true,
       }
     end,
   },
