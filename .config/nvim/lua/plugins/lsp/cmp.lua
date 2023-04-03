@@ -76,12 +76,12 @@ function M.setup()
     sources = {
       { name = "omni" },
       { name = "copilot" },
-      { name = "nvim_lsp_signature_help" },
       { name = "nvim_lsp" },
       { name = "luasnip",                option = { show_autosnippets = true } },
+      { name = "nvim_lsp_signature_help" },
+      { name = "buffer" },
       { name = "path" },
       { name = "nvim_lua" },
-      { name = "buffer" },
       { name = "dictionary",             keyword_length = 4 },
     },
     enabled = function()
