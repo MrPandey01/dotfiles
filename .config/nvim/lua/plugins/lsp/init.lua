@@ -73,12 +73,8 @@ return {
         "marksman",
         "yamlls",
         "lua_ls",
-        "stylua",
         "bashls",
         "texlab",
-        "latexindent",
-        "isort",
-        "prettier",
       }
 
       -- further settings
