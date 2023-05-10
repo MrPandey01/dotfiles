@@ -92,7 +92,6 @@ return {
           u = { "<cmd>lua require'dap'.step_out()<cr>", "Step Out" },
           x = { "<cmd>lua require'dap'.terminate()<cr>", "Terminate" },
         },
-        ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
         f = {
           name = "Find",
           C = { "<cmd>Telescope commands<cr>", "Commands" },

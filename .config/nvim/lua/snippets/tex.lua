@@ -169,11 +169,27 @@ return {
 
   parse({ trig = "bequation", wordTrig = true, dscr = 'begin equation' },
     "\\begin{equation*}\n\t${1:$SELECT_DEDENT}\n\\end{equation*}"),
+
   parse({ trig = "baligned", wordTrig = true, dscr = 'begin aligned' },
     "\\begin{aligned} \n \t${1:$SELECT_DEDENT} \n \\end{aligned}"),
-  parse({ trig = "bframe", wordTrig = true, dscr = 'begin frame' },
-    "% Begin FRAME %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n \
-    \\begin{frame} \n \\frametitle{$1} \n $2 \n \\end{frame}"),
+
+  s({ trig = "bframe", wordTrig = true, dscr = 'begin frame' },
+    fmta(
+      [[
+% Begin FRAME %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\frametitle{<>}
+<>
+\end{frame}
+  ]],
+      {
+        i(1, "TITLE"),
+        i(0, ""),
+      }
+    )
+  ),
+
+
   parse({ trig = "benumerate", wordTrig = true, dscr = 'begin enumerate' },
     " \\begin{enumerate} % \\setlength\\itemsep{0em} \n \
       \\item  ${1} \n \

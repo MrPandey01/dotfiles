@@ -51,5 +51,6 @@ vim.cmd [[
   endif
  ]]
 
+
 -- user commands (needs to be manually executed)
 vim.api.nvim_create_user_command("ReloadConfig", "source $MYVIMRC", {})

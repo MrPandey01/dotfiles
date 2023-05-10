@@ -74,7 +74,7 @@ return {
         "yamlls",
         "lua_ls",
         "bashls",
-        "texlab",
+        "ltex"
       }
 
       -- further settings

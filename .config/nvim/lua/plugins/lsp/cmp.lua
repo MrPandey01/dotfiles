@@ -75,9 +75,9 @@ function M.setup()
     },
     sources = {
       { name = "omni" },
+      { name = "luasnip",                option = { show_autosnippets = true } },
       { name = "copilot" },
       { name = "nvim_lsp" },
-      { name = "luasnip",                option = { show_autosnippets = true } },
       { name = "nvim_lsp_signature_help" },
       { name = "buffer" },
       { name = "path" },

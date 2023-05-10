@@ -41,15 +41,6 @@ return {
       width = 25,
       hide_root_folder = false,
       side = "left",
-      mappings = {
-        custom_only = false,
-        list = {
-          { key = { "l", "<CR>", "o" }, action = "edit" },
-          { key = "h",                  action = "close_node" },
-          { key = "s",                  action = "vsplit" },
-          { key = "t",                  action = "tabnew" },
-        },
-      },
       number = false,
       relativenumber = false,
     },

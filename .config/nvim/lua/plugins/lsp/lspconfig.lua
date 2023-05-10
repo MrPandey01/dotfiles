@@ -33,6 +33,36 @@ function M.setup()
       },
     },
   }
+
+  local words = {}
+  for word in io.open(vim.fn.stdpath("config") .. "/spell/en.utf-8.add", "r"):lines() do
+    table.insert(words, word)
+  end
+
+  lspconfig.ltex.setup({
+    settings = {
+      ltex = {
+        dictionary = {
+          ["en-US"] = words,
+        },
+        latex = {
+          commands = {
+            ["\\jurymember{}"] = "ignore",
+            ["\\president{}"] = "ignore",
+            ["\\externaljurymember{}{}"] = "ignore",
+            ["\\tikzstyle{} = []"] = "ignore",
+            ["\\tabfigure{}{}"] = "ignore",
+            ["\\includechapter{}"] = "ignore",
+            ["\\includeappendix{}"] = "ignore",
+            ["\\printpublication{}"] = "ignore",
+          },
+          environments = {
+            ["empheq"] = "ignore",
+          },
+        },
+      },
+    },
+  })
 end
 
 return M

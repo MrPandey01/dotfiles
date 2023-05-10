@@ -71,6 +71,7 @@ vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
 vim.o.spelllang = "en_us"
 vim.o.spelloptions = "camel"
 vim.g.tex_comment_nospell = 1
+opt.spellfile = vim.env.HOME .. '/.config/nvim/spell/en.utf-8.add'
 
 -- nvim-tree specific setting
 vim.g.loaded_netrw = 1
