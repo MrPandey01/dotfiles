@@ -15,6 +15,7 @@ function M.setup()
     },
   })
 
+
   lspconfig.lua_ls.setup {
     settings = {
       Lua = {
@@ -33,6 +34,15 @@ function M.setup()
       },
     },
   }
+
+  lspconfig.yamlls.setup({
+    settings = {
+      yaml = {
+        keyOrdering = false
+      }
+    }
+  })
+
 
   local words = {}
   for word in io.open(vim.fn.stdpath("config") .. "/spell/en.utf-8.add", "r"):lines() do
