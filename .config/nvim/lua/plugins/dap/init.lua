@@ -13,7 +13,7 @@ return {
       { "nvim-telescope/telescope-dap.nvim" },
       { "jbyuki/one-small-step-for-vimkind" },
       { 'mfussenegger/nvim-dap-python' },
-      { 'LiadOz/nvim-dap-repl-highlights',  branch = { 'LiadOz/fix-check-parser' } },
+      { 'LiadOz/nvim-dap-repl-highlights',  branch = 'LiadOz/fix-check-parser' },
     },
     config = function()
       require("telescope").load_extension "dap"
