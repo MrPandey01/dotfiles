@@ -7,15 +7,15 @@ return {
     },
     lazy = true,
     dependencies = {
-      { "rcarriga/cmp-dap"  }, -- debugger completion
+      { "rcarriga/cmp-dap" }, -- debugger completion
       { "rcarriga/nvim-dap-ui" },
       { "theHamsta/nvim-dap-virtual-text" },
       { "nvim-telescope/telescope-dap.nvim" },
       { "jbyuki/one-small-step-for-vimkind" },
-      { 'mfussenegger/nvim-dap-python',     dependencies = { "mfussenegger/nvim-dap" } },
+      { 'mfussenegger/nvim-dap-python' },
+      { 'LiadOz/nvim-dap-repl-highlights',  branch = { 'LiadOz/fix-check-parser' } },
     },
     config = function()
-
       require("telescope").load_extension "dap"
 
       require("plugins.dap.nvim_dap_virtual_text").setup()
@@ -31,6 +31,8 @@ return {
       dap.listeners.before.event_exited["dapui_config"] = function()
         dapui.close()
       end
+
+      dap.set_log_level('TRACE')
 
       -- Python setup
       require("dap-python").setup('python3')

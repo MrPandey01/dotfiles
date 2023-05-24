@@ -9,7 +9,7 @@ return {
       }
     end,
   },
-  { "tpope/vim-repeat", event = "VeryLazy" },
+  { "tpope/vim-repeat",   event = "VeryLazy" },
   {
     "lukas-reineke/indent-blankline.nvim",
     event = { "BufReadPost", "BufNewFile" },

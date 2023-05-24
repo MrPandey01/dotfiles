@@ -13,9 +13,7 @@ return {
       sync_install = false,
       ensure_installed = {
         "bash",
-        "c",
         "json",
-        "help",
         "html",
         "lua",
         "markdown",
@@ -26,6 +24,7 @@ return {
         "latex",
         "vim",
         "yaml",
+        "dap_repl",
       },
       ignore_install = { "" }, -- List of parsers to ignore installing
       autopairs = { enable = true },
@@ -68,6 +67,7 @@ return {
       },
     },
     config = function(_, opts)
+      require('nvim-dap-repl-highlights').setup()
       require("nvim-treesitter.configs").setup(opts)
     end,
   },
