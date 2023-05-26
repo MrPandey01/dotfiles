@@ -51,7 +51,7 @@ opt.textwidth = 80
 opt.wrap = true -- display lines as one long line
 opt.scrolloff = 999 -- is one of my fav
 opt.sidescrolloff = 8
-opt.guifont = "SauceCodePro Nerd Font Mono:h11" -- the font used in graphical neovim applications
+opt.guifont = "SauceCodePro Nerd Font Mono:h10" -- the font used in graphical neovim applications
 opt.wildignore =
   "*.pyc,*.o,*.obj,*.svn,*.swp,*.class,*.hg,*.DS_Store,*.min.*,*.tmp,*.toc,*.aux,*.log,*.bbl,*.blg,*.log,*.lof,*.lot,*.ilg,*.out,*.glo,*.gls,*.nlo,*.nls,*.brf,*.ist,*.glg,*.synctex.gz,*.tgz,*.idx,*.ind,*blx.bib,*.fdb_latexmk,*.run.xml,*.bcf,*.glsdefs,*.fls,*.eps,*.pdf,*.png,*.jpg" -- Show only files editable by vim
 opt.sessionoptions = "buffers,curdir,folds,tabpages,winsize,winpos,terminal,localoptions"
