@@ -1,12 +1,7 @@
 require('lazy').setup({
   'NMAC427/guess-indent.nvim', -- Detect tabstop and shiftwidth automatically
 
-  { import = 'kickstart.plugins' },
-  -- modular approach: using `require 'path.name'` will
-  -- include a plugin definition from file lua/path/name.lua
-
-  --  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
-  -- { import = 'custom.plugins' },
+  { import = 'plugins' },
 }, {
   ui = {
     -- If you are using a Nerd Font: set icons to an empty table which will use the
@@ -28,5 +23,3 @@ require('lazy').setup({
     },
   },
 })
-
--- vim: ts=2 sts=2 sw=2 et
