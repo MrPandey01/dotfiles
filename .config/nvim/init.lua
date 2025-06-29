@@ -1,11 +1,17 @@
-require "config.options"
-require "config.keymaps"
-require "config.lazy"
+--  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be
+--  used)
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
 
-vim.api.nvim_create_autocmd("User", {
-  pattern = "VeryLazy",
-  callback = function()
-    require "config.autocmds"
-  end,
-})
+-- Set to true if you have a Nerd Font installed and selected in the terminal
+vim.g.have_nerd_font = true
 
+require 'options'
+
+require 'keymaps'
+
+require 'autocmds'
+
+require 'lazy-bootstrap'
+
+require 'lazy-plugins'
