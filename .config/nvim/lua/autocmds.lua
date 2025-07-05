@@ -133,3 +133,20 @@ vim.api.nvim_create_autocmd('BufWinEnter', {
     end
   end,
 })
+
+vim.api.nvim_create_autocmd('BufEnter', {
+  callback = function()
+    -- ignore special buffers
+    local ignore_filetypes = { 'NvimTree', 'TelescopePrompt', 'alpha', 'lazy', 'toggleterm' }
+    if vim.tbl_contains(ignore_filetypes, vim.bo.filetype) then
+      return
+    end
+
+    require('root').set_root()
+  end,
+})
+
+vim.api.nvim_create_user_command('SetProjectRoot', function()
+  require('root').set_root()
+  print('Root set to: ' .. vim.fn.getcwd())
+end, {})

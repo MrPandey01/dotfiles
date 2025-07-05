@@ -103,11 +103,8 @@ keymap('n', '<C-Left>', '<cmd>vertical resize -2<cr>', { desc = 'Decrease Window
 keymap('n', '<C-Right>', '<cmd>vertical resize +2<cr>', { desc = 'Increase Window Width' })
 
 -- buffers
-keymap('n', '[b', '<cmd>bprevious<cr>', { desc = 'Prev Buffer' })
-keymap('n', ']b', '<cmd>bnext<cr>', { desc = 'Next Buffer' })
-keymap('n', '<leader>bb', '<cmd>e #<cr>', { desc = 'Switch to Other Buffer' })
 keymap('n', '<leader>`', '<cmd>e #<cr>', { desc = 'Switch to Other Buffer' })
-keymap('n', '<leader>bD', '<cmd>:bd<cr>', { desc = 'Delete Buffer and Window' })
+keymap('n', '<leader>bd', '<cmd>:bd<cr>', { desc = 'Delete Buffer and Window' })
 
 -- save file
 keymap({ 'i', 'x', 'n', 's' }, '<C-s>', '<cmd>w<cr><esc>', { desc = 'Save File' })
