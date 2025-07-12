@@ -127,3 +127,6 @@ keymap('n', ']e', diagnostic_goto(true, 'ERROR'), { desc = 'Next Error' })
 keymap('n', '[e', diagnostic_goto(false, 'ERROR'), { desc = 'Prev Error' })
 keymap('n', ']w', diagnostic_goto(true, 'WARN'), { desc = 'Next Warning' })
 keymap('n', '[w', diagnostic_goto(false, 'WARN'), { desc = 'Prev Warning' })
+
+-- Grug-far
+keymap('n', '<leader>sr', '<cmd>GrugFar<cr>', { desc = 'Search-[r]eplace' })
